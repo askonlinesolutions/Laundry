@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0097DE</color>
+    <color name="colorPrimaryDark">#0097DE</color>
+    <color name="colorAccent">#0097DE</color>
+    <color name="dark_grey">#A9A9A9</color>
+    <color name="sky_blue">#00bfff  </color>
+
+    <color name="white_color">#FFFFFF</color>
+    <color name="view_color">#D7D7D7</color>
+
+    <color name="bg_color_2">#DADADA</color>
+
+
+    <color name="screenBackgroung">#EEEEEE</color>
+    <color name="green">#00A652</color>
+    <color name="pink">#F50053</color>
+    <color name="tripBackground">#F3F7F8</color>
+    <color name="black">#000000</color>
+    <color name="skyblue">#0396DD</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#dcdbdb</color>
+    <color name="red">#F00913</color>
+    <color name="trans">#00000000</color>
+    <color name="blue">#0097DE</color>
+    <color name="view">#c2c2c3</color>
+    <color name="text_black">#010101</color>
+    <color name="text_dark_gray">#3B3B3B</color>
+    <color name="text_gray">#959394</color>
+    <color name="textMedium">#595959</color>
+    <color name="textLightGray">#949494</color>
+    <color name="text_blue">#FF1B95E0</color>
+    <color name="text_white">#ffffff</color>
+    <color name="dialog_quote_sorry">#626262</color>
+    <color name="dialog_quote_text">#636363</color>
+    <color name="lightgray_back_ground">#F9F9F9</color>
+    <color name="orange">#FFF2A500</color>
+    <color name="tabbackground">#F3F7F8</color>
+    <color name="dark_blue">#4c71ec</color>
+    <color name="colorDisko">#9E1F6B</color>
+
+    <color name="back_blue">#1B95E0</color>
+    <color name="back_white">#ffffff</color>
+    <color name="back_gray">#bebcbc</color>
+    <color name="back_grayLight">#f5f4f4</color>
+    <color name="lightgray">#F8F8F8</color>
+    <color name="back_yellowish">#FDFFF4</color>
+    <color name="lightGrey">#FFCFCDCD</color>
+    <color name="view_1">#efeded</color>
+    <color name="view_2">#F3F7F8</color>
+    <color name="view_3">#E1E1E1</color>
+    <color name="sidemenuview">#23A1DB</color>
+
+
+
+
+</resources>

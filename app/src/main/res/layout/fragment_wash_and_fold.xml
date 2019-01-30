@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_color"
+    tools:context="com.laundry.Fragment.WashAndFoldFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cloth_name"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/sky_blue"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:textColor="@color/white_color"
+        android:layout_marginLeft="5dp"
+        android:layout_margin="10dp"
+        android:text="Scheduler Pickup"
+        />
+
+</FrameLayout>
