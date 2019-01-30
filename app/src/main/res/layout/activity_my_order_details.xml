@@ -52,7 +52,7 @@
                     android:padding="@dimen/dp5"
                     android:text="Help"
                     android:textColor="@color/white_color"
-                    android:textSize="@dimen/text_size_10"
+                    android:textSize="@dimen/text_size_15"
                     android:visibility="invisible" />
 
 
