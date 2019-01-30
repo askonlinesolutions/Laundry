@@ -1,6 +1,7 @@
 package com.laundry.ui.DryCleaner;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,16 +10,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.laundry.R;
+import com.laundry.clickListener.OnItemClickLisner;
+import com.laundry.ui.Services.ServicesActivity;
 
 class SelectServiceAdapter extends RecyclerView.Adapter<SelectServiceAdapter.Viewholder>  {
 
-
+    OnItemClickLisner onItemClickLisner;
 
     Context context;
 
 
-    public SelectServiceAdapter(Context context) {
+    public SelectServiceAdapter(Context context,OnItemClickLisner onItemClickLisner) {
         this.context =context;
+        this.onItemClickLisner=onItemClickLisner;
     }
 
     @NonNull
@@ -43,9 +47,25 @@ class SelectServiceAdapter extends RecyclerView.Adapter<SelectServiceAdapter.Vie
 
     public class Viewholder extends RecyclerView.ViewHolder {
         TextView text_wash;
+        RecyclerView press_image;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             text_wash =itemView.findViewById(R.id.text_wash);
+//            press_image=itemView.findViewById(R.id.press_image);
+//            press_image.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+////                    Intent i = new Intent(SelectServiceAdapter.this, ServicesActivity.class);
+////                    startActivity(i);
+//                }
+//            });
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClickLisner.onItemClick(getAdapterPosition());
+                }
+            });
         }
     }
 }

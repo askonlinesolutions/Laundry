@@ -15,7 +15,7 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
-            android:layout_height="280dp">
+            android:layout_height="250dp">
 
         </android.support.v4.view.ViewPager>
 
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/cloth"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="130dp"
                 android:text="Dry Cleaning \n services "
                 android:textColor="@color/white_color"
                 android:textSize="25dp" />
@@ -46,23 +46,24 @@
                 android:text=" profession laundry and Dry Cleaning \n services "
                 android:textColor="@color/white_color"
                 android:textSize="10dp" />
-        </LinearLayout>
 
-        <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
-            android:id="@+id/dots_indicator"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="100dp"
-            app:dampingRatio="0.5"
-            app:dotsColor="@color/sky_blue"
-            app:dotsCornerRadius="8dp"
-            app:dotsSize="16dp"
-            app:dotsSpacing="6dp"
-            app:dotsStrokeColor="@color/bg_color_2"
-            app:dotsStrokeWidth="2dp"
-            app:stiffness="300" />
+
+            <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+                android:id="@+id/dots_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="100dp"
+                app:dampingRatio="0.5"
+                app:dotsColor="@color/sky_blue"
+                app:dotsCornerRadius="8dp"
+                app:dotsSize="16dp"
+                app:dotsSpacing="6dp"
+                app:dotsStrokeColor="@color/bg_color_2"
+                app:dotsStrokeWidth="2dp"
+                app:stiffness="300" />
+        </LinearLayout>
     </FrameLayout>
 
     <LinearLayout
@@ -107,52 +108,55 @@
         android:layout_width="match_parent"
         android:layout_height=".3dp"
         android:background="@color/view_color" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/press_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
 
 
     <!--<LinearLayout-->
-        <!--android:id="@+id/press_image"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="1"-->
-        <!--android:orientation="horizontal">-->
+    <!--android:id="@+id/press_image"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:orientation="horizontal">-->
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:orientation="vertical"-->
-            <!--android:padding="25dp">-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:orientation="vertical"-->
+    <!--android:padding="25dp">-->
 
-            <!--<ImageView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="100dp"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:src="@drawable/userplaceholder" />-->
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:src="@drawable/userplaceholder" />-->
 
-            <!--<TextView-->
-                <!--android:id="@+id/wash"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:text="Wash and Fold"-->
-                <!--android:textSize="12sp" />-->
-
-
-        <!--</LinearLayout>-->
-
-        <View
-            android:layout_width=".3dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-
-            android:background="@color/view_color" />
+    <!--<TextView-->
+    <!--android:id="@+id/wash"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:text="Wash and Fold"-->
+    <!--android:textSize="12sp" />-->
 
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
-<!--</LinearLayout>-->
+    <View
+        android:layout_width=".3dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+
+        android:background="@color/view_color" />
+
+
+</LinearLayout>
+
+    <!--</LinearLayout>-->
 

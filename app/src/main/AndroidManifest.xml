@@ -24,11 +24,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SplashActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
         <activity
@@ -37,13 +37,9 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".ui.Services.ServicesActivity" />
         <activity android:name=".ui.MyCart.MyCartActivity" />
-        <activity android:name=".ui.myOrder.MyOrderActivity">
+        <activity android:name=".ui.myOrder.MyOrderActivity"/>
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".ui.MyPayment.PaymentActivity">
 
         </activity>
     </application>

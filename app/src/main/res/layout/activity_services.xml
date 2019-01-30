@@ -25,10 +25,12 @@
         android:textColor="@color/white_color"
         android:textSize="15dp" />
         <ImageView
-            android:layout_width="20dp"
+            android:id="@+id/img_my_cart"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingRight="5dp"
+            android:padding="10dp"
             android:src="@drawable/ic_shopping_cart"
             />
 </LinearLayout>

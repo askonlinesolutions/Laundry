@@ -1,5 +1,6 @@
 package com.laundry.ui.Services;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,13 +11,16 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.laundry.R;
+import com.laundry.ui.DryCleaner.DryCleanerActivity;
 import com.laundry.ui.Fragment.DryCleanerFragment;
 import com.laundry.ui.Fragment.PremiumLaundryFragment;
 import com.laundry.ui.Fragment.WashAndFoldFragment;
 import com.laundry.ui.Fragment.WashAndIronFragment;
+import com.laundry.ui.MyCart.MyCartActivity;
 
 
 import java.util.ArrayList;
@@ -29,6 +33,7 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
     private ViewPager viewPager;
     TextView login_title;
     RecyclerView serviceRecycler;
+    ImageView img_my_cart;
     ArrayList <String>name = new ArrayList<>(Arrays.asList("schuder","schuder" ,"schuder", "schuder", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder "));
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +42,9 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
 
         serviceRecycler=findViewById(R.id.serviceRecycler);
         login_title=findViewById(R.id.login_title);
+        img_my_cart=findViewById(R.id.img_my_cart);
        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+mycartScreen();
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 
@@ -48,6 +54,18 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
         setHorizontalRecycler();
         backpress();
     }
+
+    private void mycartScreen() {
+
+        img_my_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ServicesActivity.this, MyCartActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
 
     private void backpress() {
         login_title.setOnClickListener(new View.OnClickListener() {

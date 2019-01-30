@@ -10,8 +10,8 @@
     <color name="view_color">#D7D7D7</color>
 
     <color name="bg_color_2">#DADADA</color>
-
-
+    <color name="open_green">#3E9C00</color>
+    <color name="light_sky_blue">#80C5F2  </color>
     <color name="screenBackgroung">#EEEEEE</color>
     <color name="green">#00A652</color>
     <color name="pink">#F50053</color>

@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -17,13 +18,14 @@ import android.view.View;
 
 import com.laundry.R;
 
+import com.laundry.clickListener.OnItemClickLisner;
 import com.laundry.ui.Services.ServicesActivity;
 import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
 
 //importcom.laundry.CustomPagerAdapter;
 
 public class DryCleanerActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+        implements NavigationView.OnNavigationItemSelectedListener, OnItemClickLisner {
 //    LinearLayout press_image;
     SpringDotsIndicator dotsIndicator;
     RecyclerView press_image;
@@ -125,23 +127,35 @@ public class DryCleanerActivity extends AppCompatActivity
 
     }
     private void goServices() {
-        press_image.setOnClickListener(this);
+        press_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DryCleanerActivity.this, ServicesActivity.class);
+                startActivity(i);
+            }
+        });
+
+    }
+
+//    @Override
+//    public void onClick(View v) {
+//
+//        Intent i = new Intent(DryCleanerActivity.this, ServicesActivity.class);
+//        startActivity(i);
+//    }
+    private void category() {
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        press_image.setLayoutManager(new GridLayoutManager(this,2));
+        SelectServiceAdapter selectServiceAdapter = new SelectServiceAdapter(this,this);
+        press_image.setAdapter(selectServiceAdapter);
+
 
     }
 
     @Override
-    public void onClick(View v) {
-
+    public void onItemClick(int position) {
         Intent i = new Intent(DryCleanerActivity.this, ServicesActivity.class);
-        startActivity(i);
-    }
-    private void category() {
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        press_image.setLayoutManager(linearLayoutManager);
-        SelectServiceAdapter selectServiceAdapter = new SelectServiceAdapter(DryCleanerActivity.this);
-        press_image.setAdapter(selectServiceAdapter);
-
-
+     startActivity(i);
     }
 }
