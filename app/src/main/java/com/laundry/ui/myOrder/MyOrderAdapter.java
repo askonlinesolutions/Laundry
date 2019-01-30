@@ -60,11 +60,11 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
             super(itemView);
 //            textView = (TextView) itemView.findViewById(R.id.texts);
 
-            StateProgressBar stateProgressBar = (StateProgressBar) itemView.findViewById(R.id.step_progress_bar);
-            stateProgressBar.setStateDescriptionData(descriptionData);
-            stateProgressBar.setStateDescriptionTypeface("fonts/RobotoSlab-Light.ttf");
-//            stateProgressBar.setStateNumberTypeface("fonts/Questrial.ttf");
-            stateProgressBar.setStateDescriptionTypeface("fonts/RobotoSlab-Light.ttf");
+//            StateProgressBar stateProgressBar = (StateProgressBar) itemView.findViewById(R.id.step_progress_bar);
+//            stateProgressBar.setStateDescriptionData(descriptionData);
+//            stateProgressBar.setStateDescriptionTypeface("fonts/RobotoSlab-Light.ttf");
+////            stateProgressBar.setStateNumberTypeface("fonts/Questrial.ttf");
+//            stateProgressBar.setStateDescriptionTypeface("fonts/RobotoSlab-Light.ttf");
 
 
 

@@ -1,4 +1,4 @@
-package com.laundry;
+package com.laundry.ui.LoginScreen;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isShow = true;
     String emailId;
     String password1;
-    TextView activity_login_btn, activity_sign_btn, login_title;
+    TextView activity_login_btn, activity_sign_btn, login_title,forgot_password;
     CheckBox checkbox;
     EditText activity_login_edt_password, activity_login_edt_email, email, activity_password, confrim_password, name;
 
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         login_title = findViewById(R.id.login_title);
         eye_image = findViewById(R.id.eye_image);
         checkbox = findViewById(R.id.checkbox);
+        forgot_password=findViewById(R.id.activity_forgot_password);
         //   password = findViewById(R.id.password);
         email = findViewById(R.id.email);
         activity_sign_btn = findViewById(R.id.activity_sign_btn);
@@ -59,6 +60,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         activity_login_btn = findViewById(R.id.activity_login_btn);
         radio = findViewById(R.id.radio);
         init();
+        forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ForgotPasswordActivity.class);
+                startActivity(i);
+            }
+        });
 
 
     }
@@ -70,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         activity_sign_btn.setOnClickListener(this);
         login_title.setOnClickListener(this);
         eye_image.setOnClickListener(this);
+
     }
 
 
@@ -231,5 +240,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static boolean validateFirstName(String firstName) {
         return firstName.matches("[A-Z][a-zA-Z]*");
+
     }
+
 }

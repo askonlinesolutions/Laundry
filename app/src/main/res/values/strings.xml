@@ -10,4 +10,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="order_placed">Order\nPlaced</string>
+    <string name="driver_assign">Driver\nassign</string>
+    <string name="pickup_on_the_way">Pickup on\nthe way</string>
+    <string name="picked">Picked</string>
+    <string name="wash_in_progress">Wash in\nProgress</string>
+    <string name="shipped">Shipped</string>
 </resources>
