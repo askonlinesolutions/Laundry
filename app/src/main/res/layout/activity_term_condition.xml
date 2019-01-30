@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.LoginScreen.TermConditionActivity">
+    <TextView
+        android:id="@+id/login_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/sky_blue"
+        android:drawableLeft="@drawable/ic_left_arrow"
+        android:drawablePadding="100dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="Term and Condition"
+        android:textColor="@color/white_color"
+        android:textSize="15dp" />
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></WebView>
+
+</LinearLayout>
