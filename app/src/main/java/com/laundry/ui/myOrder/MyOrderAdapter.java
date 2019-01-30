@@ -9,14 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.kofigyan.stateprogressbar.StateProgressBar;
 import com.laundry.R;
 
 import java.util.ArrayList;
 
 public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHolder> {
-
-    private String[] descriptionData = {"Order\n Placed", "Driver\nAssigned", "Pickup\nOn_the_way", "Picked" ,"shipped"};
 
     Context context;
     String conversationId, userName, userId;
@@ -58,13 +55,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-//            textView = (TextView) itemView.findViewById(R.id.texts);
 
-//            StateProgressBar stateProgressBar = (StateProgressBar) itemView.findViewById(R.id.step_progress_bar);
-//            stateProgressBar.setStateDescriptionData(descriptionData);
-//            stateProgressBar.setStateDescriptionTypeface("fonts/RobotoSlab-Light.ttf");
-////            stateProgressBar.setStateNumberTypeface("fonts/Questrial.ttf");
-//            stateProgressBar.setStateDescriptionTypeface("fonts/RobotoSlab-Light.ttf");
 
 
 

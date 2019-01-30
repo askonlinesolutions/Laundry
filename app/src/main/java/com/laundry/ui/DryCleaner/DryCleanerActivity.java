@@ -19,14 +19,16 @@ import android.view.View;
 import com.laundry.R;
 
 import com.laundry.clickListener.OnItemClickLisner;
+import com.laundry.ui.LoginScreen.ChangePaawordActivity;
 import com.laundry.ui.Services.ServicesActivity;
+import com.laundry.ui.myOrder.MyOrderActivity;
 import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
 
 //importcom.laundry.CustomPagerAdapter;
 
 public class DryCleanerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnItemClickLisner {
-//    LinearLayout press_image;
+    //    LinearLayout press_image;
     SpringDotsIndicator dotsIndicator;
     RecyclerView press_image;
 
@@ -35,12 +37,12 @@ public class DryCleanerActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dry_cleaner);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        press_image=findViewById(R.id.press_image);
-       // ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        press_image = findViewById(R.id.press_image);
+        // ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         setSupportActionBar(toolbar);
-          inIt();
-          goServices();
-          category();
+        inIt();
+        goServices();
+        category();
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -61,13 +63,12 @@ public class DryCleanerActivity extends AppCompatActivity
     }
 
 
-
-
     private void inIt() {
         dotsIndicator = (SpringDotsIndicator) findViewById(R.id.dots_indicator);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new CustomPagerAdapter(this));
-        dotsIndicator.setViewPager(viewPager);    }
+        dotsIndicator.setViewPager(viewPager);
+    }
 
     @Override
     public void onBackPressed() {
@@ -107,25 +108,28 @@ public class DryCleanerActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-//        if (id == R.id.nav_camera) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
+        if (id == R.id.my_order) {
+            Intent intent = new Intent(DryCleanerActivity.this, MyOrderActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.my_profile) {
+
+        } else if (id == R.id.contact) {
+
+        } else if (id == R.id.faq) {
+
+        } else if (id == R.id.change_pwd) {
+            Intent intent = new Intent(DryCleanerActivity.this, ChangePaawordActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.logout) {
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
 
     }
+
     private void goServices() {
         press_image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +141,7 @@ public class DryCleanerActivity extends AppCompatActivity
 
     }
 
-//    @Override
+    //    @Override
 //    public void onClick(View v) {
 //
 //        Intent i = new Intent(DryCleanerActivity.this, ServicesActivity.class);
@@ -146,8 +150,8 @@ public class DryCleanerActivity extends AppCompatActivity
     private void category() {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        press_image.setLayoutManager(new GridLayoutManager(this,2));
-        SelectServiceAdapter selectServiceAdapter = new SelectServiceAdapter(this,this);
+        press_image.setLayoutManager(new GridLayoutManager(this, 2));
+        SelectServiceAdapter selectServiceAdapter = new SelectServiceAdapter(this, this);
         press_image.setAdapter(selectServiceAdapter);
 
 
@@ -156,6 +160,6 @@ public class DryCleanerActivity extends AppCompatActivity
     @Override
     public void onItemClick(int position) {
         Intent i = new Intent(DryCleanerActivity.this, ServicesActivity.class);
-     startActivity(i);
+        startActivity(i);
     }
 }

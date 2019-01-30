@@ -240,7 +240,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dp25"
+                        android:layout_marginLeft="@dimen/dp20"
                         android:layout_marginTop="@dimen/dp2"
                         android:text="@string/order_placed"
                         android:textSize="@dimen/dp8"
@@ -249,7 +249,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dp25"
+                        android:layout_marginLeft="@dimen/dp20"
                         android:layout_marginTop="@dimen/dp2"
                         android:gravity="center"
                         android:text="@string/pickup_on_the_way"
@@ -259,7 +259,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dp25"
+                        android:layout_marginLeft="@dimen/dp20"
                         android:layout_marginTop="@dimen/dp2"
                         android:text="@string/order_placed"
                         android:textSize="@dimen/dp8"
@@ -268,7 +268,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dp25"
+                        android:layout_marginLeft="@dimen/dp20"
                         android:layout_marginTop="@dimen/dp2"
                         android:text="@string/wash_in_progress"
                         android:textSize="@dimen/dp8"
@@ -277,7 +277,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dp25"
+                        android:layout_marginLeft="@dimen/dp20"
                         android:layout_marginTop="@dimen/dp2"
                         android:text="@string/order_placed"
                         android:textSize="@dimen/dp8"
@@ -287,7 +287,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/dp25"
+                        android:layout_marginLeft="@dimen/dp20"
                         android:layout_marginTop="@dimen/dp2"
                         android:text="Deliver"
                         android:textSize="@dimen/dp8" />
@@ -315,7 +315,7 @@
                         <TextView
                             android:layout_width="@dimen/dp18"
                             android:layout_height="@dimen/dp18"
-                            android:background="@drawable/circular_gray_bg" />
+                            android:background="@drawable/circuler_blue_bg" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -329,7 +329,7 @@
                     </LinearLayout>
 
                     <View
-                        android:layout_width="@dimen/dp34"
+                        android:layout_width="@dimen/dp30"
                         android:layout_height="@dimen/dp3"
                         android:layout_marginLeft="-4dp"
                         android:layout_marginTop="@dimen/dp7"
@@ -362,7 +362,7 @@
                     </LinearLayout>
 
                     <View
-                        android:layout_width="@dimen/dp34"
+                        android:layout_width="@dimen/dp30"
                         android:layout_height="@dimen/dp3"
                         android:layout_marginLeft="-4dp"
                         android:layout_marginTop="@dimen/dp7"
@@ -394,7 +394,7 @@
                     </LinearLayout>
 
                     <View
-                        android:layout_width="@dimen/dp34"
+                        android:layout_width="@dimen/dp30"
                         android:layout_height="@dimen/dp3"
                         android:layout_marginLeft="-4dp"
                         android:layout_marginTop="@dimen/dp7"
@@ -427,7 +427,7 @@
                     </LinearLayout>
 
                     <View
-                        android:layout_width="@dimen/dp34"
+                        android:layout_width="@dimen/dp30"
                         android:layout_height="@dimen/dp3"
                         android:layout_marginLeft="-4dp"
                         android:layout_marginTop="@dimen/dp7"
@@ -459,7 +459,7 @@
                     </LinearLayout>
 
                     <View
-                        android:layout_width="@dimen/dp34"
+                        android:layout_width="@dimen/dp30"
                         android:layout_height="@dimen/dp3"
                         android:layout_marginLeft="-4dp"
                         android:layout_marginTop="@dimen/dp7"
@@ -493,7 +493,7 @@
                     </LinearLayout>
 
                     <View
-                        android:layout_width="@dimen/dp34"
+                        android:layout_width="@dimen/dp30"
                         android:layout_height="@dimen/dp3"
                         android:layout_marginLeft="-4dp"
                         android:layout_marginTop="@dimen/dp7"

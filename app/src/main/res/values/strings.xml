@@ -15,4 +15,5 @@
     <string name="picked">Picked</string>
     <string name="wash_in_progress">Wash in\nProgress</string>
     <string name="shipped">Shipped</string>
+    <string name="delivery_pick_drop">Delivery Pick &amp; Drop</string>
 </resources>

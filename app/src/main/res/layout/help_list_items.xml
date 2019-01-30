@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginRight="@dimen/dp10"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp10">
+
+            <at.blogc.android.views.ExpandableTextView
+                android:id="@+id/tvExpand"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:text="item has not picked hjsdhfdhs jkdjhjsdhf kjsajdaskjfnh skajfdhsafk ksjfk "
+                android:textSize="@dimen/text_15" />
+
+            <ImageView
+                android:id="@+id/arrow_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp10"
+                android:src="@drawable/ic_right_arrow" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</layout>

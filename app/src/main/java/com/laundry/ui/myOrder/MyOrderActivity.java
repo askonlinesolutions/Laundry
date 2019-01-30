@@ -1,5 +1,6 @@
 package com.laundry.ui.myOrder;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.laundry.R;
 import com.laundry.databinding.ActivityMyOrderBinding;
+import com.laundry.ui.myOrderDetails.MyOrderDetailsActivity;
 
 public class MyOrderActivity extends AppCompatActivity implements MyOrderAdapter.MessageAdapterInterface {
 
@@ -35,6 +37,7 @@ public class MyOrderActivity extends AppCompatActivity implements MyOrderAdapter
 
     @Override
     public void click(int position) {
-
+        Intent intent=new Intent(MyOrderActivity.this,MyOrderDetailsActivity.class);
+        startActivity(intent);
     }
 }
