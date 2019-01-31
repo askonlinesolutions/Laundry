@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.ThankuActivity">
+        tools:context=".ui.Thanku.ThankuActivity">
 
         <com.laundry.CustomTextRegular.CustomTextRegular
             android:id="@+id/login_title"
