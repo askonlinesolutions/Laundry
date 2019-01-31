@@ -1,6 +1,9 @@
 package com.laundry.ui.DryCleaner;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,6 +18,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.laundry.R;
 
@@ -22,6 +27,9 @@ import com.laundry.clickListener.OnItemClickLisner;
 import com.laundry.ui.Contact.ContactActivity;
 import com.laundry.ui.FAQ.FAQActivity;
 
+import com.laundry.ui.LoginScreen.MainActivity;
+import com.laundry.ui.MyPayment.PaymentMethodActivity;
+import com.laundry.ui.Thanku.ThankuActivity;
 import com.laundry.ui.changePassword.ChangePaawordActivity;
 import com.laundry.ui.Services.ServicesActivity;
 import com.laundry.ui.myOrder.MyOrderActivity;
@@ -35,6 +43,8 @@ public class DryCleanerActivity extends AppCompatActivity
     //    LinearLayout press_image;
     SpringDotsIndicator dotsIndicator;
     RecyclerView press_image;
+    TextView cancel_btn,playnowbtn;
+    ImageView btncross;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,12 +142,45 @@ public class DryCleanerActivity extends AppCompatActivity
             Intent intent = new Intent(DryCleanerActivity.this, ChangePaawordActivity.class);
             startActivity(intent);
         } else if (id == R.id.logout) {
+            logout_dialog();
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+
+    }
+
+    private void logout_dialog() {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_logout_dialog);
+        dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        btncross = (ImageView) dialog.findViewById(R.id.close_img);
+        cancel_btn=dialog.findViewById(R.id.cancel_btn);
+        playnowbtn=dialog.findViewById(R.id.playnowbtn);
+        btncross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                dialog.dismiss();
+            }
+        });
+        cancel_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        playnowbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DryCleanerActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
 
     }
 

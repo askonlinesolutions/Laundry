@@ -16,7 +16,7 @@
             android:background="@color/sky_blue"
             android:drawableLeft="@drawable/ic_left_arrow"
             android:gravity="center"
-            android:paddingLeft="@dimen/dp10"
+            android:padding="@dimen/dp10"
             android:text="Payment Method"
             android:textColor="@color/white_color"
             android:textSize="@dimen/text_15" />
