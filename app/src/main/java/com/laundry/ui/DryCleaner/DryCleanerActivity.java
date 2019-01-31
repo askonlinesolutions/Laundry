@@ -22,6 +22,7 @@ import com.laundry.clickListener.OnItemClickLisner;
 import com.laundry.ui.Contact.ContactActivity;
 import com.laundry.ui.FAQ.FAQActivity;
 import com.laundry.ui.LoginScreen.ChangePaawordActivity;
+import com.laundry.ui.changePassword.ChangePaawordActivity;
 import com.laundry.ui.Services.ServicesActivity;
 import com.laundry.ui.myOrder.MyOrderActivity;
 import com.laundry.ui.profile.ProfileActivity;

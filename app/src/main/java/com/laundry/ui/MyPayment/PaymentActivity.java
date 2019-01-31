@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.laundry.R;
-import com.laundry.ui.LoginScreen.ForgotPasswordActivity;
-import com.laundry.ui.LoginScreen.MainActivity;
 
 public class PaymentActivity extends AppCompatActivity implements View.OnClickListener {
  TextView login_title,placeOrder;

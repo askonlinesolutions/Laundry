@@ -1,4 +1,4 @@
-package com.laundry.ui.LoginScreen;
+package com.laundry.ui.termsConditions;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

@@ -127,173 +127,272 @@
 
         </RelativeLayout>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/dp15">
-
-            <com.laundry.CustomTextRegular.CustomTextRegular
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Akhilesh"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_15"
-                android:textStyle="bold" />
+            android:layout_height="wrap_content">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/dp5"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="@dimen/dp15">
 
                 <com.laundry.CustomTextRegular.CustomTextRegular
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Akhilesh@gmail.com"
-                    android:textSize="@dimen/text_size_13"
+                    android:text="Akhilesh"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_15"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="10dp"
-                    android:layout_height="@dimen/dp10"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/dp10"
-                    android:background="@drawable/circular_gray_bg" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/dp10"
-                    android:text="875224588" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp20"
-                android:layout_marginBottom="@dimen/dp5"
-                android:orientation="horizontal"
-                android:padding="@dimen/dp5">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_home" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/dp15"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_marginTop="@dimen/dp5"
+                    android:orientation="horizontal">
 
                     <com.laundry.CustomTextRegular.CustomTextRegular
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Manage Address"
-                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:text="Akhilesh@gmail.com"
                         android:textSize="@dimen/text_size_13"
                         android:textStyle="bold" />
 
-                    <com.laundry.CustomTextRegular.Regular
+                    <TextView
+                        android:layout_width="10dp"
+                        android:layout_height="@dimen/dp10"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:background="@drawable/circular_gray_bg" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp5"
-                        android:text="Noida sector 63 E 39
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:text="875224588" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp5">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_home" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dp15"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.laundry.CustomTextRegular.CustomTextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Manage Address"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_13"
+                            android:textStyle="bold" />
+
+                        <com.laundry.CustomTextRegular.Regular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="Noida sector 63 E 39
                         hahshahd"
-                        android:textSize="@dimen/text_size_12" />
-                    <!--<com.laundry.CustomTextRegular.CustomTextRegular-->
+                            android:textSize="@dimen/text_size_12" />
+                        <!--<com.laundry.CustomTextRegular.CustomTextRegular-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="Manage Address"-->
+                        <!--android:textColor="@color/black"-->
+                        <!--android:textSize="@dimen/text_size_13"-->
+                        <!--android:textStyle="bold" />-->
+
+                    </LinearLayout>
+
+                    <com.laundry.CustomTextRegular.CustomTextRegular
+                        android:id="@+id/default_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:background="@drawable/sky_blue_hollow_background"
+                        android:padding="@dimen/text_10"
+                        android:text="Default"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_13" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:background="@color/gray" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp5">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_payment" />
+
+                    <LinearLayout
+                        android:id="@+id/payment_method_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dp15"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.laundry.CustomTextRegular.CustomTextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Payment Method"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_13"
+                            android:textStyle="bold" />
+
+                        <com.laundry.CustomTextRegular.Regular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="6722-XXXXXXX-3333" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:background="@color/gray" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp5">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_tag" />
+
+                    <LinearLayout
+                        android:id="@+id/offer_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dp15"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.laundry.CustomTextRegular.CustomTextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Offer"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_13"
+                            android:textStyle="bold" />
+
+                        <com.laundry.CustomTextRegular.Regular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="DRY456, DRy567" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:background="@color/gray" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/setting_layout"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp5">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_settings" />
+
+                    <!--<LinearLayout-->
+                    <!--android:id="@+id/setting_layout"-->
                     <!--android:layout_width="wrap_content"-->
                     <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Manage Address"-->
-                    <!--android:textColor="@color/black"-->
-                    <!--android:textSize="@dimen/text_size_13"-->
-                    <!--android:textStyle="bold" />-->
-
-                </LinearLayout>
-
-                <com.laundry.CustomTextRegular.CustomTextRegular
-                    android:id="@+id/default_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/dp10"
-                    android:layout_marginRight="@dimen/dp5"
-                    android:background="@drawable/sky_blue_hollow_background"
-                    android:padding="@dimen/text_10"
-                    android:text="Default"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text_13" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp1"
-                android:layout_marginTop="@dimen/dp5"
-                android:background="@color/gray" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
-                android:layout_marginBottom="@dimen/dp5"
-                android:orientation="horizontal"
-                android:padding="@dimen/dp5">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_payment" />
-
-                <LinearLayout
-                    android:id="@+id/payment_method_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/dp15"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_marginLeft="@dimen/dp15"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:orientation="vertical">-->
 
                     <com.laundry.CustomTextRegular.CustomTextRegular
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Payment Method"
+                        android:layout_marginLeft="@dimen/dp15"
+                        android:text="Settings"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size_13"
                         android:textStyle="bold" />
 
-                    <com.laundry.CustomTextRegular.Regular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp5"
-                        android:text="6722-XXXXXXX-3333" />
+                    <!--<com.laundry.CustomTextRegular.Regular-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="@dimen/dp5"-->
+                    <!--android:text="DRY456, DRy567" />-->
+
+                    <!--</LinearLayout>-->
+
 
                 </LinearLayout>
 
 
             </LinearLayout>
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp1"
-                android:layout_marginTop="@dimen/dp5"
-                android:background="@color/gray" />
-
-
-        </LinearLayout>
-
+        </ScrollView>
     </LinearLayout>
 </layout>
