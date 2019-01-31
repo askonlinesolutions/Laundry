@@ -10,6 +10,7 @@ import com.laundry.R;
 import com.laundry.databinding.ActivityProfileBinding;
 import com.laundry.ui.MyPayment.PaymentMethodActivity;
 import com.laundry.ui.editProfile.EditProfileActivity;
+import com.laundry.ui.manageAddress.ManageAddressActivity;
 import com.laundry.ui.offer.OfferActivity;
 import com.laundry.ui.settings.SettingsActivity;
 
@@ -64,6 +65,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
             case R.id.offer_layout:
                 startActivity(new Intent(ProfileActivity.this, OfferActivity.class));
+                this.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+                break;
+
+            case R.id.default_tv:
+                startActivity(new Intent(ProfileActivity.this, ManageAddressActivity.class));
                 this.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 break;
 
