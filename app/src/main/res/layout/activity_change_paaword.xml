@@ -13,6 +13,7 @@
         android:background="@color/sky_blue"
         android:drawableLeft="@drawable/ic_left_arrow"
         android:gravity="center"
+        android:padding="@dimen/dp10"
         android:text="Change Password"
         android:textColor="@color/white_color"
         android:textSize="15dp" />

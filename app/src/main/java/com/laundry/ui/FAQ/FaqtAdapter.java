@@ -38,12 +38,12 @@ class FaqtAdapter extends RecyclerView.Adapter<FaqtAdapter.Viewholder> {
             public void onClick(View v) {
                 if (isVisible) {
                     viewholder.tvExpand.setVisibility(View.VISIBLE);
-                    viewholder.arrow.setImageResource(R.drawable.ic_up_arrow);
+                    viewholder.arrow.setImageResource(R.drawable.ic_up_arrow_black);
                     isVisible = false;
                 }else
                 {
                     viewholder.tvExpand.setVisibility(View.GONE);
-                    viewholder.arrow.setImageResource(R.drawable.ic_down_arrow);
+                    viewholder.arrow.setImageResource(R.drawable.ic_arrow_down_black);
                     isVisible = true;
                 }
             }
