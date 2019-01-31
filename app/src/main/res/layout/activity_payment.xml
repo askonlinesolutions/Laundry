@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.MyPayment.PaymentActivity">
+
     <TextView
         android:id="@+id/login_title"
         android:layout_width="match_parent"
@@ -18,68 +19,68 @@
         android:text="Payment"
         android:textColor="@color/white_color"
         android:textSize="15dp" />
+
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Choice Payment Method"
+                android:padding="10dp"
+                android:text="Choice Payment Method"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:padding="10dp"
-        android:textSize="15dp"
-        />
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-      android:layout_marginLeft="10dp"
-        >
+                android:layout_marginLeft="10dp">
 
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pay Pal"
-            android:padding="10dp"
-            />
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Credit Card"
-            android:padding="10dp"
-            />
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="COD"
-            android:padding="10dp"
-            />
-    </RadioGroup>
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Pay Pal" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Credit Card" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="COD" />
+            </RadioGroup>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
+
     <TextView
-        android:id="@+id/activity_sign_btn"
+        android:id="@+id/activity_place_order_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/background_button_sky"
         android:gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:text="Place Order"
         android:textColor="@android:color/white"
         android:textSize="18sp" />

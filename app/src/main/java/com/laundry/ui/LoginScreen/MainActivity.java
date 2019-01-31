@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signupbtn = findViewById(R.id.signupbtn);
         login_title = findViewById(R.id.login_title);
         eye_image = findViewById(R.id.eye_image);
-        checkbox = findViewById(R.id.checkbox);
+        checkbox = findViewById(R.id.checkbox_termandcondition);
         forgot_password=findViewById(R.id.activity_forgot_password);
         //   password = findViewById(R.id.password);
         email = findViewById(R.id.email);
@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         activity_login_btn = findViewById(R.id.activity_login_btn);
         radio = findViewById(R.id.radio);
         init();
+        termcondition();
         forgot_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +70,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
+    }
+
+    private void termcondition() {
+        checkbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, TermConditionActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     private void init() {

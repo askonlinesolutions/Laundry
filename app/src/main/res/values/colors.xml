@@ -34,6 +34,7 @@
     <color name="dialog_quote_sorry">#626262</color>
     <color name="dialog_quote_text">#636363</color>
     <color name="lightgray_back_ground">#F9F9F9</color>
+    <color name="light_orange">#FF8C00</color>
     <color name="orange">#FFF2A500</color>
     <color name="tabbackground">#F3F7F8</color>
     <color name="dark_blue">#4c71ec</color>

@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="com.google.android.providers.gsf.permission.    READ_GSERVICES" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission. READ_GSERVICES" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -40,7 +40,10 @@
         <activity android:name=".ui.LoginScreen.ChangePaawordActivity" />
         <activity android:name=".ui.myOrderDetails.MyOrderDetailsActivity" />
         <activity android:name=".ui.help.HelpActivity" />
-        <activity android:name=".ui.profile.ProfileActivity"></activity>
+        <activity android:name=".ui.profile.ProfileActivity" />
+        <activity android:name=".ui.LoginScreen.TermConditionActivity" />
+        <activity android:name=".ui.MyPayment.PaymentMethodActivity" />
+        <activity android:name=".ui.ThankuActivity"></activity>
     </application>
 
 </manifest>
