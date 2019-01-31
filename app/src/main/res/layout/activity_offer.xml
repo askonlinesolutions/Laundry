@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.offer.OfferActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sky_blue"
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/dp15">
+
+            <ImageView
+                android:id="@+id/offer_back_iv"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dp15"
+                android:src="@drawable/ic_left_arrow" />
+
+            <com.laundry.CustomTextRegular.CustomTextRegular
+                android:id="@+id/login_title"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Offer"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/text_15"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/offer_rv"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            >
+
+
+        </android.support.v7.widget.RecyclerView>
+
+
+    </LinearLayout>
+</layout>

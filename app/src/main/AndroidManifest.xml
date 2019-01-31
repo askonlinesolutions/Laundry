@@ -27,7 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.LoginScreen.MainActivity" />
+        <activity
+            android:name=".ui.LoginScreen.MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
             android:name=".ui.DryCleaner.DryCleanerActivity"
             android:label="DryCleaner"
@@ -36,14 +38,20 @@
         <activity android:name=".ui.MyCart.MyCartActivity" />
         <activity android:name=".ui.myOrder.MyOrderActivity" />
         <activity android:name=".ui.MyPayment.PaymentActivity" />
-        <activity android:name=".ui.LoginScreen.ForgotPasswordActivity" />
-        <activity android:name=".ui.LoginScreen.ChangePaawordActivity" />
+        <activity android:name=".ui.forgotPassword.ForgotPasswordActivity" />
+        <activity android:name=".ui.changePassword.ChangePaawordActivity" />
         <activity android:name=".ui.myOrderDetails.MyOrderDetailsActivity" />
         <activity android:name=".ui.help.HelpActivity" />
         <activity android:name=".ui.profile.ProfileActivity" />
-        <activity android:name=".ui.LoginScreen.TermConditionActivity" />
+        <activity android:name=".ui.termsConditions.TermConditionActivity" />
         <activity android:name=".ui.MyPayment.PaymentMethodActivity" />
-        <activity android:name=".ui.ThankuActivity"></activity>
+        <activity android:name=".ui.ThankuActivity" />
+        <activity
+            android:name=".ui.editProfile.EditProfileActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity android:name=".ui.settings.SettingsActivity" />
+        <activity android:name=".ui.offer.OfferActivity" />
+        <activity android:name=".ui.manageAddress.ManageAddressActivity"></activity>
     </application>
 
 </manifest>

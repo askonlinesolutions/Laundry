@@ -16,4 +16,10 @@
     <string name="wash_in_progress">Wash in\nProgress</string>
     <string name="shipped">Shipped</string>
     <string name="delivery_pick_drop">Delivery Pick &amp; Drop</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone_no">Phone No</string>
+    <string name="password">Password</string>
+    <string name="save">Save</string>
 </resources>

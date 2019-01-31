@@ -45,7 +45,7 @@ public class MyOrderDetailsActivity extends AppCompatActivity implements View.On
                 } else {
 
                     binding.detaileLayout.setVisibility(View.GONE);
-                    binding.helpTv.setVisibility(View.GONE);
+                    binding.helpTv.setVisibility(View.INVISIBLE);
                     binding.viewDetailsTv.setBackground(getResources().getDrawable(R.drawable.background_button_sky));
                     binding.viewDetailsTv.setTextColor(getResources().getColor(R.color.white_color));
                     isTrue = true;

@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.laundry.R;
 import com.laundry.ui.DryCleaner.DryCleanerActivity;
+import com.laundry.ui.forgotPassword.ForgotPasswordActivity;
+import com.laundry.ui.termsConditions.TermConditionActivity;
 
 
 import java.util.regex.Pattern;
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isShow = true;
     String emailId;
     String password1;
-    TextView activity_login_btn, activity_sign_btn, login_title,forgot_password;
+    TextView activity_login_btn, activity_sign_btn, login_title, forgot_password;
     CheckBox checkbox;
     EditText activity_login_edt_password, activity_login_edt_email, email, activity_password, confrim_password, name;
 
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         sign_up = findViewById(R.id.sign_up);
         login = findViewById(R.id.login);
         name = findViewById(R.id.name);
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         login_title = findViewById(R.id.login_title);
         eye_image = findViewById(R.id.eye_image);
         checkbox = findViewById(R.id.checkbox_termandcondition);
-        forgot_password=findViewById(R.id.activity_forgot_password);
+        forgot_password = findViewById(R.id.activity_forgot_password);
         //   password = findViewById(R.id.password);
         email = findViewById(R.id.email);
         activity_sign_btn = findViewById(R.id.activity_sign_btn);
@@ -162,8 +166,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (!validateFirstName(validateFirstName)) {
                     return;
                 }
-                if (isValidEmailId(email.getText().toString())==false){
-                    Toast.makeText(this, "Please enter valid email id !",Toast.LENGTH_SHORT).show();
+                if (isValidEmailId(email.getText().toString()) == false) {
+                    Toast.makeText(this, "Please enter valid email id !", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 String passwordLogin = activity_password.getText().toString();
@@ -197,8 +201,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     return;
 //                } else {
 //                    Toast.makeText(MainActivity.this, "condition", Toast.LENGTH_SHORT).show();
-                }
-                 else {
+                } else {
 //                    Toast.makeText(MainActivity.this, "Password  match", Toast.LENGTH_SHORT).show();
                     doLogin();
                 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
+        android:orientation="vertical">
+
+        <com.laundry.CustomTextRegular.CustomTextRegular
+            android:id="@+id/login_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DRY566"
+            android:textColor="@color/textMedium"
+            android:textSize="@dimen/dp14"
+            android:textStyle="bold" />
+
+        <at.blogc.android.views.ExpandableTextView
+            android:id="@+id/tvExpand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dp5"
+            android:layout_marginRight="@dimen/dp10"
+            android:text="Items has not picked hjsdhfdhs jkdjhjsdhf kjsajdaskjfnh skajfdhsafk ksjfk "
+            android:textColor="@color/textLightGray"
+            android:textSize="@dimen/text_12" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@color/bg_color_2" />
+    </LinearLayout>
+</layout>
