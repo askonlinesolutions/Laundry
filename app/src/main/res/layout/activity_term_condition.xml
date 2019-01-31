@@ -5,16 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.termsConditions.TermConditionActivity">
-    <TextView
+    tools:context=".ui.LoginScreen.TermConditionActivity">
+    <com.laundry.CustomTextRegular.CustomTextRegular
         android:id="@+id/login_title"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/sky_blue"
         android:drawableLeft="@drawable/ic_left_arrow"
-        android:drawablePadding="100dp"
-        android:gravity="center_vertical"
-        android:paddingLeft="10dp"
+        android:gravity="center"
         android:text="Term and Condition"
         android:textColor="@color/white_color"
         android:textSize="15dp" />
@@ -22,6 +20,6 @@
         android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        ></WebView>
 
 </LinearLayout>

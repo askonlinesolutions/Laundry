@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <com.laundry.CustomTextRegular.CustomTextRegular
                 android:id="@+id/text_menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,14 +37,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
+                <com.laundry.CustomTextRegular.CustomTextRegular
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
                     android:layout_marginTop="10dp"
                     android:text="$10-$20" />
 
-                <TextView
+                <com.laundry.CustomTextRegular.CustomTextRegular
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
@@ -54,7 +54,7 @@
                     android:textColor="@color/sky_blue" />
 
 
-                <TextView
+                <com.laundry.CustomTextRegular.CustomTextRegular
                     android:id="@+id/minus"
                     android:layout_width="30dp"
                     android:layout_height="20dp"
@@ -66,7 +66,7 @@
 
                     android:textSize="12sp" />
 
-                <TextView
+                <com.laundry.CustomTextRegular.CustomTextRegular
                     android:id="@+id/integer_number"
                     android:layout_width="30dp"
                     android:layout_height="20dp"
@@ -76,7 +76,7 @@
 
                     android:textSize="12sp" />
 
-                <TextView
+                <com.laundry.CustomTextRegular.CustomTextRegular
                     android:id="@+id/plus"
                     android:layout_width="30dp"
                     android:layout_height="20dp"

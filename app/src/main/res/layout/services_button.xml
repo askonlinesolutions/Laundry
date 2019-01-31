@@ -25,7 +25,7 @@
             android:padding="1dp"
             android:src="@drawable/ic_tshirt" />
 
-        <TextView
+        <com.laundry.CustomTextRegular.CustomTextRegular
             android:id="@+id/textservices"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

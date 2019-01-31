@@ -1,4 +1,4 @@
-package com.laundry.ui;
+package com.laundry.ui.Thanku;
 
 import android.content.Intent;
 import android.os.Handler;

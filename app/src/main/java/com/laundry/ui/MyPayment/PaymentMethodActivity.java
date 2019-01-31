@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.laundry.R;
-import com.laundry.ui.ThankuActivity;
+import com.laundry.ui.Thanku.ThankuActivity;
 
 
 public class PaymentMethodActivity extends AppCompatActivity {

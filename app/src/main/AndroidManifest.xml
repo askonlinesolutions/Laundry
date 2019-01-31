@@ -45,13 +45,15 @@
         <activity android:name=".ui.profile.ProfileActivity" />
         <activity android:name=".ui.termsConditions.TermConditionActivity" />
         <activity android:name=".ui.MyPayment.PaymentMethodActivity" />
-        <activity android:name=".ui.ThankuActivity" />
+        <activity android:name=".ui.Thanku.ThankuActivity" />
         <activity
             android:name=".ui.editProfile.EditProfileActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity android:name=".ui.settings.SettingsActivity" />
         <activity android:name=".ui.offer.OfferActivity" />
         <activity android:name=".ui.manageAddress.ManageAddressActivity"></activity>
+        <activity android:name=".ui.FAQ.FAQActivity" />
+        <activity android:name=".ui.Contact.ContactActivity"></activity>
     </application>
 
 </manifest>
