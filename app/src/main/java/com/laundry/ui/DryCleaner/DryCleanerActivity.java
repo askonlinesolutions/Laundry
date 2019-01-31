@@ -22,6 +22,7 @@ import com.laundry.clickListener.OnItemClickLisner;
 import com.laundry.ui.LoginScreen.ChangePaawordActivity;
 import com.laundry.ui.Services.ServicesActivity;
 import com.laundry.ui.myOrder.MyOrderActivity;
+import com.laundry.ui.profile.ProfileActivity;
 import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
 
 //importcom.laundry.CustomPagerAdapter;
@@ -112,7 +113,8 @@ public class DryCleanerActivity extends AppCompatActivity
             Intent intent = new Intent(DryCleanerActivity.this, MyOrderActivity.class);
             startActivity(intent);
         } else if (id == R.id.my_profile) {
-
+            Intent intent = new Intent(DryCleanerActivity.this, ProfileActivity.class);
+            startActivity(intent);
         } else if (id == R.id.contact) {
 
         } else if (id == R.id.faq) {
