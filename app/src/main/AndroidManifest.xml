@@ -43,7 +43,9 @@
         <activity android:name=".ui.profile.ProfileActivity" />
         <activity android:name=".ui.LoginScreen.TermConditionActivity" />
         <activity android:name=".ui.MyPayment.PaymentMethodActivity" />
-        <activity android:name=".ui.ThankuActivity"></activity>
+        <activity android:name=".ui.ThankuActivity" />
+        <activity android:name=".ui.FAQ.FAQActivity" />
+        <activity android:name=".ui.Contact.ContactActivity"></activity>
     </application>
 
 </manifest>

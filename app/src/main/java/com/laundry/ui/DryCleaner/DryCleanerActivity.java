@@ -19,6 +19,8 @@ import android.view.View;
 import com.laundry.R;
 
 import com.laundry.clickListener.OnItemClickLisner;
+import com.laundry.ui.Contact.ContactActivity;
+import com.laundry.ui.FAQ.FAQActivity;
 import com.laundry.ui.LoginScreen.ChangePaawordActivity;
 import com.laundry.ui.Services.ServicesActivity;
 import com.laundry.ui.myOrder.MyOrderActivity;
@@ -116,8 +118,14 @@ public class DryCleanerActivity extends AppCompatActivity
             Intent intent = new Intent(DryCleanerActivity.this, ProfileActivity.class);
             startActivity(intent);
         } else if (id == R.id.contact) {
+            Intent intent = new Intent(DryCleanerActivity.this, ContactActivity.class);
+            startActivity(intent);
+
 
         } else if (id == R.id.faq) {
+
+            Intent intent = new Intent(DryCleanerActivity.this, FAQActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.change_pwd) {
             Intent intent = new Intent(DryCleanerActivity.this, ChangePaawordActivity.class);

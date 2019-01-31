@@ -34,7 +34,7 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
     TextView login_title;
     RecyclerView serviceRecycler;
     ImageView img_my_cart;
-    ArrayList <String>name = new ArrayList<>(Arrays.asList("schuder","schuder" ,"schuder", "schuder", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder "));
+    ArrayList <String>name = new ArrayList<>(Arrays.asList("Schuder","MEN" ,"Woman", "Child", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder "));
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,9 +102,9 @@ mycartScreen();
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new WashAndIronFragment(), "Wash&Fold");
-        adapter.addFragment(new WashAndFoldFragment(), "Wash&Iron");
-        adapter.addFragment(new PremiumLaundryFragment(), "Premium Laundry");
-        adapter.addFragment(new DryCleanerFragment(), "Dey Cleaner");
+        adapter.addFragment(new /*WashAndFoldFragment*/WashAndIronFragment(), "Wash&Iron");
+        adapter.addFragment(new/* PremiumLaundryFragment*/WashAndIronFragment(), "Premium Laundry");
+        adapter.addFragment(new /*DryCleanerFragment*/WashAndIronFragment(), "Dey Cleaner");
 
        // adapter.addFragment(new FifthFragment(), "Bakets");
         viewPager.setAdapter(adapter);
