@@ -9,6 +9,20 @@
         android:orientation="vertical"
         tools:context=".ui.manageAddress.ManageAddressActivity">
 
+        <TextView
+            android:id="@+id/login_title"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/sky_blue"
+            android:drawableLeft="@drawable/ic_left_arrow"
+            android:drawablePadding="100dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="Manage Address"
+            android:textColor="@color/white_color"
+            android:textSize="15dp" />
+
+
     </LinearLayout>
 
 </layout>
