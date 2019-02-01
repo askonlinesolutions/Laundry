@@ -97,7 +97,7 @@
 
             <ImageView
                 android:id="@+id/call_iv"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_telephone" />
@@ -110,7 +110,7 @@
                 android:paddingLeft="@dimen/dp10"
                 android:text="Contact us"
                 android:textColor="@color/white_color"
-                android:textSize="@dimen/dp20"
+                android:textSize="@dimen/dp15"
                 />
 
 

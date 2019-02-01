@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/dp3">
+
+        <com.laundry.CustomTextRegular.CustomTextRegular
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:padding="@dimen/dp15"
+            android:text="Pickup"
+            android:textSize="@dimen/dp15"
+            android:textStyle="bold" />
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@drawable/sky_blue_boeder_background_blue"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/call_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_gps_fixed_indicator__blue" />
+
+        <com.laundry.CustomTextRegular.CustomTextRegular
+            android:id="@+id/txt_call"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dp10"
+            android:text="Use my current location"
+
+            android:textColor="@color/sky_blue"
+            android:textSize="@dimen/dp15" />
+
+
+    </LinearLayout>
+
+    <com.laundry.CustomTextRegular.CustomTextRegular
+        android:id="@+id/login_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_weight="1"
+        android:drawableLeft="@drawable/ic_loction_black"
+        android:drawablePadding="15dp"
+        android:paddingLeft="10dp"
+        android:text="Drop your location"
+
+        android:textSize="15dp" />
+
+
+</LinearLayout>
