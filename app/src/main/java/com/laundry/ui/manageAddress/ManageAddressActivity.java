@@ -1,5 +1,6 @@
 package com.laundry.ui.manageAddress;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +10,9 @@ import android.widget.Toast;
 
 import com.laundry.R;
 import com.laundry.databinding.ActivityManageAddressBinding;
+import com.laundry.ui.currentLocation.CurrentLocationMapActivity;
 import com.laundry.ui.offer.OfferrAdapter;
+import com.laundry.ui.profile.ProfileActivity;
 
 public class ManageAddressActivity extends AppCompatActivity implements View.OnClickListener, ManageAddressAdapter.OnBtnClickListener {
 
@@ -46,7 +49,8 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onBtnClick(int Pos, String type) {
         if (type.equals("EDIT")) {
-            Toast.makeText(getApplicationContext(), type, Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(ManageAddressActivity.this, CurrentLocationMapActivity.class));
+            this.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
         } else {
             Toast.makeText(getApplicationContext(), type, Toast.LENGTH_SHORT).show();
         }
