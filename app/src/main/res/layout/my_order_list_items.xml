@@ -44,7 +44,7 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <TextView
+                        <com.laundry.CustomTextRegular.CustomTextRegular
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Order No"
@@ -74,7 +74,7 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <TextView
+                        <com.laundry.CustomTextRegular.CustomTextRegular
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Items"
@@ -102,7 +102,7 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <TextView
+                        <com.laundry.CustomTextRegular.CustomTextRegular
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Amount"
@@ -130,7 +130,7 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <com.laundry.CustomTextRegular.CustomTextRegular
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pickup:"
@@ -155,7 +155,7 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <com.laundry.CustomTextRegular.CustomTextRegular
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Delivery:"
@@ -182,7 +182,7 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <com.laundry.CustomTextRegular.CustomTextRegular
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -191,7 +191,7 @@
                         android:textSize="@dimen/text_size_13"
                         android:textStyle="bold" />
 
-                    <TextView
+                    <com.laundry.CustomTextRegular.CustomTextRegular
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/dp10"
@@ -203,23 +203,6 @@
                 </LinearLayout>
 
 
-                <!--<com.kofigyan.stateprogressbar.StateProgressBar-->
-                <!--android:id="@+id/step_progress_bar"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="@dimen/dp5"-->
-
-                <!--android:layout_marginBottom="@dimen/dp5"-->
-                <!--android:textSize="@dimen/text_8"-->
-                <!--app:spb_currentStateDescriptionColor="@color/back_blue"-->
-                <!--app:spb_currentStateNumber="two"-->
-                <!--app:spb_descriptionLinesSpacing="5dp"-->
-                <!--app:spb_maxStateNumber="five"-->
-                <!--app:spb_stateBackgroundColor="#BDBDBD"-->
-                <!--app:spb_stateDescriptionColor="#808080"-->
-                <!--app:spb_stateForegroundColor="@color/back_blue"-->
-                <!--app:spb_stateNumberBackgroundColor="#BDBDBD"-->
-                <!--app:spb_stateNumberForegroundColor="@color/back_blue" />-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -234,7 +217,7 @@
                         android:layout_marginTop="@dimen/dp2"
                         android:text="@string/order_placed"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/dp8"
+                        android:textSize="@dimen/text_8"
                         android:visibility="visible" />
 
                     <TextView
@@ -243,7 +226,7 @@
                         android:layout_marginLeft="@dimen/dp20"
                         android:layout_marginTop="@dimen/dp2"
                         android:text="@string/order_placed"
-                        android:textSize="@dimen/dp8"
+                        android:textSize="@dimen/text_8"
                         android:visibility="invisible" />
 
                     <TextView
@@ -253,7 +236,7 @@
                         android:layout_marginTop="@dimen/dp2"
                         android:gravity="center"
                         android:text="@string/pickup_on_the_way"
-                        android:textSize="@dimen/dp8"
+                        android:textSize="@dimen/text_8"
                         android:visibility="visible" />
 
                     <TextView
@@ -262,7 +245,7 @@
                         android:layout_marginLeft="@dimen/dp20"
                         android:layout_marginTop="@dimen/dp2"
                         android:text="@string/order_placed"
-                        android:textSize="@dimen/dp8"
+                        android:textSize="@dimen/text_8"
                         android:visibility="invisible" />
 
                     <TextView
@@ -271,7 +254,7 @@
                         android:layout_marginLeft="@dimen/dp20"
                         android:layout_marginTop="@dimen/dp2"
                         android:text="@string/wash_in_progress"
-                        android:textSize="@dimen/dp8"
+                        android:textSize="@dimen/text_8"
                         android:visibility="visible" />
 
                     <TextView
@@ -280,7 +263,7 @@
                         android:layout_marginLeft="@dimen/dp20"
                         android:layout_marginTop="@dimen/dp2"
                         android:text="@string/order_placed"
-                        android:textSize="@dimen/dp8"
+                        android:textSize="@dimen/text_8"
                         android:visibility="invisible" />
 
                     <TextView
@@ -290,7 +273,7 @@
                         android:layout_marginLeft="@dimen/dp20"
                         android:layout_marginTop="@dimen/dp2"
                         android:text="Deliver"
-                        android:textSize="@dimen/dp8" />
+                        android:textSize="@dimen/text_8" />
 
 
                 </LinearLayout>
@@ -323,7 +306,7 @@
                             android:layout_marginTop="@dimen/dp2"
                             android:text="@string/order_placed"
                             android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/dp8"
+                            android:textSize="@dimen/text_8"
                             android:visibility="invisible" />
 
                     </LinearLayout>
@@ -356,7 +339,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp2"
                             android:text="@string/driver_assign"
-                            android:textSize="@dimen/dp8"
+                            android:textSize="@dimen/text_8"
                             android:visibility="visible" />
 
                     </LinearLayout>
@@ -421,7 +404,7 @@
                             android:layout_marginTop="@dimen/dp2"
                             android:layout_marginBottom="@dimen/dp10"
                             android:text="@string/picked"
-                            android:textSize="@dimen/dp8"
+                            android:textSize="@dimen/text_8"
                             android:visibility="visible" />
 
                     </LinearLayout>
@@ -486,7 +469,7 @@
                             android:layout_marginTop="@dimen/dp2"
                             android:layout_marginBottom="@dimen/dp10"
                             android:text="@string/shipped"
-                            android:textSize="@dimen/dp8"
+                            android:textSize="@dimen/text_8"
 
                             android:visibility="visible" />
 
@@ -519,7 +502,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp2"
                             android:text="@string/order_placed"
-                            android:textSize="@dimen/dp8"
+                            android:textSize="@dimen/text_8"
                             android:visibility="invisible" />
 
                     </LinearLayout>

@@ -38,6 +38,16 @@ public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.ViewHolder> {
             public void onClick(View view) {
 
                 if (flag) {
+                    viewHolder.tvExpand.setVisibility(View.VISIBLE);
+                    viewHolder.arrow.setImageResource(R.drawable.ic_up_arrow_black);
+                    flag = false;
+                } else {
+                    viewHolder.tvExpand.setVisibility(View.GONE);
+                    viewHolder.arrow.setImageResource(R.drawable.ic_arrow_down_black);
+                    flag = true;
+                }
+
+              /*  if (flag) {
                     viewHolder.tvExpand.setSingleLine(false);
 //            flag.ivDown.setImageResource(R.drawable.ic_up_arrow);
 //            holder.tvPlaceName.setVisibility(View.VISIBLE);
@@ -49,7 +59,7 @@ public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.ViewHolder> {
 //            holder.tvPlaceName.setVisibility(View.GONE);
 //            holder.location.setVisibility(View.GONE);
                     flag = true;
-                }
+                }*/
 
 
             }

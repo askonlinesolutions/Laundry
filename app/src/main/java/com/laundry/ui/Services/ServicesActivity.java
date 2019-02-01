@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,25 +35,45 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
     TextView login_title;
     RecyclerView serviceRecycler;
     ImageView img_my_cart;
-    ArrayList <String>name = new ArrayList<>(Arrays.asList("Schuder","MEN" ,"Woman", "Child", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder "));
+    int pos;
+    ArrayList<String> name = new ArrayList<>(Arrays.asList("Schuder", "MEN", "Woman", "Child", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder "));
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services);
 
-        serviceRecycler=findViewById(R.id.serviceRecycler);
-        login_title=findViewById(R.id.login_title);
-        img_my_cart=findViewById(R.id.img_my_cart);
-       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-mycartScreen();
+        init();
+
+    }
+
+    private void init() {
+
+        serviceRecycler = findViewById(R.id.serviceRecycler);
+        login_title = findViewById(R.id.login_title);
+        img_my_cart = findViewById(R.id.img_my_cart);
+        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
-
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+        getPosition();
         setupTabIcons();
         setHorizontalRecycler();
         backpress();
+        mycartScreen();
+    }
+
+
+    private void getPosition() {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            pos = extras.getInt("pos");
+        }
+
+        viewPager.setCurrentItem(pos);
+
+
     }
 
     private void mycartScreen() {
@@ -77,10 +98,10 @@ mycartScreen();
     }
 
     private void setHorizontalRecycler() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL,
                 false);
         serviceRecycler.setLayoutManager(linearLayoutManager);
-        ServicesAdapter servicesAdapter = new ServicesAdapter(this,this/*this*/,name);
+        ServicesAdapter servicesAdapter = new ServicesAdapter(this, this/*this*/, name);
         serviceRecycler.setAdapter(servicesAdapter);
 
     }
@@ -106,7 +127,7 @@ mycartScreen();
         adapter.addFragment(new/* PremiumLaundryFragment*/WashAndIronFragment(), "Premium Laundry");
         adapter.addFragment(new /*DryCleanerFragment*/WashAndIronFragment(), "Dey Cleaner");
 
-       // adapter.addFragment(new FifthFragment(), "Bakets");
+        // adapter.addFragment(new FifthFragment(), "Bakets");
         viewPager.setAdapter(adapter);
     }
 
@@ -121,7 +142,7 @@ mycartScreen();
 //        }
 //        overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
     }
-    }
+}
 
 class ViewPagerAdapter extends FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
@@ -150,7 +171,6 @@ class ViewPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mFragmentTitleList.get(position);
     }
-
 
 
 }

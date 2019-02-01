@@ -55,7 +55,7 @@ public class DryCleanerActivity extends AppCompatActivity
         // ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         setSupportActionBar(toolbar);
         inIt();
-        goServices();
+//        goServices();
         category();
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -184,16 +184,16 @@ public class DryCleanerActivity extends AppCompatActivity
 
     }
 
-    private void goServices() {
-        press_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(DryCleanerActivity.this, ServicesActivity.class);
-                startActivity(i);
-            }
-        });
-
-    }
+//    private void goServices() {
+//        press_image.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(DryCleanerActivity.this, ServicesActivity.class);
+//                startActivity(i);
+//            }
+//        });
+//
+//    }
 
     //    @Override
 //    public void onClick(View v) {
@@ -214,6 +214,7 @@ public class DryCleanerActivity extends AppCompatActivity
     @Override
     public void onItemClick(int position) {
         Intent i = new Intent(DryCleanerActivity.this, ServicesActivity.class);
+        i.putExtra("pos", position);
         startActivity(i);
     }
 }
