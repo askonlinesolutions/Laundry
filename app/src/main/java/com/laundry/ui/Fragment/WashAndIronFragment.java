@@ -22,9 +22,10 @@ import java.util.Arrays;
 
 public class WashAndIronFragment extends Fragment {
     RecyclerView rv_cart;
- Button schudle_btn;
+    Button schudle_btn;
     ArrayList name = new ArrayList<>(Arrays.asList("Riyadh,Sulimania Dabbab", "Riyadh,Sulimania Dabbab "));
-//    @Override
+
+    //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
 //
@@ -39,34 +40,34 @@ public class WashAndIronFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        schudle_btn=getView().findViewById(R.id.schudle_btn);
+        schudle_btn = getView().findViewById(R.id.schedule_pickup_tv);
         doLogin();
         init();
     }
-
 
 
     private void init() {
         rv_cart = getView().findViewById(R.id.cloth_name);
 //        rv_cart.setLayoutManager(new LinearLayoutManager(getContext()));
 //        rv_cart.setAdapter(new MenuAdapter(getContext(), mAllMenuList, this));
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,
                 false);
         rv_cart.setLayoutManager(linearLayoutManager);
-        MaunAdapter maunAdapter = new MaunAdapter(getContext(),this);
+        MaunAdapter maunAdapter = new MaunAdapter(getContext(), this);
         rv_cart.setAdapter(maunAdapter);
 
 
     }
-    private void doLogin() {
-schudle_btn.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        Intent i = new Intent(getActivity(), PickupActivity.class);
-        startActivity(i);
 
-    }
-});
+    private void doLogin() {
+        schudle_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), PickupActivity.class);
+                startActivity(i);
+
+            }
+        });
 
     }
 

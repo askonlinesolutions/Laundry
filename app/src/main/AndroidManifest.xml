@@ -39,23 +39,19 @@
         <activity android:name=".ui.myOrder.MyOrderActivity" />
         <activity android:name=".ui.MyPayment.PaymentActivity" />
 
-
-        <!--<meta-data-->
-        <!--android:name="com.google.android.gms.version"-->
-        <!--&lt;!&ndash;android:value="@integer/google_play_services_version" />&ndash;&gt;-->
-        <!--<meta-data-->
-        <!--android:name="com.google.android.geo.API_KEY"-->
-        <!--android:value="AIzaSyBSF8kl1jJw4acWobsQH6sfcZsRQj9x0wQ " />-->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.gms.version" -->
+        <!-- &lt;!&ndash;android:value="@integer/google_play_services_version" />&ndash;&gt; -->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.geo.API_KEY" -->
+        <!-- android:value="AIzaSyBSF8kl1jJw4acWobsQH6sfcZsRQj9x0wQ " /> -->
 
         <meta-data
             android:name="com.google.android.gms.version"
-
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBSF8kl1jJw4acWobsQH6sfcZsRQj9x0wQ" />
-
 
         <activity android:name=".ui.forgotPassword.ForgotPasswordActivity" />
         <activity android:name=".ui.changePassword.ChangePaawordActivity" />
@@ -73,7 +69,8 @@
         <activity android:name=".ui.manageAddress.ManageAddressActivity" />
         <activity android:name=".ui.FAQ.FAQActivity" />
         <activity android:name=".ui.Contact.ContactActivity" />
-        <activity android:name=".ui.Pick_up.PickupActivity"></activity>
+        <activity android:name=".ui.Pick_up.PickupActivity" />
+        <activity android:name=".ui.AddNewAddress.AddNewAddressActivity"></activity>
     </application>
 
 </manifest>

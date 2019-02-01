@@ -122,14 +122,16 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new WashAndIronFragment(), "Wash&Fold");
-        adapter.addFragment(new /*WashAndFoldFragment*/WashAndIronFragment(), "Wash&Iron");
-        adapter.addFragment(new/* PremiumLaundryFragment*/WashAndIronFragment(), "Premium Laundry");
-        adapter.addFragment(new /*DryCleanerFragment*/WashAndIronFragment(), "Dey Cleaner");
 
-        // adapter.addFragment(new FifthFragment(), "Bakets");
-        viewPager.setAdapter(adapter);
-    }
+            adapter.addFragment(new WashAndIronFragment(), "Wash&Fold");
+            adapter.addFragment(new /*WashAndFoldFragment*/WashAndIronFragment(), "Wash&Iron");
+            adapter.addFragment(new/* PremiumLaundryFragment*/WashAndIronFragment(), "Premium Laundry");
+            adapter.addFragment(new /*DryCleanerFragment*/WashAndIronFragment(), "Dey Cleaner");
+
+            // adapter.addFragment(new FifthFragment(), "Bakets");
+            viewPager.setAdapter(adapter);
+        }
+
 
     @Override
     public void getDetails(int pos) {
