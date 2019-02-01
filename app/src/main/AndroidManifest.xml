@@ -69,8 +69,9 @@
         <activity android:name=".ui.manageAddress.ManageAddressActivity" />
         <activity android:name=".ui.FAQ.FAQActivity" />
         <activity android:name=".ui.Contact.ContactActivity" />
+        <activity android:name=".ui.Pick_up.PickupActivity" />
+        <activity android:name=".ui.AddNewAddress.AddNewAddressActivity"></activity>
         <activity android:name=".ui.currentLocation.CurrentLocationMapActivity"></activity>
-        <activity android:name=".ui.Pick_up.PickupActivity"></activity>
     </application>
 
 </manifest>

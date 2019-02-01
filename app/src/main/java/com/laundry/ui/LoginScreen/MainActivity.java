@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         activity_login_btn = findViewById(R.id.activity_login_btn);
         radio = findViewById(R.id.radio);
         init();
+        backpress();
         termcondition();
         forgot_password.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +75,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
+    }
+
+    private void backpress() {
+        login_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void termcondition() {
@@ -91,7 +101,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         validation();
         activity_login_btn.setOnClickListener(this);
         activity_sign_btn.setOnClickListener(this);
-        login_title.setOnClickListener(this);
         eye_image.setOnClickListener(this);
 
     }
@@ -139,77 +148,70 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.activity_login_btn:
-
-                String emailId = activity_login_edt_email.getText().toString().trim();
-                if (!isValidEmailId(emailId)) {
-                    activity_login_edt_email.setError("Not a valid email address!");
+                if (activity_login_edt_email.length() == 0 || activity_login_edt_password.length() == 0) {
+                    Toast.makeText(this, "field can not blank !", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                String password1 = activity_login_edt_password.getText().toString();
-                if (!validatePassword(password1)) {
 
+                if (isValidEmailId(activity_login_edt_email.getText().toString()) == false) {
+                    activity_login_edt_email.setError("Not a valid email!");
+                    Toast.makeText(this, "Please enter valid email id !", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-//                       activity_login_edt_email.setErrorEnabled(false);
+                if (validatePassword(activity_login_edt_password.getText().toString()) == false) {
                     activity_login_edt_password.setError("Not a valid password!");
-                    doLogin();
+                    Toast.makeText(this, "Please enter valid password !", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                break;
 
-//
+                doLogin();
+
             case R.id.activity_sign_btn:
                 if (name.length() == 0 || email.length() == 0 || activity_password.length() == 0 ||
                         confrim_password.length() == 0 || checkbox.length() == 0) {
                     Toast.makeText(this, "field can not blank !", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                String validateFirstName = name.getText().toString();
-
-                if (!validateFirstName(validateFirstName)) {
+                if (validateFirstName(name.getText().toString()) == false) {
+                    name.setError("Not a valid name!");
+                    Toast.makeText(this, "Please enter valid name !", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (isValidEmailId(email.getText().toString()) == false) {
+                    email.setError("Not a valid email!");
                     Toast.makeText(this, "Please enter valid email id !", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                String passwordLogin = activity_password.getText().toString();
-                if (!validatePassword(passwordLogin)) {
 
 
-//                    activity_login_edt_email.setE
+                if (validatePassword(activity_password.getText().toString()) == false) {
                     activity_password.setError("Not a valid password!");
-                    return;
-
-                }
-
-                String confirm_passwordLogin = confrim_password.getText().toString();
-                if (!validatePassword(confirm_passwordLogin)) {
-
-
-                    // activity_login_edt_email.setErrorEnabled(false);
-                    confrim_password.setError("Not a valid password!");
+                    Toast.makeText(this, "Please enter valid password !", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (!confirm_passwordLogin.equals(passwordLogin)) {
-                    Toast.makeText(MainActivity.this, "Password do not match", Toast.LENGTH_SHORT).show();
+
+                if (validatePassword(confrim_password.getText().toString()) == false) {
+                    confrim_password.setError("Not a valid confirm password!");
+                    Toast.makeText(this, "Please enter valid password !", Toast.LENGTH_SHORT).show();
                     return;
-
-
                 }
-
-                if (checkbox.isChecked())
+                if (!activity_password.getText().toString().equals(confrim_password.getText().toString())) {
+                    Toast.makeText(this, "password mismatch !", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!checkbox.isChecked())
 
                 {
+                    Toast.makeText(this, "Term and cndition !", Toast.LENGTH_SHORT).show();
                     return;
-//                } else {
-//                    Toast.makeText(MainActivity.this, "condition", Toast.LENGTH_SHORT).show();
-                } else {
-//                    Toast.makeText(MainActivity.this, "Password  match", Toast.LENGTH_SHORT).show();
-                    doLogin();
+//
                 }
+                doLogin();
 
-                break;
 
-            case R.id.login_title:
-                onBackPressed();
+//            case R.id.login_title:
+//                onBackPressed();
 
         }
 
@@ -231,6 +233,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            //activity_login_edt_password.setErrorEnabled(false);
 //            doLogin();
 //        }
+
+
+
+
+
+
+//                String confirm_passwordLogin = confrim_password.getText().toString();
+//                if (!validatePassword(confirm_passwordLogin)) {
+//
+//
+//                    // activity_login_edt_email.setErrorEnabled(false);
+//                    confrim_password.setError("Not a valid password!");
+//                    return;
+//                }
     }
 
     private void doLogin() {

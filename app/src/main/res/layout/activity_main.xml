@@ -160,7 +160,7 @@
                 android:text="Forgot Passward ?"
                 android:textSize="12sp" />
 
-            <TextView
+            <com.laundry.CustomTextRegular.CustomTextRegular
                 android:id="@+id/activity_login_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp45"

@@ -6,11 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.laundry.R;
 import com.laundry.databinding.ActivityManageAddressBinding;
 import com.laundry.ui.currentLocation.CurrentLocationMapActivity;
+import com.laundry.ui.AddNewAddress.AddNewAddressActivity;
+import com.laundry.ui.DryCleaner.DryCleanerActivity;
+import com.laundry.ui.LoginScreen.MainActivity;
 import com.laundry.ui.offer.OfferrAdapter;
 import com.laundry.ui.profile.ProfileActivity;
 
@@ -18,14 +22,17 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
 
     private ActivityManageAddressBinding binding;
     private ManageAddressAdapter addressAdapter;
+    TextView add_new_address_tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_manage_address);
-
+  dologin();
         init();
     }
+
+
 
     private void init() {
 
@@ -54,5 +61,14 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
         } else {
             Toast.makeText(getApplicationContext(), type, Toast.LENGTH_SHORT).show();
         }
+    }
+    private void dologin() {
+       binding.addNewAddressTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ManageAddressActivity.this, AddNewAddressActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

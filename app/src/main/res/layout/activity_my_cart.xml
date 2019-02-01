@@ -166,7 +166,7 @@
                             android:textColor="@color/bg_color_2"
                             android:textSize="15dp" />
 
-                        <TextView
+                        <com.laundry.CustomTextRegular.CustomTextRegular
                             android:id="@+id/activity_text_discount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
                             android:visibility="gone" />
                     </LinearLayout>
 
-                    <TextView
+                    <com.laundry.CustomTextRegular.CustomTextRegular
                         android:id="@+id/text_money"
                         android:layout_width="wrap_content"
                         android:layout_height="40sp"
@@ -233,7 +233,7 @@
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp">
 
-                    <TextView
+                    <com.laundry.CustomTextRegular.CustomTextRegular
                         android:layout_width="wrap_content"
                         android:layout_height="40sp"
                         android:layout_alignParentLeft="true"
