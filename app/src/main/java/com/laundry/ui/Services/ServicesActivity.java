@@ -15,10 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.laundry.R;
-import com.laundry.ui.DryCleaner.DryCleanerActivity;
-import com.laundry.ui.Fragment.DryCleanerFragment;
-import com.laundry.ui.Fragment.PremiumLaundryFragment;
-import com.laundry.ui.Fragment.WashAndFoldFragment;
 import com.laundry.ui.Fragment.WashAndIronFragment;
 import com.laundry.ui.MyCart.MyCartActivity;
 
@@ -34,17 +30,18 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
     TextView login_title;
     RecyclerView serviceRecycler;
     ImageView img_my_cart;
-    ArrayList <String>name = new ArrayList<>(Arrays.asList("Schuder","MEN" ,"Woman", "Child", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder "));
+    ArrayList<String> name = new ArrayList<>(Arrays.asList("Schuder", "MEN", "Woman", "Child", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder "));
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services);
 
-        serviceRecycler=findViewById(R.id.serviceRecycler);
-        login_title=findViewById(R.id.login_title);
-        img_my_cart=findViewById(R.id.img_my_cart);
-       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-mycartScreen();
+        serviceRecycler = findViewById(R.id.serviceRecycler);
+        login_title = findViewById(R.id.login_title);
+        img_my_cart = findViewById(R.id.img_my_cart);
+        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mycartScreen();
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 
@@ -77,10 +74,10 @@ mycartScreen();
     }
 
     private void setHorizontalRecycler() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL,
                 false);
         serviceRecycler.setLayoutManager(linearLayoutManager);
-        ServicesAdapter servicesAdapter = new ServicesAdapter(this,this/*this*/,name);
+        ServicesAdapter servicesAdapter = new ServicesAdapter(this, this/*this*/, name);
         serviceRecycler.setAdapter(servicesAdapter);
 
     }
@@ -106,7 +103,7 @@ mycartScreen();
         adapter.addFragment(new/* PremiumLaundryFragment*/WashAndIronFragment(), "Premium Laundry");
         adapter.addFragment(new /*DryCleanerFragment*/WashAndIronFragment(), "Dey Cleaner");
 
-       // adapter.addFragment(new FifthFragment(), "Bakets");
+        // adapter.addFragment(new FifthFragment(), "Bakets");
         viewPager.setAdapter(adapter);
     }
 
@@ -121,7 +118,7 @@ mycartScreen();
 //        }
 //        overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
     }
-    }
+}
 
 class ViewPagerAdapter extends FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
@@ -150,7 +147,6 @@ class ViewPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mFragmentTitleList.get(position);
     }
-
 
 
 }

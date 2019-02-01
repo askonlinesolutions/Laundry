@@ -1,6 +1,10 @@
 package com.laundry.ui.manageAddress;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,13 +15,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.laundry.R;
+import com.laundry.ui.MyPayment.PaymentMethodActivity;
+import com.laundry.ui.Thanku.ThankuActivity;
 import com.laundry.ui.offer.OfferrAdapter;
 
 public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdapter.ViewHolder> {
 
 
     boolean flag = true;
+    TextView cancel_btn,playnowbtn;
+    ImageView btncross;
     private Context context;
+    LinearLayout main_layout;
     private OnBtnClickListener onBtnClickListener;
 
     ManageAddressAdapter(Context context, OnBtnClickListener onBtnClickListener) {
@@ -49,7 +58,7 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView editBtn, deleteBtn;
-        LinearLayout main_layout;
+
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -61,10 +70,13 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
                 @Override
                 public void onClick(View view) {
 //                    onBtnClickListener.onBtnClick(getAdapterPosition(), "DELETE");
-
-                    main_layout.removeAllViews();
-                    notifyItemRemoved(getAdapterPosition());
+                       showdialog(getAdapterPosition());
+//                    main_layout.removeAllViews();
+//                    notifyItemRemoved(getAdapterPosition());
                 }
+
+
+
             });
 
             editBtn.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +91,43 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
 
     interface OnBtnClickListener {
         void onBtnClick(int Pos, String type);
+
+
+
     }
+    private void showdialog(final int position) {
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.custom_delete_dialog);
+        dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        btncross = (ImageView) dialog.findViewById(R.id.close_img);
+        cancel_btn=dialog.findViewById(R.id.cancel_btn);
+        playnowbtn=dialog.findViewById(R.id.playnowbtn);
+        btncross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                dialog.dismiss();
+            }
+        });
+        cancel_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        playnowbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                main_layout.removeAllViews();
+                    notifyItemRemoved(position);
+                    dialog.dismiss();
+//                Intent i = new Intent(PaymentMethodActivity.this, ThankuActivity.class);
+//                startActivity(i);
+            }
+        });
+
+
+    }
+
 
 }

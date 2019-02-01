@@ -51,9 +51,10 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity android:name=".ui.settings.SettingsActivity" />
         <activity android:name=".ui.offer.OfferActivity" />
-        <activity android:name=".ui.manageAddress.ManageAddressActivity"></activity>
+        <activity android:name=".ui.manageAddress.ManageAddressActivity" />
         <activity android:name=".ui.FAQ.FAQActivity" />
-        <activity android:name=".ui.Contact.ContactActivity"></activity>
+        <activity android:name=".ui.Contact.ContactActivity" />
+        <activity android:name=".ui.Pick_up.PickupActivity"></activity>
     </application>
 
 </manifest>
