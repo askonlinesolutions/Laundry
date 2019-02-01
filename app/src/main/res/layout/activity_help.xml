@@ -27,15 +27,14 @@
 
             <com.laundry.CustomTextRegular.CustomTextRegular
                 android:id="@+id/login_title"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="center"
-                android:layout_weight="1"
                 android:gravity="center"
-                android:paddingLeft="@dimen/dp10"
-                android:text="Help"
+                android:layout_marginRight="@dimen/dp15"
+                android:text="@string/help"
                 android:textColor="@color/white_color"
-                android:textSize="@dimen/dp15"
+                android:textSize="@dimen/text_15"
                 android:textStyle="bold" />
 
 

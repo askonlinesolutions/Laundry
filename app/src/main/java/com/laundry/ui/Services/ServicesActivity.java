@@ -10,11 +10,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.laundry.R;
+import com.laundry.ui.DryCleaner.DryCleanerActivity;
+import com.laundry.ui.Fragment.DryCleanerFragment;
+import com.laundry.ui.Fragment.PremiumLaundryFragment;
+import com.laundry.ui.Fragment.WashAndFoldFragment;
 import com.laundry.ui.Fragment.WashAndIronFragment;
 import com.laundry.ui.MyCart.MyCartActivity;
 
@@ -30,6 +35,7 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
     TextView login_title;
     RecyclerView serviceRecycler;
     ImageView img_my_cart;
+    int pos;
     ArrayList<String> name = new ArrayList<>(Arrays.asList("Schuder", "MEN", "Woman", "Child", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder "));
 
     @Override
@@ -37,19 +43,37 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services);
 
+        init();
+
+    }
+
+    private void init() {
+
         serviceRecycler = findViewById(R.id.serviceRecycler);
         login_title = findViewById(R.id.login_title);
         img_my_cart = findViewById(R.id.img_my_cart);
         // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mycartScreen();
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
-
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+        getPosition();
         setupTabIcons();
         setHorizontalRecycler();
         backpress();
+        mycartScreen();
+    }
+
+
+    private void getPosition() {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            pos = extras.getInt("pos");
+        }
+
+        viewPager.setCurrentItem(pos);
+
+
     }
 
     private void mycartScreen() {

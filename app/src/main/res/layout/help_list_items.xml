@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,29 +13,87 @@
             android:layout_marginLeft="@dimen/dp10"
             android:layout_marginTop="@dimen/dp5"
             android:layout_marginRight="@dimen/dp10"
-            android:orientation="horizontal"
-            android:padding="@dimen/dp10">
+            android:orientation="horizontal">
 
-            <at.blogc.android.views.ExpandableTextView
-                android:id="@+id/tvExpand"
+
+            <com.laundry.CustomTextRegular.Regular
+                android:id="@+id/tv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:padding="@dimen/dp8"
                 android:singleLine="true"
-                android:text="item has not picked hjsdhfdhs jkdjhjsdhf kjsajdaskjfnh skajfdhsafk ksjfk "
+                android:text="item has not picked  "
+                android:textColor="@color/black"
                 android:textSize="@dimen/text_15" />
+
 
             <ImageView
                 android:id="@+id/arrow_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/dp10"
-                android:src="@drawable/ic_right_arrow" />
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/dp5"
+                android:src="@drawable/ic_arrow_down_black" />
 
         </LinearLayout>
 
+        <at.blogc.android.views.ExpandableTextView
+            android:id="@+id/tvExpand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="item has not pickedhsa item hadhsdj"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/text11"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@color/bg_color_2" />
+
 
     </LinearLayout>
+
+    <!--
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp10"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp10">
+
+                <at.blogc.android.views.ExpandableTextView
+                    android:id="@+id/tvExpand"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="item has not picked hjsdhfdhs jkdjhjsdhf kjsajdaskjfnh skajfdhsafk ksjfk "
+                    android:textSize="@dimen/text_15" />
+
+                <ImageView
+                    android:id="@+id/arrow_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp10"
+                    android:src="@drawable/ic_right_arrow" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    -->
 
 </layout>

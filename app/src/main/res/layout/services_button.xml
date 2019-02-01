@@ -6,13 +6,12 @@
 
     <LinearLayout
         android:id="@+id/services"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/dp100"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_marginTop="10dp"
-
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/sky_blue_hollow_background"
         android:gravity="center"
         android:orientation="horizontal"
@@ -20,8 +19,9 @@
 
         <ImageView
             android:id="@+id/img_shirt"
-            android:layout_width="10dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp2"
             android:padding="1dp"
             android:src="@drawable/ic_tshirt" />
 
@@ -29,10 +29,10 @@
             android:id="@+id/textservices"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dp2"
             android:text="Scheduler "
             android:textColor="@color/sky_blue"
-            android:textSize="9sp" />
+            android:textSize="@dimen/text_9" />
 
 
     </LinearLayout>

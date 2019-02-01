@@ -15,12 +15,12 @@ import com.laundry.ui.Services.ServicesActivity;
 
 class SelectServiceAdapter extends RecyclerView.Adapter<SelectServiceAdapter.Viewholder>  {
 
-    OnItemClickLisner onItemClickLisner;
+    private OnItemClickLisner onItemClickLisner;
 
-    Context context;
+    private Context context;
 
 
-    public SelectServiceAdapter(Context context,OnItemClickLisner onItemClickLisner) {
+    SelectServiceAdapter(Context context,OnItemClickLisner onItemClickLisner) {
         this.context =context;
         this.onItemClickLisner=onItemClickLisner;
     }
@@ -51,14 +51,6 @@ class SelectServiceAdapter extends RecyclerView.Adapter<SelectServiceAdapter.Vie
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             text_wash =itemView.findViewById(R.id.text_wash);
-//            press_image=itemView.findViewById(R.id.press_image);
-//            press_image.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-////                    Intent i = new Intent(SelectServiceAdapter.this, ServicesActivity.class);
-////                    startActivity(i);
-//                }
-//            });
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

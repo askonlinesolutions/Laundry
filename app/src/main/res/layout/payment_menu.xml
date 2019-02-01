@@ -14,19 +14,19 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="@dimen/dp70"
-                android:layout_height="@dimen/dp70"
+                android:layout_width="@dimen/dp60"
+                android:layout_height="@dimen/dp60"
                 android:padding="10dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_visa" />
 
             <com.laundry.CustomTextRegular.CustomTextRegular
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:text="456=XXXXXXXX=2344"
-                android:textSize="@dimen/dp15" />
+                android:textSize="@dimen/text_12" />
 
 
             <com.laundry.CustomTextRegular.CustomTextRegular
@@ -40,7 +40,7 @@
                 android:padding="@dimen/dp6"
                 android:text="Delete"
                 android:textColor="@android:color/white"
-                android:textSize="15sp" />
+                android:textSize="@dimen/text_12" />
         </LinearLayout>
 
     </LinearLayout>
