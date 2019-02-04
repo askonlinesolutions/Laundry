@@ -74,23 +74,6 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
     private ActivityCurrentLocationMapBinding binding;
     boolean isVisible = true;
 
-    /* GPSTracker gps;
-     private static String TAG = "MAP LOCATION";
-
-     private static final int FINE_LOCATION_PERMISSION_REQUEST = 1;
-     private static final int CONNECTION_RESOLUTION_REQUEST = 2;
-     String address;
-     GoogleMap mGoogleMap;
-
-     SupportMapFragment mapFrag;
-     LocationRequest mLocationRequest;
-     GoogleApiClient mGoogleApiClient;
-     Location mLastLocation;
-     double latitute, longitute;
-     Marker mCurrLocationMarker;
-     protected LocationManager locationManager;
-     protected LocationListener locationListener;
- */
     double latitute, longitute;
     GoogleMap mGoogleMap;
     SupportMapFragment mapFrag;
@@ -101,8 +84,6 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
     String address;
 
     private Location currentLocation;
-    private FusedLocationProviderClient fusedLocationProviderClient;
-    private static final int LOCATION_REQUEST_CODE = 101;
 
 
     @Override
@@ -110,16 +91,7 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_current_location_map);
 
-       /* fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-        if (ActivityCompat.checkSelfPermission(CurrentLocationMapActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(CurrentLocationMapActivity.this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
-            return;
-        }
-        fetchLastLocation();*/
-//        getSupportActionBar().setTitle("Map Location Activity");
-
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
         mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFrag.getMapAsync(this);
 
@@ -130,17 +102,11 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
 
     private void init() {
 
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                .findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
 
-//        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
         binding.mapBackIv.setOnClickListener(this);
         binding.topLocationEt.setOnClickListener(this);
         binding.confirmBtn.setOnClickListener(this);
-//        settingMap();
-//        getGpsLocation();
+
         setMap();
     }
 
@@ -161,7 +127,10 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
                 onBackPressed();
                 break;
             case R.id.confirm_btn:
-                startActivity(new Intent(CurrentLocationMapActivity.this, PickupActivity.class));
+                Intent intent=new Intent(CurrentLocationMapActivity.this, PickupActivity.class);
+                intent.putExtra("longitute", longitute);
+                intent.putExtra("longitute", longitute);
+                startActivity(intent);
                 break;
         }
     }
