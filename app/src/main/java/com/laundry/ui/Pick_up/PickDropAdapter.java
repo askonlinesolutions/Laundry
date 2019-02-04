@@ -3,12 +3,14 @@ package com.laundry.ui.Pick_up;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.location.Address;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,6 +20,7 @@ import com.laundry.R;
 import com.laundry.clickListener.OnItemClickLisner;
 
 import java.util.Calendar;
+import java.util.List;
 
 
 class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
@@ -26,10 +29,13 @@ class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
     ImageView date, time;
     static final int DATE_DIALOG_ID = 0;
     private OnItemClickLisner onItemClickLisner;
-    private int yy, mm, dd,mHour,mMinute;
-    public PickDropAdapter(Context context,OnItemClickLisner onItemClickLisner) {
+    List<Address> listAddresses;
+    private int yy, mm, dd, mHour, mMinute;
+
+    public PickDropAdapter(Context context, List<Address> listAddresses, OnItemClickLisner onItemClickLisner) {
         this.context = context;
-        this.onItemClickLisner=onItemClickLisner;
+        this.listAddresses = listAddresses;
+        this.onItemClickLisner = onItemClickLisner;
     }
 
     @NonNull
@@ -44,17 +50,23 @@ class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PickDropAdapter.ViewHolder viewHolder, int i) {
 
+        if (listAddresses != null) {
+            viewHolder.location_et.setText(listAddresses.get(i).getAddressLine(i));
+        }
+
+
     }
 
 
     @Override
     public int getItemCount() {
-        return 2;
+        return listAddresses.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView date, time;
-        TextView tvDisplayDate,tvDisplaytime;
+        EditText location_et;
+        TextView tvDisplayDate, tvDisplaytime;
         LinearLayout setCurrentLocation;
         static final int DATE_DIALOG_ID = 0;
 
@@ -63,9 +75,10 @@ class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
             super(itemView);
             date = itemView.findViewById(R.id.datePicker);
             time = itemView.findViewById(R.id.timePicker);
-            tvDisplaytime=itemView.findViewById(R.id.tvDisplaytime);
+            location_et = itemView.findViewById(R.id.location_et);
+            tvDisplaytime = itemView.findViewById(R.id.tvDisplaytime);
             tvDisplayDate = itemView.findViewById(R.id.tvDisplayDate);
-            setCurrentLocation=itemView.findViewById(R.id.use_current_location);
+            setCurrentLocation = itemView.findViewById(R.id.use_current_location);
 
             setCurrentLocation.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -77,7 +90,6 @@ class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
             gotodate();
             gototime();
         }
-
 
 
         private void gotodate() {
@@ -108,6 +120,7 @@ class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
 
             });
         }
+
         private void gototime() {
             time.setOnClickListener(new View.OnClickListener() {
                 @Override

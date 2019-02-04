@@ -129,7 +129,7 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
             case R.id.confirm_btn:
                 Intent intent=new Intent(CurrentLocationMapActivity.this, PickupActivity.class);
                 intent.putExtra("longitute", longitute);
-                intent.putExtra("longitute", longitute);
+                intent.putExtra("latitute", latitute);
                 startActivity(intent);
                 break;
         }
