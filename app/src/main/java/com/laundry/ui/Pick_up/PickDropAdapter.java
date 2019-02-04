@@ -10,10 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.laundry.R;
+import com.laundry.clickListener.OnItemClickLisner;
 
 import java.util.Calendar;
 
@@ -23,9 +25,11 @@ class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
     Context context;
     ImageView date, time;
     static final int DATE_DIALOG_ID = 0;
+    private OnItemClickLisner onItemClickLisner;
     private int yy, mm, dd,mHour,mMinute;
-    public PickDropAdapter(Context context) {
+    public PickDropAdapter(Context context,OnItemClickLisner onItemClickLisner) {
         this.context = context;
+        this.onItemClickLisner=onItemClickLisner;
     }
 
     @NonNull
@@ -51,6 +55,7 @@ class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView date, time;
         TextView tvDisplayDate,tvDisplaytime;
+        LinearLayout setCurrentLocation;
         static final int DATE_DIALOG_ID = 0;
 
         public ViewHolder(@NonNull View itemView) {
@@ -60,6 +65,15 @@ class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
             time = itemView.findViewById(R.id.timePicker);
             tvDisplaytime=itemView.findViewById(R.id.tvDisplaytime);
             tvDisplayDate = itemView.findViewById(R.id.tvDisplayDate);
+            setCurrentLocation=itemView.findViewById(R.id.use_current_location);
+
+            setCurrentLocation.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onItemClickLisner.onItemClick(getAdapterPosition());
+                }
+            });
+
             gotodate();
             gototime();
         }

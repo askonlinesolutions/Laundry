@@ -23,7 +23,7 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
 
 
     boolean flag = true;
-    TextView cancel_btn,playnowbtn;
+    TextView cancel_btn, playnowbtn;
     ImageView btncross;
     private Context context;
     LinearLayout main_layout;
@@ -64,17 +64,16 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
             super(itemView);
             editBtn = itemView.findViewById(R.id.edit_btn_tv);
             deleteBtn = itemView.findViewById(R.id.delete_btn_tv);
-            main_layout=itemView.findViewById(R.id.main_layout);
+            main_layout = itemView.findViewById(R.id.main_layout);
 
             deleteBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 //                    onBtnClickListener.onBtnClick(getAdapterPosition(), "DELETE");
-                       showdialog(getAdapterPosition());
+                    showdialog(getAdapterPosition());
 //                    main_layout.removeAllViews();
 //                    notifyItemRemoved(getAdapterPosition());
                 }
-
 
 
             });
@@ -93,16 +92,16 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
         void onBtnClick(int Pos, String type);
 
 
-
     }
+
     private void showdialog(final int position) {
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.custom_delete_dialog);
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         btncross = (ImageView) dialog.findViewById(R.id.close_img);
-        cancel_btn=dialog.findViewById(R.id.cancel_btn);
-        playnowbtn=dialog.findViewById(R.id.playnowbtn);
+        cancel_btn = dialog.findViewById(R.id.cancel_btn);
+        playnowbtn = dialog.findViewById(R.id.playnowbtn);
         btncross.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -119,8 +118,8 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
             @Override
             public void onClick(View v) {
                 main_layout.removeAllViews();
-                    notifyItemRemoved(position);
-                    dialog.dismiss();
+                notifyItemRemoved(position);
+                dialog.dismiss();
 //                Intent i = new Intent(PaymentMethodActivity.this, ThankuActivity.class);
 //                startActivity(i);
             }

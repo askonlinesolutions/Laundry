@@ -11,10 +11,12 @@ import android.widget.Toast;
 
 import com.laundry.R;
 import com.laundry.databinding.ActivityManageAddressBinding;
+import com.laundry.ui.currentLocation.CurrentLocationMapActivity;
 import com.laundry.ui.AddNewAddress.AddNewAddressActivity;
 import com.laundry.ui.DryCleaner.DryCleanerActivity;
 import com.laundry.ui.LoginScreen.MainActivity;
 import com.laundry.ui.offer.OfferrAdapter;
+import com.laundry.ui.profile.ProfileActivity;
 
 public class ManageAddressActivity extends AppCompatActivity implements View.OnClickListener, ManageAddressAdapter.OnBtnClickListener {
 
@@ -26,10 +28,9 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_manage_address);
-  dologin();
+        dologin();
         init();
     }
-
 
 
     private void init() {
@@ -54,13 +55,15 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onBtnClick(int Pos, String type) {
         if (type.equals("EDIT")) {
-            Toast.makeText(getApplicationContext(), type, Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(ManageAddressActivity.this, CurrentLocationMapActivity.class));
+            this.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
         } else {
             Toast.makeText(getApplicationContext(), type, Toast.LENGTH_SHORT).show();
         }
     }
+
     private void dologin() {
-       binding.addNewAddressTv.setOnClickListener(new View.OnClickListener() {
+        binding.addNewAddressTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ManageAddressActivity.this, AddNewAddressActivity.class);
