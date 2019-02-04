@@ -31,8 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="center"
-                android:gravity="center"
                 android:layout_marginRight="@dimen/dp15"
+                android:gravity="center"
                 android:text="@string/help"
                 android:textColor="@color/white_color"
                 android:textSize="@dimen/text_15"
@@ -55,7 +55,7 @@
                 android:background="@color/white"
                 android:padding="@dimen/dp15"
                 android:text="HELP WITH OTHER QUERIES"
-                android:textSize="@dimen/dp15"
+                android:textSize="@dimen/text_13"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>
@@ -68,7 +68,6 @@
 
 
         </android.support.v7.widget.RecyclerView>
-
 
 
     </LinearLayout>

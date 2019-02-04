@@ -15,6 +15,8 @@ public class ContactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
+
+
         login_title=findViewById(R.id.login_title);
         login_title.setOnClickListener(new View.OnClickListener() {
             @Override

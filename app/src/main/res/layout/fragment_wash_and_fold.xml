@@ -22,9 +22,11 @@
         android:layout_margin="10dp"
         android:layout_marginLeft="5dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/sky_blue"
+        android:textSize="@dimen/text_14"
+        android:background="@color/bg_color_2"
         android:padding="10dp"
         android:text="Scheduler Pickup"
+        android:textAllCaps="false"
         android:textColor="@color/white_color" />
 
 </RelativeLayout>

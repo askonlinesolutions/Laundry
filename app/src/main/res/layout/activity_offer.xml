@@ -31,7 +31,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Offer"
+                android:text="Offers"
                 android:textColor="@color/white_color"
                 android:textSize="@dimen/text_15"
                 android:textStyle="bold" />
@@ -41,8 +41,8 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/offer_rv"
             android:layout_width="match_parent"
-            android:layout_marginLeft="@dimen/dp10"
-            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:layout_marginRight="@dimen/dp5"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp5"
             >

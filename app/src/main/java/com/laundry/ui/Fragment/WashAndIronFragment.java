@@ -20,16 +20,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class WashAndIronFragment extends Fragment {
+public class WashAndIronFragment extends Fragment implements MaunAdapter.Interface_AdapterMenu {
     RecyclerView rv_cart;
     Button schudle_btn;
     ArrayList name = new ArrayList<>(Arrays.asList("Riyadh,Sulimania Dabbab", "Riyadh,Sulimania Dabbab "));
 
-    //    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,4 +67,8 @@ public class WashAndIronFragment extends Fragment {
     }
 
 
+    @Override
+    public void click_AdapterMenu(int adapterPosition) {
+        schudle_btn.setBackgroundColor(getResources().getColor(R.color.sky_blue));
+    }
 }

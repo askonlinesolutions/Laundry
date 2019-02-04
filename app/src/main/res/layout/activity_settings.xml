@@ -43,7 +43,7 @@
             android:id="@+id/password_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp4"
             android:background="@null"
             android:hint="Password"
             android:imeOptions="actionNext"
@@ -65,7 +65,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp15"
-            android:layout_marginRight="@dimen/dp15">
+            android:layout_marginRight="@dimen/dp15"
+            android:padding="@dimen/dp4">
 
             <com.laundry.CustomTextRegular.CustomTextRegular
                 android:layout_width="wrap_content"
@@ -109,7 +110,8 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/dp15"
                 android:layout_marginRight="@dimen/dp15"
-                android:gravity="center">
+                android:gravity="center"
+                android:padding="@dimen/dp4">
 
                 <ImageView
                     android:id="@+id/iv_list"
@@ -154,7 +156,8 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/dp15"
                 android:layout_marginRight="@dimen/dp15"
-                android:gravity="center">
+                android:gravity="center"
+                android:padding="@dimen/dp4">
 
                 <ImageView
                     android:layout_width="wrap_content"

@@ -113,13 +113,14 @@
                     android:textSize="@dimen/text_size_13" />
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="@dimen/text_size_10"
-                android:layout_marginBottom="5dp"
                 android:layout_marginRight="@dimen/dp15"
+                android:layout_marginBottom="5dp"
                 android:background="@color/view_color" />
 
             <LinearLayout
@@ -266,8 +267,8 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="@dimen/text_size_10"
-                android:layout_marginBottom="5dp"
                 android:layout_marginRight="@dimen/dp15"
+                android:layout_marginBottom="5dp"
                 android:background="@color/view_color" />
 
 
@@ -293,9 +294,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/dp10"
-                    android:text="inProgress"
+                    android:text="In-Progress"
                     android:textColor="@color/back_blue"
-                    android:textSize="@dimen/text_13"
+                    android:textSize="@dimen/text_12"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -543,7 +544,7 @@
                     android:layout_height="@dimen/dp3"
                     android:layout_marginLeft="-4dp"
                     android:layout_marginTop="@dimen/dp7"
-                    android:layout_marginRight="-5dp"
+                    android:layout_marginRight="-7dp"
                     android:background="@color/gray"
 
                     />
@@ -575,7 +576,7 @@
                 <View
                     android:layout_width="@dimen/dp30"
                     android:layout_height="@dimen/dp3"
-                    android:layout_marginLeft="-4dp"
+                    android:layout_marginLeft="-7dp"
                     android:layout_marginTop="@dimen/dp7"
                     android:layout_marginRight="-4dp"
                     android:background="@color/gray"
@@ -606,15 +607,15 @@
 
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="@dimen/text_size_10"
-                android:layout_marginBottom="5dp"
                 android:layout_marginRight="@dimen/dp10"
+                android:layout_marginBottom="5dp"
                 android:background="@color/view_color" />
-
 
 
             <LinearLayout
@@ -624,7 +625,8 @@
                 android:layout_marginTop="@dimen/dp15"
                 android:layout_marginRight="@dimen/dp15"
                 android:layout_marginBottom="5dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="@dimen/dp3">
 
                 <com.laundry.CustomTextRegular.CustomTextRegular
                     android:layout_width="0dp"
@@ -640,21 +642,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/dp10"
-                    android:background="@drawable/background_button_sky"
+                    android:background="@drawable/sky_blue_hollow_background"
                     android:padding="@dimen/text_10"
                     android:text="View Details"
-
-                    android:textColor="@color/white_color"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/text_13" />
                 <!--android:background="@drawable/sky_blue_hollow_background"-->
+                <!--background_button_sky-->
+
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="@dimen/text_size_10"
-                android:layout_marginBottom="5dp"
                 android:layout_marginRight="@dimen/dp15"
+                android:layout_marginBottom="5dp"
                 android:background="@color/view_color" />
 
 
@@ -716,13 +720,14 @@
                         android:textSize="@dimen/text_13" />
 
                 </LinearLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="@dimen/text_size_10"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginRight="@dimen/dp15"
+                    android:layout_marginBottom="5dp"
                     android:background="@color/view_color" />
 
 
@@ -827,13 +832,14 @@
                         android:textSize="@dimen/text_13" />
 
                 </LinearLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="@dimen/text_size_10"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginRight="@dimen/dp15"
+                    android:layout_marginBottom="5dp"
                     android:background="@color/view_color" />
 
 

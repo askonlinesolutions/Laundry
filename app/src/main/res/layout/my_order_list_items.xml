@@ -8,7 +8,6 @@
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginRight="@dimen/dp10"
         android:layout_marginBottom="@dimen/dp10"
-        android:background="@color/lightgray_back_ground"
         android:orientation="vertical">
 
         <android.support.v7.widget.CardView
@@ -74,9 +73,12 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
+
                         <com.laundry.CustomTextRegular.CustomTextRegular
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/ic_expand_button"
+                            android:drawablePadding="@dimen/dp5"
                             android:text="Items"
                             android:textColor="@color/black"
                             android:textSize="@dimen/text_size_13"
@@ -122,6 +124,16 @@
 
                 </LinearLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:background="@color/view_color" />
+
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -152,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="5dp"
+
                     android:orientation="horizontal">
 
                     <com.laundry.CustomTextRegular.CustomTextRegular
@@ -173,12 +185,21 @@
 
                 </LinearLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp8"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp8"
+                    android:background="@color/view_color" />
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="@dimen/dp5"
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
@@ -186,7 +207,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Status"
+                        android:text="Status:"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size_13"
                         android:textStyle="bold" />
@@ -195,12 +216,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/dp10"
-                        android:text="inProgress"
+                        android:text="In-Progress"
                         android:textColor="@color/back_blue"
-                        android:textSize="@dimen/text_13"
+                        android:textSize="@dimen/text_12"
                         android:textStyle="bold" />
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:background="@color/view_color" />
 
 
                 <LinearLayout

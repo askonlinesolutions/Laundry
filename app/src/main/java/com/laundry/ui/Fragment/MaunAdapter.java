@@ -12,10 +12,10 @@ import com.laundry.R;
 
 class MaunAdapter extends RecyclerView.Adapter<MaunAdapter.Viewholder> {
 
-    Context context;
+    private Context context;
     private Interface_AdapterMenu click;
 
-    public MaunAdapter(Context context, WashAndIronFragment washAndIronFragment) {
+    MaunAdapter(Context context, Interface_AdapterMenu click) {
 
         this.context = context;
         this.click = click;
@@ -73,6 +73,7 @@ class MaunAdapter extends RecyclerView.Adapter<MaunAdapter.Viewholder> {
                     start = start + 1;
                     integer_number.setText(""+start);
 //                    displaytext(start);
+                    click.click_AdapterMenu(getAdapterPosition());
                 }
                 
             });
@@ -85,8 +86,8 @@ class MaunAdapter extends RecyclerView.Adapter<MaunAdapter.Viewholder> {
 //        integer_number.setText(""  + start);
     }
 
-    private class Interface_AdapterMenu {
-        public void click_AdapterMenu(int adapterPosition) {
-        }
+interface Interface_AdapterMenu {
+         void click_AdapterMenu(int adapterPosition);
+
     }
 }

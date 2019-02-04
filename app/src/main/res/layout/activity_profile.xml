@@ -205,7 +205,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Manage Address"
-                            android:textColor="@color/black"
+                            android:textColor="@color/textMedium"
                             android:textSize="@dimen/text_size_13"
                             android:textStyle="bold" />
 
@@ -228,13 +228,14 @@
 
                     <com.laundry.CustomTextRegular.CustomTextRegular
                         android:id="@+id/default_tv"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/dp90"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:gravity="center"
                         android:layout_marginLeft="@dimen/dp10"
                         android:layout_marginRight="@dimen/dp5"
                         android:background="@drawable/sky_blue_hollow_background"
-                        android:padding="@dimen/text_10"
+                        android:padding="@dimen/dp8"
                         android:text="Default"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/text_13" />
@@ -274,8 +275,8 @@
                         <com.laundry.CustomTextRegular.CustomTextRegular
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Payment Method"
-                            android:textColor="@color/black"
+                            android:text="Payment method"
+                            android:textColor="@color/textMedium"
                             android:textSize="@dimen/text_size_13"
                             android:textStyle="bold" />
 
@@ -324,7 +325,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Offer"
-                            android:textColor="@color/black"
+                            android:textColor="@color/textMedium"
                             android:textSize="@dimen/text_size_13"
                             android:textStyle="bold" />
 
@@ -376,7 +377,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp15"
                         android:text="Settings"
-                        android:textColor="@color/black"
+                        android:textColor="@color/textMedium"
                         android:textSize="@dimen/text_size_13"
                         android:textStyle="bold" />
 

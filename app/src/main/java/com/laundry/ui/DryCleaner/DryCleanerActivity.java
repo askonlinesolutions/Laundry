@@ -43,9 +43,10 @@ import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
 public class DryCleanerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnItemClickLisner {
     //    LinearLayout press_image;
+//    ActivityDryCleanerBinding binding;
     SpringDotsIndicator dotsIndicator;
     RecyclerView press_image;
-    TextView cancel_btn,playnowbtn;
+    TextView cancel_btn, playnowbtn;
     RelativeLayout schedule_pickup_tv;
     private boolean isVisible = true;
     private boolean isShow = true;
@@ -56,9 +57,9 @@ public class DryCleanerActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dry_cleaner);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        schedule_pickup_tv=findViewById(R.id.schedule_pickup_tv);
+        schedule_pickup_tv = findViewById(R.id.schedule_pickup_tv);
         press_image = findViewById(R.id.press_image);
-      pickup_btn();
+        pickup_btn();
         // ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         setSupportActionBar(toolbar);
         inIt();
@@ -85,17 +86,15 @@ public class DryCleanerActivity extends AppCompatActivity
 
     private void pickup_btn() {
         schedule_pickup_tv.setOnClickListener(new View.OnClickListener() {
-//
+            //
             @Override
             public void onClick(View v) {
-//                if (isVisible)
-//                {
+//                if (isVisible) {
 //                    schedule_pickup_tv.setBackgroundColor(R.drawable.circlur_skybackground);
-//                    isVisible = true;
-//                }
-//                else
+//                    isVisible = false;
+//                } else
 //                    schedule_pickup_tv.setBackgroundColor(R.drawable.circle_grybackground);
-//                isVisible = false;
+//                isVisible = true;
             }
         });
     }
@@ -183,8 +182,8 @@ public class DryCleanerActivity extends AppCompatActivity
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         btncross = (ImageView) dialog.findViewById(R.id.close_img);
-        cancel_btn=dialog.findViewById(R.id.cancel_btn);
-        playnowbtn=dialog.findViewById(R.id.playnowbtn);
+        cancel_btn = dialog.findViewById(R.id.cancel_btn);
+        playnowbtn = dialog.findViewById(R.id.playnowbtn);
         btncross.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -208,23 +207,6 @@ public class DryCleanerActivity extends AppCompatActivity
 
     }
 
-//    private void goServices() {
-//        press_image.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(DryCleanerActivity.this, ServicesActivity.class);
-//                startActivity(i);
-//            }
-//        });
-//
-//    }
-
-    //    @Override
-//    public void onClick(View v) {
-//
-//        Intent i = new Intent(DryCleanerActivity.this, ServicesActivity.class);
-//        startActivity(i);
-//    }
     private void category() {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());

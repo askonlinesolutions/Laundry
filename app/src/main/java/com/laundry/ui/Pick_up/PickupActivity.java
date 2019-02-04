@@ -118,7 +118,6 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
                 Intent intent = new Intent(PickupActivity.this, MyCartActivity.class);
                 startActivity(intent);
                 break;
-
         }
     }
 

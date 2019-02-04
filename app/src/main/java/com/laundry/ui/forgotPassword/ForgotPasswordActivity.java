@@ -1,35 +1,48 @@
 package com.laundry.ui.forgotPassword;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.laundry.R;
+import com.laundry.databinding.ActivityForgotPasswordBinding;
 import com.laundry.ui.LoginScreen.MainActivity;
 
-public class ForgotPasswordActivity extends AppCompatActivity {
-    TextView login_title,forgot_password_btn;
+public class ForgotPasswordActivity extends AppCompatActivity implements View.OnClickListener {
+
+    ActivityForgotPasswordBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password);
-        login_title=findViewById(R.id.login_title);
-        forgot_password_btn=findViewById(R.id.activity_forgot_password);
-        login_title.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_forgot_password);
+
+        init();
+
+    }
+
+    private void init() {
+        binding.loginTitle.setOnClickListener(this);
+        binding.activityForgotPassword.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.login_title:
                 onBackPressed();
-            }
-        });
-        forgot_password_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.activity_forgot_password:
                 Intent i = new Intent(ForgotPasswordActivity.this, MainActivity.class);
                 startActivity(i);
-            }
-        });
+
+                break;
+        }
+
     }
 }

@@ -37,8 +37,8 @@ public class MyOrderDetailsActivity extends AppCompatActivity implements View.On
 
                     binding.detaileLayout.setVisibility(View.VISIBLE);
                     binding.helpTv.setVisibility(View.VISIBLE);
-                    binding.viewDetailsTv.setBackground(getResources().getDrawable(R.drawable.sky_blue_hollow_background));
-                    binding.viewDetailsTv.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    binding.viewDetailsTv.setBackground(getResources().getDrawable(R.drawable.background_button_sky));
+                    binding.viewDetailsTv.setTextColor(getResources().getColor(R.color.white_color));
                     isTrue = false;
 
 
@@ -46,8 +46,8 @@ public class MyOrderDetailsActivity extends AppCompatActivity implements View.On
 
                     binding.detaileLayout.setVisibility(View.GONE);
                     binding.helpTv.setVisibility(View.INVISIBLE);
-                    binding.viewDetailsTv.setBackground(getResources().getDrawable(R.drawable.background_button_sky));
-                    binding.viewDetailsTv.setTextColor(getResources().getColor(R.color.white_color));
+                    binding.viewDetailsTv.setBackground(getResources().getDrawable(R.drawable.sky_blue_hollow_background));
+                    binding.viewDetailsTv.setTextColor(getResources().getColor(R.color.colorPrimary));
                     isTrue = true;
                 }
                 break;

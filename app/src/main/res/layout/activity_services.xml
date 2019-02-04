@@ -1,67 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".ui.Services.ServicesActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/sky_blue"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        tools:context=".ui.Services.ServicesActivity">
 
-        <com.laundry.CustomTextRegular.CustomTextRegular
-            android:id="@+id/login_title"
-            android:layout_width="wrap_content"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_weight="1"
-            android:background="@color/sky_blue"
-            android:drawableLeft="@drawable/ic_left_arrow"
-            android:gravity="center"
-            android:paddingLeft="10dp"
-            android:text="Services"
-            android:textColor="@color/white_color"
-            android:textSize="15dp" />
-
-        <ImageView
-            android:id="@+id/img_my_cart"
-            android:layout_width="40dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="10dp"
-            android:paddingRight="5dp"
-            android:src="@drawable/ic_shopping_cart" />
+            android:background="@color/sky_blue"
+            android:orientation="horizontal">
+
+            <com.laundry.CustomTextRegular.CustomTextRegular
+                android:id="@+id/login_title"
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_weight="1"
+                android:background="@color/sky_blue"
+                android:drawableLeft="@drawable/ic_left_arrow"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:text="Services"
+                android:textColor="@color/white_color"
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/img_my_cart"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:paddingRight="5dp"
+                android:src="@drawable/ic_shopping_cart" />
+        </LinearLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/sky_blue"
+            app:tabMaxWidth="0dp"
+            app:tabMode="fixed"
+            app:tabTextAppearance="@style/tabfont" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/serviceRecycler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#d3d3d3" />
     </LinearLayout>
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="@color/sky_blue"
-        app:tabMaxWidth="0dp"
-        app:tabMode="fixed"
-        app:tabTextAppearance="@style/tabfont" />
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/serviceRecycler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp">
-
-    </android.support.v7.widget.RecyclerView>
-
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#d3d3d3" />
-
-</LinearLayout>
+</layout>

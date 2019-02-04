@@ -1,143 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.LoginScreen.ChangePaawordActivity">
-    <com.laundry.CustomTextRegular.CustomTextRegular
-        android:id="@+id/login_title"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/sky_blue"
-        android:drawableLeft="@drawable/ic_left_arrow"
-        android:gravity="center"
-        android:padding="@dimen/dp10"
-        android:text="Change Password"
-        android:textColor="@color/white_color"
-        android:textSize="15dp" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/corner"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/current_image"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/ic_house_key" />
-
-        <EditText
-            android:id="@+id/current_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="3dp"
-            android:layout_toRightOf="@+id/activity_login_email_icon"
-            android:background="@null"
-            android:layout_gravity="center"
-            android:hint="Current Password"
-            android:inputType="textPassword"
-            android:maxLength="8"
-            android:lineSpacingExtra="7dp"
-            android:padding="4dp"
-            android:textSize="15sp" />
-
-    </LinearLayout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:padding="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="@dimen/dp10"
-        android:background="@drawable/corner"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.changePassword.ChangePaawordActivity">
 
-        <ImageView
-            android:id="@+id/confirm_image"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/ic_house_key" />
+        <com.laundry.CustomTextRegular.CustomTextRegular
+            android:id="@+id/login_title"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/sky_blue"
+            android:drawableLeft="@drawable/ic_left_arrow"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="Change Password"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/text_15" />
 
-        <EditText
-            android:id="@+id/confrim_password"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="3dp"
-            android:layout_toRightOf="@+id/activity_login_email_icon"
-            android:background="@null"
-            android:layout_gravity="center"
-            android:hint="New Password"
-            android:inputType="textPassword"
-            android:maxLength="8"
-            android:lineSpacingExtra="7dp"
-            android:padding="4dp"
-            android:textSize="15sp" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/corner"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp8">
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:padding="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/corner"
-        android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/current_image"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_house_key" />
 
-        <ImageView
-            android:id="@+id/New_image"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/ic_house_key" />
+            <EditText
+                android:id="@+id/current_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="7dp"
+                android:background="@null"
+                android:hint="Current Password"
+                android:inputType="textPassword"
+                android:maxLength="8"
+                android:padding="4dp"
+                android:textSize="@dimen/text_13" />
 
-        <EditText
-            android:id="@+id/New_password"
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="3dp"
-            android:layout_toRightOf="@+id/activity_login_email_icon"
-            android:background="@null"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/corner"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp8">
+
+            <ImageView
+                android:id="@+id/confirm_image"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_house_key" />
+
+            <EditText
+                android:id="@+id/confrim_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="7dp"
+                android:background="@null"
+                android:hint="New Password"
+                android:inputType="textPassword"
+                android:maxLength="8"
+                android:padding="4dp"
+                android:textSize="@dimen/text_13" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/corner"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp8">
+
+            <ImageView
+                android:id="@+id/New_image"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_house_key" />
+
+            <EditText
+                android:id="@+id/New_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="7dp"
+                android:background="@null"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:maxLength="8"
+                android:padding="4dp"
+                android:textSize="@dimen/text_13" />
+
+
+        </LinearLayout>
+
+        <com.laundry.CustomTextRegular.CustomTextRegular
+            android:id="@+id/update_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:maxLength="8"
-            android:lineSpacingExtra="7dp"
-            android:padding="4dp"
-            android:textSize="15sp" />
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_button_sky"
+            android:gravity="center"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:text="Update Password"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_15" />
 
 
     </LinearLayout>
-    <com.laundry.CustomTextRegular.CustomTextRegular
-        android:id="@+id/activity_forgot_password"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:background="@drawable/background_button_sky"
-        android:gravity="center"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:text="Forgot Password"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
-</LinearLayout>
+</layout>

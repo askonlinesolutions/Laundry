@@ -123,14 +123,14 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-            adapter.addFragment(new WashAndIronFragment(), "Wash&Fold");
-            adapter.addFragment(new /*WashAndFoldFragment*/WashAndIronFragment(), "Wash&Iron");
-            adapter.addFragment(new/* PremiumLaundryFragment*/WashAndIronFragment(), "Premium");
-            adapter.addFragment(new /*DryCleanerFragment*/WashAndIronFragment(), "Dry Cleaner");
+        adapter.addFragment(new WashAndIronFragment(), "Wash&Fold");
+        adapter.addFragment(new /*WashAndFoldFragment*/WashAndIronFragment(), "Wash&Iron");
+        adapter.addFragment(new/* PremiumLaundryFragment*/WashAndIronFragment(), "Premium");
+        adapter.addFragment(new /*DryCleanerFragment*/WashAndIronFragment(), "Dry Cleaner");
 
-            // adapter.addFragment(new FifthFragment(), "Bakets");
-            viewPager.setAdapter(adapter);
-        }
+        // adapter.addFragment(new FifthFragment(), "Bakets");
+        viewPager.setAdapter(adapter);
+    }
 
 
     @Override
@@ -150,7 +150,7 @@ class ViewPagerAdapter extends FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
 
-    public ViewPagerAdapter(FragmentManager manager) {
+    ViewPagerAdapter(FragmentManager manager) {
         super(manager);
     }
 
@@ -164,7 +164,7 @@ class ViewPagerAdapter extends FragmentPagerAdapter {
         return mFragmentList.size();
     }
 
-    public void addFragment(Fragment fragment, String title) {
+    void addFragment(Fragment fragment, String title) {
         mFragmentList.add(fragment);
         mFragmentTitleList.add(title);
     }
