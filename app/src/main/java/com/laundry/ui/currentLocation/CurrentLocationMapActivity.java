@@ -3,6 +3,7 @@ package com.laundry.ui.currentLocation;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
@@ -13,6 +14,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -46,6 +48,7 @@ import com.google.maps.GeoApiContext;
 import com.laundry.R;
 import com.laundry.Utils.GPSTracker;
 import com.laundry.databinding.ActivityCurrentLocationMapBinding;
+import com.laundry.ui.Pick_up.PickupActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -76,7 +79,8 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
     Location mLastLocation;
     double latitute, longitute;
     Marker mCurrLocationMarker;
-
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +97,8 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
         binding.mapBackIv.setOnClickListener(this);
         binding.topLocationEt.setOnClickListener(this);
         binding.confirmBtn.setOnClickListener(this);
@@ -116,6 +122,9 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
                 break;
             case R.id.map_back_iv:
                 onBackPressed();
+                break;
+            case R.id.confirm_btn:
+                startActivity(new Intent(CurrentLocationMapActivity.this, PickupActivity.class));
                 break;
         }
     }

@@ -28,10 +28,9 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_manage_address);
-  dologin();
+        dologin();
         init();
     }
-
 
 
     private void init() {
@@ -62,8 +61,9 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
             Toast.makeText(getApplicationContext(), type, Toast.LENGTH_SHORT).show();
         }
     }
+
     private void dologin() {
-       binding.addNewAddressTv.setOnClickListener(new View.OnClickListener() {
+        binding.addNewAddressTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ManageAddressActivity.this, AddNewAddressActivity.class);
