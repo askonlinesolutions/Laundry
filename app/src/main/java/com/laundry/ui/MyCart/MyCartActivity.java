@@ -23,6 +23,7 @@ public class MyCartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_cart);
+
         mycart_menu = findViewById(R.id.mycart_menu);
         text_money = findViewById(R.id.text_money);
         text_discount = findViewById(R.id.text_discount);

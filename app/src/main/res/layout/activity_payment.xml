@@ -14,8 +14,8 @@
         android:background="@color/sky_blue"
         android:drawableLeft="@drawable/ic_left_arrow"
         android:gravity="center"
-        android:text="Payment"
         android:padding="@dimen/dp10"
+        android:text="Payment"
         android:textColor="@color/white_color"
         android:textSize="15dp" />
 
@@ -23,8 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,10 +36,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-
                 android:padding="10dp"
-                android:text="Choice Payment Method"
-                android:textSize="15dp"
+                android:text="Choose Payment Method"
+                android:textColor="@color/text_dark_gray"
+                android:textSize="@dimen/text_14"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -50,15 +50,15 @@
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
                     android:buttonTint="@color/sky_blue"
+                    android:padding="10dp"
                     android:text="Pay Pal" />
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
                     android:buttonTint="@color/sky_blue"
+                    android:padding="10dp"
                     android:text="Credit Card" />
 
                 <RadioButton
@@ -75,16 +75,16 @@
     <com.laundry.CustomTextRegular.CustomTextRegular
         android:id="@+id/activity_place_order_btn"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/dp50"
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/background_button_sky"
         android:gravity="center"
         android:text="Place Order"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textSize="@dimen/text_14" />
 
 
 </LinearLayout>

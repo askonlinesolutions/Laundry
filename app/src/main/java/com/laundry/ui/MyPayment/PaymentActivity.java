@@ -14,6 +14,8 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+
         login_title =findViewById(R.id.login_title);
         placeOrder=findViewById(R.id.activity_place_order_btn);
         login_title.setOnClickListener(this);

@@ -1,128 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-   >
+    android:layout_height="wrap_content">
+
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-
         android:id="@+id/menu_list"
-        android:layout_height="wrap_content">
-
-
-    <ImageView
-        android:id="@+id/img_dlt"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ic_x_button" />
-
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+
+        <ImageView
+            android:id="@+id/img_dlt"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_x_button" />
 
         <LinearLayout
-            android:id="@+id/food_rel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/iv_res"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-
-                android:src="@drawable/userplaceholder" />
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/food_rel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
-                    android:id="@+id/text_menu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="T-Shirt" />
+                <ImageView
+                    android:id="@+id/iv_res"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+
+                    android:src="@drawable/userplaceholder" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <com.laundry.CustomTextRegular.CustomTextRegular
+                        android:id="@+id/text_menu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="T-Shirt" />
 
-                        android:layout_marginTop="10dp"
-                        android:text="$10-$20" />
-
-                    <com.laundry.CustomTextRegular.CustomTextRegular
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:text="Discount"
-                        android:textColor="@color/sky_blue" />
+                        android:orientation="horizontal">
+
+                        <com.laundry.CustomTextRegular.CustomTextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="$10-$20" />
+
+                        <com.laundry.CustomTextRegular.CustomTextRegular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:text="Discount"
+                            android:textColor="@color/sky_blue" />
 
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
-                        android:id="@+id/minus"
-                        android:layout_width="30dp"
-                        android:layout_height="20dp"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/background_button_sky"
-                        android:gravity="center"
-                        android:text="-"
-                        android:textColor="@color/white_color"
+                        <com.laundry.CustomTextRegular.CustomTextRegular
+                            android:id="@+id/minus"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/background_button_blue"
+                            android:gravity="center"
+                            android:text="-"
+                            android:textColor="@color/white_color"
 
-                        android:textSize="12sp" />
+                            android:textSize="12sp" />
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
-                        android:id="@+id/integer_number"
-                        android:layout_width="30dp"
-                        android:layout_height="20dp"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="1"
+                        <com.laundry.CustomTextRegular.CustomTextRegular
+                            android:id="@+id/integer_number"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/background_corner_rectangle"
+                            android:gravity="center"
+                            android:text="1"
 
-                        android:textSize="12sp" />
+                            android:textSize="12sp" />
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
-                        android:id="@+id/plus"
-                        android:layout_width="30dp"
-                        android:layout_height="20dp"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/background_button_sky"
-                        android:gravity="center"
+                        <com.laundry.CustomTextRegular.CustomTextRegular
+                            android:id="@+id/plus"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/background_button_blue"
+                            android:gravity="center"
 
-                        android:text="+"
-                        android:textColor="@color/white_color"
-                        android:textSize="12sp" />
+                            android:text="+"
+                            android:textColor="@color/white_color"
+                            android:textSize="12sp" />
 
 
+                    </LinearLayout>
                 </LinearLayout>
+
+
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/bg_color_2"></View>
 
 
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/bg_color_2"></View>
-
-
-    </LinearLayout>
     </RelativeLayout>
 
 </RelativeLayout>

@@ -44,7 +44,7 @@ class MaunAdapter extends RecyclerView.Adapter<MaunAdapter.Viewholder> {
 
     public class Viewholder extends RecyclerView.ViewHolder {
         TextView textView;
-        ImageView minus,plus;
+        TextView minus,plus;
                 TextView integer_number;
         int start= 1;
         public Viewholder(@NonNull View itemView) {

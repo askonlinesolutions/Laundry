@@ -23,12 +23,12 @@
     </android.support.v7.widget.CardView>
 
     <LinearLayout
+        android:id="@+id/use_current_location"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp45"
         android:layout_marginLeft="@dimen/dp15"
-        android:id="@+id/use_current_location"
-        android:layout_marginRight="@dimen/dp15"
         android:layout_marginTop="@dimen/dp15"
+        android:layout_marginRight="@dimen/dp15"
         android:background="@drawable/sky_blue_boeder_background_blue"
         android:gravity="center"
         android:orientation="horizontal">
@@ -45,11 +45,10 @@
             android:layout_width="wrap_content"
             android:layout_height="?attr/actionBarSize"
             android:gravity="center"
-            android:paddingLeft="@dimen/dp10"
+            android:paddingLeft="@dimen/dp8"
             android:text="Use My Current Location"
-
             android:textColor="@color/sky_blue"
-            android:textSize="@dimen/dp15" />
+            android:textSize="@dimen/text_13" />
 
 
     </LinearLayout>
@@ -59,44 +58,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp20"
-        android:layout_marginRight="@dimen/dp20"
         android:layout_marginTop="@dimen/dp20"
+        android:layout_marginRight="@dimen/dp20"
         android:background="@null">
 
-    <EditText
-        android:id="@+id/location_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="@dimen/dp5"
-        android:drawableLeft="@drawable/ic_gray_location"
-        android:drawablePadding="10dp"
-        android:background="@null"
-        android:singleLine="true"
-        android:hint="Enter your location"
-        android:textSize="@dimen/text_12" />
+        <EditText
+            android:id="@+id/location_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:drawableLeft="@drawable/ic_gray_location"
+            android:drawablePadding="10dp"
+            android:hint="Enter your location"
+            android:padding="@dimen/dp5"
+            android:singleLine="true"
+            android:textSize="@dimen/text_12" />
     </android.support.design.widget.TextInputLayout>
 
-  <!--  <com.laundry.CustomTextRegular.CustomTextRegular
-        android:id="@+id/login_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="@dimen/dp8"
-        android:layout_marginTop="@dimen/dp20"
-        android:layout_weight="1"
-        android:drawableLeft="@drawable/ic_gray_location"
-        android:drawablePadding="10dp"
-        android:paddingLeft="10dp"
-        android:text="Enter your location"
-        android:textSize="15dp" />
--->
+    <!--  <com.laundry.CustomTextRegular.CustomTextRegular
+          android:id="@+id/login_title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginLeft="@dimen/dp8"
+          android:layout_marginTop="@dimen/dp20"
+          android:layout_weight="1"
+          android:drawableLeft="@drawable/ic_gray_location"
+          android:drawablePadding="10dp"
+          android:paddingLeft="10dp"
+          android:text="Enter your location"
+          android:textSize="15dp" />
+  -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="@dimen/dp15"
         android:layout_marginTop="@dimen/dp20"
+        android:layout_marginRight="@dimen/dp15"
         android:layout_marginBottom="@dimen/dp15"
         android:orientation="horizontal">
 
@@ -105,13 +104,13 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dp5"
             android:layout_weight="1"
-            android:padding="@dimen/dp5"
             android:background="@drawable/corner"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="@dimen/dp5">
 
             <com.laundry.CustomTextRegular.CustomTextRegular
                 android:id="@+id/tvDisplayDate"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
@@ -133,9 +132,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:padding="@dimen/dp5"
             android:background="@drawable/corner"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="@dimen/dp5">
 
             <com.laundry.CustomTextRegular.CustomTextRegular
                 android:id="@+id/tvDisplaytime"
