@@ -51,7 +51,6 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
         binding.myCartIv.setOnClickListener(this);
         binding.confirmTv.setOnClickListener(this);
 
-
     }
 
 
