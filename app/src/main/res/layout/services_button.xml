@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp2"
             android:padding="1dp"
+            android:layout_marginRight="@dimen/dp8"
             android:src="@drawable/ic_tshirt" />
 
         <com.laundry.CustomTextRegular.CustomTextRegular

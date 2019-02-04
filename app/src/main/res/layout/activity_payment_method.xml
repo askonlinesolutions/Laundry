@@ -33,7 +33,7 @@
                 android:background="@color/white"
                 android:padding="@dimen/dp15"
                 android:text="MANAGE CARD"
-                android:textSize="@dimen/text_14"
+                android:textSize="@dimen/text_12"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>

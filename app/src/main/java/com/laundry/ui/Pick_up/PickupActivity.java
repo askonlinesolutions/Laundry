@@ -111,4 +111,18 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
                 break;
         }
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.my_cart_iv:
+                Intent i = new Intent(PickupActivity.this, MyCartActivity.class);
+                startActivity(i);
+                break;
+            case R.id.schedule_pickup_tv:
+                Intent intent = new Intent(PickupActivity.this, MyCartActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
 }
