@@ -125,8 +125,8 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
 
             adapter.addFragment(new WashAndIronFragment(), "Wash&Fold");
             adapter.addFragment(new /*WashAndFoldFragment*/WashAndIronFragment(), "Wash&Iron");
-            adapter.addFragment(new/* PremiumLaundryFragment*/WashAndIronFragment(), "Premium Laundry");
-            adapter.addFragment(new /*DryCleanerFragment*/WashAndIronFragment(), "Dey Cleaner");
+            adapter.addFragment(new/* PremiumLaundryFragment*/WashAndIronFragment(), "Premium");
+            adapter.addFragment(new /*DryCleanerFragment*/WashAndIronFragment(), "Dry Cleaner");
 
             // adapter.addFragment(new FifthFragment(), "Bakets");
             viewPager.setAdapter(adapter);

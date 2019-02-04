@@ -92,7 +92,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
                 android:orientation="horizontal">
@@ -112,13 +113,21 @@
                     android:textSize="@dimen/text_size_13" />
 
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="@dimen/text_size_10"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="@dimen/dp15"
+                android:background="@color/view_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginLeft="@dimen/dp15"
                 android:layout_marginTop="@dimen/dp5"
-                android:layout_marginRight="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp15"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -186,9 +195,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginLeft="@dimen/dp15"
                 android:layout_marginTop="@dimen/dp5"
-                android:layout_marginRight="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp15"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -252,12 +261,22 @@
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="@dimen/text_size_10"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="@dimen/dp15"
+                android:background="@color/view_color" />
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="@dimen/dp10"
-                android:layout_marginRight="@dimen/text_10"
+                android:layout_marginRight="@dimen/dp15"
                 android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
@@ -587,14 +606,23 @@
 
 
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/text_size_10"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="@dimen/dp10"
+                android:background="@color/view_color" />
+
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="@dimen/dp15"
-                android:layout_marginRight="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp15"
                 android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
@@ -620,6 +648,15 @@
                     android:textSize="@dimen/text_13" />
                 <!--android:background="@drawable/sky_blue_hollow_background"-->
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="@dimen/text_size_10"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="@dimen/dp15"
+                android:background="@color/view_color" />
+
 
             <LinearLayout
                 android:id="@+id/detaile_layout"
@@ -632,7 +669,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="@dimen/dp15"
                     android:layout_marginRight="@dimen/dp15"
                     android:layout_marginBottom="5dp"
@@ -658,7 +695,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginRight="@dimen/dp15"
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
@@ -679,11 +716,20 @@
                         android:textSize="@dimen/text_13" />
 
                 </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="@dimen/text_size_10"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="@dimen/dp15"
+                    android:background="@color/view_color" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="@dimen/dp15"
                     android:layout_marginRight="@dimen/dp15"
                     android:layout_marginBottom="5dp"
@@ -710,7 +756,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginRight="@dimen/dp15"
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
@@ -735,7 +781,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginRight="@dimen/dp15"
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
@@ -760,7 +806,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginRight="@dimen/dp15"
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
@@ -781,12 +827,21 @@
                         android:textSize="@dimen/text_13" />
 
                 </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="@dimen/text_size_10"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="@dimen/dp15"
+                    android:background="@color/view_color" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="@dimen/dp10"
                     android:layout_marginRight="@dimen/dp15"
                     android:layout_marginBottom="10dp"
@@ -804,7 +859,7 @@
                         android:id="@+id/total_price_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/dp10"
+                        android:layout_marginRight="@dimen/dp15"
                         android:text="$2"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/text_13" />

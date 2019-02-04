@@ -45,24 +45,26 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_marginLeft="10dp">
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
+                    android:buttonTint="@color/sky_blue"
                     android:text="Pay Pal" />
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
+                    android:buttonTint="@color/sky_blue"
                     android:text="Credit Card" />
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/sky_blue"
                     android:padding="10dp"
                     android:text="COD" />
             </RadioGroup>

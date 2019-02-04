@@ -148,29 +148,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.activity_login_btn:
-                if (activity_login_edt_email.length() == 0 || activity_login_edt_password.length() == 0) {
-                    Toast.makeText(this, "field can not blank !", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (isValidEmailId(activity_login_edt_email.getText().toString()) == false) {
-                    activity_login_edt_email.setError("Not a valid email!");
-                    Toast.makeText(this, "Please enter valid email id !", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (validatePassword(activity_login_edt_password.getText().toString()) == false) {
-                    activity_login_edt_password.setError("Not a valid password!");
-                    Toast.makeText(this, "Please enter valid password !", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//                if (activity_login_edt_email.length() == 0 || activity_login_edt_password.length() == 0) {
+//                    Toast.makeText(this, "field can not blank !", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//
+//                if (isValidEmailId(activity_login_edt_email.getText().toString()) == false) {
+//                    activity_login_edt_email.setError("Not a valid email!");
+//                    Toast.makeText(this, "Please enter valid email id !", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//
+//                if (validatePassword(activity_login_edt_password.getText().toString()) == false) {
+//                    activity_login_edt_password.setError("Not a valid password!");
+//                    Toast.makeText(this, "Please enter valid password !", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
 
                 doLogin();
+                break;
 
             case R.id.activity_sign_btn:
                 if (name.length() == 0 || email.length() == 0 || activity_password.length() == 0 ||
                         confrim_password.length() == 0 || checkbox.length() == 0) {
-                    Toast.makeText(this, "field can not blank !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "please field all blank  fiels!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (validateFirstName(name.getText().toString()) == false) {
