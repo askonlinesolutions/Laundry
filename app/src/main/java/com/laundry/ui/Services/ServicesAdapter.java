@@ -63,7 +63,7 @@ class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewholder>  
             viewholder.img_shirt.setImageResource(R.drawable.ic_tshirt);
         } else {
            viewholder.textservices.setTextColor(context.getResources().getColor(R.color.sky_blue));
-            viewholder.services.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.sky_blue_hollow_background));
+            viewholder.services.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.hollow_sky_blue_background));
          viewholder.img_shirt.setImageResource(R.drawable.ic_shirt);
         }
 

@@ -4,17 +4,19 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/press_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+    <!--<LinearLayout-->
+        <!--android:id="@+id/press_image"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:orientation="horizontal">-->
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/background_corner_rectangle"
+
             android:orientation="vertical"
             android:padding="25dp">
 
@@ -38,4 +40,4 @@
     </LinearLayout>
 
 
-</LinearLayout>
+<!--</LinearLayout>-->
