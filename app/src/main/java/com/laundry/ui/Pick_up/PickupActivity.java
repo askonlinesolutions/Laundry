@@ -1,6 +1,7 @@
 package com.laundry.ui.Pick_up;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.location.Address;
 import android.location.Geocoder;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,8 @@ import android.widget.ImageView;
 
 import com.laundry.R;
 import com.laundry.clickListener.OnItemClickLisner;
+import com.laundry.databinding.ActivityPickupBinding;
+import com.laundry.ui.MyCart.MyCartActivity;
 import com.laundry.ui.currentLocation.CurrentLocationMapActivity;
 
 import java.io.IOException;
@@ -20,16 +23,19 @@ import java.util.Locale;
 
 
 public class PickupActivity extends AppCompatActivity implements OnItemClickLisner, View.OnClickListener {
+
+    ActivityPickupBinding binding;
     RecyclerView rv;
     ImageView back_iv;
     double latitute, longitute;
     String address;
     List<Address> listAddresses;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pickup);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_pickup);
         getPosition();
         init();
 
@@ -42,6 +48,9 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
         setupRecyclerview();
 
         back_iv.setOnClickListener(this);
+        binding.myCartIv.setOnClickListener(this);
+        binding.confirmTv.setOnClickListener(this);
+
 
     }
 
@@ -50,7 +59,7 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         rv.setLayoutManager(linearLayoutManager);
-        PickDropAdapter pickDropAdapter = new PickDropAdapter(this, listAddresses,this);
+        PickDropAdapter pickDropAdapter = new PickDropAdapter(this, listAddresses, this);
         rv.setAdapter(pickDropAdapter);
 
     }
@@ -64,11 +73,11 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
         }
 
 
-
         Geocoder geocoder = new Geocoder(getApplicationContext(),
                 Locale.getDefault());
         try {
-           /* List<Address>*/ listAddresses = geocoder.getFromLocation(latitute,
+            /* List<Address>*/
+            listAddresses = geocoder.getFromLocation(latitute,
                     longitute, 1);
             if (null != listAddresses && listAddresses.size() > 0) {
 // Here we are finding , whatever we want our marker to show when
@@ -92,9 +101,6 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
         }
 
 
-
-
-
     }
 
 
@@ -109,20 +115,17 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
             case R.id.back_iv:
                 onBackPressed();
                 break;
-        }
-    }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
             case R.id.my_cart_iv:
                 Intent i = new Intent(PickupActivity.this, MyCartActivity.class);
                 startActivity(i);
                 break;
-            case R.id.schedule_pickup_tv:
+            case R.id.confirm_tv:
                 Intent intent = new Intent(PickupActivity.this, MyCartActivity.class);
                 startActivity(intent);
                 break;
+
         }
     }
+
 }
