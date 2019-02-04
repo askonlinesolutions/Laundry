@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.laundry.R;
@@ -43,7 +44,8 @@ class MaunAdapter extends RecyclerView.Adapter<MaunAdapter.Viewholder> {
 
     public class Viewholder extends RecyclerView.ViewHolder {
         TextView textView;
-        TextView minus,plus,integer_number;
+        ImageView minus,plus;
+                TextView integer_number;
         int start= 1;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
