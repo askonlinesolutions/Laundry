@@ -67,7 +67,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_pickup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp70">
 
     </android.support.v7.widget.RecyclerView>
 

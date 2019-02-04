@@ -22,6 +22,7 @@
         android:background="@color/sky_blue"
         app:headerLayout="@layout/nav_header_dry_cleaner"
         app:itemTextColor="@color/white_color"
+        app:itemIconTint="@color/white_color"
         app:menu="@menu/activity_dry_cleaner_drawer" />
 
 

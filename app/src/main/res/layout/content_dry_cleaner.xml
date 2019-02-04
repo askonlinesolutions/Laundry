@@ -25,18 +25,19 @@
             android:orientation="vertical">
 
 
-            <TextView
+           <TextView
                 android:id="@+id/myImageViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/cloth"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="130dp"
-                android:text="Dry Cleaning \n services "
+                android:text="DRY CLEANING \nSERVICES "
                 android:textColor="@color/white_color"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
-            <TextView
+            <com.laundry.CustomTextRegular.Regular
                 android:id="@+id/cleaning_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,7 +74,7 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <TextView
+        <com.laundry.CustomTextRegular.Regular
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -83,18 +84,19 @@
             android:textStyle="bold" />
 
         <RelativeLayout
+            android:id="@+id/schedule_pickup_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/circle_grybackground"
             android:gravity="center"
             android:padding="5dp">
 
-            <TextView
+            <com.laundry.CustomTextRegular.Regular
                 android:id="@+id/open"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Scheduler pickup"
+                android:text="Schedule pickup"
                 android:textColor="@color/white_color"
                 android:textSize="9sp" />
 
@@ -116,37 +118,6 @@
 
     </android.support.v7.widget.RecyclerView>
 
-
-    <!--<LinearLayout-->
-    <!--android:id="@+id/press_image"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_weight="1"-->
-    <!--android:orientation="horizontal">-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_weight="1"-->
-    <!--android:orientation="vertical"-->
-    <!--android:padding="25dp">-->
-
-    <!--<ImageView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="100dp"-->
-    <!--android:layout_gravity="center"-->
-    <!--android:src="@drawable/userplaceholder" />-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/wash"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_gravity="center"-->
-    <!--android:text="Wash and Fold"-->
-    <!--android:textSize="12sp" />-->
-
-
-    <!--</LinearLayout>-->
 
     <View
         android:layout_width=".3dp"

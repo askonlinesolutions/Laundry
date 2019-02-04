@@ -11,7 +11,7 @@
         android:id="@+id/cloth_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp90" />
+        android:layout_marginBottom="@dimen/dp70" />
 
     <Button
         android:id="@+id/schedule_pickup_tv"

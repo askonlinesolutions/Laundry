@@ -1,5 +1,6 @@
 package com.laundry.ui.DryCleaner;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.laundry.R;
@@ -44,6 +46,9 @@ public class DryCleanerActivity extends AppCompatActivity
     SpringDotsIndicator dotsIndicator;
     RecyclerView press_image;
     TextView cancel_btn,playnowbtn;
+    RelativeLayout schedule_pickup_tv;
+    private boolean isVisible = true;
+    private boolean isShow = true;
     ImageView btncross;
 
     @Override
@@ -51,7 +56,9 @@ public class DryCleanerActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dry_cleaner);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        schedule_pickup_tv=findViewById(R.id.schedule_pickup_tv);
         press_image = findViewById(R.id.press_image);
+      pickup_btn();
         // ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         setSupportActionBar(toolbar);
         inIt();
@@ -74,6 +81,23 @@ public class DryCleanerActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void pickup_btn() {
+        schedule_pickup_tv.setOnClickListener(new View.OnClickListener() {
+//
+            @Override
+            public void onClick(View v) {
+//                if (isVisible)
+//                {
+//                    schedule_pickup_tv.setBackgroundColor(R.drawable.circlur_skybackground);
+//                    isVisible = true;
+//                }
+//                else
+//                    schedule_pickup_tv.setBackgroundColor(R.drawable.circle_grybackground);
+//                isVisible = false;
+            }
+        });
     }
 
 

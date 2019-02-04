@@ -44,7 +44,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.google.maps.GeoApiContext;
+
 import com.laundry.R;
 import com.laundry.Utils.GPSTracker;
 import com.laundry.databinding.ActivityCurrentLocationMapBinding;
@@ -73,7 +73,6 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
     private static final int CONNECTION_RESOLUTION_REQUEST = 2;
     String address;
     GoogleMap mGoogleMap;
-
     SupportMapFragment mapFrag;
     LocationRequest mLocationRequest;
     GoogleApiClient mGoogleApiClient;
