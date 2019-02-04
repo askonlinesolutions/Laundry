@@ -59,7 +59,7 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         rv.setLayoutManager(linearLayoutManager);
-        PickDropAdapter pickDropAdapter = new PickDropAdapter(this, listAddresses, this);
+        PickDropAdapter pickDropAdapter = new PickDropAdapter(this,/* listAddresses,*/ this);
         rv.setAdapter(pickDropAdapter);
 
     }
@@ -88,13 +88,7 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
                 String landmark = listAddresses.get(0).getAdminArea();
                 address = listAddresses.get(0).getAddressLine(0);
                 String city = listAddresses.get(0).getFeatureName();
-//                binding.topLocationEt.setText(address);
-//                binding.locationTv.setText(address);
-//                binding.houseNoEt.setText(city);
-//                binding.landmarkEt.setText(landmark);
-//                markerOptions.title("" + latLng + "," + subLocality + "," + state
-//                        + "," + country);
-//                ""+state+"," +city+","+sector+","+subLocality+","+landmark
+
             }
         } catch (IOException e) {
             e.printStackTrace();

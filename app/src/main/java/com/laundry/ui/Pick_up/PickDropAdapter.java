@@ -32,9 +32,9 @@ class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
     List<Address> listAddresses;
     private int yy, mm, dd, mHour, mMinute;
 
-    public PickDropAdapter(Context context, List<Address> listAddresses, OnItemClickLisner onItemClickLisner) {
+    public PickDropAdapter(Context context, /*List<Address> listAddresses,*/ OnItemClickLisner onItemClickLisner) {
         this.context = context;
-        this.listAddresses = listAddresses;
+        /* this.listAddresses = listAddresses;*/
         this.onItemClickLisner = onItemClickLisner;
     }
 
@@ -50,9 +50,9 @@ class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PickDropAdapter.ViewHolder viewHolder, int i) {
 
-        if (listAddresses != null) {
+      /*  if (listAddresses != null) {
             viewHolder.location_et.setText(listAddresses.get(i).getAddressLine(i));
-        }
+        }*/
 
 
     }
@@ -60,7 +60,7 @@ class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return listAddresses.size();
+        return 3;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
