@@ -73,6 +73,7 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
     private static final int CONNECTION_RESOLUTION_REQUEST = 2;
     String address;
     GoogleMap mGoogleMap;
+
     SupportMapFragment mapFrag;
     LocationRequest mLocationRequest;
     GoogleApiClient mGoogleApiClient;
