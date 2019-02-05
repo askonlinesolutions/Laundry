@@ -44,12 +44,13 @@ class MaunAdapter extends RecyclerView.Adapter<MaunAdapter.Viewholder> {
 
     public class Viewholder extends RecyclerView.ViewHolder {
         TextView textView;
-        TextView minus,plus;
-                TextView integer_number;
-        int start= 1;
+        TextView minus, plus;
+        TextView integer_number;
+        int start = 1;
+
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            textView =(TextView)itemView.findViewById(R.id.text_menu);
+            textView = (TextView) itemView.findViewById(R.id.text_menu);
             minus = itemView.findViewById(R.id.minus);
             plus = itemView.findViewById(R.id.plus);
             integer_number = itemView.findViewById(R.id.integer_number);
@@ -62,10 +63,10 @@ class MaunAdapter extends RecyclerView.Adapter<MaunAdapter.Viewholder> {
             minus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(start>1) {
+                    if (start > 1) {
                         start = start - 1;
-                        integer_number.setText(""+start);
-                       // displaytext(start);
+                        integer_number.setText("" + start);
+                        // displaytext(start);
                     }
                 }
             });
@@ -73,11 +74,11 @@ class MaunAdapter extends RecyclerView.Adapter<MaunAdapter.Viewholder> {
                 @Override
                 public void onClick(View v) {
                     start = start + 1;
-                    integer_number.setText(""+start);
+                    integer_number.setText("" + start);
 //                    displaytext(start);
                     click.click_AdapterMenu(getAdapterPosition());
                 }
-                
+
             });
 
         }
@@ -88,8 +89,8 @@ class MaunAdapter extends RecyclerView.Adapter<MaunAdapter.Viewholder> {
 //        integer_number.setText(""  + start);
     }
 
-interface Interface_AdapterMenu {
-         void click_AdapterMenu(int adapterPosition);
+    interface Interface_AdapterMenu {
+        void click_AdapterMenu(int adapterPosition);
 
     }
 }
