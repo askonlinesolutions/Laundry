@@ -56,6 +56,8 @@ public class DryCleanerActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dry_cleaner);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         schedule_pickup_tv = findViewById(R.id.schedule_pickup_tv);
         press_image = findViewById(R.id.press_image);

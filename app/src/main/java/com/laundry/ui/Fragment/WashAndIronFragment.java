@@ -21,6 +21,11 @@ import java.util.Arrays;
 
 
 public class WashAndIronFragment extends Fragment implements MaunAdapter.Interface_AdapterMenu {
+
+    public static WashAndIronFragment newInstance() {
+        return new WashAndIronFragment();
+    }
+
     RecyclerView rv_cart;
     Button schudle_btn;
     ArrayList name = new ArrayList<>(Arrays.asList("Riyadh,Sulimania Dabbab", "Riyadh,Sulimania Dabbab "));

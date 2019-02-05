@@ -15,7 +15,7 @@
         android:background="@drawable/hollow_sky_blue_background"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:padding="4dp">
 
         <ImageView
             android:id="@+id/img_shirt"
@@ -33,7 +33,7 @@
             android:layout_marginLeft="@dimen/dp2"
             android:text="Scheduler "
             android:textColor="@color/sky_blue"
-            android:textSize="@dimen/text_9" />
+            android:textSize="@dimen/text_8" />
 
 
     </LinearLayout>

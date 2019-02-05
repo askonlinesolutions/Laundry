@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.laundry.ui.LoginScreen.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
-    private static final long SPLASH_TIME_OUT = 3000;
+    private static final long SPLASH_TIME_OUT = 1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

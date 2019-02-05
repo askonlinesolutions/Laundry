@@ -16,9 +16,9 @@ import java.util.ArrayList;
 
 class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewholder>  {
         private ArrayList<String> name ;
-    Context context;
-    int rowindex=-1;
-   ServicesAdapterInterface servicesAdapterInterface;
+    private Context context;
+    private int rowindex=-1;
+   private ServicesAdapterInterface servicesAdapterInterface;
 
     /*public ServicesAdapter(Context context,ServicesAdapterInterface servicesAdapterInterface, ArrayList<String> name) {
 
@@ -28,7 +28,7 @@ class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewholder>  
         this.name =name;
     }*/
 
-    public ServicesAdapter(Context context, ServicesAdapterInterface servicesAdapterInterface, ArrayList<String> name) {
+    ServicesAdapter(Context context, ServicesAdapterInterface servicesAdapterInterface, ArrayList<String> name) {
 
         this.context =context;
 

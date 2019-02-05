@@ -13,7 +13,7 @@ class CustomPagerAdapter extends PagerAdapter {
 
 
 
-    public CustomPagerAdapter(Context context) {
+    CustomPagerAdapter(Context context) {
         mContext = context;
     }
 

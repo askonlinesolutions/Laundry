@@ -10,6 +10,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="ui.DryCleaner.DryCleanerActivity">
 
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -106,6 +107,7 @@
             </RelativeLayout>
 
         </LinearLayout>
+
 
         <View
             android:id="@+id/view"
