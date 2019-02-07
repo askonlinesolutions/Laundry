@@ -17,7 +17,7 @@
 
             <com.laundry.CustomTextRegular.CustomTextRegular
                 android:id="@+id/login_title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_weight="1"
                 android:background="@color/sky_blue"
@@ -58,8 +58,9 @@
             app:tabGravity="fill"
             app:tabIndicatorColor="@color/sky_blue"
             app:tabMode="scrollable"
+            app:tabTextAppearance="@style/tabfont"
             app:tabTextColor="@android:color/black" />
-        <!--app:tabTextAppearance="@style/tabfont"-->
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/serviceRecycler"
             android:layout_width="wrap_content"

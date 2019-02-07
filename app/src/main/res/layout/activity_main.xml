@@ -28,15 +28,16 @@
             android:id="@+id/order_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/order_image"
-            android:orientation="horizontal">
+            android:layout_marginTop="@dimen/dp10"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp5">
 
             <RadioGroup
                 android:id="@+id/radio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
+
                 android:layout_marginRight="20dp"
                 android:background="@drawable/corner"
                 android:gravity="center"
@@ -47,23 +48,23 @@
                 <RadioButton
                     android:id="@+id/sign_up"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/dp45"
                     android:layout_weight="1"
                     android:background="@color/sky_blue"
                     android:button="@null"
                     android:gravity="center"
-                    android:padding="11dp"
+                    android:padding="@dimen/dp5"
                     android:text="Sign up"
                     android:textColor="@color/white_color" />
 
                 <RadioButton
                     android:id="@+id/login"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/dp45"
                     android:layout_weight="1"
                     android:button="@null"
                     android:gravity="center"
-                    android:padding="11dp"
+                    android:padding="@dimen/dp5"
                     android:text="Log in" />
 
 
@@ -87,7 +88,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/corner"
                 android:orientation="horizontal"
-                android:padding="@dimen/dp8">
+                android:padding="@dimen/dp10">
 
                 <ImageView
                     android:id="@+id/activity_login_email_icon"
@@ -119,7 +120,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/corner"
                 android:orientation="horizontal"
-                android:padding="@dimen/dp8">
+                android:padding="@dimen/dp10">
 
                 <ImageView
                     android:id="@+id/activity_login_password_icon"
@@ -195,34 +196,34 @@
                 android:textSize="@dimen/text_13" />
 
             <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:layout_marginTop="40dp"-->
-                <!--android:gravity="center"-->
-                <!---->
-                <!--android:orientation="horizontal">-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_marginTop="40dp"-->
+            <!--android:gravity="center"-->
+            <!---->
+            <!--android:orientation="horizontal">-->
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                   android:layout_marginTop="@dimen/dp70"
-                    android:gravity="bottom"
-                    android:text="Skip >>"
-                    android:textColor="@color/sky_blue"
-                    android:textSize="@dimen/text_20" />
+            <com.laundry.CustomTextRegular.CustomTextRegular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp70"
+                android:gravity="bottom"
+                android:text="Skip >>"
+                android:textColor="@color/sky_blue"
+                android:textSize="@dimen/text_20" />
 
-                <!--<ImageView-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="5dp"-->
-                <!--android:src="@drawable/ic_right_arrow" />-->
+            <!--<ImageView-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:src="@drawable/ic_right_arrow" />-->
 
-                <!--<ImageView-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@drawable/ic_right_arrow" />-->
+            <!--<ImageView-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/ic_right_arrow" />-->
 
 
             <!--</LinearLayout>-->
@@ -245,7 +246,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/corner"
                 android:orientation="horizontal"
-                android:padding="@dimen/dp8">
+                android:padding="@dimen/dp10">
 
                 <ImageView
                     android:id="@+id/name_image"
@@ -260,7 +261,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="7dp"
-                    android:layout_marginTop="3dp"
+
                     android:background="@null"
                     android:hint="Name"
                     android:inputType="textEmailAddress"
@@ -276,7 +277,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/corner"
                 android:orientation="horizontal"
-                android:padding="@dimen/dp8">
+                android:padding="@dimen/dp10">
 
                 <ImageView
                     android:id="@+id/email_image"
@@ -291,7 +292,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="7dp"
-                    android:layout_marginTop="3dp"
                     android:background="@null"
                     android:hint="Email"
                     android:inputType="textEmailAddress"
@@ -308,7 +308,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/corner"
                 android:orientation="horizontal"
-                android:padding="@dimen/dp8">
+                android:padding="@dimen/dp10">
 
                 <ImageView
                     android:id="@+id/password_image"
@@ -328,8 +328,9 @@
                     android:hint="Password"
                     android:inputType="textPassword"
                     android:lineSpacingExtra="7dp"
-                    android:maxLength="20"
+                    android:maxLength="10"
                     android:padding="4dp"
+                    android:singleLine="true"
                     android:textSize="@dimen/text_12" />
 
                 <ImageView
@@ -348,7 +349,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/corner"
                 android:orientation="horizontal"
-                android:padding="@dimen/dp8">
+                android:padding="@dimen/dp10">
 
                 <ImageView
                     android:id="@+id/confirm_image"
@@ -367,11 +368,43 @@
                     android:hint="Confirm Password"
                     android:inputType="textPassword"
                     android:lineSpacingExtra="7dp"
-                    android:maxLength="8"
+                    android:maxLength="10"
                     android:padding="4dp"
                     android:textSize="@dimen/text_12" />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/corner"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp10">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp25"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_icon" />
+
+                <EditText
+                    android:id="@+id/phone_no_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="7dp"
+                    android:background="@null"
+                    android:hint="phone no"
+                    android:inputType="phone"
+                    android:lineSpacingExtra="7dp"
+                    android:maxLength="10"
+                    android:padding="4dp"
+                    android:textSize="@dimen/text_12" />
+
+            </LinearLayout>
+
 
             <CheckBox
                 android:id="@+id/checkbox_termandcondition"

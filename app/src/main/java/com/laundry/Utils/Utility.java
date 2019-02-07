@@ -9,7 +9,10 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
+import android.provider.Settings;
 import android.support.design.widget.Snackbar;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
@@ -17,6 +20,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.laundry.R;
 
 import java.io.ByteArrayOutputStream;
 import java.text.DecimalFormat;
@@ -34,6 +39,24 @@ public class Utility {
             }
         }
         return false;
+    }
+
+    public static boolean isLocationEnabled(Context context) {
+        int locationMode = 0;
+        String locationProviders;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            try {
+                locationMode = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.LOCATION_MODE);
+
+            } catch (Settings.SettingNotFoundException e) {
+                e.printStackTrace();
+            }
+            return locationMode != Settings.Secure.LOCATION_MODE_OFF;
+        } else {
+            locationProviders = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+            return !TextUtils.isEmpty(locationProviders);
+        }
     }
 
     public static String BitMapToString(Bitmap bitmap) {
@@ -106,7 +129,7 @@ public class Utility {
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
- /*   public static Boolean isNetworkConnected(Context context) {
+    public static Boolean isNetworkConnected(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         assert connectivityManager != null;
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
@@ -115,7 +138,7 @@ public class Utility {
 
         return false;
     }
-
+/*
     public static void no_internet(final Activity activity, final Context context) {
         View v = activity.findViewById(android.R.id.content);
         Snackbar.make(v, "No Internet Connection", Snackbar.LENGTH_INDEFINITE)
@@ -141,16 +164,16 @@ public class Utility {
         return true;
     }*/
 
-  /*  public static String BitMapToString(Bitmap bitmap){
-        String temp="";
-        if(bitmap!=null) {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,100, baos);
-            byte[] b = baos.toByteArray();
-            temp = Base64.encodeToString(b, Base64.DEFAULT);
-        }
-        return temp;
-    }*/
+    /* public static String BitMapToString(Bitmap bitmap){
+         String temp="";
+         if(bitmap!=null) {
+             ByteArrayOutputStream baos = new ByteArrayOutputStream();
+             bitmap.compress(Bitmap.CompressFormat.JPEG,100, baos);
+             byte[] b = baos.toByteArray();
+             temp = Base64.encodeToString(b, Base64.DEFAULT);
+         }
+         return temp;
+     }*/
   public static String convertDateStringFormat(String dateString, String originalDateFormat, String outputDateFormat){
       String finalDate = null;
       SimpleDateFormat simpleDateFormat = new SimpleDateFormat(originalDateFormat);

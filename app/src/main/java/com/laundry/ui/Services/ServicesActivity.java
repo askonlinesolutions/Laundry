@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.laundry.R;
 import com.laundry.databinding.ActivityServicesBinding;
+import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.laundry.ui.Fragment.WashAndIronFragment;
 import com.laundry.ui.MyCart.MyCartActivity;
 
@@ -28,11 +29,13 @@ import java.util.List;
 
 public class ServicesActivity extends AppCompatActivity implements ServicesAdapter.ServicesAdapterInterface, View.OnClickListener {
 
-    ActivityServicesBinding binding;
+    private ActivityServicesBinding binding;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    int pos;
-    private String tabTitles[] = {"Product", "MRP", "Receipt", "Woman", "Child"};
+    private int pos;
+    private ArrayList<ServiceResponse.DataEntity> serviseList = new ArrayList<>();
+
+//    private String tabTitles[] = {"Product", "MRP", "Receipt", "Woman", "Child"};
     ArrayList<String> name = new ArrayList<>(Arrays.asList("Schuder", "MEN", "Woman", "Child", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder ", "schuder "));
 
     @Override
@@ -59,19 +62,22 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
 
 
     private void setupViewPager(final ViewPager viewPager) {
-        viewPager.setOffscreenPageLimit(/*name.size()*/tabTitles.length);
+        viewPager.setOffscreenPageLimit(serviseList.size()/*tabTitles.length*/);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         LayoutInflater inflator = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        int count = 10;
-        for (int i = 0; i < tabTitles.length; i++) {
+        for (int i = 0; i < serviseList.size(); i++) {
 
             WashAndIronFragment fView = new WashAndIronFragment();
             View view = fView.getView();
-            adapter.addFrag(fView, tabTitles[i]/*"TAB " + i*/);
+            adapter.addFrag(fView, serviseList.get(i).getService_name()/*"TAB " + i*/);
 
         }
         viewPager.setAdapter(adapter);
+        if (pos != 0) {
+            viewPager.setCurrentItem(pos);
+        }
+
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -88,9 +94,9 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
 
             }
         });
-        if (pos != 0) {
-            viewPager.setCurrentItem(pos);
-        }
+//        if (pos != 0) {
+//            viewPager.setCurrentItem(pos);
+//        }
 
     }
 
@@ -99,7 +105,16 @@ public class ServicesActivity extends AppCompatActivity implements ServicesAdapt
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             pos = extras.getInt("pos");
+//            serviseList=getIntent().getSerializableExtra("arraylist");
         }
+
+        Intent intent = getIntent();
+        Bundle args = intent.getBundleExtra("BUNDLE");
+        if (args != null) {
+            serviseList = (ArrayList<ServiceResponse.DataEntity>) args.getSerializable("ARRAYLIST");
+
+        }
+
 
 //        viewPager.setCurrentItem(pos);
 

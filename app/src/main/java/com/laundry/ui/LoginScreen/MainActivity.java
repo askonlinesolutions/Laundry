@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -15,33 +16,56 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 import com.laundry.R;
+import com.laundry.Utils.MySharedPreference;
+import com.laundry.Utils.Utility;
+import com.laundry.WebServices.APIClient;
+import com.laundry.WebServices.OnResponseInterface;
+import com.laundry.WebServices.ResponseListner;
 import com.laundry.ui.DryCleaner.DryCleanerActivity;
+import com.laundry.ui.LoginScreen.vo.AccessTokenResponse;
+import com.laundry.ui.LoginScreen.vo.LoginResponse;
+import com.laundry.ui.LoginScreen.vo.SignUpResponse;
 import com.laundry.ui.forgotPassword.ForgotPasswordActivity;
 import com.laundry.ui.termsConditions.TermConditionActivity;
 
 
 import java.util.regex.Pattern;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    RadioButton sign_up, login;
-    LinearLayout loginbtn, signupbtn;
-    RadioGroup radio;
-    ImageView eye_image;
-    EditText password;
+import retrofit2.Call;
+
+import static com.laundry.Utils.Utility.isNetworkConnected;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, OnResponseInterface {
+    private RadioButton sign_up, login;
+    private LinearLayout loginbtn, signupbtn;
+    private RadioGroup radio;
+    private ImageView eye_image;
     private boolean isVisible = true;
+    private static String TAG = MainActivity.class.getName();
     private boolean isShow = true;
-    String emailId;
-    String password1;
-    TextView activity_login_btn, activity_sign_btn, login_title, forgot_password;
-    CheckBox checkbox;
-    EditText activity_login_edt_password, activity_login_edt_email, email, activity_password, confrim_password, name;
+    private MySharedPreference mySharedPreference;
+    private String password, emailId, userName, confirmPwd, phoneNo, accessToken, tokenType, loginEmailId, loginPassword, userId;
+    private TextView activity_login_btn, activity_sign_btn, login_title, forgot_password;
+    private CheckBox checkbox;
+    private EditText activity_login_edt_password, activity_login_edt_email, email, activity_password, confrim_password, name, phone_no;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mySharedPreference = MySharedPreference.getInstance(this);
+        init();
 
+//        callAccessTokenApi();
+
+    }
+
+
+    private void init() {
 
         sign_up = findViewById(R.id.sign_up);
         login = findViewById(R.id.login);
@@ -50,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signupbtn = findViewById(R.id.signupbtn);
         login_title = findViewById(R.id.login_title);
         eye_image = findViewById(R.id.eye_image);
+        phone_no = findViewById(R.id.phone_no_et);
         checkbox = findViewById(R.id.checkbox_termandcondition);
         forgot_password = findViewById(R.id.activity_forgot_password);
         //   password = findViewById(R.id.password);
@@ -63,45 +88,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         activity_login_edt_email = findViewById(R.id.activity_login_edt_email);
         activity_login_btn = findViewById(R.id.activity_login_btn);
         radio = findViewById(R.id.radio);
-        init();
-        backpress();
-        termcondition();
-        forgot_password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, ForgotPasswordActivity.class);
-                startActivity(i);
-            }
-        });
 
 
-    }
-
-    private void backpress() {
-        login_title.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-    }
-
-    private void termcondition() {
-        checkbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, TermConditionActivity.class);
-                startActivity(i);
-            }
-        });
-    }
-
-    private void init() {
         setupCheckout();
-        validation();
         activity_login_btn.setOnClickListener(this);
         activity_sign_btn.setOnClickListener(this);
+        login_title.setOnClickListener(this);
+        checkbox.setOnClickListener(this);
         eye_image.setOnClickListener(this);
+
+        forgot_password.setOnClickListener(this);
 
     }
 
@@ -137,6 +133,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
+            case R.id.checkbox_termandcondition:
+                Intent i = new Intent(MainActivity.this, TermConditionActivity.class);
+                startActivity(i);
+                break;
+
+            case R.id.login_title:
+                onBackPressed();
+                break;
+
+            case R.id.activity_forgot_password:
+                Intent forgotIntent = new Intent(MainActivity.this, ForgotPasswordActivity.class);
+                startActivity(forgotIntent);
+                break;
+
             case R.id.eye_image:
                 if (isVisible) {
                     activity_password.setTransformationMethod(null);
@@ -148,113 +159,102 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.activity_login_btn:
-//                if (activity_login_edt_email.length() == 0 || activity_login_edt_password.length() == 0) {
-//                    Toast.makeText(this, "field can not blank !", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                if (isValidEmailId(activity_login_edt_email.getText().toString()) == false) {
-//                    activity_login_edt_email.setError("Not a valid email!");
-//                    Toast.makeText(this, "Please enter valid email id !", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                if (validatePassword(activity_login_edt_password.getText().toString()) == false) {
-//                    activity_login_edt_password.setError("Not a valid password!");
-//                    Toast.makeText(this, "Please enter valid password !", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
+                if (isAllLoginFieldValid()) {
+                    if (isNetworkConnected(this)) {
+                        callLoginApi();
+                    } else {
+                        Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-                doLogin();
                 break;
 
+
             case R.id.activity_sign_btn:
-                if (name.length() == 0 || email.length() == 0 || activity_password.length() == 0 ||
-                        confrim_password.length() == 0 || checkbox.length() == 0) {
-                    Toast.makeText(this, "please field all blank  fiels!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (validateFirstName(name.getText().toString()) == false) {
-                    name.setError("Not a valid name!");
-                    Toast.makeText(this, "Please enter valid name !", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (isValidEmailId(email.getText().toString()) == false) {
-                    email.setError("Not a valid email!");
-                    Toast.makeText(this, "Please enter valid email id !", Toast.LENGTH_SHORT).show();
-                    return;
+                if (isAllFieldValide()) {
+                    if (isNetworkConnected(this)) {
+                        callSignUpApi();
+                    } else {
+                        Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
+                break;
 
-                if (validatePassword(activity_password.getText().toString()) == false) {
-                    activity_password.setError("Not a valid password!");
-                    Toast.makeText(this, "Please enter valid password !", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (validatePassword(confrim_password.getText().toString()) == false) {
-                    confrim_password.setError("Not a valid confirm password!");
-                    Toast.makeText(this, "Please enter valid password !", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (!activity_password.getText().toString().equals(confrim_password.getText().toString())) {
-                    Toast.makeText(this, "password mismatch !", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (!checkbox.isChecked())
-
-                {
-                    Toast.makeText(this, "Term and cndition !", Toast.LENGTH_SHORT).show();
-                    return;
-//
-                }
-                doLogin();
-
-
-//            case R.id.login_title:
-//                onBackPressed();
 
         }
 
     }
 
+    private boolean isAllLoginFieldValid() {
+        if (activity_login_edt_email.length() == 0 || activity_login_edt_password.length() == 0) {
+            Toast.makeText(this, "field can not blank !", Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
-    private void validation() {
-//       String emailId = activity_login_edt_email.getText().toString().trim();
-//        if (!isValidEmailId(emailId)) {
-//            activity_login_edt_email.setError("Not a valid email address!");
-//        } String password1 = activity_login_edt_password.getText().toString();
-//         if (!validatePassword(password1)) {
-//
-//
-//            // activity_login_edt_email.setErrorEnabled(false);
-//            activity_login_edt_password.setError("Not a valid password!");
-//        } else {
-//            //  activity_login_edt_email.setErrorEnabled(false);
-//            //activity_login_edt_password.setErrorEnabled(false);
-//            doLogin();
+        if (!isValidEmailId(activity_login_edt_email.getText().toString())) {
+            activity_login_edt_email.setError("Not a valid email!");
+            Toast.makeText(this, "Please enter valid email id !", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (!validatePassword(activity_login_edt_password.getText().toString())) {
+            activity_login_edt_password.setError("Not a valid password!");
+            Toast.makeText(this, "Please enter valid password !", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+
+    private boolean isAllFieldValide() {
+
+        if (name.length() == 0 || email.length() == 0 || activity_password.length() == 0 ||
+                confrim_password.length() == 0 || checkbox.length() == 0) {
+            Toast.makeText(this, "please fill all blank  fiels!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (name.length() == 0) {
+            Toast.makeText(this, "Name can't be blank", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+//        if (!validateFirstName(name.getText().toString())) {
+//            name.setError("Not a valid name!");
+//            Toast.makeText(this, "Please enter valid name !", Toast.LENGTH_SHORT).show();
+//            return false;
 //        }
+        if (!isValidEmailId(email.getText().toString())) {
+            email.setError("Not a valid email!");
+            Toast.makeText(this, "Please enter valid email id !", Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
 
+        if (!validatePassword(activity_password.getText().toString())) {
+            activity_password.setError("Not a valid password!");
+            Toast.makeText(this, "Please enter valid password !", Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
+        if (!validatePassword(confrim_password.getText().toString())) {
+            confrim_password.setError("Not a valid confirm password!");
+            Toast.makeText(this, "Please enter valid password !", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (!activity_password.getText().toString().equals(confrim_password.getText().toString())) {
+            Toast.makeText(this, "password mismatch !", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+//        if (!checkbox.isChecked())
 
-
-
-//                String confirm_passwordLogin = confrim_password.getText().toString();
-//                if (!validatePassword(confirm_passwordLogin)) {
-//
-//
-//                    // activity_login_edt_email.setErrorEnabled(false);
-//                    confrim_password.setError("Not a valid password!");
-//                    return;
-//                }
+//        {
+//            Toast.makeText(this, "Term and cndition !", Toast.LENGTH_SHORT).show();
+//            return false;
+////
+//        }
+        return true;
     }
 
-    private void doLogin() {
-
-        Intent i = new Intent(MainActivity.this, DryCleanerActivity.class);
-        startActivity(i);
-    }
 
     boolean isValidEmailId(String param) {
         return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
@@ -266,12 +266,118 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public boolean validatePassword(String password) {
-        return password.length() > 6;
+        return password.length() >= 6;
     }
 
-    public static boolean validateFirstName(String firstName) {
-        return firstName.matches("[A-Z][a-zA-Z]*");
+//    public static boolean validateFirstName(String firstName) {
+//        return firstName.matches("[A-Z][a-zA-Z]*");
+//
+//    }
+
+    private void callAccessTokenApi() {
+
+        Ion.with(this)
+                .load("http://webdevelopmentreviews.net/laundry/token/index")
+                .setBodyParameter("grant_type", "client_credentials"/*"807085"*/)
+                .setBodyParameter("client_id", "developer")
+                .setBodyParameter("client_secret", "5a633cf4392e8")
+                .asString()
+                .setCallback(new FutureCallback<String>() {
+                    @Override
+                    public void onCompleted(Exception e, String result) {
+                        if (result != null) {
+                            AccessTokenResponse accessTokenResponse = new Gson().fromJson(result, AccessTokenResponse.class);
+                            accessToken = accessTokenResponse.getAccess_token();
+                            tokenType = accessTokenResponse.getToken_type();
+//                            Toast.makeText(MainActivity.this, result + "", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
+                });
+    }
+
+
+    private void callSignUpApi() {
+
+        userName = name.getText().toString().trim();
+        emailId = email.getText().toString().trim();
+        password = activity_password.getText().toString().trim();
+        confirmPwd = confrim_password.getText().toString().trim();
+        phoneNo = phone_no.getText().toString().trim();
+
+        new Utility().showProgressDialog(this);
+        Call<SignUpResponse> call = APIClient.getInstance().getApiInterface().doSignUp(userName, phoneNo, emailId, password);
+        new ResponseListner(this).getResponse(call);
+    }
+
+
+    private void callLoginApi() {
+
+        loginEmailId = activity_login_edt_email.getText().toString().trim();
+        loginPassword = activity_login_edt_password.getText().toString().trim();
+
+        new Utility().showProgressDialog(this);
+        Call<LoginResponse> call = APIClient.getInstance().getApiInterface().actionLogin(loginEmailId, loginPassword);
+        new ResponseListner(this).getResponse(call);
 
     }
 
+
+    @Override
+    public void onApiResponse(Object response) {
+        new Utility().hideDialog();
+        if (response != null) {
+            Log.e("MyResponse", new Gson().toJson(response));
+            try {
+                if (response instanceof SignUpResponse) {
+                    SignUpResponse signUpResponse = (SignUpResponse) response;
+//                    new Utility().hideDialog();
+                    if (signUpResponse.isStatus()) {
+
+                        Toast.makeText(this, signUpResponse.getMsg(), Toast.LENGTH_SHORT).show();
+                        name.setText("");
+                        email.setText("");
+                        confrim_password.setText("");
+                        activity_password.setText("");
+                        phone_no.setText("");
+
+                    }
+                } else if (response instanceof LoginResponse) {
+                    LoginResponse loginResponse = (LoginResponse) response;
+                    if (loginResponse.isStatus()) {
+                        userId = loginResponse.getUser_detail().getUser_id();
+
+                        mySharedPreference.saveUserData(new Gson().toJson(loginResponse));
+                        mySharedPreference.saveUserId(loginResponse.getUser_detail().getUser_id());
+                        mySharedPreference.savePhoneNubmber(loginResponse.getUser_detail().getPhone());
+                        mySharedPreference.saveUserName(loginResponse.getUser_detail().getName());
+
+                        Toast.makeText(this, loginResponse.getMsg(), Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(MainActivity.this, DryCleanerActivity.class);
+                        startActivity(i);
+                    }
+
+                } else {
+
+                }
+
+            } catch (Exception e)
+
+            {
+                Log.d("TAG", "onApiResponse: " + e.getMessage());
+            }
+        } else {
+            new Utility().hideDialog();
+            Toast.makeText(this, "Try again", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+    @Override
+    public void onApiFailure(String message) {
+        new Utility().hideDialog();
+        Log.d(TAG, "onApiFailure: " + message);
+    }
 }
