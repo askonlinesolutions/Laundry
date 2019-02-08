@@ -21,6 +21,8 @@ import java.util.ArrayList;
 
 class SelectServiceAdapter extends RecyclerView.Adapter<SelectServiceAdapter.Viewholder> {
 
+    private ArrayList<ServiceResponse.DataEntity.CategoryEntity> categoryList = new ArrayList<>();
+
     private OnItemClickLisner onItemClickLisner;
     private ArrayList<ServiceResponse.DataEntity> serviseList;
     private Context context;
@@ -45,12 +47,11 @@ class SelectServiceAdapter extends RecyclerView.Adapter<SelectServiceAdapter.Vie
     public void onBindViewHolder(@NonNull SelectServiceAdapter.Viewholder holder, int i) {
 
         if (serviseList.size() != 0) {
-            holder.text_wash.setText(serviseList.get(i).getService_name());
+            holder.text_wash.setText(serviseList.get(i).getName());
 
-
-            if (serviseList.get(i).getService_image() != null) {
+            if (serviseList.get(i).getImage() != null) {
                 Picasso.with(context).
-                        load(/*"http://webdevelopmentreviews.net/laundry/upload/"*/Constant.IMAGE_BASE_URL + serviseList.get(i).getService_image()) // URL or file
+                        load(Constant.IMAGE_BASE_URL + serviseList.get(i).getImage()) // URL or file
                         .into(holder.serviceIv);
 
             }
@@ -84,7 +85,6 @@ class SelectServiceAdapter extends RecyclerView.Adapter<SelectServiceAdapter.Vie
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     int listSize = serviseList.size();
                     onItemClickLisner.onItemClick(getAdapterPosition());
                 }

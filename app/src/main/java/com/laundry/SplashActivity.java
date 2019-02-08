@@ -14,7 +14,7 @@ import com.laundry.ui.DryCleaner.DryCleanerActivity;
 import com.laundry.ui.LoginScreen.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
-    private static final long SPLASH_TIME_OUT = 1500;
+    private static final long SPLASH_TIME_OUT = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         ImageView imgSplash = findViewById(R.id.splas);
-        imgSplash.setImageResource(R.drawable.splash);
+//        imgSplash.setImageResource(R.drawable.splash);
 
 //                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.splash);
 //        imgSplash.setImageBitmap(bitmap);
@@ -51,10 +51,6 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         }, SPLASH_TIME_OUT);
-    }
-
-    private void setupWindowAnimations() {
-        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
     }
 
 }

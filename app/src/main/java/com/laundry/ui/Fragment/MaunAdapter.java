@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 import com.laundry.R;
 
-class MaunAdapter extends RecyclerView.Adapter<MaunAdapter.Viewholder> {
+public class MaunAdapter extends RecyclerView.Adapter<MaunAdapter.Viewholder> {
 
     private Context context;
     private Interface_AdapterMenu click;
 
-    MaunAdapter(Context context, Interface_AdapterMenu click) {
+    public MaunAdapter(Context context, Interface_AdapterMenu click) {
 
         this.context = context;
         this.click = click;

@@ -64,6 +64,9 @@ public class DryCleanerActivity extends AppCompatActivity
     TextView cancel_btn, playnowbtn;
     private static String TAG = DryCleanerActivity.class.getName();
     private ArrayList<ServiceResponse.DataEntity> serviseList = new ArrayList<>();
+    private ArrayList<ServiceResponse.DataEntity.CategoryEntity> categoryList = new ArrayList<>();
+    private ArrayList<ServiceResponse.DataEntity.CategoryEntity.ItemsEntity> categoryItemsList = new ArrayList<>();
+
     private boolean isVisible = true;
     private boolean isShow = true;
     ImageView btncross;
@@ -252,6 +255,7 @@ public class DryCleanerActivity extends AppCompatActivity
                         serviseList.clear();
                         if (serviceResponse.getData() != null /*&& messageDataList.size() != 0*/) {
                             serviseList.addAll(serviceResponse.getData());
+
                             setAdapter();
                         }
                     }

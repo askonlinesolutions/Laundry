@@ -356,6 +356,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Toast.makeText(this, loginResponse.getMsg(), Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(MainActivity.this, DryCleanerActivity.class);
                         startActivity(i);
+                    } else {
+                        Toast.makeText(this, loginResponse.getMsg(), Toast.LENGTH_SHORT).show();
                     }
 
                 } else {

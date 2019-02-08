@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".ui.Services.ServicesActivity">
 
         <LinearLayout
+            android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/sky_blue"
@@ -50,31 +51,86 @@
              app:tabTextColor="@color/white" />
  -->
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            app:tabGravity="fill"
-            app:tabIndicatorColor="@color/sky_blue"
-            app:tabMode="scrollable"
-            app:tabTextAppearance="@style/tabfont"
-            app:tabTextColor="@android:color/black" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/serviceRecycler"
+            android:id="@+id/services_rv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/layout"
             android:layout_margin="4dp">
 
         </android.support.v7.widget.RecyclerView>
 
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewpager"
+        <View
+            android:id="@+id/v1"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#d3d3d3" />
-    </LinearLayout>
+            android:layout_height="@dimen/dp1"
+            android:layout_below="@+id/services_rv"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp5"
+            android:background="@color/gray" />
+        <!-- <android.support.design.widget.TabLayout
+             android:id="@+id/tabs"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@android:color/white"
+             app:tabGravity="fill"
+             app:tabIndicatorColor="@color/sky_blue"
+             app:tabMode="scrollable"
+             app:tabTextAppearance="@style/tabfont"
+             app:tabTextColor="@android:color/black" />-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/category_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/v1"
+            android:layout_margin="4dp" />
+
+        <View
+            android:id="@+id/v2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:layout_below="@+id/category_rv"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp5"
+            android:background="@color/gray" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/category_item_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/schedule_pickup_tv"
+            android:layout_below="@+id/v2"
+            android:layout_margin="4dp"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginBottom="@dimen/dp10"
+            android:visibility="visible" />
+        <!-- <android.support.v4.view.ViewPager
+             android:id="@+id/viewpager"
+             android:layout_width="match_parent"
+             android:layout_height="0dp"
+             android:layout_weight="1"
+             android:background="#d3d3d3" />-->
+
+
+        <Button
+            android:id="@+id/schedule_pickup_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/sky_blue"
+            android:padding="10dp"
+            android:text="Scheduler Pickup"
+            android:textAllCaps="false"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/text_14" />
+
+    </RelativeLayout>
 </layout>

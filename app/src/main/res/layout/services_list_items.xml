@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/services"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.laundry.CustomTextRegular.CustomTextRegular
+            android:id="@+id/textservices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:padding="@dimen/dp5"
+            android:text="Scheduler "
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_11" />
+
+
+        <View
+            android:id="@+id/item_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp2"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginBottom="@dimen/dp5"
+            android:background="@color/sky_blue"
+            android:visibility="visible" />
+    </LinearLayout>
+
+</layout>
