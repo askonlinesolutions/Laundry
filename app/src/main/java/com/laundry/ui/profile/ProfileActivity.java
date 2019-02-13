@@ -153,17 +153,19 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
                         Toast.makeText(this, " Record found Successfully..", Toast.LENGTH_SHORT).show();
 
-                        binding.headUserNameTv.setText(profileResponse.getData().getUsermanage_first_name());
+                        binding.headUserNameTv.setText(profileResponse.getData().getUsermanage_username());
                         binding.userNameTv.setText(profileResponse.getData().getUsermanage_first_name());
                         binding.userEmailTv.setText(profileResponse.getData().getUsermanage_email());
                         binding.phoneNoTv.setText(profileResponse.getData().getUsermanage_contact());
-//                        binding.userAddressTv.setText(profileResponse.getData().get);
-//                        if (profileResponse.getData().getUsermanage_image() != null) {
-//                            Picasso.with(this).
-//                                    load(Constant.IMAGE_BASE_URL + profileResponse.getData().getUsermanage_image()) // URL or file
-//                                    .into(binding.userImageIv);
-//
-//                        }
+                        binding.userAddressTv.setText(profileResponse.getAddress());
+                        binding.paymentNoTv.setText(profileResponse.getPayment_card());
+                        binding.offerTv.setText(profileResponse.getOffer().get(0).getDiscount_coupon_val());
+                        if (profileResponse.getData().getUsermanage_image() != null) {
+                            Picasso.with(this).
+                                    load(Constant.IMAGE_BASE_URL + profileResponse.getData().getUsermanage_image()) // URL or file
+                                    .into(binding.userImageIv);
+
+                        }
 
 
                     } else {

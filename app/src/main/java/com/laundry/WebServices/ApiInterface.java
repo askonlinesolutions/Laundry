@@ -2,12 +2,17 @@ package com.laundry.WebServices;
 
 
 import com.google.maps.internal.ApiResponse;
+import com.laundry.ui.Contact.vo.ContactUsResponse;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.laundry.ui.LoginScreen.vo.LoginResponse;
 import com.laundry.ui.LoginScreen.vo.SignUpResponse;
 import com.laundry.ui.changePassword.vo.ChangePwdResponse;
+import com.laundry.ui.editProfile.vo.EditProfileResponse;
 import com.laundry.ui.forgotPassword.vo.ForgotPasswordResponse;
+import com.laundry.ui.manageAddress.vo.DeleteAddressResponse;
+import com.laundry.ui.manageAddress.vo.ManageAddressResponse;
 import com.laundry.ui.myOrder.vo.MyOrderResponse;
+import com.laundry.ui.myOrderDetails.vo.OrderDetailsResponse;
 import com.laundry.ui.profile.vo.ProfileResponse;
 import com.laundry.ui.settings.vo.SettingResponse;
 
@@ -59,9 +64,43 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("login/setting_notification")
-    Call<SettingResponse> setting(@Field("user_id") String user_id,
-                                  @Field("notification_order_status") String notification_order_status,
-                                  @Field("notification_messageg_statu") String notification_messageg_statu);
+    Call<SettingResponse> updateSetting(@Field("user_id") String user_id,
+                                        @Field("notification_order_status") int notification_order_status,
+                                        @Field("notification_messageg_status") int notification_messageg_status);
+
+
+    @FormUrlEncoded
+    @POST("login/Update_profile")
+    Call<EditProfileResponse> editProile(@Field("user_id") String user_id,
+                                         @Field("user_name") String user_name,
+                                         @Field("contact") String contact,
+                                         @Field("user_img") String user_img
+    );
+
+
+    @POST("faq/contact")
+    Call<ContactUsResponse> getContacts();
+
+
+    @FormUrlEncoded
+    @POST("order/order_by_orderId")
+    Call<OrderDetailsResponse> getOrderDetails(@Field("order_id") String order_id,
+                                               @Field("user_id") String user_id
+    );
+
+
+    @FormUrlEncoded
+    @POST("login/get_address")
+    Call<ManageAddressResponse> getAddressList(@Field("user_id") String user_id);
+
+    @FormUrlEncoded
+    @POST("login/delete_address")
+    Call<DeleteAddressResponse> deleteAddress(@Field("user_id") String user_id,
+                                              @Field("address_id") String address_id);
+
+
+
+
 
 
     /*

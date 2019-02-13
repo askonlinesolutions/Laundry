@@ -20,9 +20,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.maps.internal.ApiResponse;
 import com.laundry.R;
+import com.laundry.Utils.MySharedPreference;
+import com.laundry.Utils.Utility;
+import com.laundry.WebServices.APIClient;
+import com.laundry.WebServices.OnResponseInterface;
+import com.laundry.WebServices.ResponseListner;
 import com.laundry.databinding.ActivityEditProfileBinding;
+import com.laundry.ui.editProfile.vo.EditProfileResponse;
 import com.laundry.ui.profile.ProfileActivity;
+import com.laundry.ui.settings.vo.SettingResponse;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -34,11 +42,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener {
+import retrofit2.Call;
+
+import static com.laundry.Utils.Utility.isNetworkConnected;
+
+public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener, OnResponseInterface {
 
     private ActivityEditProfileBinding binding;
     private boolean isVisible = true;
-
+    private static String TAG = EditProfileActivity.class.getName();
 
     private Bitmap bitmap;
     private File destination = null;
@@ -52,6 +64,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
     private double latitude, longitude;
     byte[] byteArray;
+    String userName, phoneNo, userId;
     ByteArrayOutputStream bytes;
     String base_64_image;
 
@@ -61,6 +74,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_profile);
 
+        getUser_Id();
         init();
 
     }
@@ -73,6 +87,13 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
     }
 
+    private void getUser_Id() {
+        MySharedPreference mySharedPreference = MySharedPreference.getInstance(this);
+        userId = mySharedPreference.getUserId();
+        Log.e("MyUserId", userId);
+    }
+
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onClick(View view) {
@@ -82,19 +103,16 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 onBackPressed();
                 break;
 
-//            case R.id.eye_image:
-//                if (isVisible) {
-//                    binding.passwordEt.setTransformationMethod(null);
-//                    isVisible = false;
-//                } else {
-//                    binding.passwordEt.setTransformationMethod(new PasswordTransformationMethod());
-//                    isVisible = true;
-//                }
-//                break;
-
             case R.id.save_btn_tv:
-                Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
-                startActivity(intent);
+
+                if (isNetworkConnected(this)) {
+                    callEditProfileApi();
+                } else {
+                    Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
+                }
+
+              /*  Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
+                startActivity(intent);*/
                 break;
 
             case R.id.select_image_iv:
@@ -221,4 +239,63 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         return cursor.getString(column_index);
     }
 
+
+    private void callEditProfileApi() {
+
+        new Utility().showProgressDialog(this);
+        userName = binding.nameEt.getText().toString().trim();
+        phoneNo = binding.phoneNoEt.getText().toString().trim();
+
+
+        bitmapString = Utility.BitMapToString(bitmap);
+//        if (PICK_IMAGE_CAMERA==1 &&PICK_IMAGE_GALLERY==2){
+        binding.userImageIv.setImageBitmap(bitmap);
+        base_64_image = bitmapString;
+
+
+        Call<EditProfileResponse> call = APIClient.getInstance().getApiInterface().editProile(userId /*company_id*/, userName,/*"1"*/ phoneNo, base_64_image);
+        Log.e("", call.request().url().toString());
+        new ResponseListner(this).getResponse(call);
+
+
+    }
+
+
+    @Override
+    public void onApiResponse(Object response) {
+
+        if (response != null) {
+            new Utility().hideDialog();
+            try {
+                if (response instanceof EditProfileResponse) {
+                    EditProfileResponse editProfileResponse = (EditProfileResponse) response;
+                    new Utility().hideDialog();
+                    if (editProfileResponse.isStatus()) {
+
+                        Toast.makeText(this, editProfileResponse.getMsg(), Toast.LENGTH_SHORT).show();
+//                        Intent i = new Intent(ChangePaawordActivity.this, DryCleanerActivity.class);
+//                        startActivity(i);
+
+
+                    }
+                }
+
+            } catch (Exception e) {
+                Log.d("TAG", "onApiResponse: " + e.getMessage());
+            }
+        } else {
+            new Utility().hideDialog();
+            Toast.makeText(this, "Try again", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+    @Override
+    public void onApiFailure(String message) {
+
+        new Utility().hideDialog();
+        Log.d(TAG, "onApiFailure: " + message);
+
+    }
 }

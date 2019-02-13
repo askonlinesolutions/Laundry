@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.laundry.R;
+import com.laundry.Utils.MySharedPreference;
 import com.laundry.Utils.Utility;
 import com.laundry.WebServices.APIClient;
 import com.laundry.WebServices.OnResponseInterface;
@@ -21,34 +22,41 @@ import com.laundry.ui.settings.vo.SettingResponse;
 
 import retrofit2.Call;
 
+import static com.laundry.Utils.Utility.isNetworkConnected;
+
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener, OnResponseInterface {
 
     private ActivitySettingsBinding binding;
     private static String TAG = SettingsActivity.class.getName();
+    private int orderStatus, msgStatus;
+    String userId;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_settings);
-
+        getUser_Id();
         init();
-        callSettingapi();
+
     }
 
-    private void callSettingapi() {
 
-        new Utility().showProgressDialog(this);
-        Call<SettingResponse> call = APIClient.getInstance().getApiInterface().setting("user_id","notification_order_status","notification_messageg_statu");
-        new ResponseListner(this).getResponse(call);
-
-
-
-
+    private void getUser_Id() {
+        MySharedPreference mySharedPreference = MySharedPreference.getInstance(this);
+        userId = mySharedPreference.getUserId();
+        Log.e("MyUserId", userId);
     }
 
     private void init() {
 
         binding.settingBackIv.setOnClickListener(this);
         binding.passwordTv.setOnClickListener(this);
+//        binding.saveSettingBtn.setOnClickListener(this);
+        binding.orderStatusSwitch.setOnClickListener(this);
+        binding.clientMsgSwitch.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -61,8 +69,57 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             case R.id.password_tv:
                 startActivity(new Intent(SettingsActivity.this, ChangePaawordActivity.class));
                 break;
+
+            case R.id.order_status_switch:
+
+                if (binding.orderStatusSwitch.isChecked()) {
+                    orderStatus = 1;
+                } else {
+                    orderStatus = 0;
+                }
+
+                if (isNetworkConnected(this)) {
+                    callSettingApi();
+                } else {
+                    Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+
+            case R.id.client_msg_switch:
+
+
+                if (binding.clientMsgSwitch.isChecked()) {
+                    msgStatus = 1;
+                } else {
+                    msgStatus = 0;
+                }
+
+                if (isNetworkConnected(this)) {
+                    callSettingApi();
+                } else {
+                    Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+
+
+
+
+
         }
     }
+
+
+    private void callSettingApi() {
+
+        new Utility().showProgressDialog(this);
+        Call<SettingResponse> call = APIClient.getInstance().getApiInterface().updateSetting(userId, orderStatus, msgStatus);
+        new ResponseListner(this).getResponse(call);
+
+
+    }
+
 
     @Override
     public void onApiResponse(Object response) {
@@ -90,7 +147,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             new Utility().hideDialog();
             Toast.makeText(this, "Try again", Toast.LENGTH_SHORT).show();
         }
-
 
 
     }

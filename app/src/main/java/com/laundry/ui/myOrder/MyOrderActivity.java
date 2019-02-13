@@ -83,8 +83,9 @@ public class MyOrderActivity extends AppCompatActivity implements MyOrderAdapter
     }
 
     @Override
-    public void click(int position) {
+    public void click(int position,String orderId) {
         Intent intent = new Intent(MyOrderActivity.this, MyOrderDetailsActivity.class);
+        intent.putExtra("orderId", orderId);
         startActivity(intent);
     }
 

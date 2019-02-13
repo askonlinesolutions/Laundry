@@ -129,7 +129,7 @@
                     android:textSize="@dimen/text_12" />
 
                 <Switch
-                    android:id="@+id/new_order_switch"
+                    android:id="@+id/order_status_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"
@@ -186,6 +186,20 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
+
+       <!-- <com.laundry.CustomTextRegular.CustomTextRegulars
+            android:id="@+id/save_setting_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp40"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp40"
+            android:background="@drawable/background_button_sky"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Update Setting"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+-->
 
     </LinearLayout>
 

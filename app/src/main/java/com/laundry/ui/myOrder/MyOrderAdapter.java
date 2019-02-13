@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHolder> {
 
     Context context;
-    String conversationId, userName, userId;
+    String conversationId, userName, orderId;
     //    ArrayList image;
     private ArrayList<MyOrderResponse.DataEntity> orderList;
     MessageAdapterInterface messageAdapterInterface;
@@ -78,8 +78,8 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    messageAdapterInterface.click(getAdapterPosition());
+                    orderId = orderList.get(getAdapterPosition()).getOrderdetail_id();
+                    messageAdapterInterface.click(getAdapterPosition(),orderId);
 
                 }
             });
@@ -87,7 +87,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
     }
 
     interface MessageAdapterInterface {
-        void click(int position);
+        void click(int position,String orderId);
     }
 
 
