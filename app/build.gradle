@@ -58,4 +58,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
 
+
 }

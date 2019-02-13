@@ -9,6 +9,7 @@ import com.laundry.ui.changePassword.vo.ChangePwdResponse;
 import com.laundry.ui.forgotPassword.vo.ForgotPasswordResponse;
 import com.laundry.ui.myOrder.vo.MyOrderResponse;
 import com.laundry.ui.profile.vo.ProfileResponse;
+import com.laundry.ui.settings.vo.SettingResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -56,7 +57,11 @@ public interface ApiInterface {
     @POST("login/forgotpassword")
     Call<ForgotPasswordResponse> forgotPassword(@Field("email") String email);
 
-
+    @FormUrlEncoded
+    @POST("login/setting_notification")
+    Call<SettingResponse> setting(@Field("user_id") String user_id,
+                                  @Field("notification_order_status") String notification_order_status,
+                                  @Field("notification_messageg_statu") String notification_messageg_statu);
 
 
     /*
