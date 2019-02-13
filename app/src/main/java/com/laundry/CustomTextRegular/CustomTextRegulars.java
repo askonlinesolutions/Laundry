@@ -4,20 +4,21 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+import android.widget.TextView;
 
-public class CustomTextRegular extends AppCompatTextView {
+public class CustomTextRegulars extends AppCompatTextView {
 
-    public CustomTextRegular(Context context, AttributeSet attrs, int defStyle) {
+    public CustomTextRegulars(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
 
-    public CustomTextRegular(Context context, AttributeSet attrs) {
+    public CustomTextRegulars(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public CustomTextRegular(Context context) {
+    public CustomTextRegulars(Context context) {
         super(context);
         init();
     }

@@ -69,8 +69,24 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/myOrder_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="visible">
 
         </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/no_data_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="No Data Available!!"
+            android:textColor="@color/sky_blue"
+            android:textSize="@dimen/text_20"
+            android:visibility="gone"
+
+            />
+
+
     </LinearLayout>
 </layout>

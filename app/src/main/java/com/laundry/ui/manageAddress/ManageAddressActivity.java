@@ -55,7 +55,10 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onBtnClick(int Pos, String type) {
         if (type.equals("EDIT")) {
-            startActivity(new Intent(ManageAddressActivity.this, CurrentLocationMapActivity.class));
+//            startActivity(new Intent(ManageAddressActivity.this, CurrentLocationMapActivity.class));
+            Intent i = new Intent(ManageAddressActivity.this, AddNewAddressActivity.class);
+            i.putExtra("EDIT", type);
+            startActivity(i);
             this.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
         } else {
             Toast.makeText(getApplicationContext(), type, Toast.LENGTH_SHORT).show();

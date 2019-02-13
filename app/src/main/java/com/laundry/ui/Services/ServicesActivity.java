@@ -70,17 +70,15 @@ public class ServicesActivity extends AppCompatActivity implements CategoryLisAd
 
         }
 
-//        for (int i = 0; i < serviseList.size(); i++) {
-        if (pos!=0 && serviseList.get(pos).getCategory()!=null)
-        {
-            categoryList.addAll(serviseList.get(pos).getCategory());
-        }
+////        for (int i = 0; i < serviseList.size(); i++) {
+//        if (/*pos != 0 &&*/ serviseList.get(pos).getCategory() != null) {
+//            categoryList.addAll(serviseList.get(pos).getCategory());
+//        }
 
 //        }
 ////        viewPager.setCurrentItem(pos);
 //        for (int i = 0; i < categoryList.size(); i++) {
-//        if (pos!=0 && categoryList.get(pos).getItems()!=null)
-//        {
+//        if (/*pos != 0 &&*/ categoryList.size() != 0 && categoryList.get(pos) != null && categoryList.get(pos).getItems().size() != 0) {
 //            categoryItemsList.addAll(categoryList.get(pos).getItems());
 //
 //        }
@@ -165,9 +163,9 @@ public class ServicesActivity extends AppCompatActivity implements CategoryLisAd
             categoryItemAdapter.notifyDataSetChanged();
 
         } else {
-        categoryItemsList.addAll(categoryList.get(pos).getItems());
+            categoryItemsList.addAll(categoryList.get(pos).getItems());
 //            setUpCategoryItemListAdapter();
-        categoryItemAdapter.notifyDataSetChanged();
+            categoryItemAdapter.notifyDataSetChanged();
 
         }
 
@@ -175,62 +173,20 @@ public class ServicesActivity extends AppCompatActivity implements CategoryLisAd
     }
 
     @Override
-    public void onServicesClicked(int pos, String serviceId) {
+    public void onServicesClicked(int pos) {
         if (categoryList.size() != 0) {
             categoryList.clear();
             categoryList.addAll(serviseList.get(pos).getCategory());
 //            setUpCategoryListAdapter();
             categoryLisAdapter.notifyDataSetChanged();
         } else {
-        categoryList.addAll(serviseList.get(pos).getCategory());
+            categoryList.addAll(serviseList.get(pos).getCategory());
 //        setUpCategoryListAdapter();
 
-        categoryLisAdapter.notifyDataSetChanged();
+            categoryLisAdapter.notifyDataSetChanged();
         }
 
     }
-
-
-
-
-   /* private void setupViewPager(final ViewPager viewPager) {
-        viewPager.setOffscreenPageLimit(serviseList.size()*//*tabTitles.length*//*);
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        LayoutInflater inflator = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        for (int i = 0; i < serviseList.size(); i++) {
-
-            WashAndIronFragment fView = new WashAndIronFragment();
-            View view = fView.getView();
-            adapter.addFrag(fView, serviseList.get(i).getName()*//*"TAB " + i*//*);
-
-        }
-        viewPager.setAdapter(adapter);
-        if (pos != 0) {
-            viewPager.setCurrentItem(pos);
-        }
-
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-//        if (pos != 0) {
-//            viewPager.setCurrentItem(pos);
-//        }
-
-    }*/
 
 
 }

@@ -208,8 +208,8 @@ public class DryCleanerActivity extends AppCompatActivity
         playnowbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dialog.dismiss();
                 Intent intent = new Intent(DryCleanerActivity.this, MainActivity.class);
-                intent.putExtra("list", serviseList);
                 startActivity(intent);
             }
         });

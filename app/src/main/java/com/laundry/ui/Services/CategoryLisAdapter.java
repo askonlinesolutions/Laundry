@@ -19,11 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 class CategoryLisAdapter extends RecyclerView.Adapter<CategoryLisAdapter.Viewholder> {
-    private ArrayList<ServiceResponse.DataEntity> serviseList;
-    private List<ServiceResponse.DataEntity.CategoryEntity> categoryList;
 
+    private List<ServiceResponse.DataEntity.CategoryEntity> categoryList;
     private Context context;
-    private int rowindex = -1;
+    private int rowindex = 0;
     private CategoryListInterface categoryListInterface;
 
 
@@ -43,6 +42,9 @@ class CategoryLisAdapter extends RecyclerView.Adapter<CategoryLisAdapter.Viewhol
         Viewholder vh = new Viewholder(view);
         return new Viewholder(view) {
         };
+
+
+
     }
 
     @Override
@@ -56,20 +58,32 @@ class CategoryLisAdapter extends RecyclerView.Adapter<CategoryLisAdapter.Viewhol
                     load(Constant.IMAGE_BASE_URL + categoryList.get(i).getCategory_image()) // URL or file
                     .into(viewholder.img_shirt);
 
-        } else if(categoryList.get(i).getCategory_image().equals("")) {
+        } else if (categoryList.get(i).getCategory_image().equals("")) {
             viewholder.img_shirt.setImageResource(R.drawable.ic_tshirt);
         }
 
+        if (rowindex==0)
+        {
+            categoryListInterface.onCategoryClicked(rowindex);
+            viewholder.textservices.setTextColor(context.getResources().getColor(R.color.white_color));
+            viewholder.services.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.circlur_skybackground));
+        }else {
+            viewholder.textservices.setTextColor(context.getResources().getColor(R.color.sky_blue));
+            viewholder.services.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.hollow_sky_blue_background));
+//            viewholder.img_shirt.setImageResource(R.drawable.ic_shirt);
+        }
 
+//        categoryListInterface.onCategoryClicked(i);
         viewholder.services.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rowindex = i;
                 notifyDataSetChanged();
-                categoryListInterface.onCategoryClicked(i);
+//                categoryListInterface.onCategoryClicked(i);
             }
         });
         if (rowindex == i) {
+            categoryListInterface.onCategoryClicked(i);
             viewholder.textservices.setTextColor(context.getResources().getColor(R.color.white_color));
             viewholder.services.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.circlur_skybackground));
 //            viewholder.img_shirt.setImageResource(R.drawable.ic_tshirt);
@@ -122,7 +136,10 @@ class CategoryLisAdapter extends RecyclerView.Adapter<CategoryLisAdapter.Viewhol
 //            services.setOnClickListener(this);
 
             textservices.setTextColor(context.getResources().getColor(R.color.sky_blue));
-           services.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.hollow_sky_blue_background));
+            services.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.hollow_sky_blue_background));
+
+//            categoryListInterface.onCategoryClicked(getAdapterPosition());
+
 
         }
 

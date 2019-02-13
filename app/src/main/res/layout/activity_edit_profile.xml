@@ -35,7 +35,7 @@
                         android:layout_marginLeft="@dimen/dp15"
                         android:src="@drawable/ic_left_arrow" />
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:id="@+id/login_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
                 android:visibility="visible">
@@ -136,6 +136,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
+                    android:layout_marginTop="@dimen/dp5"
                     android:background="@drawable/corner"
                     android:orientation="horizontal"
                     android:padding="@dimen/dp8">
@@ -168,6 +169,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
+                    android:layout_marginTop="@dimen/dp5"
                     android:background="@drawable/corner"
                     android:orientation="horizontal"
                     android:padding="@dimen/dp8">
@@ -184,7 +186,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="7dp"
-                        android:layout_marginTop="3dp"
                         android:background="@null"
                         android:hint="@string/phone_no"
                         android:inputType="phone"
@@ -195,113 +196,119 @@
                 </LinearLayout>
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/corner"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/dp8">
+                <!--
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginRight="20dp"
+                                    android:background="@drawable/corner"
+                                    android:orientation="horizontal"
+                                    android:padding="@dimen/dp8">
 
-                    <ImageView
-                        android:layout_width="@dimen/dp25"
-                        android:layout_height="@dimen/dp25"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_placeholder" />
+                                    <ImageView
+                                        android:layout_width="@dimen/dp25"
+                                        android:layout_height="@dimen/dp25"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_placeholder" />
 
-                    <EditText
-                        android:id="@+id/address_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@null"
-                        android:hint="Address"
-                        android:inputType="text"
-                        android:lineSpacingExtra="7dp"
-                        android:padding="4dp"
-                        android:textSize="@dimen/text_12" />
+                                    <EditText
+                                        android:id="@+id/address_et"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="7dp"
+                                        android:layout_marginTop="3dp"
+                                        android:background="@null"
+                                        android:hint="Address"
+                                        android:inputType="text"
+                                        android:lineSpacingExtra="7dp"
+                                        android:padding="4dp"
+                                        android:textSize="@dimen/text_12" />
 
-                </LinearLayout>
+                                </LinearLayout>
+                -->
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/corner"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/dp8">
+                <!--
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginRight="20dp"
+                                    android:background="@drawable/corner"
+                                    android:orientation="horizontal"
+                                    android:padding="@dimen/dp8">
 
-                    <ImageView
-                        android:id="@+id/password_image"
-                        android:layout_width="@dimen/dp25"
-                        android:layout_height="@dimen/dp25"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_house_key" />
+                                    <ImageView
+                                        android:id="@+id/password_image"
+                                        android:layout_width="@dimen/dp25"
+                                        android:layout_height="@dimen/dp25"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_house_key" />
 
-                    <EditText
-                        android:id="@+id/password_et"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:hint="@string/password"
-                        android:inputType="textPassword"
-                        android:lineSpacingExtra="7dp"
-                        android:maxLength="20"
-                        android:padding="4dp"
-                        android:textSize="@dimen/text_12" />
+                                    <EditText
+                                        android:id="@+id/password_et"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="7dp"
+                                        android:layout_marginTop="3dp"
+                                        android:layout_weight="1"
+                                        android:background="@null"
+                                        android:hint="@string/password"
+                                        android:inputType="textPassword"
+                                        android:lineSpacingExtra="7dp"
+                                        android:maxLength="20"
+                                        android:padding="4dp"
+                                        android:textSize="@dimen/text_12" />
 
-                    <ImageView
-                        android:id="@+id/eye_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_eye" />
+                                    <ImageView
+                                        android:id="@+id/eye_image"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_eye" />
 
-                </LinearLayout>
+                                </LinearLayout>
+                -->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/corner"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/dp8">
+                <!--
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginRight="20dp"
+                                    android:background="@drawable/corner"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    android:padding="@dimen/dp8">
 
-                    <ImageView
-                        android:id="@+id/confirm_image"
-                        android:layout_width="@dimen/dp25"
-                        android:layout_height="@dimen/dp25"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_house_key" />
+                                    <ImageView
+                                        android:id="@+id/confirm_image"
+                                        android:layout_width="@dimen/dp25"
+                                        android:layout_height="@dimen/dp25"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_house_key" />
 
-                    <EditText
-                        android:id="@+id/confrim_password_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@null"
-                        android:hint="Confirm Password"
-                        android:inputType="textPassword"
-                        android:lineSpacingExtra="7dp"
-                        android:maxLength="20"
-                        android:padding="4dp"
-                        android:textSize="@dimen/text_12" />
+                                    <EditText
+                                        android:id="@+id/confrim_password_et"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="7dp"
+                                        android:layout_marginTop="3dp"
+                                        android:background="@null"
+                                        android:hint="Confirm Password"
+                                        android:inputType="textPassword"
+                                        android:lineSpacingExtra="7dp"
+                                        android:maxLength="20"
+                                        android:padding="4dp"
+                                        android:textSize="@dimen/text_12" />
 
-                </LinearLayout>
+                                </LinearLayout>
+                -->
 
                 <!-- <CheckBox
                      android:id="@+id/checkbox_termandcondition"
@@ -318,7 +325,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp45"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="@dimen/dp40"
                     android:layout_marginBottom="@dimen/dp10"
                     android:background="@drawable/background_button_sky"
                     android:gravity="center"

@@ -23,7 +23,7 @@
                 android:background="@color/sky_blue"
                 android:orientation="horizontal">
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:id="@+id/login_title"
                     android:layout_width="wrap_content"
                     android:layout_height="?attr/actionBarSize"
@@ -36,13 +36,13 @@
                     android:textColor="@color/white_color"
                     android:textSize="15dp" />
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:paddingRight="5dp"
-                    android:src="@drawable/ic_shopping_cart" />
+                <!--<ImageView-->
+                <!--android:layout_width="20dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:paddingRight="5dp"-->
+                <!--android:src="@drawable/ic_shopping_cart" />-->
             </LinearLayout>
 
             <ScrollView
@@ -92,7 +92,7 @@
 
                         </RelativeLayout>
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:id="@+id/activity_cart_btn_apply"
                             android:layout_width="@dimen/dp80"
                             android:layout_height="@dimen/dp40"
@@ -117,7 +117,7 @@
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp">
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="40sp"
                             android:layout_alignParentLeft="true"
@@ -126,7 +126,7 @@
 
                             android:textSize="15dp" />
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="40sp"
                             android:layout_alignParentRight="true"
@@ -153,7 +153,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <com.laundry.CustomTextRegular.CustomTextRegular
+                            <com.laundry.CustomTextRegular.CustomTextRegulars
                                 android:id="@+id/text_discount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="40sp"
@@ -163,7 +163,7 @@
                                 android:textColor="@color/bg_color_2"
                                 android:textSize="15dp" />
 
-                            <com.laundry.CustomTextRegular.CustomTextRegular
+                            <com.laundry.CustomTextRegular.CustomTextRegulars
                                 android:id="@+id/activity_text_discount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -176,7 +176,7 @@
                                 android:visibility="gone" />
                         </LinearLayout>
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:id="@+id/text_money"
                             android:layout_width="wrap_content"
                             android:layout_height="40sp"
@@ -199,7 +199,7 @@
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp">
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="40sp"
                             android:layout_alignParentLeft="true"
@@ -208,7 +208,7 @@
 
                             android:textSize="15dp" />
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="40sp"
                             android:layout_alignParentRight="true"
@@ -230,7 +230,7 @@
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp">
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="40sp"
                             android:layout_alignParentLeft="true"
@@ -239,7 +239,7 @@
 
                             android:textSize="15dp" />
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="40sp"
                             android:layout_alignParentRight="true"
@@ -261,7 +261,7 @@
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp">
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="40sp"
                             android:layout_alignParentLeft="true"
@@ -270,7 +270,7 @@
 
                             android:textSize="15dp" />
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="40sp"
                             android:layout_alignParentRight="true"
@@ -280,7 +280,7 @@
                             android:textSize="@dimen/text_15" />
                     </RelativeLayout>
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:id="@+id/activity_cart_btn_proced"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"

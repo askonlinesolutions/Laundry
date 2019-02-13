@@ -9,11 +9,15 @@ import android.widget.TextView;
 
 import com.laundry.R;
 import com.laundry.databinding.ActivityForgotPasswordBinding;
+import com.laundry.ui.DryCleaner.DryCleanerActivity;
 import com.laundry.ui.LoginScreen.MainActivity;
+import com.laundry.ui.changePassword.ChangePaawordActivity;
 
 public class ForgotPasswordActivity extends AppCompatActivity implements View.OnClickListener {
 
     ActivityForgotPasswordBinding binding;
+    private static String TAG = ForgotPasswordActivity.class.getName();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +30,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
 
     private void init() {
         binding.loginTitle.setOnClickListener(this);
-        binding.activityForgotPassword.setOnClickListener(this);
+        binding.forgotPasswordTv.setOnClickListener(this);
 
     }
 
@@ -37,8 +41,10 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
             case R.id.login_title:
                 onBackPressed();
                 break;
-            case R.id.activity_forgot_password:
-                Intent i = new Intent(ForgotPasswordActivity.this, MainActivity.class);
+            case R.id.forgot_password_tv:
+
+
+                Intent i = new Intent(ForgotPasswordActivity.this, DryCleanerActivity.class);
                 startActivity(i);
 
                 break;

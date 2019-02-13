@@ -2,10 +2,11 @@ package com.laundry.CustomTextRegular;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-public class NormalTextView extends TextView {
+public class NormalTextView extends AppCompatTextView {
     public NormalTextView(Context context) {
         super(context);
         Typeface face = Typeface.createFromAsset(context.getAssets(), "fonts/Montserrat-Medium.ttf");

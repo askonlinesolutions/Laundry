@@ -9,7 +9,7 @@
         android:orientation="vertical"
         tools:context=".ui.manageAddress.ManageAddressActivity">
 
-        <com.laundry.CustomTextRegular.CustomTextRegular
+        <com.laundry.CustomTextRegular.CustomTextRegulars
             android:id="@+id/manage_back_tv"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -35,7 +35,7 @@
         </android.support.v7.widget.RecyclerView>
 
 
-        <com.laundry.CustomTextRegular.CustomTextRegular
+        <com.laundry.CustomTextRegular.CustomTextRegulars
             android:id="@+id/add_new_address_tv"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp50"

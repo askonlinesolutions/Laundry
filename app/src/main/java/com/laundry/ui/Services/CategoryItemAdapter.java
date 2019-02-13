@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.laundry.R;
 import com.laundry.Utils.Constant;
+import com.laundry.clickListener.OnItemClickLisner;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.laundry.ui.Fragment.MaunAdapter;
 import com.squareup.picasso.Picasso;
@@ -18,7 +20,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapter.Viewholder> {
+public class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapter.Viewholder> implements OnItemClickLisner {
 
     private List<ServiceResponse.DataEntity.CategoryEntity.ItemsEntity> categoryItemsList;
 
@@ -70,6 +72,11 @@ public class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapte
         }
     }
 
+    @Override
+    public void onItemClick(int position) {
+
+    }
+
     public class Viewholder extends RecyclerView.ViewHolder {
         TextView itemName, priceTv, disscountTv;
         TextView minus, plus;
@@ -98,6 +105,11 @@ public class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapte
                     if (start > 1) {
                         start = start - 1;
                         integer_number.setText("" + start);
+                        if (start==1)
+                        {
+                            Toast.makeText(context, "please select atleast one item", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(context,"please select atleast one item",)
+                        }
                         // displaytext(start);
                     }
                 }

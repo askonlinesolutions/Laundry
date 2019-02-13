@@ -1,14 +1,22 @@
 package com.laundry.WebServices;
 
 
+import com.google.maps.internal.ApiResponse;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.laundry.ui.LoginScreen.vo.LoginResponse;
 import com.laundry.ui.LoginScreen.vo.SignUpResponse;
+import com.laundry.ui.changePassword.vo.ChangePwdResponse;
+import com.laundry.ui.forgotPassword.vo.ForgotPasswordResponse;
+import com.laundry.ui.myOrder.vo.MyOrderResponse;
+import com.laundry.ui.profile.vo.ProfileResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiInterface {
 
@@ -25,34 +33,33 @@ public interface ApiInterface {
                                   @Field("password") String password
     );
 
-//    @FormUrlEncoded
     @POST("services")
     Call<ServiceResponse> getServices();
 
 
-    /*
+    @GET("order/index/")
+    Call<MyOrderResponse> getOrdersList(@Query("orderdetail_cust_id") String orderdetail_cust_id);
+
     @FormUrlEncoded
+    @POST("login/changepassword")
+    Call<ChangePwdResponse> changePwd(@Field("user_id") String user_id,
+                                      @Field("oldpass") String oldpass,
+                                      @Field("newpass") String newpass
+    );
+
+    @FormUrlEncoded
+    @POST("login/get_profile")
+    Call<ProfileResponse> getProgileDetails(@Field("user_id") String user_id);
 
 
-    access_token
-
-first_name
-
-last_name
-
-phone
-
-email
-
-username
-
-password
-
-gender
-
-age
+    @FormUrlEncoded
+    @POST("login/forgotpassword")
+    Call<ForgotPasswordResponse> forgotPassword(@Field("email") String email);
 
 
+
+
+    /*
     @POST("get_trip")
     Call<UpcomingModal> getTripApi(@Field("driver_id") String driver_id,
                                    @Field("action") String action);

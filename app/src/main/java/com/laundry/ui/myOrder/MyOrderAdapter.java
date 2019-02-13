@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.laundry.R;
+import com.laundry.ui.myOrder.vo.MyOrderResponse;
 
 import java.util.ArrayList;
 
@@ -18,10 +19,12 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
     Context context;
     String conversationId, userName, userId;
     //    ArrayList image;
+    private ArrayList<MyOrderResponse.DataEntity> orderList;
     MessageAdapterInterface messageAdapterInterface;
 
-    public MyOrderAdapter(Context context, MessageAdapterInterface messageAdapterInterface) {
+    public MyOrderAdapter(Context context, ArrayList<MyOrderResponse.DataEntity> orderList, MessageAdapterInterface messageAdapterInterface) {
         this.context = context;
+        this.orderList = orderList;
         this.messageAdapterInterface = messageAdapterInterface;
     }
 
@@ -37,26 +40,39 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 //        viewHolder.textView.setText(name.get(i).toString());
 
-
+        viewHolder.orderNoTv.setText(orderList.get(i).getOrderdetail_order_no());
+        viewHolder.itemsTv.setText(orderList.get(i).getItemCount());
+        viewHolder.ammountTv.setText(orderList.get(i).getOrderdetail_totalprice());
+        viewHolder.pickupDateTv.setText(orderList.get(i).getOrderdetail_pickup());
+        viewHolder.dropDateTv.setText(orderList.get(i).getOrderdetail_drop());
 
     }
-
-
 
 
     @Override
     public int getItemCount() {
-        return 5;
+
+        if (orderList.size() != 0) {
+            return orderList.size();
+        } else {
+            return 0;
+        }
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textView, id_tv, nameTv, dateTv, timeTv;
+        TextView orderNoTv, itemsTv, ammountTv, pickupDateTv, dropDateTv, statusTv;
         ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-
+            orderNoTv = itemView.findViewById(R.id.order_no_tv);
+            itemsTv = itemView.findViewById(R.id.items_tv);
+            ammountTv = itemView.findViewById(R.id.amount_tv);
+            pickupDateTv = itemView.findViewById(R.id.order_pickup_date_tv);
+            dropDateTv = itemView.findViewById(R.id.order_drop_date_tv);
+            statusTv = itemView.findViewById(R.id.order_statuse_tv);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {

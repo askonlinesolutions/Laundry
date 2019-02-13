@@ -30,7 +30,7 @@
                     android:layout_marginLeft="@dimen/dp15"
                     android:src="@drawable/ic_left_arrow" />
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:id="@+id/login_title"
                     android:layout_width="0dp"
                     android:layout_height="?attr/actionBarSize"
@@ -56,31 +56,31 @@
 
             <RelativeLayout
                 android:id="@+id/layout"
-                android:layout_width="@dimen/dp120"
-                android:layout_height="@dimen/dp120"
+                android:layout_width="@dimen/dp100"
+                android:layout_height="@dimen/dp100"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center">
 
                 <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/imageView1"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:id="@+id/user_image_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_centerHorizontal="true"
                     android:src="@drawable/userplaceholder"
                     app:civ_border_color="@color/white"
                     app:civ_border_width="2dp" />
-
-                <ImageView
-                    android:id="@+id/camera_iv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="bottom"
-                    android:layout_marginTop="80dp"
-                    android:background="@drawable/circuler_white_bg"
-                    android:padding="@dimen/dp10"
-                    android:src="@drawable/ic_camera" />
+                <!--
+                                <ImageView
+                                    android:id="@+id/camera_iv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_gravity="bottom"
+                                    android:layout_marginTop="80dp"
+                                    android:background="@drawable/circuler_white_bg"
+                                    android:padding="@dimen/dp10"
+                                    android:src="@drawable/ic_camera" />-->
                 <!--<com.makeramen.roundedimageview.RoundedImageView-->
                 <!--android:id="@+id/imageView1"-->
                 <!--android:layout_width="80dp"-->
@@ -102,7 +102,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -111,12 +111,12 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/dp13" />
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
+                    android:id="@+id/head_user_name_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="Akhilesh"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_17"
                     android:textStyle="bold" />
@@ -138,7 +138,8 @@
                 android:orientation="vertical"
                 android:padding="@dimen/dp15">
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
+                    android:id="@+id/user_name_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -155,7 +156,8 @@
                     android:layout_marginTop="@dimen/dp5"
                     android:orientation="horizontal">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
+                        android:id="@+id/user_email_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -171,6 +173,7 @@
                         android:background="@drawable/circular_gray_bg" />
 
                     <TextView
+                        android:id="@+id/phone_no_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -201,7 +204,7 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Manage Address"
@@ -210,6 +213,7 @@
                             android:textStyle="bold" />
 
                         <com.laundry.CustomTextRegular.Regular
+                            android:id="@+id/user_address_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp5"
@@ -226,15 +230,15 @@
 
                     </LinearLayout>
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:id="@+id/default_tv"
                         android:layout_width="@dimen/dp90"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
                         android:layout_marginLeft="@dimen/dp10"
                         android:layout_marginRight="@dimen/dp5"
                         android:background="@drawable/sky_blue_hollow_background"
+                        android:gravity="center"
                         android:padding="@dimen/dp8"
                         android:text="Default"
                         android:textColor="@color/colorPrimary"
@@ -272,7 +276,7 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Payment method"
@@ -281,6 +285,7 @@
                             android:textStyle="bold" />
 
                         <com.laundry.CustomTextRegular.Regular
+                            android:id="@+id/payment_no_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp5"
@@ -321,7 +326,7 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Offer"
@@ -330,6 +335,7 @@
                             android:textStyle="bold" />
 
                         <com.laundry.CustomTextRegular.Regular
+                            android:id="@+id/offer_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp5"
@@ -349,10 +355,10 @@
 
 
                 <LinearLayout
+                    android:id="@+id/setting_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:id="@+id/setting_layout"
                     android:layout_marginTop="@dimen/dp10"
                     android:layout_marginBottom="@dimen/dp5"
                     android:orientation="horizontal"
@@ -372,7 +378,7 @@
                     <!--android:layout_weight="1"-->
                     <!--android:orientation="vertical">-->
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp15"

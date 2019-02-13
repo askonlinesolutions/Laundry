@@ -8,7 +8,7 @@
         android:orientation="vertical"
         tools:context=".ui.Thanku.ThankuActivity">
 
-        <com.laundry.CustomTextRegular.CustomTextRegular
+        <com.laundry.CustomTextRegular.CustomTextRegulars
             android:id="@+id/login_title"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -31,7 +31,7 @@
 
             android:src="@drawable/ic_check_mark" />
 
-        <com.laundry.CustomTextRegular.CustomTextRegular
+        <com.laundry.CustomTextRegular.CustomTextRegulars
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -41,7 +41,7 @@
             android:textColor="@color/black"
             android:textSize="30sp" />
 
-        <com.laundry.CustomTextRegular.CustomTextRegular
+        <com.laundry.CustomTextRegular.CustomTextRegulars
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -57,7 +57,7 @@
             </LinearLayout>
 
 
-            <com.laundry.CustomTextRegular.CustomTextRegular
+            <com.laundry.CustomTextRegular.CustomTextRegulars
                 android:id="@+id/confirm_btn"
                 android:layout_width="@dimen/dp80"
                 android:layout_height="wrap_content"

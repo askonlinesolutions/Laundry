@@ -24,7 +24,7 @@
                 android:layout_marginLeft="@dimen/dp15"
                 android:src="@drawable/ic_left_arrow" />
 
-            <com.laundry.CustomTextRegular.CustomTextRegular
+            <com.laundry.CustomTextRegular.CustomTextRegulars
                 android:id="@+id/login_title"
                 android:layout_width="0dp"
                 android:layout_height="?attr/actionBarSize"

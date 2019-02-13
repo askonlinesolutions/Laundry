@@ -29,7 +29,7 @@
                     android:layout_marginLeft="@dimen/dp15"
                     android:src="@drawable/ic_left_arrow" />
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:id="@+id/login_title"
                     android:layout_width="0dp"
                     android:layout_height="?attr/actionBarSize"
@@ -43,7 +43,7 @@
                     android:textStyle="bold" />
 
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:id="@+id/help_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Order No :"
@@ -76,7 +76,7 @@
                     android:textSize="@dimen/text_size_16"
                     android:textStyle="bold" />
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:id="@+id/no_of_bookings_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -98,14 +98,14 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Items 05,"
                     android:textSize="@dimen/text_size_13"
                     android:textStyle="bold" />
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp4"
@@ -142,7 +142,7 @@
                     android:layout_marginLeft="@dimen/dp10"
                     android:orientation="vertical">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -212,7 +212,7 @@
                     android:layout_marginLeft="@dimen/dp10"
                     android:orientation="vertical">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -281,7 +281,7 @@
                 android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -290,7 +290,7 @@
                     android:textSize="@dimen/text_size_13"
                     android:textStyle="bold" />
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/dp10"
@@ -310,7 +310,7 @@
                 android:layout_marginRight="@dimen/dp10"
                 android:orientation="horizontal">
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp2"
@@ -628,7 +628,7 @@
                 android:orientation="horizontal"
                 android:padding="@dimen/dp3">
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -637,7 +637,7 @@
                     android:textSize="@dimen/text_size_13"
                     android:textStyle="bold" />
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:id="@+id/view_details_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -679,7 +679,7 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -704,7 +704,7 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -740,7 +740,7 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -766,7 +766,7 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -791,7 +791,7 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -816,7 +816,7 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -854,14 +854,14 @@
                     android:gravity="right"
                     android:orientation="horizontal">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Total Price : "
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/text_size_13" />
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:id="@+id/total_price_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

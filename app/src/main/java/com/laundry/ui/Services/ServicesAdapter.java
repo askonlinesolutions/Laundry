@@ -12,18 +12,19 @@ import android.widget.TextView;
 
 import com.laundry.R;
 import com.laundry.Utils.Constant;
+import com.laundry.clickListener.OnItemClickLisner;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewholder> {
+public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewholder>  {
 
     private ArrayList<ServiceResponse.DataEntity> serviseList;
     private ServicesAdapterInterface servicesAdapterInterface;
     private Context context;
-    private int rowindex = -1;
+    private int rowindex = 0;
     int pos;
     private String servic_id;
 
@@ -52,21 +53,25 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
 
         viewholder.textservices.setText(serviseList.get(i).getName());
 
-        viewholder.item_view.setVisibility(View.VISIBLE);
+        /*viewholder.item_view.setVisibility(View.VISIBLE);*/
+        if (rowindex==0){
+            servicesAdapterInterface.onServicesClicked(rowindex);
+            viewholder.item_view.setVisibility(View.VISIBLE);
+        }else {
+            viewholder.item_view.setVisibility(View.GONE);
+        }
         viewholder.services.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rowindex = i;
                 notifyDataSetChanged();
-
-                servic_id = serviseList.get(i).getId();
-                servicesAdapterInterface.onServicesClicked(i, servic_id);
+                servicesAdapterInterface.onServicesClicked(i);
 
             }
         });
-        if (rowindex == i) {
+      if (rowindex == i) {
             viewholder.item_view.setVisibility(View.VISIBLE);
-
+            servicesAdapterInterface.onServicesClicked(i);
         } else {
             viewholder.item_view.setVisibility(View.GONE);
 
@@ -78,13 +83,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
     @Override
     public int getItemCount() {
         if (serviseList.size() != 0) {
-
             return serviseList.size();
         } else {
             return 0;
         }
     }
-
 
     public class Viewholder extends RecyclerView.ViewHolder {
         LinearLayout services;
@@ -98,7 +101,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
 //            img_shirt = itemView.findViewById(R.id.img_shirt);
             textservices = itemView.findViewById(R.id.textservices);
             item_view = itemView.findViewById(R.id.item_view);
-            item_view.setVisibility(View.VISIBLE);
+            /*item_view.setVisibility(View.VISIBLE);*/
 
 //            itemView.setOnClickListener(new View.OnClickListener() {
 //                @Override
@@ -112,7 +115,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
     }
 
     public interface ServicesAdapterInterface {
-        void onServicesClicked(int pos, String serviceId);
+        void onServicesClicked(int pos);
 
 
     }

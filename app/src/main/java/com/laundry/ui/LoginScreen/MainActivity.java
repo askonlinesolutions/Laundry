@@ -1,6 +1,7 @@
 package com.laundry.ui.LoginScreen;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import com.laundry.Utils.Utility;
 import com.laundry.WebServices.APIClient;
 import com.laundry.WebServices.OnResponseInterface;
 import com.laundry.WebServices.ResponseListner;
+import com.laundry.databinding.ActivityMainBinding;
 import com.laundry.ui.DryCleaner.DryCleanerActivity;
 import com.laundry.ui.LoginScreen.vo.AccessTokenResponse;
 import com.laundry.ui.LoginScreen.vo.LoginResponse;
@@ -40,6 +42,8 @@ import retrofit2.Call;
 import static com.laundry.Utils.Utility.isNetworkConnected;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, OnResponseInterface {
+
+    ActivityMainBinding binding;
     private RadioButton sign_up, login;
     private LinearLayout loginbtn, signupbtn;
     private RadioGroup radio;
@@ -49,14 +53,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isShow = true;
     private MySharedPreference mySharedPreference;
     private String password, emailId, userName, confirmPwd, phoneNo, accessToken, tokenType, loginEmailId, loginPassword, userId;
-    private TextView activity_login_btn, activity_sign_btn, login_title, forgot_password;
+    private TextView activity_login_btn, activity_sign_btn, login_title, forgot_password, termsAndCondition;
     private CheckBox checkbox;
     private EditText activity_login_edt_password, activity_login_edt_email, email, activity_password, confrim_password, name, phone_no;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mySharedPreference = MySharedPreference.getInstance(this);
         init();
 
@@ -75,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         login_title = findViewById(R.id.login_title);
         eye_image = findViewById(R.id.eye_image);
         phone_no = findViewById(R.id.phone_no_et);
-        checkbox = findViewById(R.id.checkbox_termandcondition);
+        termsAndCondition = findViewById(R.id.checkbox_termandcondition);
         forgot_password = findViewById(R.id.activity_forgot_password);
         //   password = findViewById(R.id.password);
         email = findViewById(R.id.email);
@@ -94,9 +98,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         activity_login_btn.setOnClickListener(this);
         activity_sign_btn.setOnClickListener(this);
         login_title.setOnClickListener(this);
-        checkbox.setOnClickListener(this);
+        termsAndCondition.setOnClickListener(this);
         eye_image.setOnClickListener(this);
-
+        binding.skipTv.setOnClickListener(this);
         forgot_password.setOnClickListener(this);
 
     }
@@ -138,6 +142,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent i = new Intent(MainActivity.this, TermConditionActivity.class);
                 startActivity(i);
                 break;
+            case R.id.skip_tv:
+                Intent skipIntent = new Intent(MainActivity.this, DryCleanerActivity.class);
+                startActivity(skipIntent);
+                break;
 
             case R.id.login_title:
                 onBackPressed();
@@ -151,9 +159,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.eye_image:
                 if (isVisible) {
                     activity_password.setTransformationMethod(null);
+                    binding.eyeImage.setImageResource(R.drawable.ic_hide);
                     isVisible = false;
                 } else {
                     activity_password.setTransformationMethod(new PasswordTransformationMethod());
+                    binding.eyeImage.setImageResource(R.drawable.ic_eye);
                     isVisible = true;
 
                 }
@@ -210,7 +220,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isAllFieldValide() {
 
         if (name.length() == 0 || email.length() == 0 || activity_password.length() == 0 ||
-                confrim_password.length() == 0 || checkbox.length() == 0) {
+                confrim_password.length() == 0 /*|| checkbox.length() == 0*/) {
             Toast.makeText(this, "please fill all blank  fiels!", Toast.LENGTH_SHORT).show();
             return false;
         }

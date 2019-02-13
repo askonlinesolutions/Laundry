@@ -43,7 +43,7 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Order No"
@@ -52,7 +52,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/no_of_bookings_tv"
+                            android:id="@+id/order_no_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
@@ -74,7 +74,7 @@
                         android:orientation="vertical">
 
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:drawableRight="@drawable/ic_expand_button"
@@ -85,7 +85,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/no_of_stoppege_tv"
+                            android:id="@+id/items_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
@@ -104,7 +104,7 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <com.laundry.CustomTextRegular.CustomTextRegular
+                        <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Amount"
@@ -113,7 +113,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/no_of_breakdowns"
+                            android:id="@+id/amount_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
@@ -142,7 +142,7 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pickup:"
@@ -151,6 +151,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/order_pickup_date_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp5"
@@ -167,7 +168,7 @@
 
                     android:orientation="horizontal">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Delivery:"
@@ -176,7 +177,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-
+                        android:id="@+id/order_drop_date_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp5"
@@ -203,7 +204,7 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -212,7 +213,8 @@
                         android:textSize="@dimen/text_size_13"
                         android:textStyle="bold" />
 
-                    <com.laundry.CustomTextRegular.CustomTextRegular
+                    <com.laundry.CustomTextRegular.CustomTextRegulars
+                        android:id="@+id/order_statuse_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/dp10"
@@ -242,6 +244,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/statuse_order_placed_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp2"
@@ -260,6 +263,7 @@
                         android:visibility="invisible" />
 
                     <TextView
+                        android:id="@+id/statuse_on_the_way_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp20"
@@ -279,6 +283,7 @@
                         android:visibility="invisible" />
 
                     <TextView
+                        android:id="@+id/status_wash_in_progress_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp20"
@@ -297,6 +302,7 @@
                         android:visibility="invisible" />
 
                     <TextView
+                        android:id="@+id/status_deliveri_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -326,6 +332,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/status_tv1"
                             android:layout_width="@dimen/dp18"
                             android:layout_height="@dimen/dp18"
                             android:background="@drawable/circuler_blue_bg" />
@@ -360,11 +367,13 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/status_tv2"
                             android:layout_width="@dimen/dp18"
                             android:layout_height="@dimen/dp18"
                             android:background="@drawable/circular_gray_bg" />
 
                         <TextView
+                            android:id="@+id/statuse_driver_assign_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp2"
@@ -392,6 +401,8 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/status_tv3"
+
                             android:layout_width="@dimen/dp18"
                             android:layout_height="@dimen/dp18"
                             android:background="@drawable/circular_gray_bg" />
@@ -424,11 +435,13 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/status_tv4"
                             android:layout_width="@dimen/dp18"
                             android:layout_height="@dimen/dp18"
                             android:background="@drawable/circular_gray_bg" />
 
                         <TextView
+                            android:id="@+id/statuse_piked_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp2"
@@ -457,6 +470,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/status_tv5"
                             android:layout_width="@dimen/dp18"
                             android:layout_height="@dimen/dp18"
                             android:background="@drawable/circular_gray_bg" />
@@ -489,18 +503,19 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/status_tv6"
                             android:layout_width="@dimen/dp18"
                             android:layout_height="@dimen/dp18"
                             android:background="@drawable/circular_gray_bg" />
 
                         <TextView
+                            android:id="@+id/statuse_shipped_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp2"
                             android:layout_marginBottom="@dimen/dp10"
                             android:text="@string/shipped"
                             android:textSize="@dimen/text_8"
-
                             android:visibility="visible" />
 
                     </LinearLayout>
@@ -523,6 +538,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/status_tv7"
                             android:layout_width="@dimen/dp18"
                             android:layout_height="@dimen/dp18"
                             android:background="@drawable/circular_gray_bg" />

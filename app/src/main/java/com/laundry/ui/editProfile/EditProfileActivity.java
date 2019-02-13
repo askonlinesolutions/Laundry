@@ -68,7 +68,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private void init() {
         binding.editBackIv.setOnClickListener(this);
         binding.saveBtnTv.setOnClickListener(this);
-        binding.eyeImage.setOnClickListener(this);
+//        binding.eyeImage.setOnClickListener(this);
         binding.selectImageIv.setOnClickListener(this);
 
     }
@@ -82,15 +82,15 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 onBackPressed();
                 break;
 
-            case R.id.eye_image:
-                if (isVisible) {
-                    binding.passwordEt.setTransformationMethod(null);
-                    isVisible = false;
-                } else {
-                    binding.passwordEt.setTransformationMethod(new PasswordTransformationMethod());
-                    isVisible = true;
-                }
-                break;
+//            case R.id.eye_image:
+//                if (isVisible) {
+//                    binding.passwordEt.setTransformationMethod(null);
+//                    isVisible = false;
+//                } else {
+//                    binding.passwordEt.setTransformationMethod(new PasswordTransformationMethod());
+//                    isVisible = true;
+//                }
+//                break;
 
             case R.id.save_btn_tv:
                 Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);

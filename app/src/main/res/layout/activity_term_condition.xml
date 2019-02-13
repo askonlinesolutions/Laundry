@@ -1,26 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.LoginScreen.TermConditionActivity">
-    <com.laundry.CustomTextRegular.CustomTextRegular
-        android:id="@+id/login_title"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/sky_blue"
-        android:drawableLeft="@drawable/ic_left_arrow"
-        android:gravity="center"
-        android:paddingLeft="@dimen/dp10"
-        android:text="Term and Condition"
-        android:textColor="@color/white_color"
-        android:textSize="15dp" />
-    <WebView
-        android:id="@+id/webView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        ></WebView>
+    xmlns:tools="http://schemas.android.com/tools">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".ui.termsConditions.TermConditionActivity">
+
+        <com.laundry.CustomTextRegular.CustomTextRegulars
+            android:id="@+id/login_title"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/sky_blue"
+            android:drawableLeft="@drawable/ic_left_arrow"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dp10"
+            android:text="Terms and Conditions"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/text_15" />
+
+
+        <com.laundry.CustomTextRegular.CustomTextRegulars
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp15"
+            android:text="All service trials and promotion offers are considered to be delivered in full upon the completion of the service term stated onthe trial or offer invoice found in your account control panel"
+            android:textSize="@dimen/text_12" />
+
+
+        <!--<WebView-->
+        <!--android:id="@+id/webView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+
+    </LinearLayout>
+
+</layout>

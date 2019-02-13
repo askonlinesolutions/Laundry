@@ -107,10 +107,7 @@ class PickDropAdapter extends RecyclerView.Adapter<PickDropAdapter.ViewHolder> {
                                 @Override
                                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
-
                                     tvDisplayDate.setText(dd + "-" + (mm + 1) + "-" + yy);
-
-
                                 }
 
                             }, yy, mm, dd);

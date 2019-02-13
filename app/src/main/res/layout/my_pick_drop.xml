@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         app:cardElevation="@dimen/dp3">
 
-        <com.laundry.CustomTextRegular.CustomTextRegular
+        <com.laundry.CustomTextRegular.CustomTextRegulars
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -40,7 +40,7 @@
             android:layout_gravity="center"
             android:src="@drawable/ic_gps_fixed_indicator__blue" />
 
-        <com.laundry.CustomTextRegular.CustomTextRegular
+        <com.laundry.CustomTextRegular.CustomTextRegulars
             android:id="@+id/txt_call"
             android:layout_width="wrap_content"
             android:layout_height="?attr/actionBarSize"
@@ -108,7 +108,7 @@
             android:orientation="horizontal"
             android:padding="@dimen/dp5">
 
-            <com.laundry.CustomTextRegular.CustomTextRegular
+            <com.laundry.CustomTextRegular.CustomTextRegulars
                 android:id="@+id/tvDisplayDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
             android:orientation="horizontal"
             android:padding="@dimen/dp5">
 
-            <com.laundry.CustomTextRegular.CustomTextRegular
+            <com.laundry.CustomTextRegular.CustomTextRegulars
                 android:id="@+id/tvDisplaytime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

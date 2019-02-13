@@ -9,7 +9,7 @@
         android:layout_marginRight="@dimen/dp10"
         android:orientation="vertical">
 
-        <com.laundry.CustomTextRegular.CustomTextRegular
+        <com.laundry.CustomTextRegular.CustomTextRegulars
             android:id="@+id/login_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

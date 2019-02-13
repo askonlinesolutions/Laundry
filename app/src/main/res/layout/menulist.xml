@@ -26,7 +26,7 @@
             android:layout_marginLeft="@dimen/dp5"
             android:orientation="vertical">
 
-            <com.laundry.CustomTextRegular.CustomTextRegular
+            <com.laundry.CustomTextRegular.CustomTextRegulars
                 android:id="@+id/text_menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
 
                 android:orientation="horizontal">
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:id="@+id/price_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                     android:layout_marginTop="10dp"
                     android:text="$10-$20" />
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:id="@+id/discount_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                     android:textColor="@color/sky_blue" />
 
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:id="@+id/minus"
                     android:layout_width="30dp"
                     android:layout_height="20dp"
@@ -69,7 +69,7 @@
                     android:textColor="@color/white_color"
                     android:textSize="12sp" />
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:id="@+id/integer_number"
                     android:layout_width="30dp"
                     android:layout_height="20dp"
@@ -79,7 +79,7 @@
 
                     android:textSize="12sp" />
 
-                <com.laundry.CustomTextRegular.CustomTextRegular
+                <com.laundry.CustomTextRegular.CustomTextRegulars
                     android:id="@+id/plus"
                     android:layout_width="30dp"
                     android:layout_height="20dp"

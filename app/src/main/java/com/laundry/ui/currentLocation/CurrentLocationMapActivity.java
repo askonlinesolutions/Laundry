@@ -167,6 +167,11 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
         mLocationRequest.setFastestInterval(120000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
 
+//        mGoogleMap.addMarker(new MarkerOptions().position(coordinate)
+//                .title("Your Title")
+//                .snippet("Please move the marker if needed.")
+//                .draggable(true));
+
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)

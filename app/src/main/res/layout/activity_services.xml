@@ -16,7 +16,7 @@
             android:background="@color/sky_blue"
             android:orientation="horizontal">
 
-            <com.laundry.CustomTextRegular.CustomTextRegular
+            <com.laundry.CustomTextRegular.CustomTextRegulars
                 android:id="@+id/login_title"
                 android:layout_width="0dp"
                 android:layout_height="?attr/actionBarSize"

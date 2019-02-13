@@ -20,7 +20,7 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_visa" />
 
-            <com.laundry.CustomTextRegular.CustomTextRegular
+            <com.laundry.CustomTextRegular.CustomTextRegulars
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -29,7 +29,7 @@
                 android:textSize="@dimen/text_12" />
 
 
-            <com.laundry.CustomTextRegular.CustomTextRegular
+            <com.laundry.CustomTextRegular.CustomTextRegulars
                 android:id="@+id/activity_delete_btn"
                 android:layout_width="@dimen/dp80"
                 android:layout_height="wrap_content"

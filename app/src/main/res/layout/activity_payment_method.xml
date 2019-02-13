@@ -9,7 +9,7 @@
         android:orientation="vertical"
         tools:context=".ui.MyPayment.PaymentMethodActivity">
 
-        <com.laundry.CustomTextRegular.CustomTextRegular
+        <com.laundry.CustomTextRegular.CustomTextRegulars
             android:id="@+id/login_title"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             app:cardElevation="@dimen/dp3">
 
-            <com.laundry.CustomTextRegular.CustomTextRegular
+            <com.laundry.CustomTextRegular.CustomTextRegulars
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -46,7 +46,7 @@
 
         </android.support.v7.widget.RecyclerView>
 
-        <com.laundry.CustomTextRegular.CustomTextRegular
+        <com.laundry.CustomTextRegular.CustomTextRegulars
             android:id="@+id/activity_add_new_card"
             android:layout_width="match_parent"
             android:layout_height="50dp"

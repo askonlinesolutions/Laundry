@@ -9,7 +9,7 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <com.laundry.CustomTextRegular.CustomTextRegular
+        <com.laundry.CustomTextRegular.CustomTextRegulars
             android:id="@+id/textservices"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
