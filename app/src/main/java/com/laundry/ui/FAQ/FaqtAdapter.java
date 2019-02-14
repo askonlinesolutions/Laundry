@@ -3,6 +3,7 @@ package com.laundry.ui.FAQ;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,9 @@ class FaqtAdapter extends RecyclerView.Adapter<FaqtAdapter.Viewholder> {
 
 
         viewholder.question_tv.setText(faqList.get(i).getFaq_man_question());
-        viewholder.tvExpand.setText(faqList.get(i).getFaq_man_answer());
+        viewholder.tvExpand.setText( Html.fromHtml((faqList.get(i).getFaq_man_answer()).toString())/*faqList.get(i).getFaq_man_answer()*/);
+
+        Html.fromHtml((faqList.get(i).getFaq_man_answer()).toString());
 
         viewholder.arrow.setOnClickListener(new View.OnClickListener() {
             @Override
