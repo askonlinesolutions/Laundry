@@ -33,9 +33,11 @@ import com.laundry.WebServices.OnResponseInterface;
 import com.laundry.WebServices.ResponseListner;
 import com.laundry.clickListener.OnItemClickLisner;
 import com.laundry.ui.Contact.ContactActivity;
+import com.laundry.ui.DryCleaner.vo.LogoutResponse;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.laundry.ui.FAQ.FAQActivity;
 
+import com.laundry.ui.FAQ.vo.FaqResponse;
 import com.laundry.ui.LoginScreen.MainActivity;
 import com.laundry.ui.LoginScreen.vo.SignUpResponse;
 import com.laundry.ui.MyPayment.PaymentMethodActivity;
@@ -209,10 +211,25 @@ public class DryCleanerActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                callapilogout();
                 Intent intent = new Intent(DryCleanerActivity.this, MainActivity.class);
                 startActivity(intent);
             }
+
+
         });
+
+    }
+
+    private void callapilogout() {
+
+        new Utility().showProgressDialog(this);
+        Call<LogoutResponse> call = APIClient.getInstance().getApiInterface().getlogout();
+        Log.e("MylogoutUrl", call.request().url().toString());
+        new ResponseListner(this).getResponse(call);
+
+
+
 
     }
 
@@ -258,7 +275,18 @@ public class DryCleanerActivity extends AppCompatActivity
 
                             setAdapter();
                         }
-                    }
+                    }else   if (response instanceof LogoutResponse) {
+                        LogoutResponse logoutResponse = (LogoutResponse) response;
+                        new Utility().hideDialog();
+//                        if (logoutResponse.isStatus()) {
+//                            serviseList.clear();
+//                            if (LogoutResponse.getData() != null /*&& messageDataList.size() != 0*/) {
+//                                serviseList.addAll(serviceResponse.getData());
+//
+//                                setAdapter();
+
+                        }
+
                 }
 
             } catch (Exception e) {

@@ -51,12 +51,12 @@
                             android:background="@null">
 
                             <EditText
-                                android:id="@+id/title_et"
+                                android:id="@+id/address_et"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:background="@null"
-                                android:hint="Title"
+                                android:hint="Address title"
                                 android:inputType="textEmailAddress"
                                 android:padding="10dp"
                                 android:textColor="@color/text_black"
@@ -77,17 +77,16 @@
                             android:background="@null">
 
                             <EditText
-                                android:id="@+id/name"
+                                android:id="@+id/address"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:background="@null"
-                                android:hint="Full Name"
+                                android:hint="Address"
                                 android:inputType="textEmailAddress"
                                 android:padding="10dp"
-                                android:textColor="@color/text_black"
                                 android:textSize="@dimen/text_12"
-                                android:textStyle="bold" />
+                               />
 
                         </android.support.design.widget.TextInputLayout>
 
@@ -104,17 +103,16 @@
                             android:background="@null">
 
                             <EditText
-                                android:id="@+id/mobile_no_et"
+                                android:id="@+id/landmarket"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
-                                android:hint="Mobile Number"
+                                android:hint="Landmark"
                                 android:inputType="phone"
                                 android:padding="10dp"
                                 android:maxLength="13"
-                                android:textColor="@color/text_black"
                                 android:textSize="@dimen/text_12"
-                                android:textStyle="bold" />
+                                />
 
                         </android.support.design.widget.TextInputLayout>
 
@@ -157,11 +155,11 @@
                             android:background="@null">
 
                             <EditText
-                                android:id="@+id/address_1_et"
+                                android:id="@+id/city_town_et"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
-                                android:hint="Address 1"
+                                android:hint="City/Town"
                                 android:inputType="text"
                                 android:padding="10dp"
                                 android:textSize="@dimen/text_12" />
@@ -173,13 +171,13 @@
                             android:layout_height="1dp"
                             android:background="@color/view_color" />
 
-                        <com.laundry.CustomTextRegular.Regular
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/dp5"
-                            android:layout_marginTop="@dimen/dp5"
-                            android:text="(Company,House Number,appartment Name)"
-                            android:textSize="@dimen/text_10" />
+                        <!--<com.laundry.CustomTextRegular.Regular-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="@dimen/dp5"-->
+                            <!--android:layout_marginTop="@dimen/dp5"-->
+                            <!--android:text="(Company,House Number,appartment Name)"-->
+                            <!--android:textSize="@dimen/text_10" />-->
 
                         <android.support.design.widget.TextInputLayout
                             android:id="@+id/address2Wrapper"
@@ -189,11 +187,11 @@
                             android:background="@null">
 
                             <EditText
-                                android:id="@+id/address_2_et"
+                                android:id="@+id/state_et"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
-                                android:hint="Address2"
+                                android:hint="State"
                                 android:inputType="text"
                                 android:padding="10dp"
                                 android:textSize="@dimen/text_12" />
@@ -205,13 +203,13 @@
                             android:layout_height="1dp"
                             android:background="@color/view_color" />
 
-                        <com.laundry.CustomTextRegular.Regular
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/dp5"
-                            android:layout_marginTop="@dimen/dp5"
-                            android:text="(steet Deteails)"
-                            android:textSize="@dimen/text_10" />
+                        <!--<com.laundry.CustomTextRegular.Regular-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="@dimen/dp5"-->
+                            <!--android:layout_marginTop="@dimen/dp5"-->
+                            <!--android:text="(steet Deteails)"-->
+                            <!--android:textSize="@dimen/text_10" />-->
 
 
                         <android.support.design.widget.TextInputLayout
@@ -222,11 +220,11 @@
                             android:background="@null">
 
                             <EditText
-                                android:id="@+id/city"
+                                android:id="@+id/address_lat_et"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
-                                android:hint="City/Town"
+                                android:hint="Address_lat"
                                 android:inputType="text"
                                 android:padding="10dp"
                                 android:textSize="@dimen/text_12" />
@@ -246,11 +244,11 @@
                             android:background="@null">
 
                             <EditText
-                                android:id="@+id/state"
+                                android:id="@+id/address_lon_et"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
-                                android:hint="State"
+                                android:hint="Address_long"
                                 android:inputType="text"
                                 android:padding="10dp"
                                 android:textSize="@dimen/text_12" />
