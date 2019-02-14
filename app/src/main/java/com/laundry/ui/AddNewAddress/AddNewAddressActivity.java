@@ -40,28 +40,28 @@ public class AddNewAddressActivity extends AppCompatActivity implements View.OnC
 
         binding.loginTitle.setOnClickListener(this);
 
-        binding.mobileNoEt.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-
-                if (!s.toString().contains("+91 ")) {
-                    binding.mobileNoEt.setText("+91 " + s.toString());
-                    Selection.setSelection(binding.mobileNoEt.getText(), binding.mobileNoEt.getText().length());
-                }
-
-            }
-        });
+//        binding.mobileNoEt.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//
+//                if (!s.toString().contains("+91 ")) {
+//                    binding.mobileNoEt.setText("+91 " + s.toString());
+//                    Selection.setSelection(binding.mobileNoEt.getText(), binding.mobileNoEt.getText().length());
+//                }
+//
+//            }
+//        });
 
     }
 

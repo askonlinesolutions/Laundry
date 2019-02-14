@@ -103,11 +103,13 @@ public interface ApiInterface {
 
 
 //    @FormUrlEncoded
-    @POST("webservices/faq")
+    @POST("faq")
     Call<FaqResponse> getfaq ();
 
-    @POST("webservices/login/log_out")
-    Call<LogoutResponse> getlogout();
+
+    @FormUrlEncoded
+    @POST("login/log_out")
+    Call<LogoutResponse> getlogout(@Field("user_id") String user_id);
     /*
     @POST("get_trip")
     Call<UpcomingModal> getTripApi(@Field("driver_id") String driver_id,
