@@ -3,7 +3,9 @@ package com.laundry.WebServices;
 
 import com.google.maps.internal.ApiResponse;
 import com.laundry.ui.Contact.vo.ContactUsResponse;
+import com.laundry.ui.DryCleaner.vo.LogoutResponse;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
+import com.laundry.ui.FAQ.vo.FaqResponse;
 import com.laundry.ui.LoginScreen.vo.LoginResponse;
 import com.laundry.ui.LoginScreen.vo.SignUpResponse;
 import com.laundry.ui.changePassword.vo.ChangePwdResponse;
@@ -100,9 +102,12 @@ public interface ApiInterface {
 
 
 
+//    @FormUrlEncoded
+    @POST("webservices/faq")
+    Call<FaqResponse> getfaq ();
 
-
-
+    @POST("webservices/login/log_out")
+    Call<LogoutResponse> getlogout();
     /*
     @POST("get_trip")
     Call<UpcomingModal> getTripApi(@Field("driver_id") String driver_id,

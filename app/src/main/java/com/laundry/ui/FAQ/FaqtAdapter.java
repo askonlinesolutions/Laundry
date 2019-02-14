@@ -10,29 +10,42 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.laundry.R;
+import com.laundry.ui.myOrder.vo.MyOrderResponse;
 
+import java.util.ArrayList;
 
 
 class FaqtAdapter extends RecyclerView.Adapter<FaqtAdapter.Viewholder> {
+
+    private ArrayList<MyOrderResponse.DataEntity> faqList;
+
+
     Context context;
     private boolean isVisible = true;
     private boolean isShow = true;
-    public FaqtAdapter(Context context) {
 
-        this.context =context;
+
+
+    public FaqtAdapter(Context context, ArrayList<MyOrderResponse.DataEntity> faqList) {
+
+        this.faqList = faqList;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.faq_list,viewGroup,false);
-        FaqtAdapter.Viewholder vh =new FaqtAdapter.Viewholder(view);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.faq_list, viewGroup, false);
+        FaqtAdapter.Viewholder vh = new FaqtAdapter.Viewholder(view);
         return new FaqtAdapter.Viewholder(view) {
         };
-}
+    }
 
     @Override
     public void onBindViewHolder(@NonNull final FaqtAdapter.Viewholder viewholder, int i) {
+//        viewholder.tvExpand.setText(faqList.get(i).);
+
+
         viewholder.arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,8 +53,7 @@ class FaqtAdapter extends RecyclerView.Adapter<FaqtAdapter.Viewholder> {
                     viewholder.tvExpand.setVisibility(View.VISIBLE);
                     viewholder.arrow.setImageResource(R.drawable.ic_up_arrow_black);
                     isVisible = false;
-                }else
-                {
+                } else {
                     viewholder.tvExpand.setVisibility(View.GONE);
                     viewholder.arrow.setImageResource(R.drawable.ic_arrow_down_black);
                     isVisible = true;
@@ -54,16 +66,26 @@ class FaqtAdapter extends RecyclerView.Adapter<FaqtAdapter.Viewholder> {
 
     @Override
     public int getItemCount() {
-        return 4;
+        return faqList.size();
     }
 
     public class Viewholder extends RecyclerView.ViewHolder {
-        TextView tvExpand;
+        TextView tvExpand,tv;
         ImageView arrow;
+
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            tvExpand=itemView.findViewById(R.id.tv_Expnd);
-            arrow=itemView.findViewById(R.id.arrow_iv);
+            tvExpand = itemView.findViewById(R.id.tv_Expnd);
+            arrow = itemView.findViewById(R.id.arrow_iv);
+            tv =itemView.findViewById(R.id.tv);
+
+
+
         }
     }
+
+    interface FaqAdapterInterface {
+        void click(int position, String orderId);
+    }
+
 }
