@@ -110,9 +110,9 @@ public interface ApiInterface {
     );
 
 
-    //    @FormUrlEncoded
+//    @FormUrlEncoded
     @POST("faq")
-    Call<FaqResponse> getfaq();
+    Call<FaqResponse> getfaq ();
 
     @POST("login/log_out")
     Call<LogoutResponse> getlogout(@Field("user_id") String user_id);

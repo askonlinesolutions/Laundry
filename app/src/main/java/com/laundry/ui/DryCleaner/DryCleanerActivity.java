@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.laundry.R;
 
+import com.laundry.Utils.MySharedPreference;
 import com.laundry.Utils.Utility;
 import com.laundry.WebServices.APIClient;
 import com.laundry.WebServices.OnResponseInterface;
@@ -63,6 +64,7 @@ public class DryCleanerActivity extends AppCompatActivity
 
     SpringDotsIndicator dotsIndicator;
     RecyclerView press_image;
+    String user_id;
     TextView cancel_btn, playnowbtn;
     private static String TAG = DryCleanerActivity.class.getName();
     private ArrayList<ServiceResponse.DataEntity> serviseList = new ArrayList<>();
@@ -78,7 +80,7 @@ public class DryCleanerActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dry_cleaner);
 
-
+        getUser_Id();
         inIt();
 
 
@@ -90,6 +92,12 @@ public class DryCleanerActivity extends AppCompatActivity
 
 //        goServices();
 
+    }
+
+    private void getUser_Id() {
+        MySharedPreference mySharedPreference = MySharedPreference.getInstance(this);
+        user_id = mySharedPreference.getUserId();
+        Log.e("MyUserId", user_id);
     }
 
 
@@ -211,9 +219,9 @@ public class DryCleanerActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-//                callapilogout();
-                Intent intent = new Intent(DryCleanerActivity.this, MainActivity.class);
-                startActivity(intent);
+
+                callapilogout();
+
             }
 
 
@@ -221,17 +229,7 @@ public class DryCleanerActivity extends AppCompatActivity
 
     }
 
-//    private void callapilogout() {
-//
-//        new Utility().showProgressDialog(this);
-//        Call<LogoutResponse> call = APIClient.getInstance().getApiInterface().getlogout();
-//        Log.e("MylogoutUrl", call.request().url().toString());
-//        new ResponseListner(this).getResponse(call);
-//
-//
-//
-//
-//    }
+
 
     private void setAdapter() {
         SelectServiceAdapter selectServiceAdapter = new SelectServiceAdapter(this, serviseList, this);
@@ -259,6 +257,14 @@ public class DryCleanerActivity extends AppCompatActivity
 
     }
 
+    private void callapilogout() {
+
+        new Utility().showProgressDialog(this);
+        Call<LogoutResponse> call = APIClient.getInstance().getApiInterface().getlogout(user_id);
+        new ResponseListner(this).getResponse(call);
+
+    }
+
 
     @Override
     public void onApiResponse(Object response) {
@@ -275,21 +281,24 @@ public class DryCleanerActivity extends AppCompatActivity
 
                             setAdapter();
                         }
-                    }else   if (response instanceof LogoutResponse) {
-                        LogoutResponse logoutResponse = (LogoutResponse) response;
-                        new Utility().hideDialog();
-//                        if (logoutResponse.isStatus()) {
-//                            serviseList.clear();
-//                            if (LogoutResponse.getData() != null /*&& messageDataList.size() != 0*/) {
-//                                serviseList.addAll(serviceResponse.getData());
-//
-//                                setAdapter();
+                    }
+                }
+                else if (response instanceof LogoutResponse) {
+                    LogoutResponse logoutResponse = (LogoutResponse) response;
+                    new Utility().hideDialog();
+                    if (logoutResponse.isStatus()) {
+                        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(DryCleanerActivity.this, MainActivity.class);
 
-                        }
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
+
+
+                    }
 
                 }
-
-            } catch (Exception e) {
+                } catch (Exception e) {
                 Log.d("TAG", "onApiResponse: " + e.getMessage());
             }
         } else {
