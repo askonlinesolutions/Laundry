@@ -70,20 +70,6 @@ public class ServicesActivity extends AppCompatActivity implements CategoryLisAd
 
         }
 
-////        for (int i = 0; i < serviseList.size(); i++) {
-//        if (/*pos != 0 &&*/ serviseList.get(pos).getCategory() != null) {
-//            categoryList.addAll(serviseList.get(pos).getCategory());
-//        }
-
-//        }
-////        viewPager.setCurrentItem(pos);
-//        for (int i = 0; i < categoryList.size(); i++) {
-//        if (/*pos != 0 &&*/ categoryList.size() != 0 && categoryList.get(pos) != null && categoryList.get(pos).getItems().size() != 0) {
-//            categoryItemsList.addAll(categoryList.get(pos).getItems());
-//
-//        }
-//        }
-//
 
     }
 
@@ -154,7 +140,7 @@ public class ServicesActivity extends AppCompatActivity implements CategoryLisAd
     }
 
     @Override
-    public void onCategoryClicked(int pos) {
+    public void onCategoryClicked(int pos, String category_id) {
 
         if (categoryItemsList.size() != 0) {
             categoryItemsList.clear();
@@ -173,7 +159,7 @@ public class ServicesActivity extends AppCompatActivity implements CategoryLisAd
     }
 
     @Override
-    public void onServicesClicked(int pos) {
+    public void onServicesClicked(int pos, String service_id) {
         if (categoryList.size() != 0) {
             categoryList.clear();
             categoryList.addAll(serviseList.get(pos).getCategory());

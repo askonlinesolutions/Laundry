@@ -57,6 +57,11 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
         viewHolder.titleTv.setText(addressList.get(i).getUseraddress_title());
         viewHolder.addressTv.setText(addressList.get(i).getUseraddress_address());
 
+        if (addressList.get(i).getUseraddress_status().equals("1")) {
+            viewHolder.statusSwitch.setChecked(true);
+        } else {
+            viewHolder.statusSwitch.setChecked(false);
+        }
 
     }
 
@@ -71,7 +76,7 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
 
     }
 
-    int status;
+    String status;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView editBtn, deleteBtn, titleTv, addressTv;
@@ -92,9 +97,9 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
                 public void onClick(View view) {
 
                     if (statusSwitch.isChecked()) {
-                        status = 1;
+                        status = "1";
                     } else {
-                        status = 0;
+                        status = "0";
                     }
                     addressId = addressList.get(getAdapterPosition()).getUseraddress_id();
 
@@ -129,7 +134,7 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
     }
 
     interface OnBtnClickListener {
-        void onBtnClick(int Pos, String type, String addressId, int Status);
+        void onBtnClick(int Pos, String type, String addressId, String Status);
 
 
     }

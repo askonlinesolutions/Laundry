@@ -23,6 +23,7 @@ import com.laundry.ui.DryCleaner.DryCleanerActivity;
 import com.laundry.ui.LoginScreen.MainActivity;
 import com.laundry.ui.manageAddress.vo.DeleteAddressResponse;
 import com.laundry.ui.manageAddress.vo.ManageAddressResponse;
+import com.laundry.ui.manageAddress.vo.UpdateAddressStatus;
 import com.laundry.ui.myOrder.vo.MyOrderResponse;
 import com.laundry.ui.offer.OfferrAdapter;
 import com.laundry.ui.profile.ProfileActivity;
@@ -96,7 +97,7 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public void onBtnClick(int Pos, String type, String addressId, int status) {
+    public void onBtnClick(int Pos, String type, String addressId, String status) {
         if (type.equals("EDIT")) {
 //            startActivity(new Intent(ManageAddressActivity.this, CurrentLocationMapActivity.class));
             Intent i = new Intent(ManageAddressActivity.this, AddNewAddressActivity.class);
@@ -111,18 +112,31 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
                 Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
             }
 
+        } else if (type.equals("Status")) {
+            if (isNetworkConnected(this)) {
+                callUpdateAddressStatus(addressId, status);
+            } else {
+                Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
+            }
         } else {
-            Toast.makeText(getApplicationContext(), type + status, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, type, Toast.LENGTH_SHORT).show();
 
         }
 
 
     }
 
+    private void callUpdateAddressStatus(String addressId, String status) {
+
+        new Utility().showProgressDialog(this);
+        Call<UpdateAddressStatus> call = APIClient.getInstance().getApiInterface().updateAddressStatus(/*userId*/"14", addressId, status);
+        new ResponseListner(this).getResponse(call);
+
+    }
+
     private void callDeleteAddressApi(String addressId) {
         new Utility().showProgressDialog(this);
         Call<DeleteAddressResponse> call = APIClient.getInstance().getApiInterface().deleteAddress(/*userId*/"14", addressId);
-        Log.e("MyOrderUrl", call.request().url().toString());
         new ResponseListner(this).getResponse(call);
 
     }
@@ -164,6 +178,15 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
                     if (deleteAddressResponse.isStatus()) {
                         Toast.makeText(this, deleteAddressResponse.getMsg(), Toast.LENGTH_SHORT).show();
 
+                    } else {
+
+                    }
+                } else if (response instanceof UpdateAddressStatus) {
+                    UpdateAddressStatus updateAddressStatus = (UpdateAddressStatus) response;
+                    new Utility().hideDialog();
+                    if (updateAddressStatus.isStatus()) {
+                        Toast.makeText(this, updateAddressStatus.getMsg(), Toast.LENGTH_SHORT).show();
+                        callManageAddressApi();
                     } else {
 
                     }

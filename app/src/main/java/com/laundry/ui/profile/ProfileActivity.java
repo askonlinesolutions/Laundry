@@ -32,6 +32,7 @@ import com.laundry.ui.DryCleaner.DryCleanerActivity;
 import com.laundry.ui.MyPayment.PaymentMethodActivity;
 import com.laundry.ui.changePassword.ChangePaawordActivity;
 import com.laundry.ui.changePassword.vo.ChangePwdResponse;
+
 import com.laundry.ui.editProfile.EditProfileActivity;
 import com.laundry.ui.manageAddress.ManageAddressActivity;
 import com.laundry.ui.offer.OfferActivity;
@@ -125,6 +126,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.default_tv:
+
+//                startActivity(new Intent(ProfileActivity.this, AddAddressActivity.class));
+
+
                 startActivity(new Intent(ProfileActivity.this, ManageAddressActivity.class));
                 this.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 break;

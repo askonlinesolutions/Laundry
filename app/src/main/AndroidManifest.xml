@@ -52,7 +52,7 @@
         <!-- android:name="com.google.android.gms.version" -->
         <!-- &lt;!&ndash;android:value="@integer/google_play_services_version" />&ndash;&gt; -->
         <!-- <meta-data -->
-        <!--<string name="API_KEY">AIzaSyD6s-Dnu0QwVRtwDfcO9jz2OKb5kk8JgT8</string>-->
+        <!-- <string name="API_KEY">AIzaSyD6s-Dnu0QwVRtwDfcO9jz2OKb5kk8JgT8</string> -->
         <!-- android:name="com.google.android.geo.API_KEY" -->
         <!-- android:value="AIzaSyBSF8kl1jJw4acWobsQH6sfcZsRQj9x0wQ " /> -->
 
@@ -109,7 +109,7 @@
         <activity
             android:name=".ui.Pick_up.PickupActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
             android:name=".ui.AddNewAddress.AddNewAddressActivity"
             android:screenOrientation="portrait"
@@ -117,15 +117,17 @@
         <activity
             android:name=".ui.currentLocation.CurrentLocationMapActivity"
             android:screenOrientation="portrait" />
-
         <activity android:name=".ui.Services.SelectLocActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
 
         </activity>
+        <activity android:name=".ui.currentLocation.AddAddressActivity"></activity>
     </application>
 
 </manifest>

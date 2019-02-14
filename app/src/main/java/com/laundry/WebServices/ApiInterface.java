@@ -11,6 +11,7 @@ import com.laundry.ui.editProfile.vo.EditProfileResponse;
 import com.laundry.ui.forgotPassword.vo.ForgotPasswordResponse;
 import com.laundry.ui.manageAddress.vo.DeleteAddressResponse;
 import com.laundry.ui.manageAddress.vo.ManageAddressResponse;
+import com.laundry.ui.manageAddress.vo.UpdateAddressStatus;
 import com.laundry.ui.myOrder.vo.MyOrderResponse;
 import com.laundry.ui.myOrderDetails.vo.OrderDetailsResponse;
 import com.laundry.ui.profile.vo.ProfileResponse;
@@ -97,6 +98,13 @@ public interface ApiInterface {
     @POST("login/delete_address")
     Call<DeleteAddressResponse> deleteAddress(@Field("user_id") String user_id,
                                               @Field("address_id") String address_id);
+
+    @FormUrlEncoded
+    @POST("login/update_address_status")
+    Call<UpdateAddressStatus> updateAddressStatus(@Field("user_id") String user_id,
+                                                  @Field("address_id") String address_id,
+                                                  @Field("status") String status
+    );
 
 
 

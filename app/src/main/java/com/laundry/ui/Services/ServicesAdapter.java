@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewholder>  {
+public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewholder> {
 
     private ArrayList<ServiceResponse.DataEntity> serviseList;
     private ServicesAdapterInterface servicesAdapterInterface;
@@ -54,10 +54,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
         viewholder.textservices.setText(serviseList.get(i).getName());
 
         /*viewholder.item_view.setVisibility(View.VISIBLE);*/
-        if (rowindex==0){
-            servicesAdapterInterface.onServicesClicked(rowindex);
+        if (rowindex == 0) {
+            servic_id = serviseList.get(i).getId();
+            servicesAdapterInterface.onServicesClicked(rowindex, servic_id);
             viewholder.item_view.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             viewholder.item_view.setVisibility(View.GONE);
         }
         viewholder.services.setOnClickListener(new View.OnClickListener() {
@@ -65,13 +66,15 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
             public void onClick(View v) {
                 rowindex = i;
                 notifyDataSetChanged();
-                servicesAdapterInterface.onServicesClicked(i);
+                servic_id = serviseList.get(i).getId();
+                servicesAdapterInterface.onServicesClicked(i, servic_id);
 
             }
         });
-      if (rowindex == i) {
+        if (rowindex == i) {
             viewholder.item_view.setVisibility(View.VISIBLE);
-            servicesAdapterInterface.onServicesClicked(i);
+            servic_id = serviseList.get(i).getId();
+            servicesAdapterInterface.onServicesClicked(i, servic_id);
         } else {
             viewholder.item_view.setVisibility(View.GONE);
 
@@ -115,7 +118,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
     }
 
     public interface ServicesAdapterInterface {
-        void onServicesClicked(int pos);
+        void onServicesClicked(int pos, String serviceId);
 
 
     }

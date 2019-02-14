@@ -74,7 +74,7 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
 
     private ActivityCurrentLocationMapBinding binding;
     boolean isVisible = true;
-
+    private static String TAG = "MAP LOCATION";
     double latitute, longitute;
     GoogleMap mGoogleMap;
     SupportMapFragment mapFrag;
@@ -327,6 +327,50 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
             // permissions this app might request
         }
     }
+
+
+   /* private void changeMap(Location location) {
+
+        Log.d(TAG, "Reaching map" + mGoogleMap);
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+
+        // check if map is created successfully or not
+        if (mGoogleMap != null) {
+            mGoogleMap.getUiSettings().setZoomControlsEnabled(false);
+            LatLng latLong;
+            latLong = new LatLng(location.getLatitude(), location.getLongitude());
+           *//* mMap.addMarker(new MarkerOptions().position(latLong)
+                    .icon(BaseClass.bitmapDescriptorFromVectorR(getApplicationContext())));*//*
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(latLong).zoom(19f).build();
+            mGoogleMap.setMyLocationEnabled(true);
+            mGoogleMap.getUiSettings().setMyLocationButtonEnabled(true);
+            mGoogleMap.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(cameraPosition));
+        } else {
+            Toast.makeText(getApplicationContext(),
+                    "Sorry! unable to create maps", Toast.LENGTH_SHORT)
+                    .show();
+        }
+
+    }*/
+
+
+
+
 
 }
 
