@@ -57,6 +57,7 @@ import com.google.maps.GeoApiContext;
 import com.laundry.R;
 import com.laundry.Utils.GPSTracker;
 import com.laundry.databinding.ActivityCurrentLocationMapBinding;
+import com.laundry.ui.AddNewAddress.AddNewAddressActivity;
 import com.laundry.ui.Pick_up.PickupActivity;
 
 import java.io.IOException;
@@ -83,7 +84,7 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
     Marker mCurrLocationMarker;
     FusedLocationProviderClient mFusedLocationClient;
     String address;
-
+    String editKey;
     private Location currentLocation;
 
 
@@ -95,7 +96,7 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFrag.getMapAsync(this);
-
+        getPosition();
 
         init();
 
@@ -103,12 +104,20 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
 
     private void init() {
 
-
         binding.mapBackIv.setOnClickListener(this);
         binding.topLocationEt.setOnClickListener(this);
         binding.confirmBtn.setOnClickListener(this);
 
         setMap();
+    }
+
+    private void getPosition() {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            editKey = extras.getString("NewAddress");
+//            serviseList=getIntent().getSerializableExtra("arraylist");
+        }
+
     }
 
 
@@ -128,10 +137,21 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
                 onBackPressed();
                 break;
             case R.id.confirm_btn:
-                Intent intent = new Intent(CurrentLocationMapActivity.this, PickupActivity.class);
-                intent.putExtra("longitute", longitute);
-                intent.putExtra("latitute", latitute);
-                startActivity(intent);
+
+                if (editKey.equals("NewAddress"))
+                {
+                    Intent intent = new Intent(CurrentLocationMapActivity.this, AddNewAddressActivity.class);
+                    intent.putExtra("longitute", longitute);
+                    intent.putExtra("latitute", latitute);
+                    startActivity(intent);
+                }
+                else {
+                    Intent intent = new Intent(CurrentLocationMapActivity.this, PickupActivity.class);
+                    intent.putExtra("longitute", longitute);
+                    intent.putExtra("latitute", latitute);
+                    startActivity(intent);
+                }
+
                 break;
         }
     }
@@ -367,9 +387,6 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
         }
 
     }*/
-
-
-
 
 
 }

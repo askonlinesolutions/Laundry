@@ -75,6 +75,12 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        callManageAddressApi();
+
+    }
 
     private void setAdapter() {
         addressAdapter = new ManageAddressAdapter(this, addressList, this);
@@ -129,14 +135,14 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
     private void callUpdateAddressStatus(String addressId, String status) {
 
         new Utility().showProgressDialog(this);
-        Call<UpdateAddressStatus> call = APIClient.getInstance().getApiInterface().updateAddressStatus(/*userId*/"14", addressId, status);
+        Call<UpdateAddressStatus> call = APIClient.getInstance().getApiInterface().updateAddressStatus(userId/*"14"*/, addressId, status);
         new ResponseListner(this).getResponse(call);
 
     }
 
     private void callDeleteAddressApi(String addressId) {
         new Utility().showProgressDialog(this);
-        Call<DeleteAddressResponse> call = APIClient.getInstance().getApiInterface().deleteAddress(/*userId*/"14", addressId);
+        Call<DeleteAddressResponse> call = APIClient.getInstance().getApiInterface().deleteAddress(userId/*"14"*/, addressId);
         new ResponseListner(this).getResponse(call);
 
     }
@@ -145,7 +151,7 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
     private void callManageAddressApi() {
 
         new Utility().showProgressDialog(this);
-        Call<ManageAddressResponse> call = APIClient.getInstance().getApiInterface().getAddressList(/*userId*/"14");
+        Call<ManageAddressResponse> call = APIClient.getInstance().getApiInterface().getAddressList(userId/*"14"*/);
         Log.e("MyOrderUrl", call.request().url().toString());
         new ResponseListner(this).getResponse(call);
 

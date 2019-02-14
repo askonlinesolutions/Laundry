@@ -211,7 +211,7 @@ public class DryCleanerActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                callapilogout();
+//                callapilogout();
                 Intent intent = new Intent(DryCleanerActivity.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -221,17 +221,17 @@ public class DryCleanerActivity extends AppCompatActivity
 
     }
 
-    private void callapilogout() {
-
-        new Utility().showProgressDialog(this);
-        Call<LogoutResponse> call = APIClient.getInstance().getApiInterface().getlogout();
-        Log.e("MylogoutUrl", call.request().url().toString());
-        new ResponseListner(this).getResponse(call);
-
-
-
-
-    }
+//    private void callapilogout() {
+//
+//        new Utility().showProgressDialog(this);
+//        Call<LogoutResponse> call = APIClient.getInstance().getApiInterface().getlogout();
+//        Log.e("MylogoutUrl", call.request().url().toString());
+//        new ResponseListner(this).getResponse(call);
+//
+//
+//
+//
+//    }
 
     private void setAdapter() {
         SelectServiceAdapter selectServiceAdapter = new SelectServiceAdapter(this, serviseList, this);

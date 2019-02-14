@@ -2,6 +2,7 @@ package com.laundry.WebServices;
 
 
 import com.google.maps.internal.ApiResponse;
+import com.laundry.ui.AddNewAddress.vo.AddAddressResponse;
 import com.laundry.ui.Contact.vo.ContactUsResponse;
 import com.laundry.ui.DryCleaner.vo.LogoutResponse;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
@@ -109,13 +110,37 @@ public interface ApiInterface {
     );
 
 
+    //    @FormUrlEncoded
+    @POST("faq")
+    Call<FaqResponse> getfaq();
 
-//    @FormUrlEncoded
-    @POST("webservices/faq")
-    Call<FaqResponse> getfaq ();
+    @POST("login/log_out")
+    Call<LogoutResponse> getlogout(@Field("user_id") String user_id);
 
-    @POST("webservices/login/log_out")
-    Call<LogoutResponse> getlogout();
+
+    @FormUrlEncoded
+    @POST("login/add_useraddress")
+    Call<AddAddressResponse> addAddress(@Field("user_id") String user_id,
+                                        @Field("zipcode") String zipcode,
+                                        @Field("address_title") String address_title,
+                                        @Field("state") String state,
+                                        @Field("address") String address,
+                                        @Field("city") String city,
+                                        @Field("landmark") String landmark,
+                                        @Field("address_lat") Double address_lat,
+                                        @Field("address_long") Double address_long);
+
+
+
+
+
+
+
+
+
+
+
+
     /*
     @POST("get_trip")
     Call<UpcomingModal> getTripApi(@Field("driver_id") String driver_id,
