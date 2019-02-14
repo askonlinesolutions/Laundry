@@ -162,9 +162,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         binding.userNameTv.setText(profileResponse.getData().getUsermanage_first_name());
                         binding.userEmailTv.setText(profileResponse.getData().getUsermanage_email());
                         binding.phoneNoTv.setText(profileResponse.getData().getUsermanage_contact());
-                        binding.userAddressTv.setText(profileResponse.getAddress());
+                        binding.userAddressTv.setText(profileResponse.getAddress().getUseraddress_address());
                         binding.paymentNoTv.setText(profileResponse.getPayment_card());
-                        binding.offerTv.setText(profileResponse.getOffer().get(0).getDiscount_coupon_val());
+                        binding.offerTv.setText(profileResponse.getOffer().get(0).getDiscount_coupon());
                         if (profileResponse.getData().getUsermanage_image() != null) {
                             Picasso.with(this).
                                     load(Constant.IMAGE_BASE_URL + profileResponse.getData().getUsermanage_image()) // URL or file

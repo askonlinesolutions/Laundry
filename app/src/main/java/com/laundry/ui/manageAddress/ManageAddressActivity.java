@@ -75,12 +75,12 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        callManageAddressApi();
-
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        callManageAddressApi();
+//
+//    }
 
     private void setAdapter() {
         addressAdapter = new ManageAddressAdapter(this, addressList, this);

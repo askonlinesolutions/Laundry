@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.laundry.R;
+import com.laundry.ui.FAQ.vo.FaqResponse;
 import com.laundry.ui.myOrder.vo.MyOrderResponse;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 
 class FaqtAdapter extends RecyclerView.Adapter<FaqtAdapter.Viewholder> {
 
-    private ArrayList<MyOrderResponse.DataEntity> faqList;
+    private ArrayList<FaqResponse.DataEntity> faqList;
 
 
     Context context;
@@ -25,8 +26,7 @@ class FaqtAdapter extends RecyclerView.Adapter<FaqtAdapter.Viewholder> {
     private boolean isShow = true;
 
 
-
-    public FaqtAdapter(Context context, ArrayList<MyOrderResponse.DataEntity> faqList) {
+    public FaqtAdapter(Context context, ArrayList<FaqResponse.DataEntity> faqList) {
 
         this.faqList = faqList;
         this.context = context;
@@ -45,6 +45,9 @@ class FaqtAdapter extends RecyclerView.Adapter<FaqtAdapter.Viewholder> {
     public void onBindViewHolder(@NonNull final FaqtAdapter.Viewholder viewholder, int i) {
 //        viewholder.tvExpand.setText(faqList.get(i).);
 
+
+        viewholder.question_tv.setText(faqList.get(i).getFaq_man_question());
+        viewholder.tvExpand.setText(faqList.get(i).getFaq_man_answer());
 
         viewholder.arrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,15 +73,14 @@ class FaqtAdapter extends RecyclerView.Adapter<FaqtAdapter.Viewholder> {
     }
 
     public class Viewholder extends RecyclerView.ViewHolder {
-        TextView tvExpand,tv;
+        TextView tvExpand, question_tv;
         ImageView arrow;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             tvExpand = itemView.findViewById(R.id.tv_Expnd);
             arrow = itemView.findViewById(R.id.arrow_iv);
-            tv =itemView.findViewById(R.id.tv);
-
+            question_tv = itemView.findViewById(R.id.question_tv);
 
 
         }

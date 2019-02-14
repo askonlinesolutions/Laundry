@@ -16,13 +16,12 @@
 
 
             <com.laundry.CustomTextRegular.Regular
-                android:id="@+id/tv"
+                android:id="@+id/question_tv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:padding="@dimen/dp8"
-                android:singleLine="true"
                 android:text="item has not picked  "
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_15" />
@@ -42,9 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:singleLine="true"
-            android:text="item has not pickedhsa \n item hadhsdj"
-            android:textColor="@color/bg_color_2"
+            android:textColor="@color/text_dark_gray"
             android:textSize="@dimen/text_10"
             android:visibility="gone" />
 

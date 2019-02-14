@@ -26,28 +26,28 @@ import retrofit2.Call;
 public class FAQActivity extends AppCompatActivity implements OnResponseInterface {
     RecyclerView faq;
     LinearLayout login_title;
-    private ArrayList<MyOrderResponse.DataEntity> faqList=new ArrayList<>();
+    private ArrayList<FaqResponse.DataEntity> faqList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
-        faq=findViewById(R.id.FAQ_rv);
-        login_title=findViewById(R.id.login_title);
+
+
+        faq = findViewById(R.id.FAQ_rv);
+        login_title = findViewById(R.id.login_title);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        faq.setLayoutManager(linearLayoutManager);
         back_btn();
-        faq_rv();
+
         callfaqapi();
     }
 
     private void callfaqapi() {
-
         new Utility().showProgressDialog(this);
         Call<FaqResponse> call = APIClient.getInstance().getApiInterface().getfaq();
         Log.e("MyOrderUrl", call.request().url().toString());
         new ResponseListner(this).getResponse(call);
-
-
-
-
 
     }
 
@@ -61,9 +61,8 @@ public class FAQActivity extends AppCompatActivity implements OnResponseInterfac
     }
 
     private void faq_rv() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        faq.setLayoutManager(linearLayoutManager);
-        FaqtAdapter faqAdapter = new FaqtAdapter(this,faqList);
+
+        FaqtAdapter faqAdapter = new FaqtAdapter(this, faqList);
         faq.setAdapter(faqAdapter);
     }
 
@@ -72,17 +71,22 @@ public class FAQActivity extends AppCompatActivity implements OnResponseInterfac
         if (response != null) {
             new Utility().hideDialog();
             try {
-                if (response instanceof MyOrderResponse) {
-//                    FaqResponse faqResponse = (FaqResponse) response;
-                    new Utility().hideDialog();
+                if (response instanceof FaqResponse) {
+                    FaqResponse faqResponse = (FaqResponse) response;
+                    if (faqResponse.isStatus()) {
+                        faqList.clear();
+                        if (faqResponse.data != null) {
+                            faqList.addAll(faqResponse.data);
+                            faq_rv();
+                        }
+                    }
 
                 }
 
             } catch (Exception e) {
                 Log.d("TAG", "onApiResponse: " + e.getMessage());
             }
-        }else
-        {
+        } else {
             new Utility().hideDialog();
         }
     }
