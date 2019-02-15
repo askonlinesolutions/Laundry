@@ -4,6 +4,7 @@ package com.laundry.WebServices;
 import com.google.maps.internal.ApiResponse;
 import com.laundry.ui.AddNewAddress.vo.AddAddressResponse;
 import com.laundry.ui.Contact.vo.ContactUsResponse;
+import com.laundry.ui.DryCleaner.vo.BannerResponse;
 import com.laundry.ui.DryCleaner.vo.LogoutResponse;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.laundry.ui.FAQ.vo.FaqResponse;
@@ -110,7 +111,7 @@ public interface ApiInterface {
     );
 
 
-    //    @FormUrlEncoded
+//    @FormUrlEncoded
     @POST("faq")
     Call<FaqResponse> getfaq();
 
@@ -132,6 +133,8 @@ public interface ApiInterface {
                                         @Field("address_long") Double address_long);
 
 
+    @POST("faq")
+    Call<BannerResponse> getbanner ();
     @FormUrlEncoded
     @POST("order/card_add")
     Call<ApiResponse> addPaymentCard(@Field("card_type") String card_type,
