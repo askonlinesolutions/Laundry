@@ -1,24 +1,27 @@
 package com.laundry.ui.profile.vo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ProfileResponse {
+public class ProfileResponse implements Serializable {
+
+
     /**
-     * payment_card : null
+     * payment_card : [{"usercard_id":"6","usercard_user_id":"28","usercard_card_trans":"fdg165df156g","usercard_card_type":"1","usercard_status":"1","usercard_card_no":"6465165165165165"},{"usercard_id":"8","usercard_user_id":"28","usercard_card_trans":"55555555555","usercard_card_type":"1","usercard_status":"1","usercard_card_no":"3455555555555555"}]
      * offer : [{"discount_status":"1","discount_from":"2018-06-15","discount_coupon_val":"8789","discount_dis_value":"8","discount_type":"percent","discount_coupon":"DIWALI","discount_id":"30","discount_to":"2018-06-22"},{"discount_status":"1","discount_from":"2018-07-18","discount_coupon_val":"holi10","discount_dis_value":"20","discount_type":"percent","discount_coupon":"holi","discount_id":"31","discount_to":"2018-07-20"}]
-     * address : {"useraddress_address":"E-38, Sector 63, Noida, Uttar Pradesh 201301, India","useraddress_id":"31","useraddress_title":"Uttar Pradesh","useraddress_type":null,"useraddress_status":"1","useraddress_userid":"42","useraddress_state":"Uttar Pradesh","address_lat":"28.6222345","address_long":"77.3859636","useraddress_landmark":"Uttar Pradesh","useraddress_zipcode":"201301","useraddress_city":"Noida"}
-     * data : {"usermanage_first_name":"Akhilesh","usermanage_accesstoken_key":"","usermanage_email":"ak@gmail.com","usermanage_age":"0","usermanage_notifi_ord_status":"0","usermanage_id":"42","usermanage_status":"1","usermanage_image":"5c655a574e3d0.png","usermanage_contact":"66666666","usermanage_last_name":"","usermanage_notifi_msg_status":"0","usermanage_password":"8cd16712147653267de8e23308e263a4","usermanage_gender":"","usermanage_username":"lgkhkgvjv","usermanage_user_notify":"0"}
+     * address : {"useraddress_address":"45fgh","useraddress_id":"14","useraddress_title":"dgdsf","useraddress_type":"1","useraddress_status":"1","useraddress_userid":"28","useraddress_state":"4545","address_lat":"","address_long":"","useraddress_landmark":"gfggfh","useraddress_zipcode":"45345","useraddress_city":"fgf"}
+     * data : {"usermanage_first_name":"retrt","usermanage_accesstoken_key":"","usermanage_email":"","usermanage_age":"234","usermanage_notifi_ord_status":"0","usermanage_id":"28","usermanage_status":"1","usermanage_image":"","usermanage_contact":"","usermanage_last_name":"rtrtcvb","usermanage_notifi_msg_status":"0","usermanage_password":"0144712dd81be0c3d9724f5e56ce6685","usermanage_gender":"female","usermanage_username":"","usermanage_user_notify":"1"}
      * img_url : http://webdevelopmentreviews.net/laundry/upload
      * status : true
      */
-    private String payment_card;
+    private List<Payment_cardEntity> payment_card;
     private List<OfferEntity> offer;
     private AddressEntity address;
     private DataEntity data;
     private String img_url;
     private boolean status;
 
-    public void setPayment_card(String payment_card) {
+    public void setPayment_card(List<Payment_cardEntity> payment_card) {
         this.payment_card = payment_card;
     }
 
@@ -42,7 +45,7 @@ public class ProfileResponse {
         this.status = status;
     }
 
-    public String getPayment_card() {
+    public List<Payment_cardEntity> getPayment_card() {
         return payment_card;
     }
 
@@ -66,7 +69,72 @@ public class ProfileResponse {
         return status;
     }
 
-    public class OfferEntity {
+    public class Payment_cardEntity implements Serializable {
+        /**
+         * usercard_id : 6
+         * usercard_user_id : 28
+         * usercard_card_trans : fdg165df156g
+         * usercard_card_type : 1
+         * usercard_status : 1
+         * usercard_card_no : 6465165165165165
+         */
+        private String usercard_id;
+        private String usercard_user_id;
+        private String usercard_card_trans;
+        private String usercard_card_type;
+        private String usercard_status;
+        private String usercard_card_no;
+
+        public void setUsercard_id(String usercard_id) {
+            this.usercard_id = usercard_id;
+        }
+
+        public void setUsercard_user_id(String usercard_user_id) {
+            this.usercard_user_id = usercard_user_id;
+        }
+
+        public void setUsercard_card_trans(String usercard_card_trans) {
+            this.usercard_card_trans = usercard_card_trans;
+        }
+
+        public void setUsercard_card_type(String usercard_card_type) {
+            this.usercard_card_type = usercard_card_type;
+        }
+
+        public void setUsercard_status(String usercard_status) {
+            this.usercard_status = usercard_status;
+        }
+
+        public void setUsercard_card_no(String usercard_card_no) {
+            this.usercard_card_no = usercard_card_no;
+        }
+
+        public String getUsercard_id() {
+            return usercard_id;
+        }
+
+        public String getUsercard_user_id() {
+            return usercard_user_id;
+        }
+
+        public String getUsercard_card_trans() {
+            return usercard_card_trans;
+        }
+
+        public String getUsercard_card_type() {
+            return usercard_card_type;
+        }
+
+        public String getUsercard_status() {
+            return usercard_status;
+        }
+
+        public String getUsercard_card_no() {
+            return usercard_card_no;
+        }
+    }
+
+    public class OfferEntity implements Serializable {
         /**
          * discount_status : 1
          * discount_from : 2018-06-15
@@ -153,18 +221,18 @@ public class ProfileResponse {
 
     public class AddressEntity {
         /**
-         * useraddress_address : E-38, Sector 63, Noida, Uttar Pradesh 201301, India
-         * useraddress_id : 31
-         * useraddress_title : Uttar Pradesh
-         * useraddress_type : null
+         * useraddress_address : 45fgh
+         * useraddress_id : 14
+         * useraddress_title : dgdsf
+         * useraddress_type : 1
          * useraddress_status : 1
-         * useraddress_userid : 42
-         * useraddress_state : Uttar Pradesh
-         * address_lat : 28.6222345
-         * address_long : 77.3859636
-         * useraddress_landmark : Uttar Pradesh
-         * useraddress_zipcode : 201301
-         * useraddress_city : Noida
+         * useraddress_userid : 28
+         * useraddress_state : 4545
+         * address_lat :
+         * address_long :
+         * useraddress_landmark : gfggfh
+         * useraddress_zipcode : 45345
+         * useraddress_city : fgf
          */
         private String useraddress_address;
         private String useraddress_id;
@@ -278,21 +346,21 @@ public class ProfileResponse {
 
     public class DataEntity {
         /**
-         * usermanage_first_name : Akhilesh
+         * usermanage_first_name : retrt
          * usermanage_accesstoken_key :
-         * usermanage_email : ak@gmail.com
-         * usermanage_age : 0
+         * usermanage_email :
+         * usermanage_age : 234
          * usermanage_notifi_ord_status : 0
-         * usermanage_id : 42
+         * usermanage_id : 28
          * usermanage_status : 1
-         * usermanage_image : 5c655a574e3d0.png
-         * usermanage_contact : 66666666
-         * usermanage_last_name :
+         * usermanage_image :
+         * usermanage_contact :
+         * usermanage_last_name : rtrtcvb
          * usermanage_notifi_msg_status : 0
-         * usermanage_password : 8cd16712147653267de8e23308e263a4
-         * usermanage_gender :
-         * usermanage_username : lgkhkgvjv
-         * usermanage_user_notify : 0
+         * usermanage_password : 0144712dd81be0c3d9724f5e56ce6685
+         * usermanage_gender : female
+         * usermanage_username :
+         * usermanage_user_notify : 1
          */
         private String usermanage_first_name;
         private String usermanage_accesstoken_key;

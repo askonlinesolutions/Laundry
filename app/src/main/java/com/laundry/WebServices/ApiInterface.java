@@ -110,10 +110,11 @@ public interface ApiInterface {
     );
 
 
-//    @FormUrlEncoded
+    //    @FormUrlEncoded
     @POST("faq")
-    Call<FaqResponse> getfaq ();
+    Call<FaqResponse> getfaq();
 
+    @FormUrlEncoded
     @POST("login/log_out")
     Call<LogoutResponse> getlogout(@Field("user_id") String user_id);
 
@@ -131,7 +132,13 @@ public interface ApiInterface {
                                         @Field("address_long") Double address_long);
 
 
-
+    @FormUrlEncoded
+    @POST("order/card_add")
+    Call<ApiResponse> addPaymentCard(@Field("card_type") String card_type,
+                                         @Field("card_no") String card_no,
+                                         @Field("card_trans") String card_trans,
+                                         @Field("user_id") String user_id
+    );
 
 
 

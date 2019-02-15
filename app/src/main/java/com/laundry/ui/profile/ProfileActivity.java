@@ -46,7 +46,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -59,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private ActivityProfileBinding binding;
     private String userId;
     private static String TAG = ProfileActivity.class.getName();
-
+    ArrayList<ProfileResponse.Payment_cardEntity> paymentList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +112,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
             case R.id.payment_method_layout:
                 Intent intentPay = new Intent(ProfileActivity.this, PaymentMethodActivity.class);
+
+                Bundle args = new Bundle();
+                args.putSerializable("ARRAYLIST", (Serializable) paymentList);
+                intentPay.putExtra("BUNDLE", args);
                 startActivity(intentPay);
                 this.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
 
@@ -163,14 +169,25 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         binding.userEmailTv.setText(profileResponse.getData().getUsermanage_email());
                         binding.phoneNoTv.setText(profileResponse.getData().getUsermanage_contact());
                         binding.userAddressTv.setText(profileResponse.getAddress().getUseraddress_address());
-                        binding.paymentNoTv.setText(profileResponse.getPayment_card());
-                        binding.offerTv.setText(profileResponse.getOffer().get(0).getDiscount_coupon());
+
+                        if (profileResponse.getOffer().size()!=0)
+                        {
+                            binding.offerTv.setText(profileResponse.getOffer().get(0).getDiscount_coupon());
+
+                        }
                         if (profileResponse.getData().getUsermanage_image() != null) {
                             Picasso.with(this).
                                     load(Constant.IMAGE_BASE_URL + profileResponse.getData().getUsermanage_image()) // URL or file
                                     .into(binding.userImageIv);
 
                         }
+                        if (profileResponse.getPayment_card().size()!=0)
+                        {
+                            binding.paymentNoTv.setText(profileResponse.getPayment_card().get(0).getUsercard_card_no());
+                            paymentList.addAll(profileResponse.getPayment_card());
+
+                        }
+
 
 
                     } else {

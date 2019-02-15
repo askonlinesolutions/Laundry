@@ -108,7 +108,6 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
         binding.topLocationEt.setOnClickListener(this);
         binding.confirmBtn.setOnClickListener(this);
 
-        setMap();
     }
 
     private void getPosition() {
@@ -138,14 +137,12 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
                 break;
             case R.id.confirm_btn:
 
-                if (editKey.equals("NewAddress"))
-                {
+                if (editKey != null && editKey.equals("NewAddress")) {
                     Intent intent = new Intent(CurrentLocationMapActivity.this, AddNewAddressActivity.class);
                     intent.putExtra("longitute", longitute);
                     intent.putExtra("latitute", latitute);
                     startActivity(intent);
-                }
-                else {
+                } else {
                     Intent intent = new Intent(CurrentLocationMapActivity.this, PickupActivity.class);
                     intent.putExtra("longitute", longitute);
                     intent.putExtra("latitute", latitute);
@@ -155,17 +152,6 @@ public class CurrentLocationMapActivity extends FragmentActivity implements
                 break;
         }
     }
-
-    private void setMap() {
-//        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            checkLocationPermission();
-//        }
-//
-//        mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-//        mapFrag.getMapAsync(this);
-
-    }
-
 
     @Override
     public void onPause() {
