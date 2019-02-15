@@ -34,6 +34,7 @@ import com.laundry.WebServices.OnResponseInterface;
 import com.laundry.WebServices.ResponseListner;
 import com.laundry.clickListener.OnItemClickLisner;
 import com.laundry.ui.Contact.ContactActivity;
+import com.laundry.ui.DryCleaner.vo.BannerResponse;
 import com.laundry.ui.DryCleaner.vo.LogoutResponse;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.laundry.ui.FAQ.FAQActivity;
@@ -64,10 +65,12 @@ public class DryCleanerActivity extends AppCompatActivity
 
     SpringDotsIndicator dotsIndicator;
     RecyclerView press_image;
+    ViewPager viewPager;
     String user_id;
     TextView cancel_btn, playnowbtn;
     private static String TAG = DryCleanerActivity.class.getName();
     private ArrayList<ServiceResponse.DataEntity> serviseList = new ArrayList<>();
+    private ArrayList<BannerResponse.DataEntity> bannerList = new ArrayList<>();
     private ArrayList<ServiceResponse.DataEntity.CategoryEntity> categoryList = new ArrayList<>();
     private ArrayList<ServiceResponse.DataEntity.CategoryEntity.ItemsEntity> categoryItemsList = new ArrayList<>();
 
@@ -82,7 +85,7 @@ public class DryCleanerActivity extends AppCompatActivity
 
         getUser_Id();
         inIt();
-
+        getBanner();
 
         if (isNetworkConnected(this)) {
             callServicesApi();
@@ -93,6 +96,7 @@ public class DryCleanerActivity extends AppCompatActivity
 //        goServices();
 
     }
+
 
     private void getUser_Id() {
         MySharedPreference mySharedPreference = MySharedPreference.getInstance(this);
@@ -107,9 +111,9 @@ public class DryCleanerActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         dotsIndicator = (SpringDotsIndicator) findViewById(R.id.dots_indicator);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new CustomPagerAdapter(this));
-        dotsIndicator.setViewPager(viewPager);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+//        viewPager.setAdapter(new CustomPagerAdapter(this));
+//        dotsIndicator.setViewPager(viewPager);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -230,7 +234,6 @@ public class DryCleanerActivity extends AppCompatActivity
     }
 
 
-
     private void setAdapter() {
         SelectServiceAdapter selectServiceAdapter = new SelectServiceAdapter(this, serviseList, this);
         press_image.setAdapter(selectServiceAdapter);
@@ -248,6 +251,13 @@ public class DryCleanerActivity extends AppCompatActivity
         setupWindowAnimations();
     }
 
+    private void getBanner() {
+//        new Utility().showProgressDialog(this);
+        Call<BannerResponse> call = APIClient.getInstance().getApiInterface().getbanner();
+        new ResponseListner(this).getResponse(call);
+
+
+    }
 
     private void callServicesApi() {
 
@@ -282,8 +292,7 @@ public class DryCleanerActivity extends AppCompatActivity
                             setAdapter();
                         }
                     }
-                }
-                else if (response instanceof LogoutResponse) {
+                } else if (response instanceof LogoutResponse) {
                     LogoutResponse logoutResponse = (LogoutResponse) response;
                     new Utility().hideDialog();
                     if (logoutResponse.isStatus()) {
@@ -297,8 +306,22 @@ public class DryCleanerActivity extends AppCompatActivity
 
                     }
 
+                } else if (response instanceof BannerResponse) {
+                    BannerResponse bannerResponse = (BannerResponse) response;
+                    new Utility().hideDialog();
+                    if (bannerResponse.status) {
+                        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+                        bannerList.clear();
+                        if (bannerResponse.data != null /*&& messageDataList.size() != 0*/) {
+                            bannerList.addAll(bannerResponse.data);
+                            viewPager.setAdapter(new CustomPagerAdapter(this, bannerList));
+                            dotsIndicator.setViewPager(viewPager);
+                        }
+                    }
                 }
-                } catch (Exception e) {
+
+            } catch (Exception e) {
+                new Utility().hideDialog();
                 Log.d("TAG", "onApiResponse: " + e.getMessage());
             }
         } else {
@@ -316,4 +339,7 @@ public class DryCleanerActivity extends AppCompatActivity
     private void setupWindowAnimations() {
         overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
     }
+
+
+
 }

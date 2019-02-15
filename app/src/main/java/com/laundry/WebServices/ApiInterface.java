@@ -4,6 +4,7 @@ package com.laundry.WebServices;
 import com.google.maps.internal.ApiResponse;
 import com.laundry.ui.AddNewAddress.vo.AddAddressResponse;
 import com.laundry.ui.Contact.vo.ContactUsResponse;
+import com.laundry.ui.DryCleaner.vo.BannerResponse;
 import com.laundry.ui.DryCleaner.vo.LogoutResponse;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.laundry.ui.FAQ.vo.FaqResponse;
@@ -114,6 +115,9 @@ public interface ApiInterface {
     @POST("faq")
     Call<FaqResponse> getfaq ();
 
+
+
+    @FormUrlEncoded
     @POST("login/log_out")
     Call<LogoutResponse> getlogout(@Field("user_id") String user_id);
 
@@ -131,7 +135,8 @@ public interface ApiInterface {
                                         @Field("address_long") Double address_long);
 
 
-
+    @POST("faq")
+    Call<BannerResponse> getbanner ();
 
 
 
