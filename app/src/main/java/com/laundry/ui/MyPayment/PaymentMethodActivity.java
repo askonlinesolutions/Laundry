@@ -16,7 +16,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.maps.internal.ApiResponse;
 import com.laundry.R;
+import com.laundry.Utils.Constant;
 import com.laundry.Utils.MySharedPreference;
 import com.laundry.Utils.Utility;
 import com.laundry.WebServices.APIClient;
@@ -26,6 +28,7 @@ import com.laundry.databinding.ActivityPaymentMethodBinding;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.laundry.ui.Thanku.ThankuActivity;
 import com.laundry.ui.profile.vo.ProfileResponse;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -57,12 +60,12 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
 
 
     private void getPaymentList() {
-        Intent intent = getIntent();
+        /*Intent intent = getIntent();
         Bundle args = intent.getBundleExtra("BUNDLE");
         if (args != null) {
             paymentList = (ArrayList<ProfileResponse.Payment_cardEntity>) args.getSerializable("ARRAYLIST");
 
-        }
+        }*/
 
         MySharedPreference mySharedPreference = MySharedPreference.getInstance(this);
         userId = mySharedPreference.getUserId();
@@ -72,6 +75,8 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
     }
 
     private void inIt() {
+
+
         pament_recycler = findViewById(R.id.pament_recycler);
         login_title = findViewById(R.id.login_title);
         add_new_card = findViewById(R.id.activity_add_new_card);
@@ -81,7 +86,13 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
         binding.loginTitle.setOnClickListener(this);
         binding.activityAddNewCard.setOnClickListener(this);
 
-        setPaymentAdapter();
+        if (isNetworkConnected(this)) {
+            callGetProfileApi();
+        } else {
+            Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
+        }
+
+//        setPaymentAdapter();
     }
 
 
@@ -114,7 +125,7 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
         cancel_btn = dialog.findViewById(R.id.cancel_btn);
         playnowbtn = dialog.findViewById(R.id.playnowbtn);
 
-        cardNoTv = dialog.findViewById(R.id.card_no);
+        cardNoTv = dialog.findViewById(R.id.card_number_tv);
         cardTypeTv = dialog.findViewById(R.id.card_type_tv);
         cardTrans = dialog.findViewById(R.id.ccv);
 
@@ -140,33 +151,83 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
                 } else {
                     Toast.makeText(getApplication(), "Please Connect Network", Toast.LENGTH_SHORT).show();
                 }
+                dialog.dismiss();
 
-
-                Intent i = new Intent(PaymentMethodActivity.this, ThankuActivity.class);
-                startActivity(i);
             }
 
         });
 
     }
 
+    private void callGetProfileApi() {
+
+        new Utility().showProgressDialog(this);
+        Call<ProfileResponse> call = APIClient.getInstance().getApiInterface().getProgileDetails(userId);
+        new ResponseListner(this).getResponse(call);
+
+    }
+
 
     private void callAddPaymentCardApi() {
+        cardType = cardTypeTv.getText().toString().trim();
+        cardNo = cardNoTv.getText().toString();
+        cardTran = cardTrans.getText().toString().trim();
 
 
         new Utility().showProgressDialog(this);
-//        Call<ProfileResponse> call = APIClient.getInstance().getApiInterface().addPaymentCard(userId,cardTran,cardTran,cardNo);
-//        new ResponseListner(this).getResponse(call);
+        Call<ApiResponse> call = APIClient.getInstance().getApiInterface().addPaymentCard(cardType, cardNo, cardTran, userId);
+        new ResponseListner(this).getResponse(call);
 
     }
 
     @Override
     public void onApiResponse(Object response) {
 
+        if (response != null) {
+            new Utility().hideDialog();
+            try {
+                if (response instanceof ApiResponse) {
+                    ApiResponse apiResponse = (ApiResponse) response;
+                    new Utility().hideDialog();
+                    if (apiResponse.successful()) {
+                        callGetProfileApi();
+//
+//                        Intent i = new Intent(PaymentMethodActivity.this, ThankuActivity.class);
+//                        startActivity(i);
+
+                        Toast.makeText(this, "Card Add successfully..", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "No Record found !", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (response instanceof ProfileResponse) {
+                    ProfileResponse profileResponse = (ProfileResponse) response;
+                    new Utility().hideDialog();
+                    if (profileResponse.isStatus()) {
+                        paymentList.clear();
+                        if (profileResponse.getPayment_card().size() != 0) {
+                            paymentList.addAll(profileResponse.getPayment_card());
+
+                            setPaymentAdapter();
+                        }
+
+                    }
+                }
+
+
+            } catch (Exception e) {
+                Log.d("TAG", "onApiResponse: " + e.getMessage());
+            }
+        } else {
+            new Utility().hideDialog();
+            Toast.makeText(this, "Try again", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     @Override
     public void onApiFailure(String message) {
-
+        new Utility().hideDialog();
+        Log.d("TAG", "onApiFailure: " + message);
     }
 }

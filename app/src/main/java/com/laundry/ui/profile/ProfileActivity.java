@@ -113,9 +113,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.payment_method_layout:
                 Intent intentPay = new Intent(ProfileActivity.this, PaymentMethodActivity.class);
 
-                Bundle args = new Bundle();
+              /*  Bundle args = new Bundle();
                 args.putSerializable("ARRAYLIST", (Serializable) paymentList);
-                intentPay.putExtra("BUNDLE", args);
+                intentPay.putExtra("BUNDLE", args);*/
+
                 startActivity(intentPay);
                 this.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
 
@@ -134,7 +135,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.default_tv:
 
 //                startActivity(new Intent(ProfileActivity.this, AddAddressActivity.class));
-
 
                 startActivity(new Intent(ProfileActivity.this, ManageAddressActivity.class));
                 this.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
