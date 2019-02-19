@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.laundry.R;
+import com.laundry.ui.manageAddress.ManageAddressAdapter;
 import com.laundry.ui.profile.vo.ProfileResponse;
 
 import java.util.ArrayList;
@@ -19,10 +20,12 @@ import java.util.ArrayList;
 class PaymentMethodAdapter extends RecyclerView.Adapter<PaymentMethodAdapter.Viewholder> {
 
     Context context;
+    private  OnBtnClickListener onBtnClickListener;
     ArrayList<ProfileResponse.Payment_cardEntity> paymentList;
 
-    public PaymentMethodAdapter(Context context, ArrayList<ProfileResponse.Payment_cardEntity> paymentList) {
+    public PaymentMethodAdapter(Context context, ArrayList<ProfileResponse.Payment_cardEntity> paymentList, OnBtnClickListener onBtnClickListener) {
         this.paymentList = paymentList;
+        this.onBtnClickListener=onBtnClickListener;
         this.context = context;
     }
 
@@ -68,6 +71,7 @@ class PaymentMethodAdapter extends RecyclerView.Adapter<PaymentMethodAdapter.Vie
             activity_delete_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    onBtnClickListener.onBtnClick(getAdapterPosition());
                     removeItem(0);
                 }
 
@@ -78,5 +82,15 @@ class PaymentMethodAdapter extends RecyclerView.Adapter<PaymentMethodAdapter.Vie
                 }
             });
         }
+
+
+
     }
+
+    interface OnBtnClickListener {
+        void onBtnClick(int Pos);
+
+
+    }
+
 }

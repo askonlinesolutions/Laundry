@@ -33,6 +33,7 @@ import com.laundry.WebServices.APIClient;
 import com.laundry.WebServices.OnResponseInterface;
 import com.laundry.WebServices.ResponseListner;
 import com.laundry.clickListener.OnItemClickLisner;
+import com.laundry.ui.Chat.ChatActivity;
 import com.laundry.ui.Contact.ContactActivity;
 import com.laundry.ui.DryCleaner.vo.BannerResponse;
 import com.laundry.ui.DryCleaner.vo.LogoutResponse;
@@ -184,7 +185,14 @@ public class DryCleanerActivity extends AppCompatActivity
             Intent intent = new Intent(DryCleanerActivity.this, FAQActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.change_pwd) {
+        } else if (id == R.id.chat) {
+
+            Intent intent = new Intent(DryCleanerActivity.this, ChatActivity.class);
+            startActivity(intent);
+
+        }
+
+        else if (id == R.id.change_pwd) {
             Intent intent = new Intent(DryCleanerActivity.this, ChangePaawordActivity.class);
             startActivity(intent);
         } else if (id == R.id.logout) {

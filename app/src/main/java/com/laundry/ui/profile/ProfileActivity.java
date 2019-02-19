@@ -59,7 +59,7 @@ import static com.laundry.Utils.Utility.isNetworkConnected;
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener, OnResponseInterface {
 
     private ActivityProfileBinding binding;
-    private String userId;
+    private String userId,username;
     private static String TAG = ProfileActivity.class.getName();
     ArrayList<ProfileResponse.Payment_cardEntity> paymentList = new ArrayList<>();
 
@@ -69,6 +69,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile);
         getUser_Id();
         init();
+
     }
 
     private void init() {
@@ -211,4 +212,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         new Utility().hideDialog();
         Log.d(TAG, "onApiFailure: " + message);
     }
+
+//    {
+////        Intent intent = new Intent(this, EditProfileActivity.class);
+////
+////        intent.putExtra("username",username );
+////        startActivity(intent);
+//    }
 }

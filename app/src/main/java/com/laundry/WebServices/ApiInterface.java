@@ -10,6 +10,7 @@ import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.laundry.ui.FAQ.vo.FaqResponse;
 import com.laundry.ui.LoginScreen.vo.LoginResponse;
 import com.laundry.ui.LoginScreen.vo.SignUpResponse;
+import com.laundry.ui.MyPayment.vo.PaymentDeleteResponse;
 import com.laundry.ui.changePassword.vo.ChangePwdResponse;
 import com.laundry.ui.editProfile.vo.EditProfileResponse;
 import com.laundry.ui.forgotPassword.vo.ForgotPasswordResponse;
@@ -144,7 +145,9 @@ public interface ApiInterface {
     );
 
 
-
+    @FormUrlEncoded
+    @POST("order/card_delete")
+    Call<PaymentDeleteResponse> getpaymentdelete(@Field("usercard_id") String usercard_id);
 
 
 

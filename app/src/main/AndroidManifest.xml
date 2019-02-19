@@ -127,7 +127,9 @@
             <!-- </intent-filter> -->
 
         </activity>
-        <activity android:name=".ui.currentLocation.AddAddressActivity"></activity>
+        <activity android:name=".ui.currentLocation.AddAddressActivity" />
+        <activity android:name=".ui.chat.chatActivity" />
+        <activity android:name=".ui.Chat.ChatActivity"></activity>
     </application>
 
 </manifest>

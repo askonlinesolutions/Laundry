@@ -298,4 +298,5 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         Log.d(TAG, "onApiFailure: " + message);
 
     }
+//    String username = getIntent().getExtras().getString("username");
 }

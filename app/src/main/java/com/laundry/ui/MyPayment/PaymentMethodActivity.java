@@ -26,7 +26,9 @@ import com.laundry.WebServices.OnResponseInterface;
 import com.laundry.WebServices.ResponseListner;
 import com.laundry.databinding.ActivityPaymentMethodBinding;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
+import com.laundry.ui.MyPayment.vo.PaymentDeleteResponse;
 import com.laundry.ui.Thanku.ThankuActivity;
+import com.laundry.ui.manageAddress.vo.DeleteAddressResponse;
 import com.laundry.ui.profile.vo.ProfileResponse;
 import com.squareup.picasso.Picasso;
 
@@ -37,14 +39,14 @@ import retrofit2.Call;
 import static com.laundry.Utils.Utility.isNetworkConnected;
 
 
-public class PaymentMethodActivity extends AppCompatActivity implements View.OnClickListener, OnResponseInterface {
+public class PaymentMethodActivity extends AppCompatActivity implements View.OnClickListener, OnResponseInterface, PaymentMethodAdapter.OnBtnClickListener {
     ActivityPaymentMethodBinding binding;
 
     TextView login_title, add_new_card, cancel_btn, playnowbtn;
     EditText cardNoTv, cardTypeTv, cardTrans;
     RecyclerView pament_recycler;
     ImageView btncross;
-    String userId, cardNo, cardType, cardTran;
+    String userId, cardNo, cardType, cardTran,usercard_id;
     ArrayList<ProfileResponse.Payment_cardEntity> paymentList = new ArrayList<>();
 
 
@@ -98,7 +100,7 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
 
     private void setPaymentAdapter() {
 
-        PaymentMethodAdapter paymentMethodAdapter = new PaymentMethodAdapter(this, paymentList);
+        PaymentMethodAdapter paymentMethodAdapter = new PaymentMethodAdapter(this, paymentList,this);
         pament_recycler.setAdapter(paymentMethodAdapter);
     }
 
@@ -180,6 +182,19 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
 
     }
 
+
+
+    private void callDeleteapi() {
+        new Utility().showProgressDialog(this);
+        Call<PaymentDeleteResponse> call = APIClient.getInstance().getApiInterface().getpaymentdelete(usercard_id);
+        Log.e("MyOrderUrl", call.request().url().toString());
+        new ResponseListner(this).getResponse(call);
+
+
+
+
+
+    }
     @Override
     public void onApiResponse(Object response) {
 
@@ -211,6 +226,15 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
                         }
 
                     }
+                } else if (response instanceof PaymentDeleteResponse) {
+                    PaymentDeleteResponse paymentDeleteResponse = (PaymentDeleteResponse) response;
+                    new Utility().hideDialog();
+                    if (paymentDeleteResponse.isStatus()) {
+                        Toast.makeText(this, paymentDeleteResponse.getMsg(), Toast.LENGTH_SHORT).show();
+
+                    } else {
+
+                    }
                 }
 
 
@@ -230,4 +254,13 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
         new Utility().hideDialog();
         Log.d("TAG", "onApiFailure: " + message);
     }
+
+    @Override
+    public void onBtnClick(int Pos) {
+
+        callDeleteapi();
+
+    }
+
+
 }

@@ -23,6 +23,11 @@
             android:icon="@drawable/ic_faq"
             android:title="FAQ" />
     <item
+        android:id="@+id/chat"
+        android:icon="@drawable/ic_chat"
+        android:title="Chat" />
+
+    <item
         android:id="@+id/change_pwd"
         android:icon="@drawable/ic_change_password"
         android:title="Change password" />
