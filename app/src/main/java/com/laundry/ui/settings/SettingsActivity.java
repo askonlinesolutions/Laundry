@@ -51,7 +51,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     private void init() {
 
         binding.settingBackIv.setOnClickListener(this);
-        binding.passwordTv.setOnClickListener(this);
 //        binding.saveSettingBtn.setOnClickListener(this);
         binding.orderStatusSwitch.setOnClickListener(this);
         binding.clientMsgSwitch.setOnClickListener(this);
@@ -66,10 +65,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 onBackPressed();
                 break;
 
-            case R.id.password_tv:
+        /*    case R.id.password_tv:
                 startActivity(new Intent(SettingsActivity.this, ChangePaawordActivity.class));
                 break;
-
+*/
             case R.id.order_status_switch:
 
                 if (binding.orderStatusSwitch.isChecked()) {

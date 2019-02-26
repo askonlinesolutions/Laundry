@@ -50,7 +50,7 @@ public class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapte
 
         viewholder.itemName.setText(categoryItemsList.get(i).getItem_name());
         viewholder.priceTv.setText("$ " + categoryItemsList.get(i).getItem_price());
-        viewholder.disscountTv.setText("Discount " + categoryItemsList.get(i).getDiscount_price());
+        viewholder.disscountTv.setText("Discount $ " + categoryItemsList.get(i).getDiscount_price());
 
 
         if (categoryItemsList.get(i).getItem_image() != null) {

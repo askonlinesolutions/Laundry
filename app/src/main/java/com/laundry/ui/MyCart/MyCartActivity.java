@@ -45,6 +45,7 @@ public class MyCartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MyCartActivity.this, PaymentActivity.class);
                 startActivity(i);
+//                finish();
             }
         });
     }

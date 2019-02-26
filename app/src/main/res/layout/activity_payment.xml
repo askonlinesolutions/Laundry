@@ -48,6 +48,7 @@
                 android:layout_marginLeft="10dp">
 
                 <RadioButton
+                    android:id="@+id/pay_pal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/sky_blue"
@@ -55,6 +56,7 @@
                     android:text="Pay Pal" />
 
                 <RadioButton
+                    android:id="@+id/credit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/sky_blue"
@@ -62,6 +64,7 @@
                     android:text="Credit Card" />
 
                 <RadioButton
+                    android:id="@+id/cod"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/sky_blue"

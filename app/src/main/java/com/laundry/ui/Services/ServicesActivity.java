@@ -129,6 +129,7 @@ public class ServicesActivity extends AppCompatActivity implements CategoryLisAd
             case R.id.schedule_pickup_tv:
                 Intent intent = new Intent(ServicesActivity.this, PickupActivity.class);
                 startActivity(intent);
+//                finish();
                 break;
         }
     }

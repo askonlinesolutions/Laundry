@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.module.AppGlideModule;
 import com.laundry.R;
 import com.laundry.Utils.Constant;
 import com.laundry.ui.DryCleaner.vo.BannerResponse;
@@ -31,10 +34,18 @@ class CustomPagerAdapter extends PagerAdapter {
         ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.pager_item, container, false);
         ImageView imageView = (ImageView) layout.findViewById(R.id.cloth);
 
-        if (bannerList.get(position).banner_image != null) {
+        if (bannerList.get(position).getBanner_image()!= null) {
             Picasso.with(mContext).
-                    load(Constant.IMAGE_BASE_URL + bannerList.get(position).banner_image) // URL or file
+                    load(Constant.IMAGE_BASE_URL + bannerList.get(position).getBanner_image()) // URL or file
                     .into(imageView);
+
+//            Glide.with(mContext)
+//                    .load("http://webdevelopmentreviews.net/laundry" + bannerList.get(position).getBanner_image())
+//                    .into(imageView);
+
+//            Picasso.with(mContext).
+//                    load("http://webdevelopmentreviews.net/laundry" + bannerList.get(position).banner_image) // URL or file
+//                    .into(imageView);
 
         }
         else {
@@ -42,7 +53,7 @@ class CustomPagerAdapter extends PagerAdapter {
         }
 
 
-//        imageView.setImageResource(mResources[position]);
+
         container.addView(layout);
         return layout;
     }

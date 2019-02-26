@@ -12,7 +12,7 @@ public interface Constant {
 //    String BASE_URL = "http://webdevelopmentreviews.net/pikship/api/driver/"; // TEST URL
 //    String BASE_URL = "http://pikship.com/api/driver/"; // TEST URL
 //    http://webdevelopmentreviews.net/laundry/webservices
-
+public static final String PrefrenceName = "pref";
     String BASE_URL = "http://webdevelopmentreviews.net/laundry/webservices/";
     String LOGIN_DATA = "login_data";
     String USER_ID = "user_id";

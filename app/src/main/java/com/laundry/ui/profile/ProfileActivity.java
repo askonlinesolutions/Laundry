@@ -59,7 +59,7 @@ import static com.laundry.Utils.Utility.isNetworkConnected;
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener, OnResponseInterface {
 
     private ActivityProfileBinding binding;
-    private String userId,username;
+    private String userId, username;
     private static String TAG = ProfileActivity.class.getName();
     ArrayList<ProfileResponse.Payment_cardEntity> paymentList = new ArrayList<>();
 
@@ -93,6 +93,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private void getUser_Id() {
         MySharedPreference mySharedPreference = MySharedPreference.getInstance(this);
         userId = mySharedPreference.getUserId();
+        //   username=mySharedPreference.getUserName();
         Log.e("MyUserId", userId);
     }
 
@@ -171,8 +172,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         binding.phoneNoTv.setText(profileResponse.getData().getUsermanage_contact());
                         binding.userAddressTv.setText(profileResponse.getAddress().getUseraddress_address());
 
-                        if (profileResponse.getOffer().size()!=0)
-                        {
+                        if (profileResponse.getOffer().size() != 0) {
                             binding.offerTv.setText(profileResponse.getOffer().get(0).getDiscount_coupon());
 
                         }
@@ -182,13 +182,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                                     .into(binding.userImageIv);
 
                         }
-                        if (profileResponse.getPayment_card().size()!=0)
-                        {
+                        if (profileResponse.getPayment_card().size() != 0) {
                             binding.paymentNoTv.setText(profileResponse.getPayment_card().get(0).getUsercard_card_no());
                             paymentList.addAll(profileResponse.getPayment_card());
 
                         }
-
 
 
                     } else {

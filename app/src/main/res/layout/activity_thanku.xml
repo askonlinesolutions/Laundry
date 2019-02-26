@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:id="@+id/thanku"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".ui.Thanku.ThankuActivity">
 
-        <com.laundry.CustomTextRegular.CustomTextRegulars
-            android:id="@+id/login_title"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/sky_blue"
-            android:drawableLeft="@drawable/ic_left_arrow"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:textColor="@color/white_color"
-            android:textSize="15dp" />
+        <!--<com.laundry.CustomTextRegular.CustomTextRegulars-->
+            <!--android:id="@+id/login_title"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="@color/sky_blue"-->
+            <!--android:drawableLeft="@drawable/ic_left_arrow"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:textColor="@color/white_color"-->
+            <!--android:textSize="15dp" />-->
 
         <ImageView
             android:id="@+id/card_img"
@@ -45,7 +51,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="You have succesful credit card" />
-
+            android:text="You have succesful " />
     </LinearLayout>
+
+        <Button
+            android:id="@+id/thank_you"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_below="@+id/thanku"
+            android:textAllCaps="false"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp100"
+            android:background="@color/sky_blue"
+            android:textSize="@dimen/text_15"
+            android:text="Thanku"/>
+
+    </RelativeLayout>
 </layout>

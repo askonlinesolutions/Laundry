@@ -39,20 +39,20 @@
 
         </LinearLayout>
 
-        <com.laundry.CustomTextRegular.CustomTextRegulars
-            android:id="@+id/password_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp4"
-            android:background="@null"
-            android:hint="Password"
-            android:imeOptions="actionNext"
-            android:inputType="textPassword"
-            android:maxLength="15"
-            android:padding="@dimen/dp15"
-            android:textColor="@color/textMedium"
-            android:textColorHint="@color/textMedium"
-            android:textSize="@dimen/text_12" />
+        <!--<com.laundry.CustomTextRegular.CustomTextRegulars-->
+            <!--android:id="@+id/password_tv"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/dp4"-->
+            <!--android:background="@null"-->
+            <!--android:hint="Password"-->
+            <!--android:imeOptions="actionNext"-->
+            <!--android:inputType="textPassword"-->
+            <!--android:maxLength="15"-->
+            <!--android:padding="@dimen/dp15"-->
+            <!--android:textColor="@color/textMedium"-->
+            <!--android:textColorHint="@color/textMedium"-->
+            <!--android:textSize="@dimen/text_12" />-->
 
         <View
             android:layout_width="match_parent"

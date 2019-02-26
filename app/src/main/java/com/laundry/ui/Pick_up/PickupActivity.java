@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.laundry.R;
 import com.laundry.clickListener.OnItemClickLisner;
@@ -128,8 +129,29 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
                 startActivity(i);
                 break;
             case R.id.confirm_tv:
-                Intent intent = new Intent(PickupActivity.this, MyCartActivity.class);
-                startActivity(intent);
+                if (binding.pickupLocationEt.length() == 0 ||
+                        binding.pickupDateTv.length() == 0||
+                        binding.pickupTimeTv.length() == 0   ||
+                        binding.dropLocationEt.length() == 0 ||
+                        binding.dropDateTv.length()==0 ||
+                        binding.dropTimeTv.length()  == 0) {
+
+                    Toast.makeText(this, "Please enter pickup drop !", Toast.LENGTH_SHORT).show();
+                }
+//                if (binding.pickupTimeTv.isE)
+//                {
+//
+//                    binding.pickupTimeTv.setError("Please pickup time");
+////                    return;
+//                }
+
+                else
+                 {
+
+                    Intent intent = new Intent(PickupActivity.this, MyCartActivity.class);
+                    startActivity(intent);
+//                    finish();
+                }
                 break;
 
             case R.id.pickup_current_location:

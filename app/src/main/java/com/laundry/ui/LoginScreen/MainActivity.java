@@ -22,6 +22,7 @@ import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 import com.laundry.R;
 import com.laundry.Utils.MySharedPreference;
+import com.laundry.Utils.SharedPreference;
 import com.laundry.Utils.Utility;
 import com.laundry.WebServices.APIClient;
 import com.laundry.WebServices.OnResponseInterface;
@@ -113,8 +114,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 if (sign_up.isChecked()) {
-                    loginbtn.setVisibility(View.GONE);
-                    signupbtn.setVisibility(View.VISIBLE);
+                    loginbtn.setVisibility(View.VISIBLE);
+                    signupbtn.setVisibility(View.GONE);
                     sign_up.setTextColor(Color.WHITE);
                     sign_up.setBackgroundColor(getResources().getColor(R.color.sky_blue));
                     login.setBackgroundColor(getResources().getColor(R.color.white_color));
@@ -122,8 +123,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
                 if (login.isChecked()) {
-                    loginbtn.setVisibility(View.VISIBLE);
-                    signupbtn.setVisibility(View.GONE);
+                    loginbtn.setVisibility(View.GONE);
+                    signupbtn.setVisibility(View.VISIBLE);
                     login.setTextColor(Color.WHITE);
                     login.setBackgroundColor(getResources().getColor(R.color.sky_blue));
                     sign_up.setBackgroundColor(getResources().getColor(R.color.white_color));
@@ -220,8 +221,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isAllFieldValide() {
 
         if (name.length() == 0 || email.length() == 0 || activity_password.length() == 0 ||
-                confrim_password.length() == 0 /*|| checkbox.length() == 0*/) {
-            Toast.makeText(this, "please fill all blank  fiels!", Toast.LENGTH_SHORT).show();
+                confrim_password.length() == 0 || phone_no.length()==0
+//                || checkbox.length() == 0
+                ) {
+            Toast.makeText(this, "please fill all detail!", Toast.LENGTH_SHORT).show();
             return false;
         }
         if (name.length() == 0) {
@@ -241,7 +244,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         if (!validatePassword(activity_password.getText().toString())) {
-            activity_password.setError("Not a valid password!");
+            activity_password.setError(" Max length is 6!");
             Toast.makeText(this, "Please enter valid password !", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -255,14 +258,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "password mismatch !", Toast.LENGTH_SHORT).show();
             return false;
         }
+        if (!validatePhoneNumber(phone_no.getText().toString())) {
+            phone_no.setError("Not a valid phone number!");
+            Toast.makeText(this, "Please enter valid number !", Toast.LENGTH_SHORT).show();
+            return false;
+        }
 //        if (!checkbox.isChecked())
-
+//
 //        {
 //            Toast.makeText(this, "Term and cndition !", Toast.LENGTH_SHORT).show();
 //            return false;
 ////
 //        }
-        return true;
+    return true;
     }
 
 
@@ -276,8 +284,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public boolean validatePassword(String password) {
-        return password.length() >= 6;
+        return password.length() >= 4;
     }
+    public boolean validatePhoneNumber(String password) {
+        return password.length() >= 10;
+    }
+
 
 //    public static boolean validateFirstName(String firstName) {
 //        return firstName.matches("[A-Z][a-zA-Z]*");
@@ -351,11 +363,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         confrim_password.setText("");
                         activity_password.setText("");
                         phone_no.setText("");
+                        Intent i = new Intent(MainActivity.this, MainActivity.class);
+                        startActivity(i);
+                        finish();
 
                     }
                 } else if (response instanceof LoginResponse) {
                     LoginResponse loginResponse = (LoginResponse) response;
                     if (loginResponse.isStatus()) {
+                        SharedPreference sharedPreference=SharedPreference.getInstance(getApplicationContext());
+                        sharedPreference.putString("IsLogin","1");
                         userId = loginResponse.getUser_detail().getUser_id();
 
                         mySharedPreference.saveUserData(new Gson().toJson(loginResponse));
@@ -363,9 +380,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         mySharedPreference.savePhoneNubmber(loginResponse.getUser_detail().getPhone());
                         mySharedPreference.saveUserName(loginResponse.getUser_detail().getName());
 
-                        Toast.makeText(this, loginResponse.getMsg(), Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(this, loginResponse.getMsg(), Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(MainActivity.this, DryCleanerActivity.class);
                         startActivity(i);
+                        finish();
                     } else {
                         Toast.makeText(this, loginResponse.getMsg(), Toast.LENGTH_SHORT).show();
                     }

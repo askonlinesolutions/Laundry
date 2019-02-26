@@ -90,9 +90,10 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private void getUser_Id() {
         MySharedPreference mySharedPreference = MySharedPreference.getInstance(this);
         userId = mySharedPreference.getUserId();
+     //   userName =mySharedPreference.getUserName();
         Log.e("MyUserId", userId);
     }
-
+  //  String username = getIntent().getExtras().getString("username");
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -298,5 +299,5 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         Log.d(TAG, "onApiFailure: " + message);
 
     }
-//    String username = getIntent().getExtras().getString("username");
+
 }

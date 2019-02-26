@@ -127,7 +127,7 @@
             android:layout_marginBottom="10dp"
             android:background="@color/sky_blue"
             android:padding="10dp"
-            android:text="Scheduler Pickup"
+            android:text="Schedule Pickup"
             android:textAllCaps="false"
             android:textColor="@color/white_color"
             android:textSize="@dimen/text_14" />

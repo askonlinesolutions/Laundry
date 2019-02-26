@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.laundry.R;
 
 import com.laundry.Utils.MySharedPreference;
+import com.laundry.Utils.SharedPreference;
 import com.laundry.Utils.Utility;
 import com.laundry.WebServices.APIClient;
 import com.laundry.WebServices.OnResponseInterface;
@@ -231,7 +232,8 @@ public class DryCleanerActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-
+//                Intent intent = new Intent(DryCleanerActivity.this, MainActivity.class);
+//                startActivity(intent);
                 callapilogout();
 
             }
@@ -279,6 +281,8 @@ public class DryCleanerActivity extends AppCompatActivity
 
         new Utility().showProgressDialog(this);
         Call<LogoutResponse> call = APIClient.getInstance().getApiInterface().getlogout(user_id);
+        Log.e("MyLogout", call.request().url().toString());
+
         new ResponseListner(this).getResponse(call);
 
     }
@@ -304,12 +308,18 @@ public class DryCleanerActivity extends AppCompatActivity
                     LogoutResponse logoutResponse = (LogoutResponse) response;
                     new Utility().hideDialog();
                     if (logoutResponse.isStatus()) {
-                        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(DryCleanerActivity.this, MainActivity.class);
 
-//                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
+                        SharedPreference sharedPreference=SharedPreference.getInstance(getApplicationContext());
+                        sharedPreference.putString("IsLogin","0");
+                        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+
                         finish();
+
+//                         MySharedPreference mySharedPreference = new MySharedPreference(getApplicationContext());
+//                         mySharedPreference.saveUserId("");
+
+                      //  intent.putExtra("login", true);
+                        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 
                     }
@@ -317,11 +327,12 @@ public class DryCleanerActivity extends AppCompatActivity
                 } else if (response instanceof BannerResponse) {
                     BannerResponse bannerResponse = (BannerResponse) response;
                     new Utility().hideDialog();
-                    if (bannerResponse.status) {
+                    if (bannerResponse.isStatus()) {
+
                         Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
                         bannerList.clear();
-                        if (bannerResponse.data != null /*&& messageDataList.size() != 0*/) {
-                            bannerList.addAll(bannerResponse.data);
+                        if (bannerResponse.getData() != null /*&& messageDataList.size() != 0*/) {
+                            bannerList.addAll(bannerResponse.getData());
                             viewPager.setAdapter(new CustomPagerAdapter(this, bannerList));
                             dotsIndicator.setViewPager(viewPager);
                         }
