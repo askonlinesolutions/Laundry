@@ -135,8 +135,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
                     android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginRight="20dp"
                     android:background="@drawable/corner"
                     android:orientation="horizontal"
                     android:padding="@dimen/dp8">
@@ -155,6 +155,8 @@
                         android:layout_marginLeft="7dp"
                         android:layout_marginTop="3dp"
                         android:background="@null"
+                        android:editable="false"
+                        android:focusable="false"
                         android:hint="@string/email"
                         android:inputType="textEmailAddress"
                         android:lineSpacingExtra="7dp"
@@ -168,8 +170,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
                     android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginRight="20dp"
                     android:background="@drawable/corner"
                     android:orientation="horizontal"
                     android:padding="@dimen/dp8">

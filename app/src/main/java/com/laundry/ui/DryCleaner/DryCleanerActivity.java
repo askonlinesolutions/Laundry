@@ -5,7 +5,10 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -21,12 +24,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.laundry.R;
 
+import com.laundry.Utils.Constant;
 import com.laundry.Utils.MySharedPreference;
 import com.laundry.Utils.SharedPreference;
 import com.laundry.Utils.Utility;
@@ -44,12 +49,15 @@ import com.laundry.ui.FAQ.FAQActivity;
 import com.laundry.ui.FAQ.vo.FaqResponse;
 import com.laundry.ui.LoginScreen.MainActivity;
 import com.laundry.ui.LoginScreen.vo.SignUpResponse;
+import com.laundry.ui.MyCart.MyCartActivity;
 import com.laundry.ui.MyPayment.PaymentMethodActivity;
+import com.laundry.ui.Services.vo.CartCountResponse;
 import com.laundry.ui.Thanku.ThankuActivity;
 import com.laundry.ui.changePassword.ChangePaawordActivity;
 import com.laundry.ui.Services.ServicesActivity;
 import com.laundry.ui.myOrder.MyOrderActivity;
 import com.laundry.ui.profile.ProfileActivity;
+import com.squareup.picasso.Picasso;
 import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
 
 import java.io.Serializable;
@@ -60,16 +68,20 @@ import retrofit2.Call;
 import static android.provider.Contacts.SettingsColumns.KEY;
 import static com.laundry.Utils.Utility.isNetworkConnected;
 
-//importcom.laundry.CustomPagerAdapter;
 
 public class DryCleanerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnItemClickLisner, OnResponseInterface {
 
     SpringDotsIndicator dotsIndicator;
     RecyclerView press_image;
+    LinearLayout userLogin, guestUser;
     ViewPager viewPager;
-    String user_id;
-    TextView cancel_btn, playnowbtn;
+    String user_id, user_image, phone_no, userName;
+    String editKey;
+    View view;
+    int count;
+    ImageView userImageIv, img_my_cart;
+    TextView cancel_btn, playnowbtn, userNameTv, userPhonNoTv, cartCountTv;
     private static String TAG = DryCleanerActivity.class.getName();
     private ArrayList<ServiceResponse.DataEntity> serviseList = new ArrayList<>();
     private ArrayList<BannerResponse.DataEntity> bannerList = new ArrayList<>();
@@ -88,6 +100,11 @@ public class DryCleanerActivity extends AppCompatActivity
         getUser_Id();
         inIt();
         getBanner();
+        if (isNetworkConnected(this)) {
+            callCartCountApi();
+        } else {
+            Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
+        }
 
         if (isNetworkConnected(this)) {
             callServicesApi();
@@ -95,27 +112,36 @@ public class DryCleanerActivity extends AppCompatActivity
             Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
         }
 
-//        goServices();
-
     }
 
 
     private void getUser_Id() {
         MySharedPreference mySharedPreference = MySharedPreference.getInstance(this);
         user_id = mySharedPreference.getUserId();
+        user_image = mySharedPreference.getUserImage();
+        phone_no = mySharedPreference.getPhoneNubmber();
+        userName = mySharedPreference.getUserName();
         Log.e("MyUserId", user_id);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            editKey = extras.getString("Login");
+        }
+
     }
 
 
+    //    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void inIt() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         press_image = findViewById(R.id.press_image);
+        cartCountTv = findViewById(R.id.cart_count_tv);
+        img_my_cart = findViewById(R.id.img_my_cart);
+
         setSupportActionBar(toolbar);
 
         dotsIndicator = (SpringDotsIndicator) findViewById(R.id.dots_indicator);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
-//        viewPager.setAdapter(new CustomPagerAdapter(this));
-//        dotsIndicator.setViewPager(viewPager);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -123,12 +149,56 @@ public class DryCleanerActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+
+        Menu menu = navigationView.getMenu();
+        MenuItem logout = menu.findItem(R.id.logout);
+
+        if (editKey.equals("Skip")) {
+            logout.setTitle("Login");
+
+        } else if (editKey.equals("Login")) {
+            logout.setTitle("Logout");
+        }
+
         navigationView.setNavigationItemSelectedListener(this);
+
+        view = navigationView.getHeaderView(0);
+        userImageIv = view.findViewById(R.id.user_image_iv);
+        userNameTv = view.findViewById(R.id.user_name_tv);
+        userPhonNoTv = view.findViewById(R.id.user_phon_no_tv);
+        guestUser = view.findViewById(R.id.guest_user);
+        userLogin = view.findViewById(R.id.user_login);
+
+        if (editKey.equals("Skip")) {
+            guestUser.setVisibility(View.VISIBLE);
+            userLogin.setVisibility(View.GONE);
+        } else if (editKey.equals("Login")) {
+            guestUser.setVisibility(View.GONE);
+            userLogin.setVisibility(View.VISIBLE);
+        }
+
+        if (!userName.equals("") && !user_image.equals("") && !phone_no.equals("")) {
+            userNameTv.setText(userName);
+            userPhonNoTv.setText(phone_no);
+
+            Picasso.with(this).
+                    load(Constant.IMAGE_BASE_URL + user_image) // URL or file
+                    .into(userImageIv);
+        } else {
+            userImageIv.setImageResource(R.drawable.userplaceholder);
+        }
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         press_image.setLayoutManager(new GridLayoutManager(this, 2));
 //        setAdapter();
+        img_my_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DryCleanerActivity.this, MyCartActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 
@@ -142,6 +212,8 @@ public class DryCleanerActivity extends AppCompatActivity
         }
     }
 
+    MenuItem logout;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -149,18 +221,10 @@ public class DryCleanerActivity extends AppCompatActivity
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -171,11 +235,25 @@ public class DryCleanerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.my_order) {
-            Intent intent = new Intent(DryCleanerActivity.this, MyOrderActivity.class);
-            startActivity(intent);
+            if (editKey.equals("Skip")) {
+                Toast.makeText(this, "Please Login first.", Toast.LENGTH_SHORT).show();
+
+            } else if (editKey.equals("Login")) {
+                Intent intent = new Intent(DryCleanerActivity.this, MyOrderActivity.class);
+                startActivity(intent);
+            }
+
         } else if (id == R.id.my_profile) {
-            Intent intent = new Intent(DryCleanerActivity.this, ProfileActivity.class);
-            startActivity(intent);
+
+            if (editKey.equals("Skip")) {
+                Toast.makeText(this, "Please Login first.", Toast.LENGTH_SHORT).show();
+            } else if (editKey.equals("Login")) {
+
+                Intent intent = new Intent(DryCleanerActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+
+
         } else if (id == R.id.contact) {
             Intent intent = new Intent(DryCleanerActivity.this, ContactActivity.class);
             startActivity(intent);
@@ -186,18 +264,35 @@ public class DryCleanerActivity extends AppCompatActivity
             Intent intent = new Intent(DryCleanerActivity.this, FAQActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.chat) {
+        }
+       /* else if (id == R.id.chat) {
 
             Intent intent = new Intent(DryCleanerActivity.this, ChatActivity.class);
             startActivity(intent);
 
-        }
-
+        }*/
         else if (id == R.id.change_pwd) {
-            Intent intent = new Intent(DryCleanerActivity.this, ChangePaawordActivity.class);
-            startActivity(intent);
+
+            if (editKey.equals("Skip")) {
+
+                Toast.makeText(this, "Please Login first.", Toast.LENGTH_SHORT).show();
+            } else if (editKey.equals("Login")) {
+
+                Intent intent = new Intent(DryCleanerActivity.this, ChangePaawordActivity.class);
+                startActivity(intent);
+            }
+
+
         } else if (id == R.id.logout) {
-            logout_dialog();
+
+            if (editKey.equals("Skip")) {
+                Intent intent = new Intent(DryCleanerActivity.this, MainActivity.class);
+                startActivity(intent);
+
+            } else if (editKey.equals("Login")) {
+                logout_dialog();
+            }
+
 
         }
 
@@ -261,16 +356,21 @@ public class DryCleanerActivity extends AppCompatActivity
         setupWindowAnimations();
     }
 
+    private void callCartCountApi() {
+//        new Utility().showProgressDialog(this);
+        Call<CartCountResponse> call = APIClient.getInstance().getApiInterface().getCartCount(user_id);
+        new ResponseListner(this).getResponse(call);
+
+    }
+
+
     private void getBanner() {
 //        new Utility().showProgressDialog(this);
         Call<BannerResponse> call = APIClient.getInstance().getApiInterface().getbanner();
         new ResponseListner(this).getResponse(call);
-
-
     }
 
     private void callServicesApi() {
-
         new Utility().showProgressDialog(this);
         Call<ServiceResponse> call = APIClient.getInstance().getApiInterface().getServices();
         new ResponseListner(this).getResponse(call);
@@ -309,16 +409,17 @@ public class DryCleanerActivity extends AppCompatActivity
                     new Utility().hideDialog();
                     if (logoutResponse.isStatus()) {
 
-                        SharedPreference sharedPreference=SharedPreference.getInstance(getApplicationContext());
-                        sharedPreference.putString("IsLogin","0");
-                        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
-
-                        finish();
+                        SharedPreference sharedPreference = SharedPreference.getInstance(getApplicationContext());
+                        sharedPreference.putString("IsLogin", "0");
+//                        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(DryCleanerActivity.this, MainActivity.class);
+                        startActivity(intent);
+//                        finish();
 
 //                         MySharedPreference mySharedPreference = new MySharedPreference(getApplicationContext());
 //                         mySharedPreference.saveUserId("");
 
-                      //  intent.putExtra("login", true);
+                        //  intent.putExtra("login", true);
                         //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 
@@ -329,13 +430,24 @@ public class DryCleanerActivity extends AppCompatActivity
                     new Utility().hideDialog();
                     if (bannerResponse.isStatus()) {
 
-                        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
                         bannerList.clear();
                         if (bannerResponse.getData() != null /*&& messageDataList.size() != 0*/) {
                             bannerList.addAll(bannerResponse.getData());
                             viewPager.setAdapter(new CustomPagerAdapter(this, bannerList));
                             dotsIndicator.setViewPager(viewPager);
                         }
+                    }
+                } else if (response instanceof CartCountResponse) {
+//                    new Utility().hideDialog();
+                    CartCountResponse cartCountResponse = (CartCountResponse) response;
+                    if (cartCountResponse.isStatus()) {
+//                        Toast.makeText(this, "count...24", Toast.LENGTH_SHORT).show();
+                        if (count > 0) {
+                            count = 0;
+                        }
+                        count = cartCountResponse.getCart_count();
+                        cartCountTv.setText(String.valueOf(count/*cartCountResponse.getCart_count()*/));
                     }
                 }
 
@@ -358,7 +470,6 @@ public class DryCleanerActivity extends AppCompatActivity
     private void setupWindowAnimations() {
         overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
     }
-
 
 
 }

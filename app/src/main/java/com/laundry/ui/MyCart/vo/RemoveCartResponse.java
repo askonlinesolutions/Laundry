@@ -1,10 +1,10 @@
-package com.laundry.ui.MyPayment.vo;
+package com.laundry.ui.MyCart.vo;
 
-public class PaymentDeleteResponse {
+public class RemoveCartResponse {
 
 
     /**
-     * msg : Delete Succcessfully
+     * msg : Remove Succcessfully
      * status : true
      */
     private String msg;

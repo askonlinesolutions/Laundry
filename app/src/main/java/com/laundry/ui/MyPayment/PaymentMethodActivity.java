@@ -1,7 +1,6 @@
 package com.laundry.ui.MyPayment;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -18,19 +17,15 @@ import android.widget.Toast;
 
 import com.google.maps.internal.ApiResponse;
 import com.laundry.R;
-import com.laundry.Utils.Constant;
 import com.laundry.Utils.MySharedPreference;
 import com.laundry.Utils.Utility;
 import com.laundry.WebServices.APIClient;
 import com.laundry.WebServices.OnResponseInterface;
 import com.laundry.WebServices.ResponseListner;
 import com.laundry.databinding.ActivityPaymentMethodBinding;
-import com.laundry.ui.DryCleaner.vo.ServiceResponse;
+import com.laundry.ui.MyPayment.vo.AddPaymentCardResponse;
 import com.laundry.ui.MyPayment.vo.PaymentDeleteResponse;
-import com.laundry.ui.Thanku.ThankuActivity;
-import com.laundry.ui.manageAddress.vo.DeleteAddressResponse;
 import com.laundry.ui.profile.vo.ProfileResponse;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -46,7 +41,7 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
     EditText cardNoTv, cardTypeTv, cardTrans;
     RecyclerView pament_recycler;
     ImageView btncross;
-    String userId, cardNo, cardType, cardTran,usercard_id;
+    String userId, cardNo, cardType, cardTran, usercard_id;
     ArrayList<ProfileResponse.Payment_cardEntity> paymentList = new ArrayList<>();
 
 
@@ -100,7 +95,7 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
 
     private void setPaymentAdapter() {
 
-        PaymentMethodAdapter paymentMethodAdapter = new PaymentMethodAdapter(this, paymentList,this);
+        PaymentMethodAdapter paymentMethodAdapter = new PaymentMethodAdapter(this, paymentList, this);
         pament_recycler.setAdapter(paymentMethodAdapter);
     }
 
@@ -174,45 +169,35 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
         cardType = cardTypeTv.getText().toString().trim();
         cardNo = cardNoTv.getText().toString();
         cardTran = cardTrans.getText().toString().trim();
-
-
         new Utility().showProgressDialog(this);
-        Call<ApiResponse> call = APIClient.getInstance().getApiInterface().addPaymentCard(cardType, cardNo, cardTran, userId);
+        Call<AddPaymentCardResponse> call = APIClient.getInstance().getApiInterface().addPaymentCard(cardType, cardNo, cardTran, userId);
         new ResponseListner(this).getResponse(call);
 
     }
 
 
-
-    private void callDeleteapi() {
+    private void callDeleteapi(String usercard_id) {
         new Utility().showProgressDialog(this);
         Call<PaymentDeleteResponse> call = APIClient.getInstance().getApiInterface().getpaymentdelete(usercard_id);
         Log.e("MyOrderUrl", call.request().url().toString());
         new ResponseListner(this).getResponse(call);
 
-
-
-
-
     }
+
     @Override
     public void onApiResponse(Object response) {
 
         if (response != null) {
             new Utility().hideDialog();
             try {
-                if (response instanceof ApiResponse) {
-                    ApiResponse apiResponse = (ApiResponse) response;
+                if (response instanceof AddPaymentCardResponse) {
+                    AddPaymentCardResponse apiResponse = (AddPaymentCardResponse) response;
                     new Utility().hideDialog();
-                    if (apiResponse.successful()) {
+                    if (apiResponse.isStatus()) {
                         callGetProfileApi();
-//
-//                        Intent i = new Intent(PaymentMethodActivity.this, ThankuActivity.class);
-//                        startActivity(i);
-
-                        Toast.makeText(this, "Card Add successfully..", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, apiResponse.getMsg(), Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(this, "No Record found !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, apiResponse.getMsg(), Toast.LENGTH_SHORT).show();
                     }
                 } else if (response instanceof ProfileResponse) {
                     ProfileResponse profileResponse = (ProfileResponse) response;
@@ -220,8 +205,8 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
                     if (profileResponse.isStatus()) {
                         paymentList.clear();
                         if (profileResponse.getPayment_card().size() != 0) {
-                            paymentList.addAll(profileResponse.getPayment_card());
 
+                            paymentList.addAll(profileResponse.getPayment_card());
                             setPaymentAdapter();
                         }
 
@@ -256,9 +241,9 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public void onBtnClick(int Pos) {
+    public void onBtnClick(int Pos, String usercard_id) {
 
-        callDeleteapi();
+        callDeleteapi(usercard_id);
 
     }
 

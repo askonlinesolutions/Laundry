@@ -1,6 +1,8 @@
 package com.laundry.ui.Contact;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +27,7 @@ import static com.laundry.Utils.Utility.isNetworkConnected;
 public class ContactActivity extends AppCompatActivity implements OnResponseInterface {
     LinearLayout login_title;
     ActivityContactBinding binding;
+    ContactUsResponse contactUsResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +48,14 @@ public class ContactActivity extends AppCompatActivity implements OnResponseInte
         } else {
             Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
         }
-
+        binding.phoneCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String phone = /*"+34666777888"*/contactUsResponse.getData().get(0).getContact_phone();
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -64,7 +74,7 @@ public class ContactActivity extends AppCompatActivity implements OnResponseInte
             new Utility().hideDialog();
             try {
                 if (response instanceof ContactUsResponse) {
-                    ContactUsResponse contactUsResponse = (ContactUsResponse) response;
+                    contactUsResponse = (ContactUsResponse) response;
                     new Utility().hideDialog();
                     if (contactUsResponse.isStatus()) {
 

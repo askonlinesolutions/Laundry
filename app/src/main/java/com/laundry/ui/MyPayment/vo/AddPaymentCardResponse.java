@@ -1,10 +1,10 @@
 package com.laundry.ui.MyPayment.vo;
 
-public class PaymentDeleteResponse {
+public class AddPaymentCardResponse {
 
 
     /**
-     * msg : Delete Succcessfully
+     * msg : Card Add Successfully
      * status : true
      */
     private String msg;

@@ -19,16 +19,16 @@ public class MySharedPreference {
         return instance;
     }
 
-    public boolean isLogin(){
-        if(prefs.contains(Constant.USER_ID)){
+    public boolean isLogin() {
+        if (prefs.contains(Constant.USER_ID)) {
             return true;
         } else {
             return false;
         }
     }
 
-    public boolean isPhonNo(){
-        if(prefs.contains(Constant.PHONE_NO)){
+    public boolean isPhonNo() {
+        if (prefs.contains(Constant.PHONE_NO)) {
             return true;
         } else {
             return false;
@@ -40,36 +40,47 @@ public class MySharedPreference {
         prefs.edit().putString(Constant.LOGIN_DATA, login_data).apply();
     }
 
-    public String getUserData(){
+    public String getUserData() {
         return prefs.getString(Constant.LOGIN_DATA, "");
     }
 
-    public void saveUserId(String user_id){
-        prefs.edit().putString(Constant.USER_ID,user_id).apply();
-    }
-    public void savePhoneNubmber(String phoneNumber){
-        prefs.edit().putString(Constant.PHONE_NO,phoneNumber).apply();
-    }
-    public void saveUserName(String userName){
-        prefs.edit().putString(Constant.USER_NAME,userName).apply();
+    public void saveUserId(String user_id) {
+        prefs.edit().putString(Constant.USER_ID, user_id).apply();
     }
 
-    public void saveTripId(String tripId){
-        prefs.edit().putString(Constant.TRIP_ID,tripId).apply();
+    public void savePhoneNubmber(String phoneNumber) {
+        prefs.edit().putString(Constant.PHONE_NO, phoneNumber).apply();
     }
 
-    public String getUserId(){
+    public void saveUserName(String userName) {
+        prefs.edit().putString(Constant.USER_NAME, userName).apply();
+    }
+
+    public void saveUserImage(String userImage) {
+        prefs.edit().putString(Constant.USER_IMAGE, userImage).apply();
+    }
+
+    public void saveTripId(String tripId) {
+        prefs.edit().putString(Constant.TRIP_ID, tripId).apply();
+    }
+
+    public String getUserImage() {
+        return prefs.getString(Constant.USER_IMAGE, "");
+    }
+
+    public String getUserId() {
         return prefs.getString(Constant.USER_ID, "");
     }
 
-    public String getUserName(){
+    public String getUserName() {
         return prefs.getString(Constant.USER_NAME, "");
     }
-    public String getPhoneNubmber(){
+
+    public String getPhoneNubmber() {
         return prefs.getString(Constant.PHONE_NO, "");
     }
 
-    public String getTripId(){
+    public String getTripId() {
         return prefs.getString(Constant.TRIP_ID, "");
     }
 
@@ -79,11 +90,11 @@ public class MySharedPreference {
         prefs.edit().putString(Constant.LOGIN_DATA, current_data).apply();
     }
 
-    public String getCurrentData(){
+    public String getCurrentData() {
         return prefs.getString(Constant.CURRENT_DATA, "");
     }
 
-    public void clearUserData(){
+    public void clearUserData() {
         prefs.edit().remove(Constant.LOGIN_DATA).apply();
         prefs.edit().remove(Constant.USER_ID).apply();
     }

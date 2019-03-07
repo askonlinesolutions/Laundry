@@ -38,7 +38,7 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
 
     private ActivityManageAddressBinding binding;
     private ManageAddressAdapter addressAdapter;
-    String userId;
+    String userId,manageKey;
     private static String TAG = ManageAddressActivity.class.getName();
     private ArrayList<ManageAddressResponse.DataEntity> addressList = new ArrayList<>();
 
@@ -56,6 +56,13 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
         MySharedPreference mySharedPreference = MySharedPreference.getInstance(this);
         userId = mySharedPreference.getUserId();
         Log.e("MyUserId", userId);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            manageKey = extras.getString("manage");
+//            serviseList=getIntent().getSerializableExtra("arraylist");
+        }
+
     }
 
     private void init() {
@@ -75,15 +82,8 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
 
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        callManageAddressApi();
-//
-//    }
-
     private void setAdapter() {
-        addressAdapter = new ManageAddressAdapter(this, addressList, this);
+        addressAdapter = new ManageAddressAdapter(this, addressList, this,manageKey);
         binding.manageAddressRv.setAdapter(addressAdapter);
     }
 
@@ -118,13 +118,15 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
                 Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
             }
 
-        } else if (type.equals("Status")) {
+        }
+       /* else if (type.equals("Status")) {
             if (isNetworkConnected(this)) {
                 callUpdateAddressStatus(addressId, status);
             } else {
                 Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
             }
-        } else {
+        }*/
+        else {
             Toast.makeText(this, type, Toast.LENGTH_SHORT).show();
 
         }
@@ -175,16 +177,12 @@ public class ManageAddressActivity extends AppCompatActivity implements View.OnC
 
                             setAdapter();
                         }
-                    } else {
-
                     }
                 } else if (response instanceof DeleteAddressResponse) {
                     DeleteAddressResponse deleteAddressResponse = (DeleteAddressResponse) response;
                     new Utility().hideDialog();
                     if (deleteAddressResponse.isStatus()) {
                         Toast.makeText(this, deleteAddressResponse.getMsg(), Toast.LENGTH_SHORT).show();
-
-                    } else {
 
                     }
                 } else if (response instanceof UpdateAddressStatus) {

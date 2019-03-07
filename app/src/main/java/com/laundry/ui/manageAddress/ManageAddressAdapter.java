@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import com.google.android.gms.common.data.SingleRefDataBufferIterator;
 import com.laundry.R;
 import com.laundry.ui.MyPayment.PaymentMethodActivity;
+import com.laundry.ui.Pick_up.PickupActivity;
 import com.laundry.ui.Thanku.ThankuActivity;
 import com.laundry.ui.manageAddress.vo.ManageAddressResponse;
 import com.laundry.ui.offer.OfferrAdapter;
@@ -31,16 +33,18 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
     TextView cancel_btn, playnowbtn;
     String addressId;
     ImageView btncross;
+    String manageKey;
     private Context context;
     private ArrayList<ManageAddressResponse.DataEntity> addressList;
 
     LinearLayout main_layout;
     private OnBtnClickListener onBtnClickListener;
 
-    ManageAddressAdapter(Context context, ArrayList<ManageAddressResponse.DataEntity> addressList, OnBtnClickListener onBtnClickListener) {
+    ManageAddressAdapter(Context context, ArrayList<ManageAddressResponse.DataEntity> addressList, OnBtnClickListener onBtnClickListener, String manageKey) {
         this.context = context;
         this.onBtnClickListener = onBtnClickListener;
         this.addressList = addressList;
+        this.manageKey = manageKey;
     }
 
     @NonNull
@@ -57,10 +61,16 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
         viewHolder.titleTv.setText(addressList.get(i).getUseraddress_title());
         viewHolder.addressTv.setText(addressList.get(i).getUseraddress_address());
 
-        if (addressList.get(i).getUseraddress_status().equals("1")) {
-            viewHolder.statusSwitch.setChecked(true);
+//        if (addressList.get(i).getUseraddress_status().equals("1")) {
+//            viewHolder.statusSwitch.setChecked(true);
+//        } else {
+//            viewHolder.statusSwitch.setChecked(false);
+//        }
+        if (manageKey.equals("manage")) {
+            viewHolder.checkBox.setVisibility(View.GONE);
         } else {
-            viewHolder.statusSwitch.setChecked(false);
+            viewHolder.checkBox.setVisibility(View.VISIBLE);
+
         }
 
     }
@@ -76,11 +86,12 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
 
     }
 
-    String status;
+    private String status;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView editBtn, deleteBtn, titleTv, addressTv;
-        Switch statusSwitch;
+        //        Switch statusSwitch;
+        CheckBox checkBox;
 
 
         public ViewHolder(@NonNull final View itemView) {
@@ -89,24 +100,31 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
             deleteBtn = itemView.findViewById(R.id.delete_btn_tv);
             titleTv = itemView.findViewById(R.id.address_tittle_tv);
             addressTv = itemView.findViewById(R.id.address_tv);
-            statusSwitch = itemView.findViewById(R.id.address_status_switch);
+            checkBox = itemView.findViewById(R.id.checkbox);
+//            statusSwitch = itemView.findViewById(R.id.address_status_switch);
             main_layout = itemView.findViewById(R.id.main_layout);
 
-            statusSwitch.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
 
-                    if (statusSwitch.isChecked()) {
-                        status = "1";
-                    } else {
-                        status = "0";
-                    }
-                    addressId = addressList.get(getAdapterPosition()).getUseraddress_id();
+            if (checkBox.isChecked()) {
+                Intent intent = new Intent(context, PickupActivity.class);
+                context.startActivity(intent);
+            }
 
-                    onBtnClickListener.onBtnClick(getAdapterPosition(), "Status", addressId, status);
-
-                }
-            });
+//            statusSwitch.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//
+//                    if (statusSwitch.isChecked()) {
+//                        status = "1";
+//                    } else {
+//                        status = "0";
+//                    }
+//                    addressId = addressList.get(getAdapterPosition()).getUseraddress_id();
+//
+//                    onBtnClickListener.onBtnClick(getAdapterPosition(), "Status", addressId, status);
+//
+//                }
+//            });
 
 
             deleteBtn.setOnClickListener(new View.OnClickListener() {

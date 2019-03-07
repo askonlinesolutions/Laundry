@@ -10,28 +10,56 @@
         tools:context=".ui.currentLocation.AddAddressActivity">
 
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/sky_blue"
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/dp15">
 
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/mapView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+            <ImageView
+                android:id="@+id/map_back_iv"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dp15"
+                android:src="@drawable/ic_left_arrow" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="34dp"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical">
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corner_white_bg"
+                android:gravity="center"
+                android:padding="@dimen/dp5">
+
+                <ImageView
+                    android:layout_width="@dimen/dp20"
+                    android:layout_height="@dimen/dp20"
+                    android:layout_marginLeft="@dimen/dp2"
+                    android:src="@drawable/ic_placeholder_blue" />
+
+                <!--<EditText-->
+                <!--android:id="@+id/top_location_et"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="@dimen/dp5"-->
+                <!--android:background="@null"-->
+                <!--android:inputType="text"-->
+                <!--android:padding="@dimen/dp5"-->
+                <!--android:singleLine="true"-->
+                <!--android:text="Noida sector 63"-->
+                <!--android:textColor="@color/text_dark_gray"-->
+                <!--android:textSize="@dimen/text_11" />-->
 
                 <AutoCompleteTextView
+
                     android:id="@+id/autocomplete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shape_white"
+                    android:background="@null"
                     android:editable="false"
                     android:ellipsize="end"
                     android:hint="Type in your Location"
@@ -39,41 +67,198 @@
                     android:padding="10dp"
                     android:singleLine="true"
                     android:textColor="@color/text_black"
-                    android:textColorHint="@color/text_black"
                     android:textSize="@dimen/text_11" />
 
-                <com.laundry.CustomTextRegular.CustomTextRegulars
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_placeholder"
-                    android:drawablePadding="10dp"
-                    android:ellipsize="end"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="Search"
-                    android:textColor="@color/text_black"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/add_address_btnConfirm"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_margin="15dp"
-                    android:background="@drawable/background_button_sky"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingRight="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="Confirm"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
 
             </LinearLayout>
+
+
+            <com.laundry.CustomTextRegular.CustomTextRegulars
+                android:id="@+id/confirm_btn"
+                android:layout_width="@dimen/dp80"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dp10"
+                android:background="@drawable/rounded_corner_dark_blue_bg"
+                android:gravity="center"
+                android:padding="@dimen/dp9"
+                android:text="Confirm"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_11" />
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_loocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp25"
+                android:layout_marginRight="@dimen/dp25"
+                android:padding="@dimen/dp5"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/dp5"
+                app:cardElevation="@dimen/dp5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp10">
+
+                    <!--  <com.laundry.CustomTextRegular.CustomTextRegular
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginLeft="@dimen/dp6"
+                          android:gravity="center"
+                          android:text="Location"
+                          android:textColor="@color/text_dark_gray"
+                          android:textSize="@dimen/text_12" />
+
+                      <com.laundry.CustomTextRegular.CustomTextRegular
+                          android:id="@+id/location_tv"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginLeft="@dimen/dp6"
+                          android:gravity="center"
+                          android:text="B Block sector 63 Noida"
+                          android:textColor="@color/text_gray"
+                          android:textSize="@dimen/text_11" />
+  -->
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null">
+
+                        <EditText
+                            android:id="@+id/location_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Location"
+                            android:padding="@dimen/dp8"
+                            android:textSize="@dimen/text_11" />
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <!--  <EditText
+                          android:id="@+id/house_no_et"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/dp10"
+                          android:background="@null"
+                          android:hint="House/flatNo"
+                          android:padding="@dimen/dp10"
+                          android:textSize="@dimen/text11"
+
+                          />-->
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@null">
+
+                        <EditText
+                            android:id="@+id/house_no_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="House/flatNo"
+                            android:padding="@dimen/dp8"
+                            android:textSize="@dimen/text11" />
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@null">
+
+                        <EditText
+                            android:id="@+id/landmark_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Landmark"
+                            android:padding="@dimen/dp8"
+                            android:textSize="@dimen/text11" />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginTop="34dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<AutoCompleteTextView-->
+
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/shape_white"-->
+            <!--android:editable="false"-->
+            <!--android:ellipsize="end"-->
+            <!--android:hint="Type in your Location"-->
+            <!--android:maxLines="1"-->
+            <!--android:padding="10dp"-->
+            <!--android:singleLine="true"-->
+            <!--android:textColor="@color/text_black"-->
+            <!--android:textColorHint="@color/text_black"-->
+            <!--android:textSize="@dimen/text_11" />-->
+
+            <!--<com.laundry.CustomTextRegular.CustomTextRegulars-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:drawableLeft="@drawable/ic_placeholder"-->
+            <!--android:drawablePadding="10dp"-->
+            <!--android:ellipsize="end"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:singleLine="true"-->
+            <!--android:text="Search"-->
+            <!--android:textColor="@color/text_black"-->
+            <!--android:textSize="14sp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:visibility="gone" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/add_address_btnConfirm"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="right"-->
+            <!--android:layout_margin="15dp"-->
+            <!--android:background="@drawable/background_button_sky"-->
+            <!--android:gravity="center_vertical|center_horizontal"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingTop="5dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:paddingBottom="5dp"-->
+            <!--android:text="Confirm"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="14sp"-->
+            <!--android:textStyle="bold" />-->
+
+            <!--</LinearLayout>-->
 
 
             <LinearLayout

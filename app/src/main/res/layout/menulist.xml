@@ -75,7 +75,7 @@
                     android:layout_height="20dp"
                     android:background="@drawable/background_corner_rectangle"
                     android:gravity="center"
-                    android:text="1"
+                    android:text="0"
 
                     android:textSize="12sp" />
 

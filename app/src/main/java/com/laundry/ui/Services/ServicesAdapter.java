@@ -25,7 +25,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
     private ServicesAdapterInterface servicesAdapterInterface;
     private Context context;
     private int rowindex = 0;
-    int pos;
+    private int pos;
     private String servic_id;
 
 

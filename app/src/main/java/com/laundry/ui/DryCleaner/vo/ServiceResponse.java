@@ -125,17 +125,37 @@ public class ServiceResponse implements Serializable {
                 return items;
             }
 
-            public class ItemsEntity implements Serializable{
+            public class ItemsEntity implements Serializable {
                 /**
                  * item_price : 5
                  * discount_price : 0
                  * item_image : women-coat2.jpg
                  * item_name : Coat
+                 * "item_id": "95",
                  */
                 private String item_price;
                 private String discount_price;
                 private String item_image;
                 private String item_name;
+                private String item_id;
+
+                public String getItem_id() {
+                    return item_id;
+                }
+
+                public void setItem_id(String item_id) {
+                    this.item_id = item_id;
+                }
+
+                private int selected_qnty;
+
+                public int getSelected_qnty() {
+                    return selected_qnty;
+                }
+
+                public void setSelected_qnty(int selected_qnty) {
+                    this.selected_qnty = selected_qnty;
+                }
 
                 public void setItem_price(String item_price) {
                     this.item_price = item_price;
@@ -204,12 +224,12 @@ public class ServiceResponse implements Serializable {
 
     public class DataEntity implements Serializable  {
         *//**
-         * service_name : Steam Press
-         * service_id : 2
-         * service_image : steam.jpg
-         * service_status : 1
-         * service_hour : 2
-         *//*
+     * service_name : Steam Press
+     * service_id : 2
+     * service_image : steam.jpg
+     * service_status : 1
+     * service_hour : 2
+     *//*
         private String service_name;
         private String service_id;
         private String service_image;

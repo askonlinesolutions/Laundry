@@ -54,7 +54,18 @@
                         android:id="@+id/address_status_switch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:visibility="gone" />
+
+
+                    <CheckBox
+                        android:id="@+id/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        android:layout_marginLeft="@dimen/dp25"
+                        android:buttonTint="@color/sky_blue" />
+
 
                 </LinearLayout>
 

@@ -20,6 +20,7 @@ import com.laundry.R;
 import com.laundry.clickListener.OnItemClickLisner;
 import com.laundry.databinding.ActivityPickupBinding;
 import com.laundry.ui.MyCart.MyCartActivity;
+import com.laundry.ui.currentLocation.AddAddressActivity;
 import com.laundry.ui.currentLocation.CurrentLocationMapActivity;
 
 import java.io.IOException;
@@ -29,7 +30,7 @@ import java.util.List;
 import java.util.Locale;
 
 
-public class PickupActivity extends AppCompatActivity implements OnItemClickLisner, View.OnClickListener {
+public class PickupActivity extends AppCompatActivity implements View.OnClickListener {
 
     ActivityPickupBinding binding;
     //    RecyclerView rv;
@@ -111,11 +112,11 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
 
     }
 
-
-    @Override
-    public void onItemClick(int position) {
-        startActivity(new Intent(PickupActivity.this, CurrentLocationMapActivity.class));
-    }
+//
+//    @Override
+//    public void onItemClick(int position) {
+//        startActivity(new Intent(PickupActivity.this, CurrentLocationMapActivity.class));
+//    }
 
     @Override
     public void onClick(View view) {
@@ -130,11 +131,11 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
                 break;
             case R.id.confirm_tv:
                 if (binding.pickupLocationEt.length() == 0 ||
-                        binding.pickupDateTv.length() == 0||
-                        binding.pickupTimeTv.length() == 0   ||
+                        binding.pickupDateTv.length() == 0 ||
+                        binding.pickupTimeTv.length() == 0 ||
                         binding.dropLocationEt.length() == 0 ||
-                        binding.dropDateTv.length()==0 ||
-                        binding.dropTimeTv.length()  == 0) {
+                        binding.dropDateTv.length() == 0 ||
+                        binding.dropTimeTv.length() == 0) {
 
                     Toast.makeText(this, "Please enter pickup drop !", Toast.LENGTH_SHORT).show();
                 }
@@ -145,8 +146,7 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
 ////                    return;
 //                }
 
-                else
-                 {
+                else {
 
                     Intent intent = new Intent(PickupActivity.this, MyCartActivity.class);
                     startActivity(intent);
@@ -155,13 +155,13 @@ public class PickupActivity extends AppCompatActivity implements OnItemClickLisn
                 break;
 
             case R.id.pickup_current_location:
-                Intent picIntent = new Intent(PickupActivity.this, CurrentLocationMapActivity.class);
+                Intent picIntent = new Intent(PickupActivity.this, AddAddressActivity.class);
                 startActivity(picIntent);
                 break;
 
 
             case R.id.drop_current_location:
-                Intent dropIntent = new Intent(PickupActivity.this, CurrentLocationMapActivity.class);
+                Intent dropIntent = new Intent(PickupActivity.this, AddAddressActivity.class);
                 startActivity(dropIntent);
                 break;
 

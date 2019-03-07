@@ -10,9 +10,9 @@
     <com.laundry.CustomTextRegular.CustomTextRegulars
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:paddingLeft="15dp"
         android:paddingTop="5dp"
-        android:background="@color/white"
         android:paddingRight="15dp"
         android:text="Location"
         android:textColor="@color/text_black" />
@@ -21,10 +21,10 @@
         android:id="@+id/activity_add_aaddres_txtLoc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:ellipsize="end"
         android:paddingLeft="15dp"
         android:paddingTop="5dp"
-        android:background="@color/white"
         android:paddingRight="15dp"
         android:paddingBottom="15dp"
         android:singleLine="true"

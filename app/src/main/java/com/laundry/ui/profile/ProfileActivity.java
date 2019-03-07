@@ -136,9 +136,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
             case R.id.default_tv:
 
-//                startActivity(new Intent(ProfileActivity.this, AddAddressActivity.class));
+                Intent intentAddress = new Intent(ProfileActivity.this, ManageAddressActivity.class);
+                intentAddress.putExtra("manage", "manage");
 
-                startActivity(new Intent(ProfileActivity.this, ManageAddressActivity.class));
+                startActivity(intentAddress);
+
+//                startActivity(new Intent(ProfileActivity.this, ManageAddressActivity.class));
                 this.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 break;
         }
@@ -172,22 +175,22 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         binding.phoneNoTv.setText(profileResponse.getData().getUsermanage_contact());
                         binding.userAddressTv.setText(profileResponse.getAddress().getUseraddress_address());
 
-                        if (profileResponse.getOffer().size() != 0) {
-                            binding.offerTv.setText(profileResponse.getOffer().get(0).getDiscount_coupon());
-
-                        }
                         if (profileResponse.getData().getUsermanage_image() != null) {
                             Picasso.with(this).
                                     load(Constant.IMAGE_BASE_URL + profileResponse.getData().getUsermanage_image()) // URL or file
                                     .into(binding.userImageIv);
 
                         }
+                        if (profileResponse.getOffer().size() != 0) {
+                            binding.offerTv.setText(profileResponse.getOffer().get(0).getDiscount_coupon());
+
+                        }
+
                         if (profileResponse.getPayment_card().size() != 0) {
                             binding.paymentNoTv.setText(profileResponse.getPayment_card().get(0).getUsercard_card_no());
                             paymentList.addAll(profileResponse.getPayment_card());
 
                         }
-
 
                     } else {
                         Toast.makeText(this, "No Record found !", Toast.LENGTH_SHORT).show();

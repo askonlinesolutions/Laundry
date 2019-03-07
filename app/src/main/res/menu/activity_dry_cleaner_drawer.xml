@@ -22,10 +22,12 @@
             android:id="@+id/faq"
             android:icon="@drawable/ic_faq"
             android:title="FAQ" />
+<!--
     <item
         android:id="@+id/chat"
         android:icon="@drawable/ic_chat"
         android:title="Chat" />
+-->
 
     <item
         android:id="@+id/change_pwd"

@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.skip_tv:
                 Intent skipIntent = new Intent(MainActivity.this, DryCleanerActivity.class);
+                skipIntent.putExtra("Login", "Skip");
                 startActivity(skipIntent);
                 break;
 
@@ -221,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isAllFieldValide() {
 
         if (name.length() == 0 || email.length() == 0 || activity_password.length() == 0 ||
-                confrim_password.length() == 0 || phone_no.length()==0
+                confrim_password.length() == 0 || phone_no.length() == 0
 //                || checkbox.length() == 0
                 ) {
             Toast.makeText(this, "please fill all detail!", Toast.LENGTH_SHORT).show();
@@ -270,7 +271,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            return false;
 ////
 //        }
-    return true;
+        return true;
     }
 
 
@@ -286,6 +287,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean validatePassword(String password) {
         return password.length() >= 4;
     }
+
     public boolean validatePhoneNumber(String password) {
         return password.length() >= 10;
     }
@@ -340,7 +342,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         loginPassword = activity_login_edt_password.getText().toString().trim();
 
         new Utility().showProgressDialog(this);
-        Call<LoginResponse> call = APIClient.getInstance().getApiInterface().actionLogin(loginEmailId, loginPassword);
+        Call<LoginResponse> call = APIClient.getInstance().getApiInterface().actionLogin(loginEmailId, loginPassword, "shjdjs", "jskjsfsf");
         new ResponseListner(this).getResponse(call);
 
     }
@@ -371,17 +373,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (response instanceof LoginResponse) {
                     LoginResponse loginResponse = (LoginResponse) response;
                     if (loginResponse.isStatus()) {
-                        SharedPreference sharedPreference=SharedPreference.getInstance(getApplicationContext());
-                        sharedPreference.putString("IsLogin","1");
+                        SharedPreference sharedPreference = SharedPreference.getInstance(getApplicationContext());
+                        sharedPreference.putString("IsLogin", "1");
                         userId = loginResponse.getUser_detail().getUser_id();
 
                         mySharedPreference.saveUserData(new Gson().toJson(loginResponse));
                         mySharedPreference.saveUserId(loginResponse.getUser_detail().getUser_id());
                         mySharedPreference.savePhoneNubmber(loginResponse.getUser_detail().getPhone());
                         mySharedPreference.saveUserName(loginResponse.getUser_detail().getName());
+                        mySharedPreference.saveUserImage(loginResponse.getUser_detail().getImage());
 
-                      //  Toast.makeText(this, loginResponse.getMsg(), Toast.LENGTH_SHORT).show();
+
+                        //  Toast.makeText(this, loginResponse.getMsg(), Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(MainActivity.this, DryCleanerActivity.class);
+                        i.putExtra("Login", "Login");
                         startActivity(i);
                         finish();
                     } else {

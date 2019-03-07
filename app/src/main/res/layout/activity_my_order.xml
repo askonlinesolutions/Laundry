@@ -40,18 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="@dimen/dp2">
-
-                <TextView
-                    android:layout_width="@dimen/dp15"
-                    android:layout_height="@dimen/dp15"
-                    android:layout_gravity="right"
-                    android:background="@drawable/circuler_red_bg"
-                    android:gravity="center"
-                    android:text="2"
-
-                    android:textColor="@color/white_color"
-                    android:textSize="@dimen/text_8" />
+                android:padding="@dimen/dp10">
 
 
                 <ImageView
@@ -62,7 +51,18 @@
                     android:layout_marginTop="@dimen/dp5"
                     android:src="@drawable/ic_shopping_cart" />
 
+                <TextView
+                    android:id="@+id/cart_count_tv"
+                    android:layout_width="@dimen/dp18"
+                    android:layout_height="@dimen/dp18"
+                    android:layout_gravity="right"
+                    android:background="@drawable/circuler_red_bg"
+                    android:gravity="center"
+                    android:textColor="@color/white_color"
+                    android:textSize="@dimen/text_8" />
+
             </FrameLayout>
+
         </LinearLayout>
 
 

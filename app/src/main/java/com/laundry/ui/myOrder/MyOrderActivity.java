@@ -21,6 +21,7 @@ import com.laundry.databinding.ActivityMyOrderBinding;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.laundry.ui.LoginScreen.vo.LoginResponse;
 import com.laundry.ui.MyCart.MyCartActivity;
+import com.laundry.ui.Services.vo.CartCountResponse;
 import com.laundry.ui.myOrder.vo.MyOrderResponse;
 import com.laundry.ui.myOrderDetails.MyOrderDetailsActivity;
 
@@ -38,6 +39,7 @@ public class MyOrderActivity extends AppCompatActivity implements MyOrderAdapter
     private ArrayList<MyOrderResponse.DataEntity> orderList = new ArrayList<>();
     private static String TAG = MyOrderActivity.class.getName();
     private String cust_Id;
+    int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,12 @@ public class MyOrderActivity extends AppCompatActivity implements MyOrderAdapter
             Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
         }
 
+        if (isNetworkConnected(this)) {
+            callCartCountApi();
+        } else {
+            Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
@@ -83,7 +91,7 @@ public class MyOrderActivity extends AppCompatActivity implements MyOrderAdapter
     }
 
     @Override
-    public void click(int position,String orderId) {
+    public void click(int position, String orderId) {
         Intent intent = new Intent(MyOrderActivity.this, MyOrderDetailsActivity.class);
         intent.putExtra("orderId", orderId);
         startActivity(intent);
@@ -104,9 +112,15 @@ public class MyOrderActivity extends AppCompatActivity implements MyOrderAdapter
 
     }
 
+    private void callCartCountApi() {
+//        new Utility().showProgressDialog(this);
+        Call<CartCountResponse> call = APIClient.getInstance().getApiInterface().getCartCount(cust_Id);
+        new ResponseListner(this).getResponse(call);
+    }
+
     private void callMyOrderApi() {
         new Utility().showProgressDialog(this);
-        Call<MyOrderResponse> call = APIClient.getInstance().getApiInterface().getOrdersList(/*cust_Id*/"26");
+        Call<MyOrderResponse> call = APIClient.getInstance().getApiInterface().getOrdersList(cust_Id/*"26"*/);
         Log.e("MyOrderUrl", call.request().url().toString());
         new ResponseListner(this).getResponse(call);
 
@@ -136,7 +150,20 @@ public class MyOrderActivity extends AppCompatActivity implements MyOrderAdapter
                         binding.myOrderRv.setVisibility(View.GONE);
                         binding.noDataTv.setVisibility(View.VISIBLE);
                     }
+                } else if (response instanceof CartCountResponse) {
+//                    new Utility().hideDialog();
+                    CartCountResponse cartCountResponse = (CartCountResponse) response;
+                    if (cartCountResponse.isStatus()) {
+//                        Toast.makeText(this, "count...24", Toast.LENGTH_SHORT).show();
+                        if (count > 0) {
+                            count = 0;
+                        }
+                        count = cartCountResponse.getCart_count();
+
+                        binding.cartCountTv.setText(String.valueOf(count/*cartCountResponse.getCart_count()*/));
+                    }
                 }
+
 
             } catch (Exception e) {
                 Log.d("TAG", "onApiResponse: " + e.getMessage());

@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.google.maps.internal.ApiResponse;
 import com.laundry.R;
+import com.laundry.Utils.Constant;
 import com.laundry.Utils.MySharedPreference;
 import com.laundry.Utils.Utility;
 import com.laundry.WebServices.APIClient;
@@ -30,7 +31,9 @@ import com.laundry.WebServices.ResponseListner;
 import com.laundry.databinding.ActivityEditProfileBinding;
 import com.laundry.ui.editProfile.vo.EditProfileResponse;
 import com.laundry.ui.profile.ProfileActivity;
+import com.laundry.ui.profile.vo.ProfileResponse;
 import com.laundry.ui.settings.vo.SettingResponse;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -84,16 +87,19 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         binding.saveBtnTv.setOnClickListener(this);
 //        binding.eyeImage.setOnClickListener(this);
         binding.selectImageIv.setOnClickListener(this);
+        if (isNetworkConnected(this)) {
+            callGetProfileApi();
+        } else {
+            Toast.makeText(this, "Please Connect Network", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
     private void getUser_Id() {
         MySharedPreference mySharedPreference = MySharedPreference.getInstance(this);
         userId = mySharedPreference.getUserId();
-     //   userName =mySharedPreference.getUserName();
         Log.e("MyUserId", userId);
     }
-  //  String username = getIntent().getExtras().getString("username");
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -241,9 +247,17 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     }
 
 
-    private void callEditProfileApi() {
+    private void callGetProfileApi() {
 
         new Utility().showProgressDialog(this);
+        Call<ProfileResponse> call = APIClient.getInstance().getApiInterface().getProgileDetails(userId);
+        new ResponseListner(this).getResponse(call);
+
+    }
+
+    private void callEditProfileApi() {
+
+
         userName = binding.nameEt.getText().toString().trim();
         phoneNo = binding.phoneNoEt.getText().toString().trim();
 
@@ -252,32 +266,48 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 //        if (PICK_IMAGE_CAMERA==1 &&PICK_IMAGE_GALLERY==2){
         binding.userImageIv.setImageBitmap(bitmap);
         base_64_image = bitmapString;
+        if (base_64_image != null && base_64_image != "") {
 
-
-        Call<EditProfileResponse> call = APIClient.getInstance().getApiInterface().editProile(userId /*company_id*/, userName,/*"1"*/ phoneNo, base_64_image);
-        Log.e("", call.request().url().toString());
-        new ResponseListner(this).getResponse(call);
-
+            new Utility().showProgressDialog(this);
+            Call<EditProfileResponse> call = APIClient.getInstance().getApiInterface().editProile(userId /*company_id*/, userName,/*"1"*/ phoneNo, base_64_image);
+            Log.e("", call.request().url().toString());
+            new ResponseListner(this).getResponse(call);
+        } else {
+            Toast.makeText(this, "Please Select Image", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
 
     @Override
     public void onApiResponse(Object response) {
-
+        new Utility().hideDialog();
         if (response != null) {
-            new Utility().hideDialog();
             try {
                 if (response instanceof EditProfileResponse) {
                     EditProfileResponse editProfileResponse = (EditProfileResponse) response;
                     new Utility().hideDialog();
                     if (editProfileResponse.isStatus()) {
-
                         Toast.makeText(this, editProfileResponse.getMsg(), Toast.LENGTH_SHORT).show();
-//                        Intent i = new Intent(ChangePaawordActivity.this, DryCleanerActivity.class);
-//                        startActivity(i);
+                    }
 
+                } else if (response instanceof ProfileResponse) {
+                    ProfileResponse profileResponse = (ProfileResponse) response;
+                    new Utility().hideDialog();
+                    if (profileResponse.isStatus()) {
 
+                        binding.nameEt.setText(profileResponse.getData().getUsermanage_username());
+                        binding.emailIdEt.setText(profileResponse.getData().getUsermanage_email());
+                        binding.phoneNoEt.setText(profileResponse.getData().getUsermanage_contact());
+
+                        if (profileResponse.getData().getUsermanage_image() != null) {
+                            Picasso.with(this).
+                                    load(Constant.IMAGE_BASE_URL + profileResponse.getData().getUsermanage_image()) // URL or file
+                                    .into(binding.userImageIv);
+                        }
+
+                    } else {
+                        Toast.makeText(this, "No Record found !", Toast.LENGTH_SHORT).show();
                     }
                 }
 

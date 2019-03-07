@@ -102,7 +102,6 @@
                     android:id="@+id/order_item_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Items 05,"
                     android:textSize="@dimen/text_size_13"
                     android:textStyle="bold" />
 
@@ -111,7 +110,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp4"
-                    android:text="Amount $42"
                     android:textSize="@dimen/text_size_13" />
 
             </LinearLayout>
@@ -157,7 +155,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="noiuda sector 63"
                         android:textSize="@dimen/text_10" />
 
                     <LinearLayout
@@ -173,7 +170,6 @@
                             android:drawableLeft="@drawable/ic_calendar"
                             android:drawablePadding="@dimen/dp5"
                             android:gravity="center"
-                            android:text="01/12/2019"
                             android:textSize="@dimen/dp10" />
 
                         <com.laundry.CustomTextRegular.Regular
@@ -185,7 +181,6 @@
                             android:drawableLeft="@drawable/ic_clock"
                             android:drawablePadding="@dimen/dp5"
                             android:gravity="center"
-                            android:text="09:98 AM"
                             android:textSize="@dimen/text_10" />
 
                     </LinearLayout>
@@ -227,7 +222,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="noiuda sector 63"
                         android:textSize="@dimen/text_10" />
 
                     <LinearLayout
@@ -243,7 +237,6 @@
                             android:drawableLeft="@drawable/ic_calendar"
                             android:drawablePadding="@dimen/dp5"
                             android:gravity="center"
-                            android:text="01/12/2019"
                             android:textSize="@dimen/dp10" />
 
                         <com.laundry.CustomTextRegular.Regular
@@ -255,7 +248,6 @@
                             android:drawableLeft="@drawable/ic_clock"
                             android:drawablePadding="@dimen/dp5"
                             android:gravity="center"
-                            android:text="09:98 AM"
                             android:textSize="@dimen/text_10" />
 
                     </LinearLayout>

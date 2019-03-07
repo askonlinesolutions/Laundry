@@ -28,6 +28,7 @@ import com.laundry.ui.DryCleaner.DryCleanerActivity;
 import com.laundry.ui.DryCleaner.vo.ServiceResponse;
 import com.laundry.ui.changePassword.ChangePaawordActivity;
 import com.laundry.ui.changePassword.vo.ChangePwdResponse;
+import com.laundry.ui.currentLocation.AddAddressActivity;
 import com.laundry.ui.currentLocation.CurrentLocationMapActivity;
 
 import java.io.IOException;
@@ -81,12 +82,12 @@ public class AddNewAddressActivity extends AppCompatActivity implements View.OnC
 // Here we are finding , whatever we want our marker to show when
                 binding.addressTitleEt.setText(listAddresses.get(0).getAdminArea());
                 binding.addressEt.setText(listAddresses.get(0).getAddressLine(0));
-                binding.landmarketEt.setText(listAddresses.get(0).getAdminArea());
+                binding.landmarketEt.setText(listAddresses.get(0).getSubAdminArea());
                 binding.stateEt.setText(listAddresses.get(0).getAdminArea());
                 binding.pinCodeEt.setText(listAddresses.get(0).getPostalCode());
-                binding.cityTownEt.setText(listAddresses.get(0).getFeatureName());
-                binding.addressLatEt.setText(Double.toString(latitute));
-                binding.addressLonEt.setText(Double.toString(longitute));
+                binding.cityTownEt.setText(listAddresses.get(0).getLocality());
+                binding.countryEt.setText(listAddresses.get(0).getCountryName());
+//                binding.addressLonEt.setText(Double.toString(longitute));
 
             }
         } catch (IOException e) {
@@ -162,7 +163,7 @@ public class AddNewAddressActivity extends AppCompatActivity implements View.OnC
                 break;
 
             case R.id.current_location:
-                Intent intent = new Intent(AddNewAddressActivity.this, CurrentLocationMapActivity.class);
+                Intent intent = new Intent(AddNewAddressActivity.this,AddAddressActivity/* CurrentLocationMapActivity*/.class);
                 intent.putExtra("NewAddress", "NewAddress");
 
                 startActivity(intent);
@@ -190,8 +191,8 @@ public class AddNewAddressActivity extends AppCompatActivity implements View.OnC
         state = binding.stateEt.getText().toString().trim();
         zipCode = binding.pinCodeEt.getText().toString().trim();
         city = binding.cityTownEt.getText().toString().trim();
-        binding.addressLatEt.getText().toString().trim();
-        binding.addressLonEt.getText().toString().trim();
+//        binding.addressLatEt.getText().toString().trim();
+//        binding.addressLonEt.getText().toString().trim();
 
 
         new Utility().showProgressDialog(this);

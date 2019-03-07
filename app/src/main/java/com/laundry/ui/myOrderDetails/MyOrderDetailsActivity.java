@@ -116,7 +116,7 @@ public class MyOrderDetailsActivity extends AppCompatActivity implements View.On
 
     private void callOrderDetailsApi() {
         new Utility().showProgressDialog(this);
-        Call<OrderDetailsResponse> call = APIClient.getInstance().getApiInterface().getOrderDetails(/*orderId*/"18","14" /*userId*/);
+        Call<OrderDetailsResponse> call = APIClient.getInstance().getApiInterface().getOrderDetails(orderId/*"18"*/,/*"14"*/userId);
         new ResponseListner(this).getResponse(call);
 
     }
@@ -134,7 +134,7 @@ public class MyOrderDetailsActivity extends AppCompatActivity implements View.On
                         if (orderDetailsResponse.getData() != null) {
 
                             binding.orderNoTv.setText(orderDetailsResponse.getData().getOrderdetail_order_no());
-                            binding.orderItemTv.setText("Items " + orderDetailsResponse.getData().getItemcount()+",");
+                            binding.orderItemTv.setText("Items " + orderDetailsResponse.getData().getItemcount() + ",");
                             binding.orderAmountTv.setText("Ammount $" + orderDetailsResponse.getData().getOrderdetail_tax_amount());
 
                             binding.pickupAddress.setText(orderDetailsResponse.getData().getOrderdetail_pick_address());
