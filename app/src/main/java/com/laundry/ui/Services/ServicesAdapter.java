@@ -56,7 +56,8 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
         /*viewholder.item_view.setVisibility(View.VISIBLE);*/
         if (rowindex == 0) {
             servic_id = serviseList.get(i).getId();
-            servicesAdapterInterface.onServicesClicked(rowindex, servic_id);
+            String orderTime=serviseList.get(i).getHour();
+            servicesAdapterInterface.onServicesClicked(rowindex, servic_id,orderTime);
             viewholder.item_view.setVisibility(View.VISIBLE);
         } else {
             viewholder.item_view.setVisibility(View.GONE);
@@ -67,14 +68,16 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
                 rowindex = i;
                 notifyDataSetChanged();
                 servic_id = serviseList.get(i).getId();
-                servicesAdapterInterface.onServicesClicked(i, servic_id);
+                String orderTime=serviseList.get(i).getHour();
+                servicesAdapterInterface.onServicesClicked(i, servic_id,orderTime);
 
             }
         });
         if (rowindex == i) {
             viewholder.item_view.setVisibility(View.VISIBLE);
             servic_id = serviseList.get(i).getId();
-            servicesAdapterInterface.onServicesClicked(i, servic_id);
+            String orderTime=serviseList.get(i).getHour();
+            servicesAdapterInterface.onServicesClicked(i, servic_id,orderTime);
         } else {
             viewholder.item_view.setVisibility(View.GONE);
 
@@ -118,7 +121,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
     }
 
     public interface ServicesAdapterInterface {
-        void onServicesClicked(int pos, String serviceId);
+        void onServicesClicked(int pos, String serviceId,String orderTime);
 
 
     }

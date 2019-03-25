@@ -19,14 +19,13 @@ import java.util.ArrayList;
 
 class PaymentMethodAdapter extends RecyclerView.Adapter<PaymentMethodAdapter.Viewholder> {
 
-    private Context context;
     private OnBtnClickListener onBtnClickListener;
     private ArrayList<ProfileResponse.Payment_cardEntity> paymentList;
 
     PaymentMethodAdapter(Context context, ArrayList<ProfileResponse.Payment_cardEntity> paymentList, OnBtnClickListener onBtnClickListener) {
         this.paymentList = paymentList;
         this.onBtnClickListener = onBtnClickListener;
-        this.context = context;
+        Context context1 = context;
     }
 
     @NonNull
@@ -57,12 +56,12 @@ class PaymentMethodAdapter extends RecyclerView.Adapter<PaymentMethodAdapter.Vie
 
     }
 
-    public class Viewholder extends RecyclerView.ViewHolder {
+    class Viewholder extends RecyclerView.ViewHolder {
         TextView activity_delete_btn, cardNoTV;
         ImageView cardIv;
         LinearLayout payment;
 
-        public Viewholder(@NonNull View itemView) {
+        Viewholder(@NonNull View itemView) {
             super(itemView);
             activity_delete_btn = itemView.findViewById(R.id.activity_delete_btn);
             payment = itemView.findViewById(R.id.payment);
@@ -74,7 +73,7 @@ class PaymentMethodAdapter extends RecyclerView.Adapter<PaymentMethodAdapter.Vie
 
                     String userCardId = paymentList.get(getAdapterPosition()).getUsercard_id();
                     onBtnClickListener.onBtnClick(getAdapterPosition(), userCardId);
-                    removeItem(0);
+//                    removeItem(0);
                 }
 
                 private void removeItem(int i) {

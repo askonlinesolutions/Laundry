@@ -2,11 +2,14 @@ package com.laundry.ui.currentLocation;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -18,8 +21,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
+import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -39,17 +45,25 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.laundry.R;
+import com.laundry.Utils.MySharedPreference;
 import com.laundry.Utils.Utility;
+import com.laundry.WebServices.APIClient;
+import com.laundry.WebServices.OnResponseInterface;
+import com.laundry.WebServices.ResponseListner;
 import com.laundry.databinding.ActivityAddAddressBinding;
 import com.laundry.ui.AddNewAddress.AddNewAddressActivity;
+import com.laundry.ui.AddNewAddress.vo.AddAddressResponse;
 import com.laundry.ui.Pick_up.PickupActivity;
+import com.laundry.ui.manageAddress.ManageAddressActivity;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import retrofit2.Call;
+
 public class AddAddressActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener, LocationListener, RadioGroup.OnCheckedChangeListener, View.OnClickListener {
+        GoogleApiClient.OnConnectionFailedListener, LocationListener, RadioGroup.OnCheckedChangeListener, View.OnClickListener, OnResponseInterface {
 
     boolean isVisible = true;
     ActivityAddAddressBinding binding;
@@ -59,20 +73,22 @@ public class AddAddressActivity extends AppCompatActivity implements OnMapReadyC
     private static String TAG = "MAP LOCATION";
     Context mContext;
     private LatLng mCenterLatLong;
-    double latitute, longitute;
+    String edit;
+    double latitute, longitute, edtLat, edtLong;
     private MapView mMapView;
+    String editKey, address, state, city, userId, subLocality, landmark, zipCode, addTitle;
+
     //    private ApiResponse.UserDataBean userDataBean = new ApiResponse.UserDataBean();
     private TextView txtPlaceName, edtHouse, txtConfirm, edtLandmark;
     //    private EditText/* edtHouse,*/ /*edtLandmark*/;
 //    TinyDB  tinyDB ;
     //  private AutoCompleteTextView txtLocatName;
-    String title, foodie_id, address;
+    String title, foodie_id;
     private Gson gson = new Gson();
     private String name = "", address_id;
     private boolean isEdit;
     private static int REQUEST_CODE_AUTOCOMPLETE = 10;
     AutoCompleteTextView autocompleteView;
-    String editKey;
 
 
     @Override
@@ -86,9 +102,22 @@ public class AddAddressActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     private void getPosition() {
+
+        MySharedPreference mySharedPreference = MySharedPreference.getInstance(this);
+        userId = mySharedPreference.getUserId();
+        Log.e("MyUserId", userId);
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             editKey = extras.getString("NewAddress");
+            edit = extras.getString("edit");
+            if (edit != null) {
+                edtLat = Double.valueOf(extras.getString("lat"));
+                edtLong = Double.valueOf(extras.getString("lng"));
+            } else {
+
+            }
+
 //            serviseList=getIntent().getSerializableExtra("arraylist");
         }
 
@@ -211,6 +240,11 @@ public class AddAddressActivity extends AppCompatActivity implements OnMapReadyC
             mMap.getUiSettings().setMyLocationButtonEnabled(true);
             mMap.animateCamera(CameraUpdateFactory
                     .newCameraPosition(cameraPosition));
+
+//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLong, 11));
+//            mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+
+
         } else {
             Toast.makeText(getApplicationContext(),
                     "Sorry! unable to create maps", Toast.LENGTH_SHORT)
@@ -239,18 +273,23 @@ public class AddAddressActivity extends AppCompatActivity implements OnMapReadyC
 
         try {
             addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
-            String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
-            String city = addresses.get(0).getLocality();
-            String state = addresses.get(0).getAdminArea();
-            String country = addresses.get(0).getCountryName();
-            String postalCode = addresses.get(0).getPostalCode();
+            address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+            city = addresses.get(0).getLocality();
+            state = addresses.get(0).getAdminArea();
+            landmark = addresses.get(0).getSubAdminArea();
+            zipCode = addresses.get(0).getPostalCode();
             String knownName = addresses.get(0).getFeatureName();
 
+//            address = listAddresses.get(0).getAddressLine(0);
+//            landmark = listAddresses.get(0).getSubAdminArea();
+//            state = listAddresses.get(0).getAdminArea();
+//            zipCode = listAddresses.get(0).getPostalCode();
+//            city = listAddresses.get(0).getLocality();
 
-//            binding.topLocationEt.setText(address);
-            binding.locationTv.setText(address);
-            binding.houseNoEt.setText(city);
-            binding.landmarkEt.setText(country);
+////            binding.topLocationEt.setText(address);
+//            binding.locationTv.setText(address);
+//            binding.houseNoEt.setText(city);
+//            binding.landmarkEt.setText(country);
 
 
             result.append(address);
@@ -301,7 +340,6 @@ public class AddAddressActivity extends AppCompatActivity implements OnMapReadyC
 
         Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
                 mGoogleApiClient);
-
 
         if (mLastLocation != null) {
             changeMap(mLastLocation);
@@ -387,7 +425,7 @@ public class AddAddressActivity extends AppCompatActivity implements OnMapReadyC
 
 
                         latitute = mCenterLatLong.latitude;
-                        longitute =  mCenterLatLong.longitude;
+                        longitute = mCenterLatLong.longitude;
 //
 
                     } catch (IOException e) {
@@ -398,6 +436,45 @@ public class AddAddressActivity extends AppCompatActivity implements OnMapReadyC
                 }
             }
         });
+
+
+        //================================================================================
+        if (edit != null) {
+            try {
+                Location mLocation = new Location("");
+                mLocation.setLatitude(edtLat);
+                mLocation.setLongitude(edtLong);
+                StringBuffer stringBuffer = new StringBuffer();
+                try {
+                    stringBuffer = getAddress(new LatLng(edtLat, edtLong));
+                    if (isEdit) {
+                        txtPlaceName.setText(name);
+                        autocompleteView.setText(name);
+//                            getLatLong(name);
+                        isEdit = false;
+                    } else {
+                        txtPlaceName.setText(stringBuffer);
+                        autocompleteView.setText(stringBuffer);
+                    }
+
+
+                    latitute = edtLat;
+                    longitute = edtLong;
+//
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        //======================================================================
+
+
     }
 
 
@@ -420,7 +497,7 @@ public class AddAddressActivity extends AppCompatActivity implements OnMapReadyC
                     isVisible = true;
                 }*/
 
-              startActivity(new Intent(AddAddressActivity.this,SearchLocationActivity.class));
+//                startActivity(new Intent(AddAddressActivity.this, SearchLocationActivity.class));
                 break;
             case R.id.map_back_iv:
                 onBackPressed();
@@ -428,10 +505,11 @@ public class AddAddressActivity extends AppCompatActivity implements OnMapReadyC
             case R.id.confirm_btn:
 
                 if (editKey != null && editKey.equals("NewAddress")) {
-                    Intent intent = new Intent(AddAddressActivity.this, AddNewAddressActivity.class);
-                    intent.putExtra("longitute", longitute);
-                    intent.putExtra("latitute", latitute);
-                    startActivity(intent);
+                    addAddressDialod();
+//                    Intent intent = new Intent(AddAddressActivity.this, AddNewAddressActivity.class);
+//                    intent.putExtra("longitute", longitute);
+//                    intent.putExtra("latitute", latitute);
+//                    startActivity(intent);
                 } else {
                     Intent intent = new Intent(AddAddressActivity.this, PickupActivity.class);
                     intent.putExtra("longitute", longitute);
@@ -439,9 +517,137 @@ public class AddAddressActivity extends AppCompatActivity implements OnMapReadyC
                     startActivity(intent);
                 }
 
+//                addAddressDialod();
                 break;
         }
 
+    }
 
+    ImageView btncross;
+    TextView cancel_btn, yesBtn;
+    RadioGroup addressRg;
+    RadioButton homeRb, officeRb, otherRb;
+    String addressTitle;
+
+    private void addAddressDialod() {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.save_address_dailoge);
+        dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        btncross = (ImageView) dialog.findViewById(R.id.close_img);
+        cancel_btn = dialog.findViewById(R.id.cancel_btn);
+        yesBtn = dialog.findViewById(R.id.yes_btn);
+        addressRg = dialog.findViewById(R.id.rg);
+        homeRb = dialog.findViewById(R.id.home_rb);
+        officeRb = dialog.findViewById(R.id.office_rb);
+        otherRb = dialog.findViewById(R.id.other_rb);
+
+        btncross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                dialog.dismiss();
+            }
+        });
+        cancel_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        yesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                if (editKey != null && editKey.equals("NewAddress")) {
+//                Intent intent = new Intent(AddAddressActivity.this, ManageAddressActivity /*AddNewAddressActivity*/.class);
+//                intent.putExtra("longitute", longitute);
+//                intent.putExtra("latitute", latitute);
+//                intent.putExtra("Title", addressTitle);
+//                startActivity(intent);
+//                } else {
+//                    Intent intent = new Intent(AddAddressActivity.this, PickupActivity.class);
+//                    intent.putExtra("longitute", longitute);
+//                    intent.putExtra("latitute", latitute);
+//                    startActivity(intent);
+//                }
+                callAddAddressApi();
+                dialog.dismiss();
+
+            }
+        });
+
+        addressRg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.home_rb:
+                        // do operations specific to this selection
+                        addressTitle = "HOME";
+                        break;
+                    case R.id.office_rb:
+                        // do operations specific to this selection
+                        addressTitle = "OFFICE";
+                        break;
+                    case R.id.other_rb:
+                        // do operations specific to this selection
+                        addressTitle = "OTHER";
+                        break;
+                }
+            }
+        });
+
+    }
+
+    private void callAddAddressApi() {
+
+        if (addressTitle != null && address != null) {
+            new Utility().showProgressDialog(this);
+            Call<AddAddressResponse> call = APIClient.getInstance().getApiInterface()
+                    .addAddress(userId, zipCode, addressTitle, state, address, city, landmark, latitute, longitute);
+            new ResponseListner(this).getResponse(call);
+
+        } else {
+            Toast.makeText(this, "All fields Requires", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+    @Override
+    public void onApiResponse(Object response) {
+        new Utility().hideDialog();
+        if (response != null) {
+
+            try {
+                if (response instanceof AddAddressResponse) {
+                    AddAddressResponse addressResponse = (AddAddressResponse) response;
+                    new Utility().hideDialog();
+                    if (addressResponse.isStatus()) {
+
+                        Intent intent = new Intent(AddAddressActivity.this, ManageAddressActivity /*AddNewAddressActivity*/.class);
+                        intent.putExtra("manage", "manage");
+                        startActivity(intent);
+
+                        Toast.makeText(this, addressResponse.getMsg(), Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        Toast.makeText(this, addressResponse.getMsg(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            } catch (Exception e) {
+                Log.d("TAG", "onApiResponse: " + e.getMessage());
+            }
+        } else {
+            new Utility().hideDialog();
+            Toast.makeText(this, "Try again", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+    @Override
+    public void onApiFailure(String message) {
+        new Utility().hideDialog();
+        Log.d(TAG, "onApiFailure: " + message);
     }
 }

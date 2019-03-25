@@ -49,7 +49,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/mycart_menu"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp300">
+                android:layout_height="@dimen/dp250">
 
             </android.support.v7.widget.RecyclerView>
 
@@ -81,6 +81,7 @@
                             android:background="@drawable/shape_dotted_border_theme">
 
                             <EditText
+                                android:id="@+id/cart_offer_code_et"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="10dp"
@@ -130,7 +131,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/dp40"
                             android:gravity="center_vertical"
-                            android:text="$55"
                             android:textColor="@color/sky_blue"
                             android:textSize="@dimen/text_13" />
                     </LinearLayout>
@@ -181,7 +181,7 @@
                             android:layout_height="@dimen/dp40"
                             android:layout_alignParentRight="true"
                             android:gravity="center_vertical"
-                            android:text="$2"
+                            android:text="0"
                             android:textColor="@color/light_sky_blue"
                             android:textSize="@dimen/text_13" />
                     </RelativeLayout>
@@ -223,6 +223,7 @@
                         android:background="@color/view_color" />
 
                     <LinearLayout
+                        android:id="@+id/servic_text_layout"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp40"
                         android:background="@color/white_color"
@@ -231,19 +232,25 @@
                         android:paddingRight="15dp">
 
                         <com.laundry.CustomTextRegular.CustomTextRegulars
-                            android:layout_width="0dp"
+                            android:id="@+id/arrow"
+                            android:layout_width="wrap_content"
                             android:layout_height="@dimen/dp40"
-                            android:layout_weight="1"
+                            android:drawableRight="@drawable/ic_arrow_down_black"
+                            android:drawablePadding="@dimen/dp10"
                             android:gravity="center_vertical"
                             android:text="Service tax"
                             android:textSize="@dimen/text_13" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
 
                         <com.laundry.CustomTextRegular.CustomTextRegulars
                             android:id="@+id/service_tex_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/dp40"
                             android:gravity="center_vertical"
-                            android:text="$2"
                             android:textColor="@color/sky_blue"
                             android:textSize="@dimen/text_13" />
                     </LinearLayout>
@@ -252,6 +259,14 @@
                         android:layout_width="match_parent"
                         android:layout_height=".5dp"
                         android:background="@color/view_color" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/servic_text_rv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp15"
+                        android:layout_marginRight="@dimen/dp15" />
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -274,7 +289,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/dp40"
                             android:gravity="center_vertical"
-                            android:text="$58"
                             android:textColor="@color/sky_blue"
                             android:textSize="@dimen/text_15" />
                     </LinearLayout>

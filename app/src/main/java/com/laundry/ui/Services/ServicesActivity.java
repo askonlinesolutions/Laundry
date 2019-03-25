@@ -43,7 +43,7 @@ public class ServicesActivity extends AppCompatActivity implements CategoryLisAd
     private CategoryItemAdapter categoryItemAdapter;
     private CategoryLisAdapter categoryLisAdapter;
     private int pos;
-    String serviceId, cat_id, user_id;
+    String serviceId, cat_id, user_id,orderTime;
     private ArrayList<ServiceResponse.DataEntity> serviseList = new ArrayList<>();
     private List<ServiceResponse.DataEntity.CategoryEntity> categoryList = new ArrayList<>();
     private List<ServiceResponse.DataEntity.CategoryEntity.ItemsEntity> categoryItemsList = new ArrayList<>();
@@ -153,7 +153,7 @@ public class ServicesActivity extends AppCompatActivity implements CategoryLisAd
             case R.id.schedule_pickup_tv:
 
 
-                Intent intent = new Intent(ServicesActivity.this, PickupActivity.class);
+                Intent intent = new Intent(ServicesActivity.this, MyCartActivity.class);
                 startActivity(intent);
 //                finish();
                 break;
@@ -214,8 +214,9 @@ public class ServicesActivity extends AppCompatActivity implements CategoryLisAd
     }
 
     @Override
-    public void onServicesClicked(int pos, String service_id) {
+    public void onServicesClicked(int pos, String service_id,String order_Time) {
         serviceId = service_id;
+        orderTime=order_Time;
         if (categoryList.size() != 0) {
             categoryList.clear();
             categoryList.addAll(serviseList.get(pos).getCategory());
@@ -238,7 +239,7 @@ public class ServicesActivity extends AppCompatActivity implements CategoryLisAd
 
 
     private void callAddToCartApi(String item_name, String item_image, String item_price, int item_qnty, String item_id, String discount_price) {
-        Call<AddToCartResponse> call = APIClient.getInstance().getApiInterface().addTocard(user_id, serviceId, cat_id, item_name, item_id, item_qnty, item_price, item_image, discount_price);
+        Call<AddToCartResponse> call = APIClient.getInstance().getApiInterface().addTocard(user_id, serviceId, cat_id, item_name, item_id, item_qnty, item_price, item_image, discount_price,orderTime);
         Log.e("addTocart", call.request().url().toString());
         new ResponseListner(this).getResponse(call);
 

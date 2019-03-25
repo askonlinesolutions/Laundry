@@ -130,7 +130,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.offer_layout:
-                startActivity(new Intent(ProfileActivity.this, OfferActivity.class));
+//                startActivity(new Intent(ProfileActivity.this, OfferActivity.class));
+                Intent intentOffer = new Intent(ProfileActivity.this, OfferActivity.class);
+                intentOffer.putExtra("offer","offer");
+                startActivity(intentOffer);
                 this.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 break;
 

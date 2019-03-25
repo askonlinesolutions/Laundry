@@ -79,8 +79,9 @@ class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.Viewholder> {
                     String discount_price = cartDetailsList.get(i).getOrderitem_discount_price();
                     String service_id = cartDetailsList.get(i).getOrderitem_service_id();
                     String cat_id = cartDetailsList.get(i).getOrderitem_cat_id();
+                    String order_time = cartDetailsList.get(i).getOrderitem_time();
 
-                    onCartClickListener.itemDetails(i, item_name, item_image, item_price, item_qnty, item_id, discount_price, service_id, cat_id);
+                    onCartClickListener.itemDetails(i, item_name, item_image, item_price, item_qnty, item_id, discount_price, service_id, cat_id,order_time);
 
                 }
             }
@@ -100,8 +101,9 @@ class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.Viewholder> {
                 String discount_price = cartDetailsList.get(i).getOrderitem_discount_price();
                 String service_id = cartDetailsList.get(i).getOrderitem_service_id();
                 String cat_id = cartDetailsList.get(i).getOrderitem_cat_id();
+                String order_time = cartDetailsList.get(i).getOrderitem_time();
 
-                onCartClickListener.itemDetails(i, item_name, item_image, item_price, item_qnty, item_id, discount_price, service_id, cat_id);
+                onCartClickListener.itemDetails(i, item_name, item_image, item_price, item_qnty, item_id, discount_price, service_id, cat_id,order_time);
 
             }
         });
@@ -163,7 +165,7 @@ class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.Viewholder> {
 
     interface OnCartClickListener {
 
-        void itemDetails(int pos, String item_name, String item_image, String item_price, int item_qnty, String item_id, String discount_price, String service_id, String cat_id);
+        void itemDetails(int pos, String item_name, String item_image, String item_price, int item_qnty, String item_id, String discount_price, String service_id, String cat_id,String order_time);
 
         void removeItem(int pos, String service_id, String cat_id, String item_id, String quantity, String item_price, String discount_price);
     }

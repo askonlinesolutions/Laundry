@@ -12,6 +12,7 @@ import com.laundry.ui.LoginScreen.vo.LoginResponse;
 import com.laundry.ui.LoginScreen.vo.SignUpResponse;
 import com.laundry.ui.MyCart.vo.CartDetailsResponse;
 import com.laundry.ui.MyCart.vo.RemoveCartResponse;
+import com.laundry.ui.MyCart.vo.TextResponse;
 import com.laundry.ui.MyPayment.vo.AddPaymentCardResponse;
 import com.laundry.ui.MyPayment.vo.PaymentDeleteResponse;
 import com.laundry.ui.Services.vo.AddToCartResponse;
@@ -24,6 +25,7 @@ import com.laundry.ui.manageAddress.vo.ManageAddressResponse;
 import com.laundry.ui.manageAddress.vo.UpdateAddressStatus;
 import com.laundry.ui.myOrder.vo.MyOrderResponse;
 import com.laundry.ui.myOrderDetails.vo.OrderDetailsResponse;
+import com.laundry.ui.offer.vo.OfferResponse;
 import com.laundry.ui.profile.vo.ProfileResponse;
 import com.laundry.ui.settings.vo.SettingResponse;
 
@@ -165,7 +167,8 @@ public interface ApiInterface {
                                       @Field("item_quantity") int item_quantity,
                                       @Field("item_price") String item_price,
                                       @Field("item_image") String item_image,
-                                      @Field("discount_price") String discount_price);
+                                      @Field("discount_price") String discount_price,
+                                      @Field("order_time") String order_time);
 
     @FormUrlEncoded
     @POST("cart/cart_count")
@@ -186,8 +189,12 @@ public interface ApiInterface {
                                             @Field("item_price") String item_price,
                                             @Field("discount_price") String discount_price);
 
+    @POST("cart/taxlist")
+    Call<TextResponse> getTextList();
 
 
+    @POST("cart/discountlist")
+    Call<OfferResponse> getOfferList();
 
 
 //    @GET("logistic_rating")
@@ -195,7 +202,6 @@ public interface ApiInterface {
 
 
 }
-
 
 
 //http://pikship.com/api/customer/logistic_rating?user_id=50

@@ -55,24 +55,13 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
 
     }
 
-
     private void getPaymentList() {
-        /*Intent intent = getIntent();
-        Bundle args = intent.getBundleExtra("BUNDLE");
-        if (args != null) {
-            paymentList = (ArrayList<ProfileResponse.Payment_cardEntity>) args.getSerializable("ARRAYLIST");
-
-        }*/
-
         MySharedPreference mySharedPreference = MySharedPreference.getInstance(this);
         userId = mySharedPreference.getUserId();
         Log.e("MyUserId", userId);
-
-
     }
 
     private void inIt() {
-
 
         pament_recycler = findViewById(R.id.pament_recycler);
         login_title = findViewById(R.id.login_title);
@@ -157,7 +146,6 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
     }
 
     private void callGetProfileApi() {
-
         new Utility().showProgressDialog(this);
         Call<ProfileResponse> call = APIClient.getInstance().getApiInterface().getProgileDetails(userId);
         new ResponseListner(this).getResponse(call);
@@ -179,16 +167,14 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
     private void callDeleteapi(String usercard_id) {
         new Utility().showProgressDialog(this);
         Call<PaymentDeleteResponse> call = APIClient.getInstance().getApiInterface().getpaymentdelete(usercard_id);
-        Log.e("MyOrderUrl", call.request().url().toString());
         new ResponseListner(this).getResponse(call);
 
     }
 
     @Override
     public void onApiResponse(Object response) {
-
+        new Utility().hideDialog();
         if (response != null) {
-            new Utility().hideDialog();
             try {
                 if (response instanceof AddPaymentCardResponse) {
                     AddPaymentCardResponse apiResponse = (AddPaymentCardResponse) response;
@@ -209,19 +195,15 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
                             paymentList.addAll(profileResponse.getPayment_card());
                             setPaymentAdapter();
                         }
-
                     }
                 } else if (response instanceof PaymentDeleteResponse) {
                     PaymentDeleteResponse paymentDeleteResponse = (PaymentDeleteResponse) response;
                     new Utility().hideDialog();
                     if (paymentDeleteResponse.isStatus()) {
+                        callGetProfileApi();
                         Toast.makeText(this, paymentDeleteResponse.getMsg(), Toast.LENGTH_SHORT).show();
-
-                    } else {
-
                     }
                 }
-
 
             } catch (Exception e) {
                 Log.d("TAG", "onApiResponse: " + e.getMessage());

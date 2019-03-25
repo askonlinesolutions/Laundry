@@ -130,8 +130,6 @@ public class DryCleanerActivity extends AppCompatActivity
 
     }
 
-
-    //    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void inIt() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         press_image = findViewById(R.id.press_image);

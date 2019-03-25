@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
@@ -26,18 +27,21 @@ import com.laundry.ui.offer.OfferrAdapter;
 
 import java.util.ArrayList;
 
+import static android.app.Activity.RESULT_OK;
+
 public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdapter.ViewHolder> {
 
 
     boolean flag = true;
-    TextView cancel_btn, playnowbtn;
-    String addressId;
-    ImageView btncross;
-    String manageKey;
+    private String addressId;
+    private String manageKey;
     private Context context;
+    private static CheckBox lastChecked = null;
+    private static int lastCheckedPos = 0;
+    double latitute, longitute;
     private ArrayList<ManageAddressResponse.DataEntity> addressList;
 
-    LinearLayout main_layout;
+    private LinearLayout main_layout;
     private OnBtnClickListener onBtnClickListener;
 
     ManageAddressAdapter(Context context, ArrayList<ManageAddressResponse.DataEntity> addressList, OnBtnClickListener onBtnClickListener, String manageKey) {
@@ -68,10 +72,51 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
 //        }
         if (manageKey.equals("manage")) {
             viewHolder.checkBox.setVisibility(View.GONE);
-        } else {
+        } else if (manageKey.equals("pickup") || manageKey.equals("drop")) {
             viewHolder.checkBox.setVisibility(View.VISIBLE);
-
         }
+
+        viewHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+                    addressId = addressList.get(i).getUseraddress_id();
+                    String lat = addressList.get(i).getAddress_lat();
+                    String lng = addressList.get(i).getAddress_long();
+                    onBtnClickListener.onBtnClick(i,"check",addressId,lat,lng,status);
+
+//                    String address = addressList.get(i).getUseraddress_address();
+//                    latitute = Double.valueOf(addressList.get(i).getAddress_lat());
+//                    longitute = Double.valueOf(addressList.get(i).getAddress_long());
+//                    if (manageKey.equals("pickup")) {
+//
+//                        Intent intent = new Intent(context, PickupActivity.class);
+//                        intent.putExtra("address", address);
+//                        intent.putExtra("pickup", "pickup");
+//                        intent.putExtra("longitute", longitute);
+//                        intent.putExtra("latitute", latitute);
+//                        context.startActivity(intent);
+//                    } else if (manageKey.equals("drop")) {
+////                        Intent intent = new Intent(context, PickupActivity.class);
+//                        Intent intent = new Intent();
+//                        intent.putExtra("address", address);
+//                        intent.putExtra("pickup", "drop");
+//                        intent.putExtra("longitute", longitute);
+//                        intent.putExtra("latitute", latitute);
+//                        context.startActivity(intent);
+////                        context.set(RESULT_OK, intent);
+////                       context.startActivityForResult(intent, 1);
+//                    }
+
+//            for (int i = 0; i < addressList.size(); i++) {
+//                fonts.get(i).setSelected(false);
+//            }
+//            fonts.get(position).setSelected(isChecked);
+                }
+            }
+        });
+
 
     }
 
@@ -104,13 +149,13 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
 //            statusSwitch = itemView.findViewById(R.id.address_status_switch);
             main_layout = itemView.findViewById(R.id.main_layout);
 
-
-            if (checkBox.isChecked()) {
-                Intent intent = new Intent(context, PickupActivity.class);
-                context.startActivity(intent);
-            }
-
-//            statusSwitch.setOnClickListener(new View.OnClickListener() {
+//
+//            if (checkBox.isChecked()) {
+//                Intent intent = new Intent(context, PickupActivity.class);
+//                context.startActivity(intent);
+//            }
+//
+////            statusSwitch.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View view) {
 //
@@ -143,8 +188,9 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
                 @Override
                 public void onClick(View view) {
                     addressId = addressList.get(getAdapterPosition()).getUseraddress_id();
-
-                    onBtnClickListener.onBtnClick(getAdapterPosition(), "EDIT", addressId, status);
+                    String lat = addressList.get(getAdapterPosition()).getAddress_lat();
+                    String lng = addressList.get(getAdapterPosition()).getAddress_long();
+                    onBtnClickListener.onBtnClick(getAdapterPosition(), "EDIT", addressId, status, lat, lng);
                 }
             });
 
@@ -152,7 +198,7 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
     }
 
     interface OnBtnClickListener {
-        void onBtnClick(int Pos, String type, String addressId, String Status);
+        void onBtnClick(int Pos, String type, String addressId, String Status, String lat, String lng);
 
 
     }
@@ -162,9 +208,9 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
         dialog.setContentView(R.layout.custom_delete_dialog);
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        btncross = (ImageView) dialog.findViewById(R.id.close_img);
-        cancel_btn = dialog.findViewById(R.id.cancel_btn);
-        playnowbtn = dialog.findViewById(R.id.playnowbtn);
+        ImageView btncross = (ImageView) dialog.findViewById(R.id.close_img);
+        TextView cancel_btn = dialog.findViewById(R.id.cancel_btn);
+        TextView playnowbtn = dialog.findViewById(R.id.playnowbtn);
         btncross.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -181,10 +227,14 @@ public class ManageAddressAdapter extends RecyclerView.Adapter<ManageAddressAdap
             @Override
             public void onClick(View v) {
                 addressId = addressList.get(position).getUseraddress_id();
-                onBtnClickListener.onBtnClick(position, "Delete", addressId, status);
-                main_layout.removeAllViews();
-                notifyItemRemoved(position);
+
+                String lat = addressList.get(position).getAddress_lat();
+                String lng = addressList.get(position).getAddress_long();
+
+                onBtnClickListener.onBtnClick(position, "Delete", addressId, status, lat, lng);
                 dialog.dismiss();
+//                main_layout.removeAllViews();
+//                notifyItemRemoved(position);
 
 
 //                Intent i = new Intent(PaymentMethodActivity.this, ThankuActivity.class);

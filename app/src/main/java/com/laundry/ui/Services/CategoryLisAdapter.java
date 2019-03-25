@@ -85,6 +85,7 @@ class CategoryLisAdapter extends RecyclerView.Adapter<CategoryLisAdapter.Viewhol
         if (rowindex == i) {
             category_id = categoryList.get(i).getCategory_id();
             categoryListInterface.onCategoryClicked(i, category_id);
+
             viewholder.textservices.setTextColor(context.getResources().getColor(R.color.white_color));
             viewholder.services.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.circlur_skybackground));
 //            viewholder.img_shirt.setImageResource(R.drawable.ic_tshirt);

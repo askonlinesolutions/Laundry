@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.laundry.R;
 import com.laundry.ui.DryCleaner.DryCleanerActivity;
+import com.laundry.ui.Splash.SplashActivity;
 
 public class ThankuActivity extends AppCompatActivity {
     TextView login_title;
@@ -25,7 +26,10 @@ public class ThankuActivity extends AppCompatActivity {
         thank_you.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ThankuActivity.this,DryCleanerActivity.class));
+//                startActivity(new Intent(ThankuActivity.this,DryCleanerActivity.class));
+                Intent i = new Intent(ThankuActivity.this, DryCleanerActivity.class);
+                i.putExtra("Login", "Login");
+                startActivity(i);
                 finish();
 
 
